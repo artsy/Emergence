@@ -8,3 +8,4 @@ gem 'cocoapods-keys'
 gem 'cocoapods-expert-difficulty'
 
 gem 'cocoapods-deintegrate'
+gem 'synx'

@@ -52,6 +52,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     claide (0.9.1)
+    clamp (0.6.5)
     cocoapods-deintegrate (0.2.1)
       cocoapods (~> 0.34)
     cocoapods-downloader (0.9.3)
@@ -67,6 +68,7 @@ GEM
       netrc (= 0.7.8)
     cocoapods-try (0.5.1)
     colored (1.2)
+    colorize (0.7.7)
     escape (0.0.4)
     fuzzy_match (2.0.4)
     i18n (0.7.0)
@@ -77,6 +79,10 @@ GEM
     netrc (0.7.8)
     osx_keychain (1.0.1)
       RubyInline (~> 3)
+    synx (0.0.53)
+      clamp (~> 0.6)
+      colorize (~> 0.7)
+      xcodeproj (~> 0.17)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -90,6 +96,7 @@ DEPENDENCIES
   cocoapods-deintegrate
   cocoapods-expert-difficulty
   cocoapods-keys
+  synx
   xcodeproj!
 
 BUNDLED WITH

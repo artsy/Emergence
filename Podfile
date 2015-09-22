@@ -13,18 +13,24 @@ plugin 'cocoapods-keys', {
     ]
 }
 
+def artsy_pods()
+    pod 'Artsy+UIColors', :git => "https://github.com/artsy/Artsy-UIColors.git", :branch => "tvos"
+    pod 'Artsy+UILabels', :git => "https://github.com/artsy/Artsy-UILabels.git"
+
+    # TODO: Update OSS Fonts for tvOS?
+    if ENV['ARTSY_STAFF_MEMBER'] != nil || ENV['CI'] != nil
+        pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib_tv"
+    else
+        pod 'Artsy+OSSUIFonts'
+    end
+end
+
 def app_pods()
-  pod 'Artsy+UIColors', :git => "https://github.com/artsy/Artsy-UIColors.git", :branch => "tvos"
-  pod 'Artsy+UILabels', :git => "https://github.com/artsy/Artsy-UILabels.git"
-
-  # TODO: Update OSS Fonts for tvOS?
-  if ENV['ARTSY_STAFF_MEMBER'] != nil || ENV['CI'] != nil
-    pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib_tv"
-  else
-    pod 'Artsy+OSSUIFonts'
-  end
-
   pod 'Gloss'
+
+  pod 'RxSwift', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
+  pod 'RxCocoa', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
+  pod 'RxHyperdrive', :git => "https://github.com/orta/RxHyperdrive.git", :branch => "patch-1"
 end
 
 def platform_pods()

@@ -1,0 +1,1 @@
+Try keep these as free of the app context as possible. Ideally we should be moving them into a pod.
