@@ -29,6 +29,8 @@
 		60C3CB8F1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB8D1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift */; };
 		60C3CB901BB14DAC005125EF /* ShowLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB8E1BB14DAC005125EF /* ShowLocationsViewController.swift */; };
 		60C3CB921BB14F17005125EF /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB911BB14F17005125EF /* AppViewController.swift */; };
+		60C3CB951BB161E9005125EF /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB941BB161E9005125EF /* ShowViewController.swift */; };
+		60C3CB991BB16A3B005125EF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB981BB16A3B005125EF /* AuthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		60C3CB8D1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLocationCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		60C3CB8E1BB14DAC005125EF /* ShowLocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLocationsViewController.swift; sourceTree = "<group>"; };
 		60C3CB911BB14F17005125EF /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		60C3CB941BB161E9005125EF /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		60C3CB981BB16A3B005125EF /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		82955D49C9DF83B000C48D81 /* Pods-Emergence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Emergence.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Emergence/Pods-Emergence.debug.xcconfig"; sourceTree = "<group>"; };
 		E5C118BFA55406C9F06775D6 /* Pods-EmergenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA420CB18E0D3DECF569F704 /* Pods-EmergenceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,26 +205,28 @@
 				60C3CB7F1BB14D84005125EF /* AppContext.swift */,
 				60C3CB801BB14D84005125EF /* AppDelegate.swift */,
 				60C3CB911BB14F17005125EF /* AppViewController.swift */,
+				60C3CB981BB16A3B005125EF /* AuthViewController.swift */,
 			);
 			path = "App Setup";
 			sourceTree = "<group>";
 		};
-		60C3CB5B1BB14B1B005125EF /* Showing Locations */ = {
+		60C3CB5B1BB14B1B005125EF /* Presenting Locations */ = {
 			isa = PBXGroup;
 			children = (
 				60C3CB8D1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift */,
 				60C3CB8E1BB14DAC005125EF /* ShowLocationsViewController.swift */,
 			);
-			path = "Showing Locations";
+			path = "Presenting Locations";
 			sourceTree = "<group>";
 		};
 		60C3CB5C1BB14B1B005125EF /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				60C3CB931BB161D6005125EF /* Presenting Shows */,
 				60C3CB701BB14CA0005125EF /* Networking */,
 				60C3CB551BB14B1B005125EF /* Stubs */,
 				60C3CB581BB14B1B005125EF /* App Setup */,
-				60C3CB5B1BB14B1B005125EF /* Showing Locations */,
+				60C3CB5B1BB14B1B005125EF /* Presenting Locations */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -231,6 +237,14 @@
 				60C3CB7B1BB14D6A005125EF /* ArtsyDrive.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		60C3CB931BB161D6005125EF /* Presenting Shows */ = {
+			isa = PBXGroup;
+			children = (
+				60C3CB941BB161E9005125EF /* ShowViewController.swift */,
+			);
+			path = "Presenting Shows";
 			sourceTree = "<group>";
 		};
 		B7880C3900CB5D782EF7BBED /* Frameworks */ = {
@@ -451,11 +465,13 @@
 				60C3CB771BB14D50005125EF /* Artwork.swift in Sources */,
 				60C3CB7C1BB14D6B005125EF /* ArtsyDrive.swift in Sources */,
 				60C3CB8A1BB14D9F005125EF /* Artworkable.swift in Sources */,
+				60C3CB951BB161E9005125EF /* ShowViewController.swift in Sources */,
 				60C3CB791BB14D50005125EF /* Location.swift in Sources */,
 				60C3CB8C1BB14D9F005125EF /* Showable.swift in Sources */,
 				60C3CB761BB14D50005125EF /* Artist.swift in Sources */,
 				60C3CB891BB14D9F005125EF /* Artistable.swift in Sources */,
 				60C3CB821BB14D84005125EF /* AppDelegate.swift in Sources */,
+				60C3CB991BB16A3B005125EF /* AuthViewController.swift in Sources */,
 				60C3CB7A1BB14D50005125EF /* Show.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
