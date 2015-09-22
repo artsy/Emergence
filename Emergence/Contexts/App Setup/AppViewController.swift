@@ -9,13 +9,16 @@ class AppViewController: UINavigationController {
         let auth = ArtsyAuthentication(clientID: keys.artsyAPIClientKey(), clientSecret: keys.artsyAPIClientSecret())
         return AppContext(network:network, auth:auth)
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        context.auth.getWeekLongXAppTrialToken { (token, error) -> Void in
-            print("got \(token)")
-            self.context.network.authToken = token.token
+
+    func auth(completion: () -> () ) {
+        if self.context.network.authToken.isEmpty {
+            context.auth.getWeekLongXAppTrialToken { (token, error) -> Void in
+                print("got \(token)")
+                self.context.network.authToken = token.token
+                completion()
+            }
+        } else {
+            completion()
         }
     }
 }
