@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25E009CB0867CFD5DF5E9D94 /* Pods_Emergence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEACFC32B54605D5E6050237 /* Pods_Emergence.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2E6AF147D7C9A489A51F8C0D /* Pods_EmergenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E41A496460C1BA17161DE8F /* Pods_EmergenceTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		60C3CB281BB14026005125EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB271BB14026005125EF /* AppDelegate.swift */; };
 		60C3CB2A1BB14026005125EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB291BB14026005125EF /* ViewController.swift */; };
 		60C3CB2D1BB14026005125EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB2B1BB14026005125EF /* Main.storyboard */; };
@@ -25,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E41A496460C1BA17161DE8F /* Pods_EmergenceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmergenceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3CB241BB14026005125EF /* Emergence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emergence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3CB271BB14026005125EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60C3CB291BB14026005125EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +37,11 @@
 		60C3CB351BB14026005125EF /* EmergenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmergenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3CB391BB14026005125EF /* EmergenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenceTests.swift; sourceTree = "<group>"; };
 		60C3CB3B1BB14026005125EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82955D49C9DF83B000C48D81 /* Pods-Emergence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Emergence.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Emergence/Pods-Emergence.debug.xcconfig"; sourceTree = "<group>"; };
+		E5C118BFA55406C9F06775D6 /* Pods-EmergenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA420CB18E0D3DECF569F704 /* Pods-EmergenceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.release.xcconfig"; sourceTree = "<group>"; };
+		FCD1F8B079975E2941135560 /* Pods-Emergence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Emergence.release.xcconfig"; path = "Pods/Target Support Files/Pods-Emergence/Pods-Emergence.release.xcconfig"; sourceTree = "<group>"; };
+		FEACFC32B54605D5E6050237 /* Pods_Emergence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Emergence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E009CB0867CFD5DF5E9D94 /* Pods_Emergence.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,18 +57,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6AF147D7C9A489A51F8C0D /* Pods_EmergenceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		499F6F4CAC70EAA3184E1213 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82955D49C9DF83B000C48D81 /* Pods-Emergence.debug.xcconfig */,
+				FCD1F8B079975E2941135560 /* Pods-Emergence.release.xcconfig */,
+				E5C118BFA55406C9F06775D6 /* Pods-EmergenceTests.debug.xcconfig */,
+				FA420CB18E0D3DECF569F704 /* Pods-EmergenceTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		60C3CB1B1BB14025005125EF = {
 			isa = PBXGroup;
 			children = (
 				60C3CB261BB14026005125EF /* Emergence */,
 				60C3CB381BB14026005125EF /* EmergenceTests */,
 				60C3CB251BB14026005125EF /* Products */,
+				499F6F4CAC70EAA3184E1213 /* Pods */,
+				B7880C3900CB5D782EF7BBED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +116,15 @@
 			path = EmergenceTests;
 			sourceTree = "<group>";
 		};
+		B7880C3900CB5D782EF7BBED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEACFC32B54605D5E6050237 /* Pods_Emergence.framework */,
+				5E41A496460C1BA17161DE8F /* Pods_EmergenceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,9 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C3CB3E1BB14026005125EF /* Build configuration list for PBXNativeTarget "Emergence" */;
 			buildPhases = (
+				554FFC7DC11C4B931257EF35 /* Check Pods Manifest.lock */,
 				60C3CB201BB14025005125EF /* Sources */,
 				60C3CB211BB14025005125EF /* Frameworks */,
 				60C3CB221BB14025005125EF /* Resources */,
+				1AD54AD11682A969C2665BD6 /* Embed Pods Frameworks */,
+				E430A007839578CBD34E4790 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -117,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C3CB411BB14026005125EF /* Build configuration list for PBXNativeTarget "EmergenceTests" */;
 			buildPhases = (
+				147FDE6C89AECA8B0D966616 /* Check Pods Manifest.lock */,
 				60C3CB311BB14026005125EF /* Sources */,
 				60C3CB321BB14026005125EF /* Frameworks */,
 				60C3CB331BB14026005125EF /* Resources */,
+				4CFDB9BEA330BC95BFFC3E18 /* Embed Pods Frameworks */,
+				94CACFB59C45DCD794AB25AE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,6 +224,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		147FDE6C89AECA8B0D966616 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1AD54AD11682A969C2665BD6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Emergence/Pods-Emergence-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CFDB9BEA330BC95BFFC3E18 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		554FFC7DC11C4B931257EF35 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94CACFB59C45DCD794AB25AE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E430A007839578CBD34E4790 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Emergence/Pods-Emergence-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60C3CB201BB14025005125EF /* Sources */ = {
@@ -310,6 +441,7 @@
 		};
 		60C3CB3F1BB14026005125EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82955D49C9DF83B000C48D81 /* Pods-Emergence.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -322,6 +454,7 @@
 		};
 		60C3CB401BB14026005125EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCD1F8B079975E2941135560 /* Pods-Emergence.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -334,6 +467,7 @@
 		};
 		60C3CB421BB14026005125EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5C118BFA55406C9F06775D6 /* Pods-EmergenceTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EmergenceTests/Info.plist;
@@ -346,6 +480,7 @@
 		};
 		60C3CB431BB14026005125EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA420CB18E0D3DECF569F704 /* Pods-EmergenceTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EmergenceTests/Info.plist;
@@ -375,6 +510,7 @@
 				60C3CB401BB14026005125EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60C3CB411BB14026005125EF /* Build configuration list for PBXNativeTarget "EmergenceTests" */ = {
 			isa = XCConfigurationList;
@@ -383,6 +519,7 @@
 				60C3CB431BB14026005125EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
