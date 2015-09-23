@@ -1,6 +1,6 @@
 # Emergence
 
-Finding Shows on your TV, tot much to see here yet
+Finding Shows on your TV, to much to see here yet
 
 ### Installation
 
