@@ -41,7 +41,7 @@ class ModelFactory: NSObject {
     }
     
     static func show() -> Showable {
-        return Show(installShots: [image()], artworks: [artwork()])
+        return Show(name: randomName(), installShots: [image()], artworks: [artwork()])
     }
     
     static func location() -> Location {
