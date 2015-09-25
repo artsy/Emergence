@@ -31,6 +31,7 @@
 		60C3CB921BB14F17005125EF /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB911BB14F17005125EF /* AppViewController.swift */; };
 		60C3CB951BB161E9005125EF /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB941BB161E9005125EF /* ShowViewController.swift */; };
 		60C3CB991BB16A3B005125EF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB981BB16A3B005125EF /* AuthViewController.swift */; };
+		60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E4A4D31BB54CA2002E43E0 /* Thumbnailable.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		60C3CB911BB14F17005125EF /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		60C3CB941BB161E9005125EF /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		60C3CB981BB16A3B005125EF /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		60E4A4D31BB54CA2002E43E0 /* Thumbnailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnailable.swift; sourceTree = "<group>"; };
 		82955D49C9DF83B000C48D81 /* Pods-Emergence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Emergence.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Emergence/Pods-Emergence.debug.xcconfig"; sourceTree = "<group>"; };
 		E5C118BFA55406C9F06775D6 /* Pods-EmergenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA420CB18E0D3DECF569F704 /* Pods-EmergenceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				60C3CB861BB14D9F005125EF /* Artworkable.swift */,
 				60C3CB881BB14D9F005125EF /* Showable.swift */,
 				60C3CB831BB14D95005125EF /* Imageable.swift */,
+				60E4A4D31BB54CA2002E43E0 /* Thumbnailable.swift */,
 			);
 			path = "Artsy Model Protocols";
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C3CB781BB14D50005125EF /* Image.swift in Sources */,
+				60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */,
 				60C3CB8F1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift in Sources */,
 				60C3CB921BB14F17005125EF /* AppViewController.swift in Sources */,
 				60C3CB841BB14D95005125EF /* Imageable.swift in Sources */,

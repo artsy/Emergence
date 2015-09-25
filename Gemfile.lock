@@ -57,7 +57,7 @@ GEM
       cocoapods (~> 0.34)
     cocoapods-downloader (0.9.3)
     cocoapods-expert-difficulty (1.0.0)
-    cocoapods-keys (1.4.0)
+    cocoapods-keys (1.5.0)
       osx_keychain
     cocoapods-plugins (0.4.2)
       nap

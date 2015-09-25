@@ -19,7 +19,6 @@ public class ArtsyDrive: Hyperdrive {
         enter("https://api.artsy.net:443/api") { result in
             switch result {
             case .Success(let representor):
-                print("Got the root. \(representor)")
                 self.root = representor
 
             case .Failure(let error):
