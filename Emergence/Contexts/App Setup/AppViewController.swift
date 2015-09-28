@@ -24,6 +24,7 @@ class AppViewController: UINavigationController {
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setObject(token.token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
                 defaults.setObject(token.expirationDate, forKey: XAppToken.DefaultsKeys.TokenExpiry.rawValue)
+                defaults.synchronize()
 
                 self.context.network.authToken = XAppToken(defaults: defaults)
                 completion()

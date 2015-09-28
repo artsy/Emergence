@@ -12,6 +12,7 @@
 		60094A371BB95A5B00016BB7 /* ArtsyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A361BB95A5B00016BB7 /* ArtsyAPI.swift */; };
 		60094A391BB95AAF00016BB7 /* Appsetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A381BB95AAF00016BB7 /* Appsetup.swift */; };
 		60094A3B1BB95BD500016BB7 /* XAppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A3A1BB95BD500016BB7 /* XAppToken.swift */; };
+		60094A3D1BB9819C00016BB7 /* Observable+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A3C1BB9819C00016BB7 /* Observable+Networking.swift */; };
 		60C3CB2D1BB14026005125EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB2B1BB14026005125EF /* Main.storyboard */; };
 		60C3CB2F1BB14026005125EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB2E1BB14026005125EF /* Assets.xcassets */; };
 		60C3CB3A1BB14026005125EF /* EmergenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB391BB14026005125EF /* EmergenceTests.swift */; };
@@ -51,6 +52,7 @@
 		60094A361BB95A5B00016BB7 /* ArtsyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtsyAPI.swift; sourceTree = "<group>"; };
 		60094A381BB95AAF00016BB7 /* Appsetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appsetup.swift; sourceTree = "<group>"; };
 		60094A3A1BB95BD500016BB7 /* XAppToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAppToken.swift; sourceTree = "<group>"; };
+		60094A3C1BB9819C00016BB7 /* Observable+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Networking.swift"; sourceTree = "<group>"; };
 		60C3CB241BB14026005125EF /* Emergence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emergence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3CB2C1BB14026005125EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60C3CB2E1BB14026005125EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				60094A361BB95A5B00016BB7 /* ArtsyAPI.swift */,
 				60094A3A1BB95BD500016BB7 /* XAppToken.swift */,
+				60094A3C1BB9819C00016BB7 /* Observable+Networking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				60C3CB901BB14DAC005125EF /* ShowLocationsViewController.swift in Sources */,
 				60C3CB7E1BB14D79005125EF /* ModelFactory.swift in Sources */,
 				60C3CB771BB14D50005125EF /* Artwork.swift in Sources */,
+				60094A3D1BB9819C00016BB7 /* Observable+Networking.swift in Sources */,
 				60C3CB8A1BB14D9F005125EF /* Artworkable.swift in Sources */,
 				60C3CB951BB161E9005125EF /* ShowViewController.swift in Sources */,
 				60094A371BB95A5B00016BB7 /* ArtsyAPI.swift in Sources */,

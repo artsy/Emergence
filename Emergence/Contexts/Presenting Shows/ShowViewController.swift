@@ -13,6 +13,12 @@ class ShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Give a whiter BG
+        let white = UIView(frame: view.bounds)
+        white.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        view.addSubview(white)
+        view.sendSubviewToBack(white)
+
         guard let appVC = self.appViewController else {
             print("you need an app VC")
             return
@@ -22,62 +28,16 @@ class ShowViewController: UIViewController {
 
         let showInfo = ArtsyAPI.ShowInfo(showID: "4ea19ee97bab1a0001001908")
         network.request(showInfo).mapSuccessfulHTTPToObject(Show).subscribe(next: { showObject in
-                let show = showObject as! Show
-                self.showDidLoad(show)
+            let show = showObject as! Show
+            self.showDidLoad(show)
 
-            }, error: { error in
-                print("ERROROR \(error)")
-            }, completed: nil, disposed: nil)
+        }, error: { error in
+            print("ERROROR \(error)")
+        }, completed: nil, disposed: nil)
 
     }
 
     func showDidLoad(show: Show) {
         showTitleLabel.text = show.name
-    }
-}
-
-enum ORMError : ErrorType {
-    case ORMNoRepresentor
-    case ORMNotSuccessfulHTTP
-    case ORMNoData
-    case ORMCouldNotMakeObjectError
-}
-
-extension Observable {
-    func mapSuccessfulHTTPToObject(classType: Decodable.Type) -> Observable<Decodable> {
-
-        func resultFromJSON(object:[String: AnyObject], classType: Decodable.Type) -> Decodable? {
-            return classType.init(json: object)
-        }
-
-        return map { representor in
-            guard let response = representor as? MoyaResponse else {
-                throw ORMError.ORMNoRepresentor
-            }
-
-            // Allow successful HTTP codes
-            if ((200...209) ~= response.statusCode) == false {
-                if let json = try? NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] {
-                    print(json)
-                }
-                throw ORMError.ORMNotSuccessfulHTTP
-            }
-
-            do {
-                guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] else {
-                    throw ORMError.ORMCouldNotMakeObjectError
-                }
-
-                guard let obj = resultFromJSON(json, classType: classType)  else {
-                    throw ORMError.ORMCouldNotMakeObjectError
-                }
-
-                return obj
-
-            } catch {
-                throw ORMError.ORMCouldNotMakeObjectError
-            }
-            throw ORMError.ORMCouldNotMakeObjectError
-        }
     }
 }

@@ -10,6 +10,7 @@ PODS:
   - Artsy+UILabels (1.3.2):
     - Artsy+UIColors
   - EDColor (1.0.0)
+  - FBSnapshotTestCase (1.8.1)
   - Gloss (0.5.3)
   - ISO8601DateFormatter (0.7)
   - Keys (1.0.0)
@@ -20,7 +21,13 @@ PODS:
   - Moya/RxSwift (2.4.1):
     - Moya/ReactiveCore
     - RxSwift (~> 2.0.0-alpha)
+  - Nimble (2.0.0-rc.3)
+  - Nimble-Snapshots (1.0.0):
+    - FBSnapshotTestCase (~> 1.7)
+    - Nimble (~> 2.0.0-rc.2)
+    - Quick (~> 0.5)
   - NSURL+QueryDictionary (1.1.0)
+  - Quick (0.6.0)
   - RxCocoa (2.0.0-alpha.3):
     - RxSwift (~> 2.0.0-alpha)
   - RxSwift (2.0.0-alpha.3)
@@ -34,9 +41,13 @@ DEPENDENCIES:
   - Artsy+UIColors (from `https://github.com/artsy/Artsy-UIColors.git`, branch `tvos`)
   - Artsy+UIFonts (from `https://github.com/artsy/Artsy-UIFonts.git`, branch `old_fonts_new_lib_tv`)
   - Artsy+UILabels (from `https://github.com/artsy/Artsy-UILabels.git`)
+  - FBSnapshotTestCase
   - Gloss
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya/RxSwift
+  - Nimble (= 2.0.0-rc.3)
+  - Nimble-Snapshots
+  - Quick
   - RxCocoa (from `https://github.com/orta/RxSwift.git`, branch `tvos`)
   - RxSwift (from `https://github.com/orta/RxSwift.git`, branch `tvos`)
   - SDWebImage
@@ -89,11 +100,15 @@ SPEC CHECKSUMS:
   Artsy+UIFonts: 28db6b1c8022fc3bc2e62db68f32381e1f33aa6f
   Artsy+UILabels: 0eec510874d00412a2084b7c37aad942b4dcd7b6
   EDColor: c83f9a61f9f9b3c23d541f1feb561558e29cb088
+  FBSnapshotTestCase: 3dc3899168747a0319c5278f5b3445c13a6532dd
   Gloss: a6c096af543554313e98fd113108b768ade78159
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   Moya: aa0fba7f9c98a0bcb95f2d4222ee848dcb0e4b8e
+  Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948
+  Nimble-Snapshots: c16dd279a4840ec06288198fafd53f3c17750ff3
   NSURL+QueryDictionary: dd0a5fec689a9b4780b6fa0e0225c01ca3ea653e
+  Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
   RxCocoa: 2a45f35cd0eb6a01e081b3d11849c2fcb0bdb6de
   RxSwift: c66f7956b2e5fb397a62bf4a3ec6072749a816a7
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

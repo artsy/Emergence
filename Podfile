@@ -44,5 +44,8 @@ target 'Emergence' do
 end
 
 target 'EmergenceTests' do
-    platform_pods
+    pod 'FBSnapshotTestCase'
+    pod 'Nimble-Snapshots'
+    pod 'Quick'
+    pod 'Nimble', '= 2.0.0-rc.3'
 end
