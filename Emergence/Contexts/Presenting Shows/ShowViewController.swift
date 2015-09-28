@@ -1,7 +1,6 @@
 import UIKit
 import RxSwift
-import Hyperdrive
-import RxHyperdrive
+import Moya
 import Gloss
 import Representor
 
@@ -20,13 +19,15 @@ class ShowViewController: UIViewController {
         }
 
         let network = appVC.context.network
-        if let shows = network.root.transitions["show"] {
-            let attributes = ["id": "4ea19ee97bab1a0001001908"]
-            network.request(shows, parameters: attributes).debug().mapTransitionToObject(Show).subscribeNext { showObject in
+
+        let showInfo = ArtsyAPI.ShowInfo(showID: "4ea19ee97bab1a0001001908")
+        network.request(showInfo).mapSuccessfulHTTPToObject(Show).subscribe(next: { showObject in
                 let show = showObject as! Show
                 self.showDidLoad(show)
-            }
-        }
+
+            }, error: { error in
+                print("ERROROR \(error)")
+            }, completed: nil, disposed: nil)
 
     }
 
@@ -37,35 +38,46 @@ class ShowViewController: UIViewController {
 
 enum ORMError : ErrorType {
     case ORMNoRepresentor
+    case ORMNotSuccessfulHTTP
     case ORMNoData
     case ORMCouldNotMakeObjectError
 }
 
 extension Observable {
-    func mapTransitionToObject(classType: Decodable.Type) -> Observable<Decodable> {
+    func mapSuccessfulHTTPToObject(classType: Decodable.Type) -> Observable<Decodable> {
 
         func resultFromJSON(object:[String: AnyObject], classType: Decodable.Type) -> Decodable? {
             return classType.init(json: object)
         }
 
         return map { representor in
-            guard let rep = representor as? Representor<HTTPTransition> else {
+            guard let response = representor as? MoyaResponse else {
                 throw ORMError.ORMNoRepresentor
             }
 
-            if rep.attributes.count == 0 {
-                throw ORMError.ORMNoData
+            // Allow successful HTTP codes
+            if ((200...209) ~= response.statusCode) == false {
+                if let json = try? NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] {
+                    print(json)
+                }
+                throw ORMError.ORMNotSuccessfulHTTP
             }
 
-            guard let obj = resultFromJSON(rep.attributes, classType: classType)  else {
+            do {
+                guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] else {
+                    throw ORMError.ORMCouldNotMakeObjectError
+                }
+
+                guard let obj = resultFromJSON(json, classType: classType)  else {
+                    throw ORMError.ORMCouldNotMakeObjectError
+                }
+
+                return obj
+
+            } catch {
                 throw ORMError.ORMCouldNotMakeObjectError
             }
-
-            if let updated = obj as? Representable {
-                updated.updateWithRepresentor(rep)
-            }
-
-            return obj
+            throw ORMError.ORMCouldNotMakeObjectError
         }
     }
 }

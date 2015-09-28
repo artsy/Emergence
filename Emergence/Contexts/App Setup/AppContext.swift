@@ -1,4 +1,5 @@
 import Artsy_Authentication
+import Moya
 
 /// Imagine that this is what gets DI'd in to most
 /// view controllers via the Storyboard
@@ -7,6 +8,6 @@ import Artsy_Authentication
 /// & once there's auth, user references etc.
 
 struct AppContext {
-    let network: ArtsyDrive
+    var network: ArtsyProvider<ArtsyAPI>
     let auth: ArtsyAuthentication
 }

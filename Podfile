@@ -27,17 +27,14 @@ end
 
 def app_pods()
   pod 'Gloss'
-
+  pod 'Moya/RxSwift'
   pod 'RxSwift', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'RxCocoa', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
-  pod 'RxHyperdrive', :head
   pod 'SDWebImage'
 end
 
 def platform_pods()
   pod 'Artsy+Authentication', :git => "https://github.com/artsy/Artsy-Authentication.git", :branch => "tvos"
-  pod 'Representor', :head
-  pod 'Hyperdrive', :head
 end
 
 target 'Emergence' do
