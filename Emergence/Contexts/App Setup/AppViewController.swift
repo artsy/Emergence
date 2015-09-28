@@ -1,24 +1,35 @@
 import Artsy_Authentication
 import Keys
 import UIKit
+import Moya
+import Alamofire
 
 class AppViewController: UINavigationController {
     let context: AppContext = {
         let keys = EmergenceKeys()
-        let network = ArtsyDrive(token: "")
+        let network = ArtsyProvider<ArtsyAPI>()
         let auth = ArtsyAuthentication(clientID: keys.artsyAPIClientKey(), clientSecret: keys.artsyAPIClientSecret())
+
         return AppContext(network:network, auth:auth)
     }()
 
     func auth(completion: () -> () ) {
-        if self.context.network.authToken.isEmpty {
+        if self.context.network.authToken.isValid {
+            completion()
+        } else {
+            print("Authenticating")
             context.auth.getWeekLongXAppTrialToken { (token, error) -> Void in
-                print("got \(token)")
-                self.context.network.authToken = token.token
+
+                print("Authenticated")
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(token.token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
+                defaults.setObject(token.expirationDate, forKey: XAppToken.DefaultsKeys.TokenExpiry.rawValue)
+                defaults.synchronize()
+
+                self.context.network.authToken = XAppToken(defaults: defaults)
                 completion()
             }
-        } else {
-            completion()
+
         }
     }
 }

@@ -27,22 +27,25 @@ end
 
 def app_pods()
   pod 'Gloss'
-
+  pod 'Moya/RxSwift'
   pod 'RxSwift', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'RxCocoa', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
-  pod 'RxHyperdrive', :git => "https://github.com/orta/RxHyperdrive.git", :branch => "patch-1"
+  pod 'SDWebImage'
 end
 
 def platform_pods()
   pod 'Artsy+Authentication', :git => "https://github.com/artsy/Artsy-Authentication.git", :branch => "tvos"
-  pod 'Hyperdrive'
 end
 
 target 'Emergence' do
+  artsy_pods
   app_pods
   platform_pods
 end
 
 target 'EmergenceTests' do
-    platform_pods
+    pod 'FBSnapshotTestCase'
+    pod 'Nimble-Snapshots'
+    pod 'Quick'
+    pod 'Nimble', '= 2.0.0-rc.3'
 end
