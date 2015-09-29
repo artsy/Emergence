@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "tv",
+      "filename" : "top_shelf.png",
       "scale" : "1x"
     }
   ],

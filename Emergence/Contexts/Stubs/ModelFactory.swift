@@ -44,7 +44,4 @@ class ModelFactory: NSObject {
         return Show(name: randomName(), installShots: [image()], artworks: [artwork()], thumbnailImageFormatString: "", thumbnailImageVersions: [""])
     }
     
-    static func location() -> Location {
-        return Location(shows: [show()])
-    }
 }

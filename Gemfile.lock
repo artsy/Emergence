@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/CocoaPods/CocoaPods.git
-  revision: 25bcc14b04260939144496cc08f091061f5500de
-  branch: tvos
+  revision: 05eea37a80f0163ffd06ebafbd069e6425b40852
   specs:
     cocoapods (0.39.0.beta.4)
       activesupport (>= 3.2.15)
@@ -21,18 +20,16 @@ GIT
 
 GIT
   remote: https://github.com/CocoaPods/Core.git
-  revision: f60d8b4f28223ea2e02316efa52a612153d7fe2e
-  branch: tvos-support
+  revision: 9cc774457e8326e7fed6961bab83cefeac67f266
   specs:
     cocoapods-core (0.39.0.beta.4)
-      activesupport (>= 3.2.15)
+      activesupport (>= 4.0.2)
       fuzzy_match (~> 2.0.4)
       nap (~> 1.0)
 
 GIT
   remote: https://github.com/CocoaPods/Xcodeproj.git
-  revision: b208640ffd04ffb1ec1becc085e8b3f3759ff8f1
-  branch: tvos-support
+  revision: 31baa305399f8090955e855bd9d9fe68f136633c
   specs:
     xcodeproj (0.27.2)
       activesupport (>= 3)
@@ -57,7 +54,8 @@ GEM
       cocoapods (~> 0.34)
     cocoapods-downloader (0.9.3)
     cocoapods-expert-difficulty (1.0.0)
-    cocoapods-keys (1.5.0)
+    cocoapods-keys (1.5.1)
+      dotenv
       osx_keychain
     cocoapods-plugins (0.4.2)
       nap
@@ -69,11 +67,12 @@ GEM
     cocoapods-try (0.5.1)
     colored (1.2)
     colorize (0.7.7)
+    dotenv (2.0.2)
     escape (0.0.4)
     fuzzy_match (2.0.4)
     i18n (0.7.0)
     json (1.8.3)
-    minitest (5.8.0)
+    minitest (5.8.1)
     molinillo (0.3.1)
     nap (1.0.0)
     netrc (0.7.8)

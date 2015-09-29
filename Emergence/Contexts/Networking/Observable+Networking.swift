@@ -22,10 +22,9 @@ extension Observable {
             }
 
             // Allow successful HTTP codes
-            if ((200...209) ~= response.statusCode) == false {
+            guard ((200...209) ~= response.statusCode) else {
                 if let json = try? NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] {
-                    print("Got error message:")
-                    print(json)
+                    print("Got error message: \(json)")
                 }
                 throw ORMError.ORMNotSuccessfulHTTP
             }
@@ -34,13 +33,7 @@ extension Observable {
                 guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] else {
                     throw ORMError.ORMCouldNotMakeObjectError
                 }
-
-                guard let obj = resultFromJSON(json, classType: classType)  else {
-                    throw ORMError.ORMCouldNotMakeObjectError
-                }
-
-                return obj
-
+                return resultFromJSON(json, classType: classType)!
             } catch {
                 throw ORMError.ORMCouldNotMakeObjectError
             }

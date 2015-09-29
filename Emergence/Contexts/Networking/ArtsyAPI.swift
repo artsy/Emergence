@@ -6,7 +6,8 @@ import Alamofire
 enum ArtsyAPI {
     case XApp
     case ShowInfo(showID:String)
-
+    case UpcomingShowsNearLocation(lat:String, long: String)
+    case ClosingShowsNearLocation(lat:String, long: String)
 }
 
 extension ArtsyAPI : MoyaTarget {
@@ -21,6 +22,29 @@ extension ArtsyAPI : MoyaTarget {
             return [
                 "grant_type": "credentials"
             ]
+
+        case .UpcomingShowsNearLocation(_,_):
+            return [
+                "near": ["coords": "-100.445882, 39.78373" ],
+                "near": "",
+                "sort": "-start_at",
+                "size": 5,
+                "displayable": true,
+                "at_a_fair": false,
+            ]
+
+        case .ClosingShowsNearLocation(_,_):
+            return [
+                //                "near": city.coords.toString()
+                "near": "",
+                "sort": "end_at",
+                "size": 5,
+                "displayable": true,
+                "at_a_fair": false,
+                "status": "running",
+            ]
+
+
 
         default:
             return [:]
@@ -52,6 +76,10 @@ extension ArtsyAPI : MoyaTarget {
 
         case .ShowInfo(let showID):
             return "/api/v1/show/\(showID)"
+
+        case .ClosingShowsNearLocation(_, _), .UpcomingShowsNearLocation(_, _):
+            return "/api/v1/shows"
+            
         }
     }
 

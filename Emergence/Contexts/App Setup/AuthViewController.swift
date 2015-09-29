@@ -14,7 +14,7 @@ class AuthViewController: UIViewController {
         }
 
         appVC.auth {
-            self.performSegueWithIdentifier("show", sender: self)
+            self.performSegueWithIdentifier("menu", sender: self)
         }
 
     }

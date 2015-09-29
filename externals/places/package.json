@@ -1,0 +1,22 @@
+{
+  "name": "places",
+  "version": "0.0.1",
+  "description": "A small module used for querying shows in selected cities @artsy",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/artsy/places.git"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "dependencies": {
+    "underscore": "*"
+  },
+  "author": "Charles Broskoski",
+  "contributors": ["Damon Zucconi"]
+}
