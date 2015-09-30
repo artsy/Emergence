@@ -5,7 +5,6 @@ class ShowLocationsViewController: UIViewController {
 
     override func viewDidLoad() {
 
-
         guard let appVC = self.appViewController else {
             print("you need an app VC")
             return
@@ -13,14 +12,14 @@ class ShowLocationsViewController: UIViewController {
 
         let network = appVC.context.network
 
-        let showInfo = ArtsyAPI.UpcomingShowsNearLocation(lat: "", long: "")
-        network.request(showInfo).subscribe(next: { showObject in
+        let showInfo = ArtsyAPI.UpcomingShowsNearLocation(location.coordinates())
+        network.request(showInfo).mapSuccessfulHTTPToObjectArray(Show).subscribe(next: { showObject in
                 print(showObject)
 
             }, error: { error in
                 print("ERROROR \(error)")
-            }, completed: nil, disposed: nil)
 
+            }, completed: nil, disposed: nil)
     }
 
 }

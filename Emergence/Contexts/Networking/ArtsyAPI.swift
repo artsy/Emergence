@@ -8,6 +8,18 @@ enum ArtsyAPI {
     case ShowInfo(showID:String)
     case UpcomingShowsNearLocation(lat:String, long: String)
     case ClosingShowsNearLocation(lat:String, long: String)
+    case PastShowsNearLocation(lat:String, long: String)
+
+}
+
+func sortCriteriaAt(near:String, _ diff: [String: AnyObject]) -> [String: AnyObject] {
+    return [
+        "near": near,
+        "sort": "-start_at",
+        "size": 5,
+        "displayable": true,
+        "at_a_fair": false,
+    ]
 }
 
 extension ArtsyAPI : MoyaTarget {
@@ -23,27 +35,24 @@ extension ArtsyAPI : MoyaTarget {
                 "grant_type": "credentials"
             ]
 
-        case .UpcomingShowsNearLocation(_,_):
-            return [
-                "near": ["coords": "-100.445882, 39.78373" ],
-                "near": "",
-                "sort": "-start_at",
-                "size": 5,
-                "displayable": true,
-                "at_a_fair": false,
-            ]
+        case .UpcomingShowsNearLocation(let lat, let long):
+            return sortCriteriaAt("\(lat),\(long)", [
+                "status": "upcoming",
+                "sort": "start_at"
+            ])
 
-        case .ClosingShowsNearLocation(_,_):
-            return [
-                //                "near": city.coords.toString()
-                "near": "",
-                "sort": "end_at",
-                "size": 5,
-                "displayable": true,
-                "at_a_fair": false,
+        case .ClosingShowsNearLocation(let lat, let long):
+            return sortCriteriaAt("\(lat),\(long)", [
                 "status": "running",
-            ]
+                "sort": "end_at",
+                "total_count" : true
+            ])
 
+        case .PastShowsNearLocation(let lat, let long):
+            return sortCriteriaAt("\(lat),\(long)", [
+                "status": "running",
+                "sort": "end_at",
+            ])
 
 
         default:
@@ -77,7 +86,7 @@ extension ArtsyAPI : MoyaTarget {
         case .ShowInfo(let showID):
             return "/api/v1/show/\(showID)"
 
-        case .ClosingShowsNearLocation(_, _), .UpcomingShowsNearLocation(_, _):
+        case .ClosingShowsNearLocation(_, _), .UpcomingShowsNearLocation(_, _), .PastShowsNearLocation(_, _):
             return "/api/v1/shows"
             
         }
