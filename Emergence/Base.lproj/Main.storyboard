@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AUTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlT-vV-Brz">
-                                <rect key="frame" x="528" y="677" width="324" height="140"/>
+                                <rect key="frame" x="1023" y="347" width="324" height="140"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -35,12 +35,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="nq2-tb-esW"/>
                     <connections>
-                        <segue destination="atk-i6-oew" kind="show" identifier="show" id="Hv3-Ne-rub"/>
+                        <segue destination="cCl-rW-I3Z" kind="show" identifier="menu" id="cCu-zR-qCr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENu-9H-6hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3072" y="1827"/>
+            <point key="canvasLocation" x="-3220" y="2287"/>
         </scene>
         <!--Show View Controller-->
         <scene sceneID="XKh-Pn-ZU2">
@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-cu-M94">
-                                <rect key="frame" x="69" y="519" width="933" height="153"/>
+                                <rect key="frame" x="69" y="519" width="900" height="153"/>
                                 <string key="text">Wave Function Salon: Cibelle Cavalli Bastos
 </string>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="64"/>
@@ -74,17 +74,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWx-wG-OnY">
                                 <rect key="frame" x="1523" y="33" width="482" height="426"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-xx-Ax0">
-                                <rect key="frame" x="69" y="657" width="966" height="153"/>
-                                <string key="text">Bosse &amp; Baum are pleased to present the first UK solo exhibition of Cibelle Cavalli Bastos titled 'Wave Function Salon.'
-</string>
-                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BOSSE &amp; BAUM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXV-cG-0by">
                                 <rect key="frame" x="1053" y="545" width="660" height="45"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-xx-Ax0">
+                                <rect key="frame" x="69" y="667" width="966" height="153"/>
+                                <string key="text">Bosse &amp; Baum are pleased to present the first UK solo exhibition of Cibelle Cavalli Bastos titled 'Wave Function Salon.'
+</string>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -98,7 +98,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Upu-Nd-vXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2899" y="3144"/>
+            <point key="canvasLocation" x="-1119" y="4916"/>
+        </scene>
+        <!--Main Menu View Controller-->
+        <scene sceneID="gCP-Az-SSV">
+            <objects>
+                <viewController id="cCl-rW-I3Z" customClass="MainMenuViewController" customModule="Emergence" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d27-cd-01y"/>
+                        <viewControllerLayoutGuide type="bottom" id="eJH-pX-xbP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="unJ-WL-f87">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdJ-LV-o0s">
+                                <rect key="frame" x="1401" y="715" width="446" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="LONDON"/>
+                                <connections>
+                                    <action selector="knownLocationTapped:" destination="cCl-rW-I3Z" eventType="primaryActionTriggered" id="tIO-YB-p1E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJr-r4-7we">
+                                <rect key="frame" x="1401" y="615" width="446" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="NYC"/>
+                                <connections>
+                                    <action selector="knownLocationTapped:" destination="cCl-rW-I3Z" eventType="primaryActionTriggered" id="JuX-qt-GZG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXT-No-Kcc">
+                                <rect key="frame" x="1401" y="817" width="446" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="PARIS"/>
+                                <connections>
+                                    <action selector="knownLocationTapped:" destination="cCl-rW-I3Z" eventType="primaryActionTriggered" id="G3y-sr-jBl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7h-mn-bjH">
+                                <rect key="frame" x="1401" y="921" width="446" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="NEARBY"/>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <segue destination="kDF-Uu-CvS" kind="show" identifier="show_location" id="JKa-ED-POU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2po-Ud-f20" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1124" y="2287"/>
+        </scene>
+        <!--Show Locations View Controller-->
+        <scene sceneID="FJP-FH-XCh">
+            <objects>
+                <viewController id="kDF-Uu-CvS" customClass="ShowLocationsViewController" customModule="Emergence" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0M7-gd-p0i"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nom-ub-FN5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BU9-qj-LZb">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-vm-ioK">
+                                <rect key="frame" x="216" y="301" width="625" height="594"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <segue destination="atk-i6-oew" kind="show" identifier="show" id="I8w-8W-yE6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yve-y5-l2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1124" y="3542"/>
         </scene>
         <!--App View Controller-->
         <scene sceneID="4Ye-VJ-IWy">

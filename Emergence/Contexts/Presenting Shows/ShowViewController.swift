@@ -2,7 +2,6 @@ import UIKit
 import RxSwift
 import Moya
 import Gloss
-import Representor
 
 class ShowViewController: UIViewController {
     let dispose = DisposeBag()

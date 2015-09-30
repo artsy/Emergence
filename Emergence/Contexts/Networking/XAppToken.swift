@@ -16,13 +16,8 @@ struct XAppToken {
     // MARK: - Initializers
 
     let defaults: NSUserDefaults
-
-    init(defaults:NSUserDefaults) {
+    init(defaults:NSUserDefaults = .standardUserDefaults()) {
         self.defaults = defaults
-    }
-
-    init() {
-        self.defaults = NSUserDefaults.standardUserDefaults()
     }
 
 

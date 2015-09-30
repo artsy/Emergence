@@ -1,9 +1,4 @@
 import Gloss
-import Representor
-
-protocol Representable {
-     func updateWithRepresentor(rep: Representor<HTTPTransition>)
-}
 
 struct Show: Showable, Thumbnailable {
     let name: String
@@ -26,11 +21,5 @@ extension Show: Decodable {
         installShots = []
         thumbnailImageFormatString = ""
         thumbnailImageVersions = [""]
-    }
-}
-
-extension Show: Representable {
-    func updateWithRepresentor(rep: Representor<HTTPTransition>) {
-
     }
 }
