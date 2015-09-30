@@ -11,12 +11,12 @@ enum ORMError : ErrorType {
 
 extension Observable {
 
-    // Returns a curried(?) function that maps the object passed through
+    // Returns a curried function that maps the object passed through
     // the observable chain into a class that conforms to Decodable
 
-    func mapSuccessfulHTTPToObject(classType: Decodable.Type) -> Observable<Decodable> {
+    func mapSuccessfulHTTPToObject<T: Decodable>(type: T.Type) -> Observable<T> {
 
-        func resultFromJSON(object:[String: AnyObject], classType: Decodable.Type) -> Decodable? {
+        func resultFromJSON(object:[String: AnyObject], classType: T.Type) -> T? {
             return classType.init(json: object)
         }
 
@@ -37,19 +37,19 @@ extension Observable {
                 guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] else {
                     throw ORMError.ORMCouldNotMakeObjectError
                 }
-                return resultFromJSON(json, classType: classType)!
+                return resultFromJSON(json, classType:type)!
             } catch {
                 throw ORMError.ORMCouldNotMakeObjectError
             }
         }
     }
 
-    // Returns a curried(?) function that maps the object passed through
+    // Returns a curried function that maps the object passed through
     // the observable chain into a class that conforms to Decodable
 
-    func mapSuccessfulHTTPToObjectArray(classType: Decodable.Type) -> Observable<[Decodable]> {
+    func mapSuccessfulHTTPToObjectArray<T: Decodable>(type: T.Type) -> Observable<[T]> {
 
-        func resultFromJSON(object:[String: AnyObject], classType: Decodable.Type) -> Decodable? {
+        func resultFromJSON(object:[String: AnyObject], classType: T.Type) -> T? {
             return classType.init(json: object)
         }
 
@@ -71,7 +71,15 @@ extension Observable {
                     throw ORMError.ORMCouldNotMakeObjectError
                 }
 
-                return json.map { resultFromJSON($0, classType: classType)! }
+                // Objects are not guaranteed, thus cannot directly map.
+                var objects = [T]()
+                for dict in json {
+                    if let obj = resultFromJSON(dict, classType:type) {
+                        objects.append(obj)
+                    }
+                }
+                return objects
+
             } catch {
                 throw ORMError.ORMCouldNotMakeObjectError
             }

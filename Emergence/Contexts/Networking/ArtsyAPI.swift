@@ -7,19 +7,9 @@ enum ArtsyAPI {
     case XApp
     case ShowInfo(showID:String)
     case UpcomingShowsNearLocation(lat:String, long: String)
-    case ClosingShowsNearLocation(lat:String, long: String)
+    case RunningShowsNearLocation(amount: Int, lat:String, long: String)
     case PastShowsNearLocation(lat:String, long: String)
 
-}
-
-func sortCriteriaAt(near:String, _ diff: [String: AnyObject]) -> [String: AnyObject] {
-    return [
-        "near": near,
-        "sort": "-start_at",
-        "size": 5,
-        "displayable": true,
-        "at_a_fair": false,
-    ]
 }
 
 extension ArtsyAPI : MoyaTarget {
@@ -41,8 +31,9 @@ extension ArtsyAPI : MoyaTarget {
                 "sort": "start_at"
             ])
 
-        case .ClosingShowsNearLocation(let lat, let long):
+        case .RunningShowsNearLocation(let amount, let lat, let long):
             return sortCriteriaAt("\(lat),\(long)", [
+                "size" : String(amount),
                 "status": "running",
                 "sort": "end_at",
                 "total_count" : true
@@ -53,7 +44,6 @@ extension ArtsyAPI : MoyaTarget {
                 "status": "running",
                 "sort": "end_at",
             ])
-
 
         default:
             return [:]
@@ -86,10 +76,26 @@ extension ArtsyAPI : MoyaTarget {
         case .ShowInfo(let showID):
             return "/api/v1/show/\(showID)"
 
-        case .ClosingShowsNearLocation(_, _), .UpcomingShowsNearLocation(_, _), .PastShowsNearLocation(_, _):
+        case .RunningShowsNearLocation(_, _, _), .UpcomingShowsNearLocation(_, _), .PastShowsNearLocation(_, _):
             return "/api/v1/shows"
-            
         }
+    }
+
+    /// Allows for some defaults in the show nearby queries built to replicate
+    /// https://github.com/artsy/force-public/blob/4dc397880f447022be70bae3ecff59867a7a603c/apps/shows/routes.coffee#L30-L41
+    ///
+    func sortCriteriaAt(near:String, _ diff: [String: AnyObject]) -> [String: AnyObject] {
+        var defaults: Dictionary<String, AnyObject> = [
+            "near": near,
+            "sort": "-start_at",
+            "size": 5,
+            "displayable": true,
+            "at_a_fair": false,
+        ]
+        for key in diff.keys {
+            defaults.updateValue(diff[key]!, forKey: key)
+        }
+        return defaults
     }
 
 }
