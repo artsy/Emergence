@@ -28,7 +28,7 @@ struct LocationsHost {
                         continue
                     }
 
-                    let l = Location(name: name, slug: slug, location: location)
+                    let l = Location(name: name, slug: slug, coords: location)
                     mutCities.append(l)
                 }
             }

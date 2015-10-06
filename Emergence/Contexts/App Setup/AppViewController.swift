@@ -27,7 +27,9 @@ class AppViewController: UINavigationController {
                 defaults.synchronize()
 
                 self.context.network.authToken = XAppToken(defaults: defaults)
-                completion()
+                dispatch_async( dispatch_get_main_queue()) {
+                    completion()
+                }
             }
 
         }
