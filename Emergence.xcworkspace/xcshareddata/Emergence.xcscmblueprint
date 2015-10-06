@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3E5B8388112876C8AE56E79F47BB589038A44271",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3E5B8388112876C8AE56E79F47BB589038A44271" : 0,
+    "DD052F6681285705A9A54133EC5F7956E33CD80F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F1FD56BF-F5FB-4ECF-A722-3B244773DC4E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3E5B8388112876C8AE56E79F47BB589038A44271" : "Emergence\/",
+    "DD052F6681285705A9A54133EC5F7956E33CD80F" : "Emergence\/externals\/places\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Emergence",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Emergence.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/artsy\/Emergence.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3E5B8388112876C8AE56E79F47BB589038A44271"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/artsy\/places.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD052F6681285705A9A54133EC5F7956E33CD80F"
+    }
+  ]
+}

@@ -5,6 +5,6 @@ protocol Artworkable {
     var title: String { get }
     var medium: String { get }
 
-    var artists: [Artistable] { get }
+    var artists: [Artistable]? { get }
     var images: [Imageable] { get }
 }

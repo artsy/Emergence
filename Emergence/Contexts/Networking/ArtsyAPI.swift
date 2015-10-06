@@ -7,9 +7,9 @@ enum ArtsyAPI {
     case XApp
     case ShowInfo(showID:String)
     case UpcomingShowsNearLocation(lat:String, long: String)
-    case RunningShowsNearLocation(amount: Int, lat:String, long: String)
-    case PastShowsNearLocation(lat:String, long: String)
-
+    case RunningShowsNearLocation(amount: Int, lat: String, long: String)
+    case PastShowsNearLocation(lat: String, long: String)
+    case ArtworksForShow(partnerID: String, showID: String)
 }
 
 extension ArtsyAPI : MoyaTarget {
@@ -76,7 +76,10 @@ extension ArtsyAPI : MoyaTarget {
         case .ShowInfo(let showID):
             return "/api/v1/show/\(showID)"
 
-        case .RunningShowsNearLocation(_, _, _), .UpcomingShowsNearLocation(_, _), .PastShowsNearLocation(_, _):
+        case .ArtworksForShow(let partnerID, let showID):
+            return "/api/v1/partner/\(partnerID)/show/\(showID)/artworks/"
+
+        case .RunningShowsNearLocation, .UpcomingShowsNearLocation, .PastShowsNearLocation:
             return "/api/v1/shows"
         }
     }

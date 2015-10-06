@@ -2,7 +2,9 @@ import Gloss
 import ISO8601DateFormatter
 
 struct Show: Showable, Thumbnailable {
+    let id: String
     let name: String
+    let partner: Partnerable
 
     let pressRelease: String?
     let showDescription: String?
@@ -19,30 +21,34 @@ struct Show: Showable, Thumbnailable {
 
 let dateShowFormatter = ISO8601DateFormatter()
 
-
 extension Show: Decodable {
     init?(json: JSON) {
 
-        guard let name: String = "name" <~~ json else {
+        guard
+            let idValue: String = "id" <~~ json,
+            let nameValue: String = "name" <~~ json,
+            let partnerValue: Partner = "partner" <~~ json
+        else {
             return nil
         }
 
-        self.name = name
+        id = idValue
+        name = nameValue
+        partner = partnerValue
 
-        if let start: String = "start_at" <~~ json {
-            self.startDate = dateShowFormatter.dateFromString(start)
+        if
+            let start: String = "start_at" <~~ json,
+            let end: String = "end_at" <~~ json {
+            startDate = dateShowFormatter.dateFromString(start)
+            endDate = dateShowFormatter.dateFromString(end)
+
         } else {
-            self.startDate = nil
+            startDate = nil
+            endDate = nil
         }
 
-        if let end: String = "start_at" <~~ json {
-            self.endDate = dateShowFormatter.dateFromString(end)
-        } else {
-            self.endDate = nil
-        }
-
-        self.pressRelease = "press_release" <~~ json
-        self.showDescription = "description" <~~ json
+        pressRelease = "press_release" <~~ json
+        showDescription = "description" <~~ json
 
         artworks = []
         installShots = []
