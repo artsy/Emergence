@@ -23,7 +23,6 @@ class ShowViewController: UIViewController {
             return
         }
 
-
         // Give a whiter BG
         let white = UIView(frame: view.bounds)
         white.backgroundColor = UIColor(white: 1, alpha: 0.5)
@@ -35,11 +34,10 @@ class ShowViewController: UIViewController {
         network.request(showArtworks).mapSuccessfulHTTPToObjectArray(Artwork)
             .subscribe(next: { artworks in
                 print(artworks)
-                
+
             }, error: { error in
                 print("ERROROR \(error)")
             }, completed: nil, disposed: nil)
-
     }
 
     func showDidLoad(show: Show) {

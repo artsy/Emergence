@@ -14,8 +14,8 @@ extension Artwork: Decodable {
     init?(json: JSON) {
 
         guard
-            let idValue: String = "name" <~~ json,
-            let titleValue: String = "name" <~~ json,
+            let idValue: String = "id" <~~ json,
+            let titleValue: String = "title" <~~ json,
             let mediumValue: String = "medium" <~~ json
         else {
             return nil
@@ -26,7 +26,11 @@ extension Artwork: Decodable {
         medium = mediumValue
 
         artists = []
-        images = []
+        if let imagesValue: [Image] = "images" <~~ json {
+           images = imagesValue.map { return $0 as Imageable }
+        } else {
+            images = []
+        }
     }
 }
 
