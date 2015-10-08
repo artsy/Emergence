@@ -41,7 +41,7 @@ class ModelFactory: NSObject {
     }
     
     static func show() -> Showable {
-        return Show(name: randomName(), pressRelease: "", showDescription: "", startDate:NSDate(), endDate: NSDate(), installShots: [image()], artworks: [artwork()], thumbnailImageFormatString: "", thumbnailImageVersions: [""])
+        return Show(id: "", name: randomName(), partner: Partner(id:"", name: ""), pressRelease: "", showDescription: "", startDate:NSDate(), endDate: NSDate(), installShots: [image()], artworks: [artwork()], thumbnailImageFormatString: "", thumbnailImageVersions: [""])
     }
     
 }

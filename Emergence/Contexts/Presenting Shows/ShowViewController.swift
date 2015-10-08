@@ -6,13 +6,23 @@ import Gloss
 class ShowViewController: UIViewController {
     var index = -1
     let dispose = DisposeBag()
+    var show: Show!
 
     @IBOutlet weak var showTitleLabel: UILabel!
     @IBOutlet weak var showPreviewImage: UIImageView!
     @IBOutlet weak var showDescription: UILabel!
 
     override func viewDidLoad() {
+        precondition(self.show != nil, "you need a show to laod the view controller");
+        precondition(self.appViewController != nil, "you need an app VC");
+
         super.viewDidLoad()
+
+        guard let appVC = self.appViewController else {
+            print("you need an app VC")
+            return
+        }
+
 
         // Give a whiter BG
         let white = UIView(frame: view.bounds)
@@ -20,21 +30,15 @@ class ShowViewController: UIViewController {
         view.addSubview(white)
         view.sendSubviewToBack(white)
 
-        guard let appVC = self.appViewController else {
-            print("you need an app VC")
-            return
-        }
-
-//        let network = appVC.context.network
-
-//        let showInfo = ArtsyAPI.ShowInfo(showID: "4ea19ee97bab1a0001001908")
-//        network.request(showInfo).mapSuccessfulHTTPToObject(Show).subscribe(next: { showObject in
-//            let show = showObject as! Show
-//            self.showDidLoad(show)
-//
-//        }, error: { error in
-//            print("ERROROR \(error)")
-//        }, completed: nil, disposed: nil)
+        let network = appVC.context.network
+        let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id)
+        network.request(showArtworks).mapSuccessfulHTTPToObjectArray(Artwork)
+            .subscribe(next: { artworks in
+                print(artworks)
+                
+            }, error: { error in
+                print("ERROROR \(error)")
+            }, completed: nil, disposed: nil)
 
     }
 
