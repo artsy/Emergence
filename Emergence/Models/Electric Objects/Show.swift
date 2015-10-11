@@ -1,7 +1,7 @@
 import Gloss
 import ISO8601DateFormatter
 
-struct Show: Showable, Thumbnailable {
+struct Show: Showable, ImageURLThumbnailable {
     let id: String
     let name: String
     let partner: Partnerable
@@ -15,8 +15,8 @@ struct Show: Showable, Thumbnailable {
     var installShots: [Imageable]
     var artworks: [Artworkable]
 
-    var thumbnailImageFormatString: String
-    var thumbnailImageVersions: [String]
+    var imageFormatString: String
+    var imageVersions: [String]
 }
 
 let dateShowFormatter = ISO8601DateFormatter()
@@ -52,7 +52,16 @@ extension Show: Decodable {
 
         artworks = []
         installShots = []
-        thumbnailImageFormatString = ""
-        thumbnailImageVersions = [""]
+
+        // ImageURLThumbnailable conformance
+        if
+            let imageFormatStringValue: String = "image_url" <~~ json,
+            let imageVersionsValue: [String] = "image_versions" <~~ json {
+                imageFormatString = imageFormatStringValue
+                imageVersions = imageVersionsValue
+        } else {
+            imageFormatString = ""
+            imageVersions = []
+        }
     }
 }

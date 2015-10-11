@@ -1,28 +1,21 @@
 import UIKit
 
+/// Shows the featured shows along the top as a collectionview
+/// then has a sectioned collectionview for each location
+
 class MainMenuViewController: UIViewController {
     var locationsHost: LocationsHost!
-    var currentLocation: Location?
+
+    var featuredShows: [Show]!
+    var featureShowsPresentor: FeaturedShowsPresentor!
+    @IBOutlet weak var featuredShowsCollectionView: UICollectionView!
 
     var locationNames = ["new-york", "london", "paris"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        featureShowsPresentor = FeaturedShowsPresentor(shows: featuredShows, collectionView: featuredShowsCollectionView)
         locationsHost = LocationsHost()
     }
-
-    @IBAction func knownLocationTapped(sender: UIButton) {
-        let locationName = locationNames[sender.tag]
-        currentLocation = locationsHost[locationName]
-
-        self.performSegueWithIdentifier("show_location", sender: self)
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let locationsVC = segue.destinationViewController as? ShowLocationsViewController {
-            locationsVC.location = currentLocation
-        }
-    }
-
 }
