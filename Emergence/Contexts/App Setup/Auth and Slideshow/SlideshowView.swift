@@ -1,10 +1,12 @@
 import UIKit
 
+/// Takes a [String] as imagePaths and goes through them all
+
 class SlideshowView: UIView {
     var imagePaths: [String] = []
-    var index = 0
+    private var index = -1
 
-    var imageView: UIImageView {
+    private var imageView: UIImageView {
         let imageView = UIImageView(frame: self.bounds)
         addSubview(imageView)
         imageView.contentMode = .ScaleAspectFill;
@@ -12,20 +14,21 @@ class SlideshowView: UIView {
         return imageView
     }
 
-    func imageAtIndex(index: Int) -> UIImage {
-        return UIImage(named: imagePaths[index])!
+    private func imageAtIndex(index: Int) -> UIImage {
+        let imageURL = NSBundle.mainBundle().URLForResource(imagePaths[index], withExtension: nil)!
+        let imageData = NSData(contentsOfURL: imageURL)!
+        return UIImage(data: imageData)!
     }
 
     func next() {
         index++
         if index == imagePaths.count { index = 0 }
-        imageAtIndex(index)
+        imageView.image = imageAtIndex(index)
     }
 
     func slidesLeft() -> Int {
         return imagePaths.count - index
     }
-
 
     func hasMoreSlides() -> Bool {
         return index < imagePaths.count - 1

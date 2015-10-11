@@ -7,9 +7,16 @@ import RxCocoa
 
 class AuthViewController: UIViewController {
 
-    var featuredShows:[Show]!
+    var featuredShows:[Show] = []
     var completedAuthentication = false
+    var completedCache = false
+
     @IBOutlet weak var slideshowView: SlideshowView!
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        startSlideshow()
+    }
 
 
     override func viewDidAppear(animated: Bool) {
@@ -50,6 +57,8 @@ class AuthViewController: UIViewController {
             locationsVC.featuredShows = self.featuredShows
         }
     }
+
+    // TODO: If authenticated, support skipping on tap?
 }
 
 extension AuthViewController {
@@ -57,6 +66,8 @@ extension AuthViewController {
     // TODO: Move to delegate / functions on the slideshow?
 
     func startSlideshow() {
+        slideshowView.imagePaths = ["image.png", "image2.png", "image.png", "image2.png"]
+        slideshowView.next()
         performSelector("nextSlide", withObject: nil, afterDelay: initialDelay)
     }
 
@@ -64,8 +75,16 @@ extension AuthViewController {
         self.performSegueWithIdentifier("menu", sender: self)
     }
 
+    func shouldFinishSlideshow() -> Bool {
+        let isFirstRun = true
+        let completedCache = featuredShows.isNotEmpty
+        let skipBecauseCached = completedCache && isFirstRun == false
+        let outOfSlides = slideshowView.hasMoreSlides() == false
+        return outOfSlides || skipBecauseCached
+    }
+
     func nextSlide() {
-        if slideshowView.hasMoreSlides() || completedAuthentication {
+        if shouldFinishSlideshow() {
             return endSlideshow()
         }
 

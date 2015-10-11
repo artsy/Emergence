@@ -33,16 +33,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AUTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlT-vV-Brz">
-                                <rect key="frame" x="1023" y="347" width="324" height="140"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Nn-QE-ykz" customClass="SlideshowView" customModule="Emergence" customModuleProvider="target">
+                                <rect key="frame" x="755" y="342" width="530" height="357"/>
+                                <color key="backgroundColor" red="1" green="0.83649739280150981" blue="0.89910102140284986" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="nq2-tb-esW"/>
                     <connections>
+                        <outlet property="slideshowView" destination="7Nn-QE-ykz" id="2Rg-yE-GsA"/>
                         <segue destination="cCl-rW-I3Z" kind="show" identifier="menu" id="cCu-zR-qCr"/>
                     </connections>
                 </viewController>
@@ -142,7 +142,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="show" id="Prh-Hm-UdD" customClass="ShowCollectionViewCell" customModule="Emergence" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-2" width="420" height="480"/>
+                                                <rect key="frame" x="0.0" y="-1.5" width="420" height="480"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="420" height="480"/>
@@ -215,7 +215,7 @@
         <!--App View Controller-->
         <scene sceneID="4Ye-VJ-IWy">
             <objects>
-                <navigationController id="gKK-Wx-Eme" customClass="AppViewController" customModule="Emergence" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="gKK-Wx-Eme" customClass="AppViewController" customModule="Emergence" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vGU-Js-FEj">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
                         <autoresizingMask key="autoresizingMask"/>
