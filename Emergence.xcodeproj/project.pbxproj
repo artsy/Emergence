@@ -41,8 +41,6 @@
 		60C3CB8A1BB14D9F005125EF /* Artworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB861BB14D9F005125EF /* Artworkable.swift */; };
 		60C3CB8B1BB14D9F005125EF /* NOTES in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB871BB14D9F005125EF /* NOTES */; };
 		60C3CB8C1BB14D9F005125EF /* Showable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB881BB14D9F005125EF /* Showable.swift */; };
-		60C3CB8F1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB8D1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift */; };
-		60C3CB901BB14DAC005125EF /* ShowLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB8E1BB14DAC005125EF /* ShowLocationsViewController.swift */; };
 		60C3CB921BB14F17005125EF /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB911BB14F17005125EF /* AppViewController.swift */; };
 		60C3CB951BB161E9005125EF /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB941BB161E9005125EF /* ShowViewController.swift */; };
 		60C3CB991BB16A3B005125EF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB981BB16A3B005125EF /* AuthViewController.swift */; };
@@ -100,8 +98,6 @@
 		60C3CB861BB14D9F005125EF /* Artworkable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artworkable.swift; sourceTree = "<group>"; };
 		60C3CB871BB14D9F005125EF /* NOTES */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTES; sourceTree = "<group>"; };
 		60C3CB881BB14D9F005125EF /* Showable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Showable.swift; sourceTree = "<group>"; };
-		60C3CB8D1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLocationCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		60C3CB8E1BB14DAC005125EF /* ShowLocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLocationsViewController.swift; sourceTree = "<group>"; };
 		60C3CB911BB14F17005125EF /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		60C3CB941BB161E9005125EF /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		60C3CB981BB16A3B005125EF /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -289,8 +285,6 @@
 				608D651F1BCACE5100F749B8 /* Artsy.png */,
 				60094A401BB99AF500016BB7 /* cities.js */,
 				60094A3E1BB99A9600016BB7 /* LocationsHost.swift */,
-				60C3CB8D1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift */,
-				60C3CB8E1BB14DAC005125EF /* ShowLocationsViewController.swift */,
 			);
 			path = "Presenting Locations";
 			sourceTree = "<group>";
@@ -568,13 +562,11 @@
 				60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */,
 				608D65241BCAD21D00F749B8 /* ShowSetCollectionViewCell.swift in Sources */,
 				608D651E1BCAC0CB00F749B8 /* ShowCollectionViewCell.swift in Sources */,
-				60C3CB8F1BB14DAC005125EF /* ShowLocationCollectionViewDataSource.swift in Sources */,
 				60094A391BB95AAF00016BB7 /* AppSetup.swift in Sources */,
 				60C3CB921BB14F17005125EF /* AppViewController.swift in Sources */,
 				60C3CB841BB14D95005125EF /* Imageable.swift in Sources */,
 				608D650F1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift in Sources */,
 				60C3CB811BB14D84005125EF /* AppContext.swift in Sources */,
-				60C3CB901BB14DAC005125EF /* ShowLocationsViewController.swift in Sources */,
 				60C3CB771BB14D50005125EF /* Artwork.swift in Sources */,
 				60094A3D1BB9819C00016BB7 /* Observable+Networking.swift in Sources */,
 				608D65221BCACE9700F749B8 /* ShowsOverviewViewController.swift in Sources */,
