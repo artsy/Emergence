@@ -3,6 +3,9 @@ import UIKit
 /// Just a dumb presentation class
 
 class ShowCollectionViewCell: UICollectionViewCell {
+
+    static let reuseIdentifier = "ShowCollectionViewCell"
+
     @IBOutlet weak var partnerNameLabel: UILabel!
     @IBOutlet weak var showNameLabel: UILabel!
     @IBOutlet weak var ausstellungsdauerLabel: UILabel!

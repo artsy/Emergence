@@ -15,6 +15,8 @@ class AuthViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         startSlideshow()
+
+        self.featuredShows = [Show.stubbedShow()]
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -50,8 +52,8 @@ class AuthViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let locationsVC = segue.destinationViewController as? MainMenuViewController {
-            locationsVC.featuredShows = self.featuredShows
+        if let locationsVC = segue.destinationViewController as? ShowsOverviewViewController {
+            locationsVC.cachedShows = self.featuredShows
         }
     }
 

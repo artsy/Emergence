@@ -3,7 +3,7 @@ import UIKit
 
 struct LocationsHost {
 
-    let featured = ["new-york", "london", "los-angeles", "paris", "berlin", "miami", "san-francisco", "hong-kong", "milan", "sao-paolo", "tokyo"]
+    let featured = ["new-york", "london", "los-angeles", "paris", "berlin", "miami", "san-francisco", "hong-kong", "milan", "sao-paulo", "tokyo"]
     let cities: [Location]
 
     // Gnarly function to grab locations from local JSON cache
