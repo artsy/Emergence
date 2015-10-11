@@ -1,15 +1,6 @@
 import UIKit
 import SDWebImage
 
-/// Just a dumb presentation class
-class ShowCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var partnerNameLabel: UILabel!
-    @IBOutlet weak var showNameLabel: UILabel!
-    @IBOutlet weak var ausstellungsdauerLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-}
-
-
 /// Handles going from a [Show] to -> UICollectionView cells
 
 class FeaturedShowsPresentor: NSObject, UICollectionViewDataSource {
@@ -23,13 +14,17 @@ class FeaturedShowsPresentor: NSObject, UICollectionViewDataSource {
         collectionView.dataSource = self
     }
 
+    func showAtIndexPath(index: NSIndexPath) -> Show {
+        return shows[index.row]
+    }
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return shows.count
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
-        let show = shows[indexPath.row]
+        let show = showAtIndexPath(indexPath)
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("show", forIndexPath: indexPath) as! ShowCollectionViewCell
 
 

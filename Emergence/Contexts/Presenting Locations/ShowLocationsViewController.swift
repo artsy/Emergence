@@ -12,8 +12,7 @@ class ShowLocationsViewController: UIPageViewController, UIPageViewControllerDat
 
     override func viewDidLoad() {
         guard let appVC = self.appViewController else {
-            print("you need an app VC")
-            return
+            return print("you need an app VC")
         }
 
         let network = appVC.context.network

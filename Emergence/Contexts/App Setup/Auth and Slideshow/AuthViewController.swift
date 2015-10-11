@@ -9,7 +9,6 @@ class AuthViewController: UIViewController {
 
     var featuredShows:[Show] = []
     var completedAuthentication = false
-    var completedCache = false
 
     @IBOutlet weak var slideshowView: SlideshowView!
 
@@ -18,12 +17,10 @@ class AuthViewController: UIViewController {
         startSlideshow()
     }
 
-
     override func viewDidAppear(animated: Bool) {
 
         guard let appVC = self.appViewController else {
-            print("you need an app VC")
-            return
+            return print("you need an app VC")
         }
 
         appVC.auth {

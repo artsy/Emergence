@@ -1,6 +1,10 @@
 import Foundation
 
-let nsdateMonthFormatter = NSDateFormatter()
+private let nsdateMonthFormatter:NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "MMM"
+    return formatter
+}()
 
 extension NSDate {
 
