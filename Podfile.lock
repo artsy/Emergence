@@ -13,7 +13,6 @@ PODS:
   - FBSnapshotTestCase (1.8.1)
   - Gloss (0.5.3)
   - ISO8601DateFormatter (0.7)
-  - JSQDataSourcesKit (2.0.0)
   - Keys (1.0.0)
   - Moya/Core (2.4.1):
     - Alamofire (~> 2.0)
@@ -44,8 +43,6 @@ DEPENDENCIES:
   - Artsy+UILabels (from `https://github.com/artsy/Artsy-UILabels.git`)
   - FBSnapshotTestCase
   - Gloss
-  - JSQDataSourcesKit (from `https://github.com/jessesquires/JSQDataSourcesKit.git`,
-    branch `develop`)
   - Keys (from `Pods/CocoaPodsKeys`)
   - Moya/RxSwift
   - Nimble (= 2.0.0-rc.3)
@@ -67,9 +64,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/artsy/Artsy-UIFonts.git
   Artsy+UILabels:
     :git: https://github.com/artsy/Artsy-UILabels.git
-  JSQDataSourcesKit:
-    :branch: develop
-    :git: https://github.com/jessesquires/JSQDataSourcesKit.git
   Keys:
     :path: Pods/CocoaPodsKeys
   RxCocoa:
@@ -92,9 +86,6 @@ CHECKOUT OPTIONS:
   Artsy+UILabels:
     :commit: 4f0a3323fb7e87fd25029fb493a02a45565e0bbc
     :git: https://github.com/artsy/Artsy-UILabels.git
-  JSQDataSourcesKit:
-    :commit: 94b481ee3df6103ee44c7dd0d0416655475481b6
-    :git: https://github.com/jessesquires/JSQDataSourcesKit.git
   RxCocoa:
     :commit: ebd89c38832b0f4f9c8ad578b4cf2a1ede91ced4
     :git: https://github.com/orta/RxSwift.git
@@ -112,7 +103,6 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 3dc3899168747a0319c5278f5b3445c13a6532dd
   Gloss: a6c096af543554313e98fd113108b768ade78159
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
-  JSQDataSourcesKit: 23b6982ce9bc8526396fa00fe450160d616ed25e
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   Moya: aa0fba7f9c98a0bcb95f2d4222ee848dcb0e4b8e
   Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948

@@ -26,14 +26,11 @@ def artsy_pods()
 end
 
 def app_pods()
-  pod 'Gloss'
+  pod 'Gloss'   
   pod 'Moya/RxSwift'
   pod 'RxSwift', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'RxCocoa', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'SDWebImage'
-#  pod 'RxDataSourceStarterKit', :podspec => "externals/RxDataSourceStarterKit.podspec"1
-  pod 'JSQDataSourcesKit', :git => 'https://github.com/jessesquires/JSQDataSourcesKit.git', :branch => 'develop'
-
 end
 
 def platform_pods()
