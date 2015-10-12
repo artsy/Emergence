@@ -56,7 +56,7 @@ class ShowsOverviewViewController: UICollectionViewController {
     }
 
     func showTapped(show: Show) {
-        // can't pass the show as a sender, but be an object
+        // can't pass the show as a sender - it has to be an object
         currentShow = show
         performSegueWithIdentifier("show", sender: self)
     }
@@ -74,6 +74,9 @@ class ShowsOverviewViewController: UICollectionViewController {
 // All the collection view gubbins
 
 extension ShowsOverviewViewController {
+
+    // MARK: UICollectionViewDataSource
+
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return emitters.count
     }
