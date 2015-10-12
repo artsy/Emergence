@@ -10,6 +10,9 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
 
     private var emitter:ShowEmitter!
     func configureWithEmitter(emitter:ShowEmitter) {
+        self.emitter = nil
+        collectionView.reloadData()
+
         self.emitter = emitter
         titleLabel.text = emitter.title
         emitter.onUpdate { _ in

@@ -30,38 +30,29 @@ class ShowsOverviewViewController: UICollectionViewController {
         let featuredEmitter = FeaturedShowEmitter(title: "Featured Shows", initialShows:cachedShows, network: network)
         if cachedShows.isEmpty { featuredEmitter.getShows() }
 
-        // Grab the inital location data based on the first key in the locations host
-        let aboveTheFoldID = locationsHost.featured.first!
-        let firstLocationEmitter = LocationBasedShowEmitter(location: locationsHost[aboveTheFoldID]!, network: network)
-        firstLocationEmitter.getShows()
-
-        // TODO: remove the top one
-        let otherEmitters = locationsHost.featured.map { locationID in
+        let otherEmitters:[ShowEmitter] = locationsHost.featured.map { locationID in
             return LocationBasedShowEmitter(location: locationsHost[locationID]!, network: network)
         }
 
-        // TODO: find a good way to merge arrays?
-        var allEmitters:[ShowEmitter] = [featuredEmitter, firstLocationEmitter]
-        for emitter in otherEmitters {
-            allEmitters.append(emitter)
-        }
-
-        emitters = allEmitters
+        let featured:[ShowEmitter] = [featuredEmitter]
+        emitters = featured + otherEmitters
         collectionView.reloadData()
+
+        // Get the above the fold content
+        requestShowsAtIndex(1)
     }
 
-    func requestShowsForBelowFoldEmitters() {
-        var token: dispatch_once_t = 0
-        dispatch_once(&token) {
+    func requestShowsAtIndex(index: Int) {
 
-            let aboveTheFoldID = self.locationsHost.featured.first!
-            for emitter in self.emitters {
-                guard let emitter = emitter as? LocationBasedShowEmitter else { continue }
-                if emitter.location.slug == aboveTheFoldID { continue }
+        // extra index for the FeaturedShowEmitter
+        if index < emitters.count - 2 {
+            let anEmitter = emitters[index]
+            guard let emitter = anEmitter as? LocationBasedShowEmitter else { return }
+            if emitter.numberOfShows != 0 { return }
 
-                emitter.getShows()
-            }
+            emitter.getShows()
         }
+
     }
 
     func showTapped(show: Show) {
@@ -111,7 +102,7 @@ extension ShowsOverviewViewController {
 
         if indexPath.section > 1 {
             // this handles multiple calls fine
-            requestShowsForBelowFoldEmitters()
+            requestShowsAtIndex(indexPath.section + 1)
         }
         return false
     }
