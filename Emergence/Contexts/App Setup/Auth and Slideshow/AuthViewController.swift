@@ -15,8 +15,6 @@ class AuthViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         startSlideshow()
-
-        self.featuredShows = [Show.stubbedShow()]
     }
 
     override func viewDidAppear(animated: Bool) {

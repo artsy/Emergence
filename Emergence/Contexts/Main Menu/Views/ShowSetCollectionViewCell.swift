@@ -48,20 +48,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         guard let cell = cell as? ShowCollectionViewCell else { fatalError("Expected to display a ShowCollectionViewCell") }
 
         let show = emitter.showAtIndexPath(indexPath)
-        cell.showNameLabel.text = show.name
-        cell.partnerNameLabel.text = show.partner.name
-
-        if let thumbnailURL = show.bestAvailableThumbnailURL() {
-            cell.imageView.sd_setImageWithURL(thumbnailURL)
-        } else {
-            print("Could not find a thumbnail for \(show.name) - found \(show.imageVersions)")
-        }
-
-        if let start = show.startDate, end = show.endDate {
-            cell.ausstellungsdauerLabel.text = start.ausstellungsdauerToDate(end)
-        } else {
-            cell.ausstellungsdauerLabel.text = ""
-        }
+        cell.configureWithShow(show)
     }
 
 

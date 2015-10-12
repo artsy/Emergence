@@ -51,7 +51,8 @@ extension ImageURLThumbnailable {
             return nil
         }
 
-        let url = imageFormatString.stringByReplacingOccurrencesOfString("{?image_version}", withString: thumbnail.rawValue)
+        var url = imageFormatString.stringByReplacingOccurrencesOfString("{?image_version}", withString: thumbnail.rawValue)
+        url = url.stringByReplacingOccurrencesOfString(":version", withString: thumbnail.rawValue)
         return NSURL(string: url)!
     }
 }

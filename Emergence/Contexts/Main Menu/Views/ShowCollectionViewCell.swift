@@ -11,6 +11,23 @@ class ShowCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ausstellungsdauerLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
 
+    func configureWithShow(show:Show) {
+        showNameLabel.text = show.name
+        partnerNameLabel.text = show.partner.name
+
+        if let thumbnailURL = show.bestAvailableThumbnailURL() {
+            imageView.sd_setImageWithURL(thumbnailURL)
+        } else {
+            print("Could not find a thumbnail for \(show.name) - found \(show.imageVersions)")
+        }
+
+        if let start = show.startDate, end = show.endDate {
+            ausstellungsdauerLabel.text = start.ausstellungsdauerToDate(end)
+        } else {
+            ausstellungsdauerLabel.text = ""
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

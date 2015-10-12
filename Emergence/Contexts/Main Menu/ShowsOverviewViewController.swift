@@ -109,6 +109,10 @@ extension ShowsOverviewViewController {
         // We don't want this collectionView's cells to become focused. 
         // Instead the `UICollectionView` contained in the cell should become focused.
 
+        if indexPath.section > 1 {
+            // this handles multiple calls fine
+            requestShowsForBelowFoldEmitters()
+        }
         return false
     }
 
