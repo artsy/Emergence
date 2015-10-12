@@ -53,8 +53,8 @@ extension Observable {
             return classType.init(json: object)
         }
 
-        return map { representor in
-            guard let response = representor as? MoyaResponse else {
+        return map { response in
+            guard let response = response as? MoyaResponse else {
                 throw ORMError.ORMNoRepresentor
             }
 
