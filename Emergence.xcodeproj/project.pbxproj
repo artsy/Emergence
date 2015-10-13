@@ -27,6 +27,7 @@
 		60A4C4AF1BCCEDC20092CC74 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C4AE1BCCEDC20092CC74 /* TVServices.framework */; };
 		60A4C4B21BCCEDC20092CC74 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4C4B11BCCEDC20092CC74 /* ServiceProvider.swift */; };
 		60A4C4B61BCCEDC20092CC74 /* FrontPage.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 60A4C4AD1BCCEDC20092CC74 /* FrontPage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		60A584731BCD69420006B8B4 /* ShowDataSource+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A584721BCD69420006B8B4 /* ShowDataSource+Delegate.swift */; };
 		60B647EC1BCCF42C00908EE6 /* Artsy_Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B647EA1BCCF42C00908EE6 /* Artsy_Authentication.framework */; };
 		60B647ED1BCCF42C00908EE6 /* Keys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B647EB1BCCF42C00908EE6 /* Keys.framework */; };
 		60C390321BC29A5E002589E3 /* Partnerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C390311BC29A5E002589E3 /* Partnerable.swift */; };
@@ -108,6 +109,7 @@
 		60A4C4AE1BCCEDC20092CC74 /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
 		60A4C4B11BCCEDC20092CC74 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		60A4C4B31BCCEDC20092CC74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60A584721BCD69420006B8B4 /* ShowDataSource+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowDataSource+Delegate.swift"; sourceTree = "<group>"; };
 		60B647EA1BCCF42C00908EE6 /* Artsy_Authentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Artsy_Authentication.framework; path = "Pods/../build/Debug-appletvos/Artsy_Authentication.framework"; sourceTree = "<group>"; };
 		60B647EB1BCCF42C00908EE6 /* Keys.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keys.framework; path = "Pods/../build/Debug-appletvos/Keys.framework"; sourceTree = "<group>"; };
 		60C390311BC29A5E002589E3 /* Partnerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partnerable.swift; sourceTree = "<group>"; };
@@ -233,6 +235,14 @@
 				60A4C4B31BCCEDC20092CC74 /* Info.plist */,
 			);
 			path = FrontPage;
+			sourceTree = "<group>";
+		};
+		60A5846F1BCD677F0006B8B4 /* Subpages */ = {
+			isa = PBXGroup;
+			children = (
+				60A584721BCD69420006B8B4 /* ShowDataSource+Delegate.swift */,
+			);
+			name = Subpages;
 			sourceTree = "<group>";
 		};
 		60C3CB1B1BB14025005125EF = {
@@ -370,6 +380,7 @@
 		60C3CB931BB161D6005125EF /* Presenting a Show */ = {
 			isa = PBXGroup;
 			children = (
+				60A5846F1BCD677F0006B8B4 /* Subpages */,
 				60C3CB941BB161E9005125EF /* ShowViewController.swift */,
 			);
 			path = "Presenting a Show";
@@ -655,6 +666,7 @@
 				60C390341BC29AA3002589E3 /* Partner.swift in Sources */,
 				60C390321BC29A5E002589E3 /* Partnerable.swift in Sources */,
 				60C3CB781BB14D50005125EF /* Image.swift in Sources */,
+				60A584731BCD69420006B8B4 /* ShowDataSource+Delegate.swift in Sources */,
 				60DD51D31BCAE27C00317482 /* ShowEmitter.swift in Sources */,
 				608D65141BCA803E00F749B8 /* SlideshowView.swift in Sources */,
 				60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */,
