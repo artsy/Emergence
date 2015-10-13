@@ -17,9 +17,11 @@ class ShowViewController: UIViewController {
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var artworkCollectionView: UICollectionView!
 
-    var imageDelegate: CollectionViewDelegate<Image>!
-    var artworkDelegate: ArtworkDelegate!
+    @IBOutlet weak var scrollView: UIScrollView!
+
+    var artworkDelegate: CollectionViewDelegate<Artwork>!
     var artworkVVM: CollectionViewDataSource<Artwork>!
+    var imageDelegate: CollectionViewDelegate<Image>!
     var imageVVM: CollectionViewDataSource<Image>!
 
     override func viewDidLoad() {
@@ -41,13 +43,11 @@ class ShowViewController: UIViewController {
         imageVVM = CollectionViewDataSource<Image>(imagesCollectionView, request: imageNetworking, cellIdentifier: "image")
         imageDelegate = CollectionViewDelegate<Image>(datasource: imageVVM, collectionView: imagesCollectionView)
 
-//        // Setup the Artwork pager
-//        let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id)
-//        let artworkNetworking = network.request(showArtworks).mapSuccessfulHTTPToObjectArray(Artwork)
-//        artworkVVM = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkNetworking)
-
-//        artworkDelegate = ArtworkDelegate(datasource: artworkVVM)
-//        artworkDelegate.setup(artworkCollectionView)
+        // Setup the Artwork pager
+        let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id)
+        let artworkNetworking = network.request(showArtworks).mapSuccessfulHTTPToObjectArray(Artwork)
+        artworkVVM = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkNetworking, cellIdentifier: "artwork")
+        artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkVVM, collectionView: artworkCollectionView)
     }
     
     func showDidLoad(show: Show) {
@@ -66,12 +66,34 @@ class ShowViewController: UIViewController {
             showAusstellungsdauerLabel.removeFromSuperview()
         }
     }
+
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+
+
+        guard let next = context.nextFocusedView else {
+            return print("Next view was empty in didUpdateFocusInContext")
+        }
+
+        let yOffset: CGFloat
+        if next.isDescendantOfView(imagesCollectionView) { yOffset = 0 }
+        else if next.isDescendantOfView(artworkCollectionView) { yOffset = 1080 }
+        else { return }
+
+        coordinator.addCoordinatedAnimations({
+            self.scrollView.contentOffset = CGPoint(x: 0, y: yOffset)
+        }, completion: nil)
+    }
 }
 
 class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
 }
 
+class ArtworkCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
+}
 
 class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegate {
 
@@ -124,73 +146,20 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         return nil
     }
 
-        func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 
-            guard let item = artworkDataSource.itemForIndexPath(indexPath) else { return }
-            guard let image = imageForItem(item) else { return }
+        guard let item = artworkDataSource.itemForIndexPath(indexPath) else { return }
+        guard let image = imageForItem(item) else { return }
 
-            if let cell = cell as? ImageCollectionViewCell, let url = image.bestAvailableThumbnailURL() {
-                cell.image.sd_setImageWithURL(url)
-            }
-
-
+        if let cell = cell as? ImageCollectionViewCell, let url = image.bestAvailableThumbnailURL() {
+            cell.image.sd_setImageWithURL(url)
         }
 
-}
-
-
-
-class ArtworkDelegate: NSObject, ARCollectionViewMasonryLayoutDelegate {
-
-    let dimensionLength:CGFloat = 630
-    let artworkDataSource: CollectionViewDataSource<Artwork>
-
-    init(datasource: CollectionViewDataSource<Artwork>) {
-        artworkDataSource = datasource
-    }
-
-    func setup(collectionView: UICollectionView) {
-        let layout = ARCollectionViewMasonryLayout(direction: .Horizontal)
-        layout.rank = 1
-        layout.dimensionLength = collectionView.bounds.height
-        layout.itemMargins = CGSize(width: 40, height: 0)
-
-        collectionView.delegate = self
-        collectionView.collectionViewLayout = layout
-        collectionView.setNeedsLayout()
-    }
-
-    // Let's see if I get time for an artwork view
-
-    //    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-
-    //        let show = emitter.showAtIndexPath(indexPath)
-    //        hostViewController.showTapped(show)
-    //    }
-
-//    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-//        guard let cell = cell as? ShowCollectionViewCell else { fatalError("Expected to display a ShowCollectionViewCell") }
-
-//        let artwork = artworkDataSource.itemForIndexPath(indexPath)
-//        cell.configureWithShow(show)
-//    }
-
-    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: ARCollectionViewMasonryLayout!, variableDimensionForItemAtIndexPath indexPath: NSIndexPath!) -> CGFloat
-    {
-        var artwork = artworkDataSource.itemForIndexPath(indexPath)
-
-        // No default image, so show a square?
-        guard let image = artwork?.defaultImage as Imageable? else {
-            return dimensionLength
+        if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestAvailableThumbnailURL() {
+            cell.artistNameLabel.text = "Not built yet"
+            cell.titleLabel.text = artwork.title
+            cell.image.sd_setImageWithURL(url)
         }
-
-        if let ratio = image.aspectRatio {
-            return dimensionLength * ratio
-        }
-
-        // Hrm is this right?
-        let ratio = image.imageSize.height / image.imageSize.width
-        return dimensionLength * ratio
     }
 }
 

@@ -13,12 +13,6 @@ class AppViewController: UINavigationController {
         return AppContext(network:network, auth:auth)
     }()
 
-    // REMOVE ME
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        openShowWithID("galerie-jordanow-olaf-unverzart")
-    }
-
     func openShowWithID(showID: String?) {
         func topVCIsAuth() -> Bool {
             guard let topVC = self.topViewController else { return true }

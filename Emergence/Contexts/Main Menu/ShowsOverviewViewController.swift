@@ -52,7 +52,6 @@ class ShowsOverviewViewController: UICollectionViewController {
 
             emitter.getShows()
         }
-
     }
 
     func showTapped(show: Show) {

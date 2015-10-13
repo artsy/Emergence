@@ -18,9 +18,6 @@ class AuthViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        // REMOVE ME
-        return
-
         guard let appVC = self.appViewController else {
             return print("you need an app VC")
         }
