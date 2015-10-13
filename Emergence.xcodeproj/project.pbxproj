@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25E009CB0867CFD5DF5E9D94 /* Pods_Emergence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEACFC32B54605D5E6050237 /* Pods_Emergence.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		2E6AF147D7C9A489A51F8C0D /* Pods_EmergenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E41A496460C1BA17161DE8F /* Pods_EmergenceTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		25E009CB0867CFD5DF5E9D94 /* Pods_Emergence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEACFC32B54605D5E6050237 /* Pods_Emergence.framework */; };
+		2E6AF147D7C9A489A51F8C0D /* Pods_EmergenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E41A496460C1BA17161DE8F /* Pods_EmergenceTests.framework */; };
 		60094A371BB95A5B00016BB7 /* ArtsyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A361BB95A5B00016BB7 /* ArtsyAPI.swift */; };
 		60094A391BB95AAF00016BB7 /* AppSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A381BB95AAF00016BB7 /* AppSetup.swift */; };
 		60094A3B1BB95BD500016BB7 /* XAppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A3A1BB95BD500016BB7 /* XAppToken.swift */; };
@@ -841,7 +841,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Emergence/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.artsy.shows;
@@ -859,7 +858,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Emergence/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.artsy.shows;

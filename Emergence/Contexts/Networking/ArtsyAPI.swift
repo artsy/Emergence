@@ -82,7 +82,7 @@ extension ArtsyAPI : MoyaTarget {
             return "/api/v1/partner/\(partnerID)/show/\(showID)/artworks/"
 
         case .ImagesForShow(let showID):
-            return "/api/v1/show/\(showID)/images"
+            return "/api/v1/partner_show/\(showID)/images"
 
         case .RunningShowsNearLocation, .UpcomingShowsNearLocation, .PastShowsNearLocation:
             return "/api/v1/shows"

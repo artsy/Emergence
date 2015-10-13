@@ -1,4 +1,4 @@
-import Gloss
+    import Gloss
 import ISO8601DateFormatter
 
 struct Show: Showable, ImageURLThumbnailable {
@@ -15,6 +15,8 @@ struct Show: Showable, ImageURLThumbnailable {
     var installShots: [Imageable]
     var artworks: [Artworkable]
 
+    var locationOneLiner: String?
+
     var imageFormatString: String
     var imageVersions: [String]
 
@@ -25,7 +27,8 @@ struct Show: Showable, ImageURLThumbnailable {
 
         let aBitAgo = NSDate(timeIntervalSinceNow: -36546278)
         let aBitInTheFuture = NSDate(timeIntervalSinceNow: 3654678)
-        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: nil, showDescription: nil, startDate: aBitAgo, endDate: aBitInTheFuture, installShots: [image], artworks: [artwork], imageFormatString: "", imageVersions: [""])
+
+        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: nil, showDescription: nil, startDate: aBitAgo, endDate: aBitInTheFuture, installShots: [image], artworks: [artwork], locationOneLiner: nil, imageFormatString: "", imageVersions: [""])
     }
 }
 
@@ -62,6 +65,7 @@ extension Show: Decodable {
 
         artworks = []
         installShots = []
+        locationOneLiner = Show.locationOneLinerFromJSON(json)
 
         // ImageURLThumbnailable conformance
         if
@@ -73,6 +77,42 @@ extension Show: Decodable {
             imageFormatString = ""
             imageVersions = []
         }
+    }
+
+    // Gets a one liner to describe the show
+    // taking details out of a JSON dictionary
+    static func locationOneLinerFromJSON(json: JSON) -> String? {
+        let location:JSON? = "location" <~~ json
+        if let location = location {
+            
+            // City, street
+            if let city: String = "city" <~~ location,
+               let address: String = "address" <~~ location {
+                    return "\(city), \(address)"
+            }
+
+            // City
+            if let city: String = "city" <~~ location {
+                return city
+            }
+        }
+
+        let fairLocation:JSON? = "fair_location" <~~ json
+        let fairJSON:JSON? = "fair" <~~ json
+
+        // Without local location or fair data, we can't continue
+        guard let fair:JSON = fairJSON else { return nil }
+
+        // Fair, booth #
+        if let fairLocation = fairLocation {
+            if let name = fair["name"] as? String,
+               let loc = fairLocation["display"] as? String {
+                return "\(name), \(loc)"
+            }
+        }
+
+        // Fair
+        return fair["name"] as? String
     }
 }
 

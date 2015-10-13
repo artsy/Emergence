@@ -16,6 +16,7 @@ struct Artwork: Artworkable {
 
         return defaultImages.isNotEmpty ? defaultImages.first : self.images.first
     }()
+    
 }
 
 extension Artwork: Decodable {

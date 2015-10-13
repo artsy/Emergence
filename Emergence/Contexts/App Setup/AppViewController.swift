@@ -49,10 +49,8 @@ class AppViewController: UINavigationController {
         if context.network.authToken.isValid {
             completion()
         } else {
-            print("Authenticating")
-            context.auth.getWeekLongXAppTrialToken { (token, error) -> Void in
+            context.auth.getWeekLongXAppTrialToken { token, error in
 
-                print("Authenticated")
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setObject(token.token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
                 defaults.setObject(token.expirationDate, forKey: XAppToken.DefaultsKeys.TokenExpiry.rawValue)

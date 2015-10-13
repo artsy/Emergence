@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (2.0.2)
+  - ARCollectionViewMasonryLayout (2.1.2)
   - Artsy+Authentication (1.1.0):
     - ISO8601DateFormatter
     - LVTwitterOAuthClient
@@ -36,6 +37,7 @@ PODS:
   - SDWebImage/Core (3.7.3)
 
 DEPENDENCIES:
+  - ARCollectionViewMasonryLayout
   - Artsy+Authentication (from `https://github.com/artsy/Artsy-Authentication.git`,
     branch `tvos`)
   - Artsy+UIColors (from `https://github.com/artsy/Artsy-UIColors.git`, branch `tvos`)
@@ -95,6 +97,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  ARCollectionViewMasonryLayout: 776730bdedd0c7570a5e904c370e4e120f98ea62
   Artsy+Authentication: c3de6ec593e66e1645e3e402b23f5d4a94a09d38
   Artsy+UIColors: 086dc3cf3fa8672f765302002e68969c83b202b2
   Artsy+UIFonts: 28db6b1c8022fc3bc2e62db68f32381e1f33aa6f
@@ -113,4 +116,4 @@ SPEC CHECKSUMS:
   RxSwift: c66f7956b2e5fb397a62bf4a3ec6072749a816a7
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
 
-COCOAPODS: 0.39.0.beta.4
+COCOAPODS: 0.39.0

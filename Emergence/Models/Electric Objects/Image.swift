@@ -2,7 +2,7 @@ import Gloss
 import Foundation
 import CoreGraphics
 
-struct Image: Imageable {
+struct Image: Imageable, ImageURLThumbnailable {
     let id: String
     let imageFormatString: String
     let imageVersions: [String]
