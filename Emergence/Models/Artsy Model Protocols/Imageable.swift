@@ -6,10 +6,6 @@ import CoreGraphics
 protocol Imageable {
     var id: String { get }
 
-    /// There is a new image url API, use this instead
-    var imageFormatString: String { get }
-    var imageVersions: [String] { get }
-    
     var imageSize: CGSize { get }
     var aspectRatio: CGFloat? { get }
     
@@ -19,8 +15,7 @@ protocol Imageable {
 /// Extends the Imageable protocol with image URL handling
 
 extension Imageable {
-
-    
+   
 }
 
 

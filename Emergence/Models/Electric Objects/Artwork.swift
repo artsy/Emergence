@@ -8,6 +8,14 @@ struct Artwork: Artworkable {
     
     let artists: [Artistable]?
     let images: [Imageable]
+
+    lazy var defaultImage: Imageable? = {
+        let defaultImages = self.images.filter({ (image) -> Bool in
+            image.isDefault
+        })
+
+        return defaultImages.isNotEmpty ? defaultImages.first : self.images.first
+    }()
 }
 
 extension Artwork: Decodable {

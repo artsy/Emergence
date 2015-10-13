@@ -3,10 +3,10 @@ import UIKit
 
 struct LocationsHost {
 
-    let featured = ["new-york", "london", "los-angeles", "paris", "berlin", "miami", "san-francisco", "hong-kong", "milan", "sao-paolo", "tokyo"]
+    let featured = ["new-york", "london", "los-angeles", "paris", "berlin", "miami", "san-francisco", "hong-kong", "milan", "sao-paulo", "tokyo"]
     let cities: [Location]
 
-    // Gnarly function to grab locations from local cache
+    // Gnarly function to grab locations from local JSON cache
     init? () {
         let bundle = NSBundle.mainBundle()
         guard let citiesPath = bundle.pathForResource("cities", ofType: "js")  else {

@@ -9,25 +9,32 @@ class ShowViewController: UIViewController {
     var show: Show!
 
     @IBOutlet weak var showTitleLabel: UILabel!
+
+    @IBOutlet weak var showPartnerNameLabel: UILabel!
+    @IBOutlet weak var showAusstellungsdauerLabel: UILabel!
+    @IBOutlet weak var showLocationLabel: UILabel!
+
     @IBOutlet weak var showPreviewImage: UIImageView!
-    @IBOutlet weak var showDescription: UILabel!
 
     override func viewDidLoad() {
-        precondition(self.show != nil, "you need a show to laod the view controller");
+        precondition(self.show != nil, "you need a show to load the view controller");
         precondition(self.appViewController != nil, "you need an app VC");
 
         super.viewDidLoad()
 
-        guard let appVC = self.appViewController else {
-            print("you need an app VC")
-            return
+        showTitleLabel.text = show.name
+        showPartnerNameLabel.text = show.partner.name
+        showLocationLabel.text = "not done yet"
+
+        if let start = show.startDate, end = show.endDate {
+            showAusstellungsdauerLabel.text = start.ausstellungsdauerToDate(end)
+        } else {
+            showAusstellungsdauerLabel.removeFromSuperview()
         }
 
-        // Give a whiter BG
-        let white = UIView(frame: view.bounds)
-        white.backgroundColor = UIColor(white: 1, alpha: 0.5)
-        view.addSubview(white)
-        view.sendSubviewToBack(white)
+        guard let appVC = self.appViewController else {
+            return print("you need an app VC")
+        }
 
         let network = appVC.context.network
         let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id)
