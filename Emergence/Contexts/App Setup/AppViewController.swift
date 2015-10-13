@@ -13,21 +13,36 @@ class AppViewController: UINavigationController {
         return AppContext(network:network, auth:auth)
     }()
 
-    // TODO: What about if app is launching from scratch,
-    //       and they are in the auth slideshow?
+    // REMOVE ME
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        openShowWithID("galerie-jordanow-olaf-unverzart")
+    }
 
     func openShowWithID(showID: String?) {
+        func topVCIsAuth() -> Bool {
+            guard let topVC = self.topViewController else { return true }
+            return topVC.isKindOfClass(AuthViewController) == false
+        }
+
         guard let id = showID else { return }
 
         auth {
             let info = ArtsyAPI.ShowInfo(showID: id)
             self.context.network.request(info).mapSuccessfulHTTPToObject(Show).subscribe { event in
                 guard let show = event.element else { return }
-                guard let showVC = self.storyboard?.instantiateViewControllerWithIdentifier("show") as? ShowViewController else { return }
-                showVC.show = show
-                self.pushViewController(showVC, animated: true)
+                
+                delayWhile(1, check: topVCIsAuth, closure: {
+                    self.presentShowViewControllerForShow(show)
+                })
             }
         }
+    }
+
+    func presentShowViewControllerForShow(show: Show) {
+        guard let showVC = self.storyboard?.instantiateViewControllerWithIdentifier("show") as? ShowViewController else { return }
+        showVC.show = show
+        self.pushViewController(showVC, animated: true)
     }
 
     func auth(completion: () -> () ) {

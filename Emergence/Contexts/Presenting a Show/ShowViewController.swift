@@ -5,7 +5,6 @@ import Gloss
 
 class ShowViewController: UIViewController {
     var index = -1
-    let dispose = DisposeBag()
     var show: Show!
 
     @IBOutlet weak var showTitleLabel: UILabel!
