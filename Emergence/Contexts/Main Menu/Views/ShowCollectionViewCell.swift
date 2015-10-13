@@ -1,5 +1,13 @@
 import UIKit
 
+protocol ShowCollectionViewCellShowType {
+    var name: String { get }
+    var partnerName: String { get }
+    var startDate: NSDate? { get }
+    var endDate: NSDate? { get }
+    func bestAvailableThumbnailURL() -> NSURL?
+}
+
 /// Just a dumb presentation class
 
 class ShowCollectionViewCell: UICollectionViewCell {
@@ -11,14 +19,14 @@ class ShowCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ausstellungsdauerLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
 
-    func configureWithShow(show:Show) {
+    func configureWithShow(show: ShowCollectionViewCellShowType) {
         showNameLabel.text = show.name
-        partnerNameLabel.text = show.partner.name
+        partnerNameLabel.text = show.partnerName
 
         if let thumbnailURL = show.bestAvailableThumbnailURL() {
             imageView.sd_setImageWithURL(thumbnailURL)
         } else {
-            print("Could not find a thumbnail for \(show.name) - found \(show.imageVersions)")
+            print("Could not find a thumbnail for \(show.name))")
         }
 
         if let start = show.startDate, end = show.endDate {

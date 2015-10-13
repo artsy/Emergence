@@ -14,10 +14,12 @@ class SlideshowView: UIView {
         return imageView
     }
 
-    private func imageAtIndex(index: Int) -> UIImage {
-        let imageURL = NSBundle.mainBundle().URLForResource(imagePaths[index], withExtension: nil)!
-        let imageData = NSData(contentsOfURL: imageURL)!
-        return UIImage(data: imageData)!
+    private func imageAtIndex(index: Int) -> UIImage? {
+        let imageURLMaybe = NSBundle.mainBundle().URLForResource(imagePaths[index], withExtension: nil)
+        guard let imageURL:NSURL = imageURLMaybe else { return nil }
+        let imageDataMaybe = NSData(contentsOfURL: imageURL)
+        guard let imageData:NSData = imageDataMaybe else { return nil }
+        return UIImage(data: imageData)
     }
 
     func next() {

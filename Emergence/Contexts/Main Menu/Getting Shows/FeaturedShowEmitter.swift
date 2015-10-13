@@ -10,8 +10,8 @@ class FeaturedShowEmitter: NSObject, ShowEmitter {
         self.shows = initialShows
     }
 
-    var updateBlock: ((shows:[Show]) -> ())?
-    func onUpdate( callback: (shows:[Show]) -> () ) {
+    var updateBlock: EmitterUpdateCallback?
+    func onUpdate( callback: EmitterUpdateCallback ) {
         updateBlock = callback
     }
 

@@ -12,8 +12,8 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
         self.title = location.name
     }
 
-    var updateBlock: ((shows:[Show]) -> ())?
-    func onUpdate( callback: (shows:[Show]) -> () ) {
+    var updateBlock: EmitterUpdateCallback?
+    func onUpdate(callback: EmitterUpdateCallback) {
         updateBlock = callback
     }
 

@@ -2,13 +2,15 @@ import Foundation
 
 /// A simple pattern for saying "I take some shows and will occasionally get more"
 
+typealias EmitterUpdateCallback = ((shows: [Show]) -> ())
+
 protocol ShowEmitter {
     var title: String { get }
     var numberOfShows: Int { get }
 
     func showAtIndexPath(index: NSIndexPath) -> Show
     func getShows()
-    func onUpdate( callback: (shows:[Show]) -> () )
+    func onUpdate( callback: EmitterUpdateCallback )
 }
 
 class StubbyEmitter: NSObject, ShowEmitter {
@@ -30,7 +32,7 @@ class StubbyEmitter: NSObject, ShowEmitter {
         numberOfShows = stubs.count
     }
 
-    func onUpdate( callback: (shows:[Show]) -> () ) {
+    func onUpdate( callback: EmitterUpdateCallback ) {
         callback(shows:stubs)
     }
 }

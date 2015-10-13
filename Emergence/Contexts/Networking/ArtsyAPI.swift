@@ -87,6 +87,7 @@ extension ArtsyAPI : MoyaTarget {
         case .RunningShowsNearLocation, .UpcomingShowsNearLocation, .PastShowsNearLocation:
             return "/api/v1/shows"
 
+        // This is the featured set for shows for the front page of artsy.net
         case .FeaturedShows:
             return "/api/v1/set/530ebe92139b21efd6000071/items"
         }

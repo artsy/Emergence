@@ -75,3 +75,9 @@ extension Show: Decodable {
         }
     }
 }
+
+extension Show: ShowCollectionViewCellShowType {
+    var partnerName: String {
+        return partner.name
+    }
+}
