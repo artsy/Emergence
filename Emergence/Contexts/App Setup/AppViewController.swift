@@ -13,8 +13,25 @@ class AppViewController: UINavigationController {
         return AppContext(network:network, auth:auth)
     }()
 
+    // TODO: What about if app is launching from scratch,
+    //       and they are in the auth slideshow?
+
+    func openShowWithID(showID: String?) {
+        guard let id = showID else { return }
+
+        auth {
+            let info = ArtsyAPI.ShowInfo(showID: id)
+            self.context.network.request(info).mapSuccessfulHTTPToObject(Show).subscribe { event in
+                guard let show = event.element else { return }
+                guard let showVC = self.storyboard?.instantiateViewControllerWithIdentifier("show") as? ShowViewController else { return }
+                showVC.show = show
+                self.pushViewController(showVC, animated: true)
+            }
+        }
+    }
+
     func auth(completion: () -> () ) {
-        if self.context.network.authToken.isValid {
+        if context.network.authToken.isValid {
             completion()
         } else {
             print("Authenticating")
@@ -31,7 +48,6 @@ class AppViewController: UINavigationController {
                     completion()
                 }
             }
-
         }
     }
 }
@@ -40,11 +56,7 @@ class AppViewController: UINavigationController {
 
 extension UIViewController {
     var appViewController: AppViewController? {
-        if let appVC = self.navigationController where appVC.isKindOfClass(AppViewController) {
-            // How do I get rid of this warning?
-            return appVC as! AppViewController;
-        } else {
-            return nil
-        }
+        guard let appVC = self.navigationController as? AppViewController else { return nil }
+        return appVC
     }
 }
