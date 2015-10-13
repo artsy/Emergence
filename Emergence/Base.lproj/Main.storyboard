@@ -7,8 +7,12 @@
     <customFonts key="customFonts">
         <mutableArray key="AGaramondPro-Italic.otf">
             <string>AGaramondPro-Italic</string>
+            <string>AGaramondPro-Italic</string>
         </mutableArray>
         <mutableArray key="AGaramondPro-Regular.otf">
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
@@ -59,54 +63,151 @@
                         <viewControllerLayoutGuide type="bottom" id="Vs8-vo-a2k"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0da-2T-yjr">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="2080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="3240"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-z5-DCl">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="2080"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-z5-DCl">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="3240"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-dd-cBh">
-                                        <rect key="frame" x="15" y="16" width="320" height="580"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-dd-cBh">
+                                        <rect key="frame" x="80" y="60" width="540" height="926"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-cu-M94" propertyAccessControl="none">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="193"/>
-                                                <string key="text">Wave Function Salon: Cibelle Cavalli Bastos
-</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Show Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-cu-M94" propertyAccessControl="none">
+                                                <rect key="frame" x="0.0" y="0.0" width="540" height="49"/>
                                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="48"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swr-Hk-BBK">
-                                                <rect key="frame" x="0.0" y="193" width="320" height="320"/>
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swr-Hk-BBK">
+                                                <rect key="frame" x="0.0" y="55" width="540" height="762"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="GALLERY NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEF-l9-cUy" customClass="ARSansSerifLabel">
-                                                <rect key="frame" x="0.0" y="513" width="320" height="23"/>
-                                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="GALLERY NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEF-l9-cUy" customClass="ARSansSerifLabel">
+                                                <rect key="frame" x="0.0" y="823" width="540" height="31"/>
+                                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="24"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="21st Nov - 23rd Dec" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fo-4Y-ctp" customClass="ARSerifLabel">
-                                                <rect key="frame" x="0.0" y="536" width="320" height="22"/>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="21st Nov - 23rd Dec" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fo-4Y-ctp" customClass="ARSerifLabel">
+                                                <rect key="frame" x="0.0" y="860" width="540" height="30"/>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Show location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-O3-SYE" customClass="ARSerifLabel">
-                                                <rect key="frame" x="0.0" y="558" width="320" height="22"/>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Show location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-O3-SYE" customClass="ARSerifLabel">
+                                                <rect key="frame" x="0.0" y="896" width="540" height="30"/>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" red="1" green="0.2030546044486139" blue="0.089253705691104246" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="eEg-aG-HQM"/>
+                                            <constraint firstAttribute="height" constant="926" id="caC-n8-Zsj"/>
+                                            <constraint firstAttribute="width" constant="540" id="eEg-aG-HQM"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVh-TX-jDs">
-                                        <rect key="frame" x="380" y="16" width="1517" height="968"/>
-                                        <color key="backgroundColor" red="0.68374137006177294" green="1" blue="0.68326640135911165" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J93-VG-uh9">
+                                        <rect key="frame" x="660" y="60" width="1260" height="920"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZhC-sI-fOd">
+                                            <size key="itemSize" width="553" height="920"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="c5c-lD-DPx" customClass="ImageCollectionViewCell" customModule="Emergence" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNg-sH-8do">
+                                                            <rect key="frame" x="0.0" y="0.0" width="545" height="920"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="top" secondItem="c5c-lD-DPx" secondAttribute="topMargin" id="L2i-cO-oXQ"/>
+                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="trailing" secondItem="c5c-lD-DPx" secondAttribute="trailingMargin" id="Qdp-al-WL8"/>
+                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="leading" secondItem="c5c-lD-DPx" secondAttribute="leadingMargin" id="jNu-8z-wZN"/>
+                                                    <constraint firstAttribute="bottomMargin" secondItem="oNg-sH-8do" secondAttribute="bottom" id="rCM-HE-Rs1"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="image" destination="oNg-sH-8do" id="IZH-zN-f9p"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artworks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkd-ZI-vaZ" propertyAccessControl="none">
+                                        <rect key="frame" x="94" y="1275" width="526" height="49"/>
+                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="48"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f1M-Mj-4GQ">
+                                        <rect key="frame" x="0.0" y="1345" width="1920" height="620"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cUx-qL-JrS">
+                                            <size key="itemSize" width="370" height="620"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="artwork" id="22p-hS-C8I" customClass="ArtworkCollectionViewCell" customModule="Emergence" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="620"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="620"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eGB-ju-x7E">
+                                                            <rect key="frame" x="0.0" y="0.0" width="354" height="604"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-I7-Vsx">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="532"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jh-DW-CUp" customClass="ARSerifLabel">
+                                                                    <rect key="frame" x="0.0" y="538" width="354" height="30"/>
+                                                                    <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artwork name, date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-bV-9oP" customClass="ARSerifLabel">
+                                                                    <rect key="frame" x="0.0" y="574" width="354" height="30"/>
+                                                                    <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottomMargin" secondItem="eGB-ju-x7E" secondAttribute="bottom" id="Xqs-3X-VXv"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="eGB-ju-x7E" secondAttribute="trailing" id="cgP-KC-JsW"/>
+                                                    <constraint firstItem="eGB-ju-x7E" firstAttribute="leading" secondItem="22p-hS-C8I" secondAttribute="leadingMargin" id="hrz-OL-1Pb"/>
+                                                    <constraint firstItem="eGB-ju-x7E" firstAttribute="top" secondItem="22p-hS-C8I" secondAttribute="topMargin" id="yNt-SD-XVs"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="artistNameLabel" destination="1Jh-DW-CUp" id="Kjo-TS-a99"/>
+                                                    <outlet property="image" destination="KXf-I7-Vsx" id="Tgl-ud-rdV"/>
+                                                    <outlet property="titleLabel" destination="E2c-bV-9oP" id="49z-cn-Gxo"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" propertyAccessControl="none">
+                                        <rect key="frame" x="87" y="2011" width="526" height="49"/>
+                                        <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -120,18 +221,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="9Gj-La-M8y"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1920" height="2080"/>
+                    <size key="freeformSize" width="1920" height="3240"/>
                     <connections>
+                        <outlet property="artworkCollectionView" destination="f1M-Mj-4GQ" id="xHF-ZZ-2wx"/>
+                        <outlet property="imagesCollectionView" destination="J93-VG-uh9" id="eLW-BF-fFn"/>
+                        <outlet property="preferredFocusedView" destination="7oR-z5-DCl" id="SUe-d1-amR"/>
+                        <outlet property="scrollView" destination="7oR-z5-DCl" id="zZI-vh-9Qq"/>
                         <outlet property="showAusstellungsdauerLabel" destination="2Fo-4Y-ctp" id="OlU-Bq-ETq"/>
                         <outlet property="showLocationLabel" destination="Qp9-O3-SYE" id="bM4-1w-qYg"/>
                         <outlet property="showPartnerNameLabel" destination="wEF-l9-cUy" id="OUy-pY-C59"/>
-                        <outlet property="showPreviewImage" destination="sVh-TX-jDs" id="Ede-97-bs8"/>
                         <outlet property="showTitleLabel" destination="L7d-cu-M94" id="Cp7-Pt-wUQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Upu-Nd-vXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3007" y="4216"/>
+            <point key="canvasLocation" x="957" y="2800"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="8Yn-a1-dt6">
@@ -266,7 +370,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhD-Fb-YEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2427" y="649"/>
+            <point key="canvasLocation" x="-5307" y="2295"/>
         </scene>
     </scenes>
     <resources>

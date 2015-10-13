@@ -13,31 +13,38 @@ class AppViewController: UINavigationController {
         return AppContext(network:network, auth:auth)
     }()
 
-    // TODO: What about if app is launching from scratch,
-    //       and they are in the auth slideshow?
-
     func openShowWithID(showID: String?) {
+        func topVCIsAuth() -> Bool {
+            guard let topVC = self.topViewController else { return true }
+            return topVC.isKindOfClass(AuthViewController) == false
+        }
+
         guard let id = showID else { return }
 
         auth {
             let info = ArtsyAPI.ShowInfo(showID: id)
             self.context.network.request(info).mapSuccessfulHTTPToObject(Show).subscribe { event in
                 guard let show = event.element else { return }
-                guard let showVC = self.storyboard?.instantiateViewControllerWithIdentifier("show") as? ShowViewController else { return }
-                showVC.show = show
-                self.pushViewController(showVC, animated: true)
+                
+                delayWhile(1, check: topVCIsAuth, closure: {
+                    self.presentShowViewControllerForShow(show)
+                })
             }
         }
+    }
+
+    func presentShowViewControllerForShow(show: Show) {
+        guard let showVC = self.storyboard?.instantiateViewControllerWithIdentifier("show") as? ShowViewController else { return }
+        showVC.show = show
+        self.pushViewController(showVC, animated: true)
     }
 
     func auth(completion: () -> () ) {
         if context.network.authToken.isValid {
             completion()
         } else {
-            print("Authenticating")
-            context.auth.getWeekLongXAppTrialToken { (token, error) -> Void in
+            context.auth.getWeekLongXAppTrialToken { token, error in
 
-                print("Authenticated")
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setObject(token.token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
                 defaults.setObject(token.expirationDate, forKey: XAppToken.DefaultsKeys.TokenExpiry.rawValue)

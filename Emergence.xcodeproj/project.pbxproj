@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25E009CB0867CFD5DF5E9D94 /* Pods_Emergence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEACFC32B54605D5E6050237 /* Pods_Emergence.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		2E6AF147D7C9A489A51F8C0D /* Pods_EmergenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E41A496460C1BA17161DE8F /* Pods_EmergenceTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		25E009CB0867CFD5DF5E9D94 /* Pods_Emergence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEACFC32B54605D5E6050237 /* Pods_Emergence.framework */; };
+		2E6AF147D7C9A489A51F8C0D /* Pods_EmergenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E41A496460C1BA17161DE8F /* Pods_EmergenceTests.framework */; };
 		60094A371BB95A5B00016BB7 /* ArtsyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A361BB95A5B00016BB7 /* ArtsyAPI.swift */; };
 		60094A391BB95AAF00016BB7 /* AppSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A381BB95AAF00016BB7 /* AppSetup.swift */; };
 		60094A3B1BB95BD500016BB7 /* XAppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A3A1BB95BD500016BB7 /* XAppToken.swift */; };
@@ -27,10 +27,12 @@
 		60A4C4AF1BCCEDC20092CC74 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A4C4AE1BCCEDC20092CC74 /* TVServices.framework */; };
 		60A4C4B21BCCEDC20092CC74 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4C4B11BCCEDC20092CC74 /* ServiceProvider.swift */; };
 		60A4C4B61BCCEDC20092CC74 /* FrontPage.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 60A4C4AD1BCCEDC20092CC74 /* FrontPage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		60A584731BCD69420006B8B4 /* ShowDataSource+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A584721BCD69420006B8B4 /* ShowDataSource+Delegate.swift */; };
 		60B647EC1BCCF42C00908EE6 /* Artsy_Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B647EA1BCCF42C00908EE6 /* Artsy_Authentication.framework */; };
 		60B647ED1BCCF42C00908EE6 /* Keys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B647EB1BCCF42C00908EE6 /* Keys.framework */; };
 		60C390321BC29A5E002589E3 /* Partnerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C390311BC29A5E002589E3 /* Partnerable.swift */; };
 		60C390341BC29AA3002589E3 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C390331BC29AA3002589E3 /* Partner.swift */; };
+		60C3A6791BCD13D2003B0DE7 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3A6781BCD13D2003B0DE7 /* GCD.swift */; };
 		60C3CB2D1BB14026005125EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB2B1BB14026005125EF /* Main.storyboard */; };
 		60C3CB2F1BB14026005125EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB2E1BB14026005125EF /* Assets.xcassets */; };
 		60C3CB3A1BB14026005125EF /* EmergenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB391BB14026005125EF /* EmergenceTests.swift */; };
@@ -107,10 +109,12 @@
 		60A4C4AE1BCCEDC20092CC74 /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
 		60A4C4B11BCCEDC20092CC74 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		60A4C4B31BCCEDC20092CC74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60A584721BCD69420006B8B4 /* ShowDataSource+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowDataSource+Delegate.swift"; sourceTree = "<group>"; };
 		60B647EA1BCCF42C00908EE6 /* Artsy_Authentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Artsy_Authentication.framework; path = "Pods/../build/Debug-appletvos/Artsy_Authentication.framework"; sourceTree = "<group>"; };
 		60B647EB1BCCF42C00908EE6 /* Keys.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keys.framework; path = "Pods/../build/Debug-appletvos/Keys.framework"; sourceTree = "<group>"; };
 		60C390311BC29A5E002589E3 /* Partnerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partnerable.swift; sourceTree = "<group>"; };
 		60C390331BC29AA3002589E3 /* Partner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
+		60C3A6781BCD13D2003B0DE7 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		60C3CB241BB14026005125EF /* Emergence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emergence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3CB2C1BB14026005125EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60C3CB2E1BB14026005125EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			children = (
 				608D650E1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift */,
 				608D65111BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift */,
+				60C3A6781BCD13D2003B0DE7 /* GCD.swift */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -230,6 +235,14 @@
 				60A4C4B31BCCEDC20092CC74 /* Info.plist */,
 			);
 			path = FrontPage;
+			sourceTree = "<group>";
+		};
+		60A5846F1BCD677F0006B8B4 /* Subpages */ = {
+			isa = PBXGroup;
+			children = (
+				60A584721BCD69420006B8B4 /* ShowDataSource+Delegate.swift */,
+			);
+			name = Subpages;
 			sourceTree = "<group>";
 		};
 		60C3CB1B1BB14025005125EF = {
@@ -367,6 +380,7 @@
 		60C3CB931BB161D6005125EF /* Presenting a Show */ = {
 			isa = PBXGroup;
 			children = (
+				60A5846F1BCD677F0006B8B4 /* Subpages */,
 				60C3CB941BB161E9005125EF /* ShowViewController.swift */,
 			);
 			path = "Presenting a Show";
@@ -652,6 +666,7 @@
 				60C390341BC29AA3002589E3 /* Partner.swift in Sources */,
 				60C390321BC29A5E002589E3 /* Partnerable.swift in Sources */,
 				60C3CB781BB14D50005125EF /* Image.swift in Sources */,
+				60A584731BCD69420006B8B4 /* ShowDataSource+Delegate.swift in Sources */,
 				60DD51D31BCAE27C00317482 /* ShowEmitter.swift in Sources */,
 				608D65141BCA803E00F749B8 /* SlideshowView.swift in Sources */,
 				60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */,
@@ -665,6 +680,7 @@
 				60C3CB771BB14D50005125EF /* Artwork.swift in Sources */,
 				60094A3D1BB9819C00016BB7 /* Observable+Networking.swift in Sources */,
 				608D65221BCACE9700F749B8 /* ShowsOverviewViewController.swift in Sources */,
+				60C3A6791BCD13D2003B0DE7 /* GCD.swift in Sources */,
 				60C3CB8A1BB14D9F005125EF /* Artworkable.swift in Sources */,
 				60094A3F1BB99A9600016BB7 /* LocationsHost.swift in Sources */,
 				60C3CB951BB161E9005125EF /* ShowViewController.swift in Sources */,
@@ -837,7 +853,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Emergence/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.artsy.shows;
@@ -855,7 +870,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Emergence/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.artsy.shows;

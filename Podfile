@@ -26,11 +26,12 @@ def artsy_pods()
 end
 
 def app_pods()
-  pod 'Gloss'   
+  pod 'Gloss'
   pod 'Moya/RxSwift'
   pod 'RxSwift', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'RxCocoa', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'SDWebImage'
+  pod 'ARCollectionViewMasonryLayout'
 end
 
 def platform_pods()
