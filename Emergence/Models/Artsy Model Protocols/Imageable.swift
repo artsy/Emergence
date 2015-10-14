@@ -12,13 +12,6 @@ protocol Imageable {
     var isDefault: Bool { get }
 }
 
-/// Extends the Imageable protocol with image URL handling
-
-extension Imageable {
-   
-}
-
-
 protocol ImageTileable {
     var tileBaseURL: NSURL { get }
     var tileSize: Int { get }
