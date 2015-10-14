@@ -1,15 +1,11 @@
 import Foundation
 import TVServices
 
-import Keys
-import Artsy_Authentication
-
 // Uh Oh
 // Let's document some bad practices here made for time/complexity tradeoffs:
 //
-//   - Hardcoding the link to the featured shows rather than taking it from emergence
-//   - Linking to Pod's framework for Keys/Auth directly, rather than letting CP do it properly
-//     framework paths / CP are using relative paths, that should be fine.
+//   - Hardcoding the link to the xapp/featured shows rather than taking it from emergence
+//   - Copying the files from Pods for Keys/ArtsyNetworkOperator
 //
 // Other than that, not too bad. ./
 
@@ -33,17 +29,13 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
         return wrapperItem
     }()
 
-    func auth(completion: ((ArtsyToken!, NSError!) -> Void)) -> (){
-        let keys = EmergenceKeys()
-        let auth = ArtsyAuthentication(clientID: keys.artsyAPIClientKey(), clientSecret: keys.artsyAPIClientSecret())
-        auth.getWeekLongXAppTrialToken(completion)
-    }
-
     var topShelfItems: [TVContentItem] {
         var items:[TVContentItem] = []
         let semaphore = dispatch_semaphore_create(0)
 
-        auth { token, error in
+        let keys = EmergenceKeys()
+        Networking.auth(keys) { (token, error) -> () in
+
             // No auth, no go
             if error != nil {
                 dispatch_semaphore_signal(semaphore)
@@ -56,11 +48,11 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 
             // Make sure we apply our new xapp token
             let request = NSMutableURLRequest(URL: url)
-            request.setValue(token.token, forHTTPHeaderField: "X-Xapp-Token")
+            request.setValue(token!, forHTTPHeaderField: "X-Xapp-Token")
 
             let _ = networkOp.JSONTaskWithRequest(request, success: { request, response, json in
 
-                // When this block wraps up we can say we're done
+                // When this scope wraps up we can say we're done
                 defer { dispatch_semaphore_signal(semaphore) }
 
                 // This is a collection of shows raw JSON
