@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'cocoapods'
+gem 'cocoapods', :git => "https://github.com/CocoaPods/CocoaPods", :branch => "seg-no-embed-in-extensions"
 
 gem 'cocoapods-keys'
 gem 'cocoapods-expert-difficulty'

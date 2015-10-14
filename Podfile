@@ -6,7 +6,7 @@ use_frameworks!
 plugin 'cocoapods-expert-difficulty'
 plugin 'cocoapods-keys', {
     :project => "Emergence",
-    :targets => "Emergence",
+    :targets => ["Emergence", "FrontPage"],
     :keys => [
         "ArtsyAPIClientSecret",
         "ArtsyAPIClientKey",
@@ -44,9 +44,6 @@ target 'Emergence' do
   platform_pods
 end
 
-target 'EmergenceTests' do
-    pod 'FBSnapshotTestCase'
-    pod 'Nimble-Snapshots'
-    pod 'Quick'
-    pod 'Nimble', '= 2.0.0-rc.3'
+target 'FrontPage' do
+  platform_pods
 end
