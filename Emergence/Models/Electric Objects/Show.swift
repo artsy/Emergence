@@ -12,13 +12,14 @@ struct Show: Showable, ImageURLThumbnailable {
     let startDate: NSDate?
     let endDate: NSDate?
 
-    var installShots: [Imageable]
     var artworks: [Artworkable]
 
     var locationOneLiner: String?
 
     var imageFormatString: String
     var imageVersions: [String]
+
+    var hasInstallationShots: Bool
 
     static func stubbedShow() -> Show {
         let partner = Partner(json:["id": "2311", "name":"El Partner"])!
@@ -28,7 +29,7 @@ struct Show: Showable, ImageURLThumbnailable {
         let aBitAgo = NSDate(timeIntervalSinceNow: -36546278)
         let aBitInTheFuture = NSDate(timeIntervalSinceNow: 3654678)
 
-        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: nil, showDescription: nil, startDate: aBitAgo, endDate: aBitInTheFuture, installShots: [image], artworks: [artwork], locationOneLiner: nil, imageFormatString: "", imageVersions: [""])
+        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: nil, showDescription: nil, startDate: aBitAgo, endDate: aBitInTheFuture, artworks: [artwork], locationOneLiner: nil, imageFormatString: "", imageVersions: [""], hasInstallationShots: true)
     }
 }
 
@@ -64,7 +65,13 @@ extension Show: Decodable {
         showDescription = "description" <~~ json
 
         artworks = []
-        installShots = []
+
+        if let imageCount: Int = "images_count" <~~ json {
+            hasInstallationShots = imageCount > 0
+        } else {
+            hasInstallationShots = false
+        }
+
         locationOneLiner = Show.locationOneLinerFromJSON(json)
 
         // ImageURLThumbnailable conformance

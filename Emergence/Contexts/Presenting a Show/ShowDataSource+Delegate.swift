@@ -39,7 +39,7 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         }
 
         // Hrm is this right?
-        let ratio = image.imageSize.height / image.imageSize.width
+        let ratio = image.imageSize.height * image.imageSize.width
         return dimensionLength * ratio
     }
 

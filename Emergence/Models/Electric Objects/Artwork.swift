@@ -11,10 +11,7 @@ struct Artwork: Artworkable {
     let images: [Imageable]
 
     lazy var defaultImage: Imageable? = {
-        let defaultImages = self.images.filter({ (image) -> Bool in
-            image.isDefault
-        })
-
+        let defaultImages = self.images.filter({ $0.isDefault })
         return defaultImages.isNotEmpty ? defaultImages.first : self.images.first
     }()
 
