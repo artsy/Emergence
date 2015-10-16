@@ -61,11 +61,11 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         guard let item = artworkDataSource.itemForIndexPath(indexPath) else { return }
         guard let image = imageForItem(item) else { return }
 
-        if let cell = cell as? ImageCollectionViewCell, let url = image.bestAvailableThumbnailURL() {
+        if let cell = cell as? ImageCollectionViewCell, let url = image.bestThumbnailWithHeight(dimensionLength) {
             cell.image.sd_setImageWithURL(url)
         }
 
-        if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestAvailableThumbnailURL() {
+        if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestThumbnailWithHeight(dimensionLength) {
             cell.artistNameLabel.text = artwork.oneLinerArtist()
             cell.titleLabel.text = artwork.title
             cell.image.sd_setImageWithURL(url)

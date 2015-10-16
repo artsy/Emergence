@@ -16,7 +16,7 @@ LOCAL_BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH = $(shell echo $(shell whoami)-$(shell git rev-parse --abbrev-ref HEAD))
 
 synxify:
-	bundle exec synx "$(SCHEME).xcodeproj" --exclusion "FrontPage/Essentials from Pods" 
+	bundle exec synx "$(SCHEME).xcodeproj" --exclusion "FrontPage/Essentials from Pods"
 
 pr:
 	if [ "$(LOCAL_BRANCH)" == "master" ]; then echo "In master, not PRing"; else git push upstream "$(LOCAL_BRANCH):$(BRANCH)"; open "https://github.com/artsy/emergence/pull/new/artsy:master...$(BRANCH)"; fi
