@@ -62,11 +62,11 @@ class AuthViewController: UIViewController {
     lazy var isFirstRun:Bool = {
         let key = "have_ran"
         let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.boolForKey(key) { return true }
+        if defaults.boolForKey(key) { return false }
 
         defaults.setBool(true, forKey: key)
         defaults.synchronize()
-        return false
+        return true
     }()
 
 
@@ -93,7 +93,7 @@ extension AuthViewController {
         if isFirstRun {
             images = ["slide-bg-1.jpg", "slide-bg-2.jpg", "slide-bg-3.jpg"]
         } else {
-            images = ["black.png", "black.png", "black.png"]
+            images = ["white.png", "white.png", "white.png"]
         }
 
         slideshowView.imagePaths = images

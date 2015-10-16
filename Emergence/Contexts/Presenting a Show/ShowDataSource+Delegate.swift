@@ -1,4 +1,5 @@
 import UIKit
+import CoreGraphics
 import ARCollectionViewMasonryLayout
 import SDWebImage
 import RxSwift
@@ -29,18 +30,26 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: ARCollectionViewMasonryLayout!, variableDimensionForItemAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         let item = artworkDataSource.itemForIndexPath(indexPath)
 
-        guard let actualItem = item, image:Image = imageForItem(actualItem) else {
+        guard let actualItem = item, image: Image = imageForItem(actualItem) else {
             // otherwise, ship a square
             return dimensionLength
         }
 
+        return widthForImage(image, capped: collectionView.bounds.width)
+    }
+
+    func widthForImage(image: Image, capped: CGFloat) -> CGFloat {
+        let width: CGFloat
         if let ratio = image.aspectRatio {
-            return dimensionLength * ratio
+            width = dimensionLength * ratio
+
+        } else {
+            // Hrm is this right?
+            let ratio = image.imageSize.height * image.imageSize.width
+            width = dimensionLength * ratio
         }
 
-        // Hrm is this right?
-        let ratio = image.imageSize.height * image.imageSize.width
-        return dimensionLength * ratio
+        return min(width, capped)
     }
 
     func imageForItem(item:T) -> Image? {

@@ -15,12 +15,16 @@ class ShowsOverviewViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        showTapped( Show.stubbedShow() )
+
         guard let appVC = self.appViewController else { return print("you need an app VC") }
 
-        guard let collectionView = collectionView, layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        guard let collectionView = collectionView else { return }
 
-        collectionView.contentInset.top = ShowsOverviewViewController.minimumEdgePadding - layout.sectionInset.top
-        collectionView.contentInset.bottom = ShowsOverviewViewController.minimumEdgePadding - layout.sectionInset.bottom
+
+        //        [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:UICollectionElementKindSectionHeader];
+        //
+//        collectionView.registerClass(nil, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 
         let network = appVC.context.network
 
@@ -87,6 +91,10 @@ extension ShowsOverviewViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         return collectionView.dequeueReusableCellWithReuseIdentifier(ShowSetCollectionViewCell.reuseIdentifier, forIndexPath: indexPath)
+    }
+
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        return collectionView.dequeueReusableSupplementaryViewOfKind("header", withReuseIdentifier: "header", forIndexPath: indexPath)
     }
 
     // MARK: UICollectionViewDelegate

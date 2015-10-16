@@ -32,9 +32,9 @@ class AppViewController: UINavigationController {
             self.context.network.request(info).mapSuccessfulHTTPToObject(Show).subscribe { event in
                 guard let show = event.element else { return }
                 
-                delayWhile(1, check: topVCIsAuth, closure: {
+                delayWhile(1, check: topVCIsAuth) {
                     self.presentShowViewControllerForShow(show)
-                })
+                }
             }
         }
     }
