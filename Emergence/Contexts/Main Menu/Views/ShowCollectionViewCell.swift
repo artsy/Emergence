@@ -38,10 +38,6 @@ class ShowCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        imageView.adjustsImageWhenAncestorFocused = true
-        imageView.clipsToBounds = false
-
         setLabelsAlpha(0)
     }
 
