@@ -26,6 +26,7 @@
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
+            <string>AvantGardeGothicITCW01Dm</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -397,7 +398,8 @@ museums and fairs around the world.</string>
                                     <rect key="frame" x="80" y="80" width="200" height="68"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy">
-                                    <rect key="frame" x="1656" y="58" width="208" height="85"/>
+                                    <rect key="frame" x="1656" y="58" width="208" height="80"/>
+                                    <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                     <state key="normal" title="ABOUT"/>
                                     <connections>

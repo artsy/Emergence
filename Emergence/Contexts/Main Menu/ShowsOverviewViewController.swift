@@ -4,7 +4,7 @@ import UIKit
 // from the UIKitCatalogue example code from Apple.
 // The technique is to use a collectionview which hosts another collectionview
 
-class ShowsOverviewViewController: UICollectionViewController {
+class ShowsOverviewViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private static let minimumEdgePadding = CGFloat(90.0)
     private var emitters:[ShowEmitter]!
@@ -15,16 +15,8 @@ class ShowsOverviewViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        showTapped( Show.stubbedShow() )
-
         guard let appVC = self.appViewController else { return print("you need an app VC") }
-
         guard let collectionView = collectionView else { return }
-
-
-        //        [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:UICollectionElementKindSectionHeader];
-        //
-//        collectionView.registerClass(nil, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 
         let network = appVC.context.network
 
@@ -94,7 +86,14 @@ extension ShowsOverviewViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryViewOfKind("header", withReuseIdentifier: "header", forIndexPath: indexPath)
+        return collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+    }
+
+    // MARK: UICollectionViewDelegateFlowLayout
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section != 0  { return CGSizeZero }
+        return CGSizeMake(view.bounds.width, 180)
     }
 
     // MARK: UICollectionViewDelegate

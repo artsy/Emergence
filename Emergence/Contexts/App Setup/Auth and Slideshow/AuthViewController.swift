@@ -22,6 +22,7 @@ class AuthViewController: UIViewController {
         startSlideshow()
         if isFirstRun == false {
             artsyLogoImageView.image = UIImage(named: "artsy-logo-black")
+            errorMessageLabel.textColor = .blackColor()
         }
     }
 
