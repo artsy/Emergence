@@ -15,8 +15,8 @@
 		60094A3D1BB9819C00016BB7 /* Observable+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A3C1BB9819C00016BB7 /* Observable+Networking.swift */; };
 		60094A3F1BB99A9600016BB7 /* LocationsHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60094A3E1BB99A9600016BB7 /* LocationsHost.swift */; };
 		60094A431BB99AF500016BB7 /* cities.js in Resources */ = {isa = PBXBuildFile; fileRef = 60094A401BB99AF500016BB7 /* cities.js */; };
+		600C048C1BD3EC1F001156C5 /* ShowScrollChief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600C048B1BD3EC1F001156C5 /* ShowScrollChief.swift */; };
 		6036A23B1BCEA29C0090D5FC /* GeminiThumbnailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036A23A1BCEA29C0090D5FC /* GeminiThumbnailable.swift */; };
-		6036A23E1BCEB1B00090D5FC /* ARMotionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036A23D1BCEB1B00090D5FC /* ARMotionImageView.swift */; };
 		605131551BD116AE00551A07 /* artsy-logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 605131531BD116AE00551A07 /* artsy-logo-white.png */; };
 		605131561BD116AE00551A07 /* artsy-logo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 605131541BD116AE00551A07 /* artsy-logo-black.png */; };
 		6051315A1BD11AA400551A07 /* slide-bg-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 605131571BD11AA400551A07 /* slide-bg-3.jpg */; };
@@ -28,6 +28,9 @@
 		606AD2A81BD14563006D1587 /* about-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 606AD2A71BD14563006D1587 /* about-bg.jpg */; };
 		606AD2AA1BD149DF006D1587 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 606AD2A91BD149DF006D1587 /* white.png */; };
 		606AD2AE1BD231CC006D1587 /* TransparentSerifLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */; };
+		6081F4451BD3F63500EAF340 /* ShowNetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6081F4441BD3F63500EAF340 /* ShowNetworkingModel.swift */; };
+		6081F4481BD3FDA400EAF340 /* down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6081F4471BD3FDA400EAF340 /* down-arrow.png */; };
+		6081F44A1BD41DF800EAF340 /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6081F4491BD41DF800EAF340 /* ArtworkCollectionViewCell.swift */; };
 		608D650F1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D650E1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift */; };
 		608D65121BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D65111BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift */; };
 		608D65141BCA803E00F749B8 /* SlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D65131BCA803E00F749B8 /* SlideshowView.swift */; };
@@ -109,8 +112,8 @@
 		60094A3C1BB9819C00016BB7 /* Observable+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Networking.swift"; sourceTree = "<group>"; };
 		60094A3E1BB99A9600016BB7 /* LocationsHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsHost.swift; sourceTree = "<group>"; };
 		60094A401BB99AF500016BB7 /* cities.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cities.js; sourceTree = "<group>"; };
+		600C048B1BD3EC1F001156C5 /* ShowScrollChief.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowScrollChief.swift; sourceTree = "<group>"; };
 		6036A23A1BCEA29C0090D5FC /* GeminiThumbnailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiThumbnailable.swift; sourceTree = "<group>"; };
-		6036A23D1BCEB1B00090D5FC /* ARMotionImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARMotionImageView.swift; sourceTree = "<group>"; };
 		605131531BD116AE00551A07 /* artsy-logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artsy-logo-white.png"; sourceTree = "<group>"; };
 		605131541BD116AE00551A07 /* artsy-logo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artsy-logo-black.png"; sourceTree = "<group>"; };
 		605131571BD11AA400551A07 /* slide-bg-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "slide-bg-3.jpg"; sourceTree = "<group>"; };
@@ -122,6 +125,9 @@
 		606AD2A71BD14563006D1587 /* about-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "about-bg.jpg"; sourceTree = "<group>"; };
 		606AD2A91BD149DF006D1587 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = ../../../white.png; sourceTree = "<group>"; };
 		606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentSerifLabels.swift; sourceTree = "<group>"; };
+		6081F4441BD3F63500EAF340 /* ShowNetworkingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNetworkingModel.swift; sourceTree = "<group>"; };
+		6081F4471BD3FDA400EAF340 /* down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-arrow.png"; sourceTree = "<group>"; };
+		6081F4491BD41DF800EAF340 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
 		608D650E1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Ausstellungsdauer.swift"; sourceTree = "<group>"; };
 		608D65111BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Occupyable+isNotEmpty.swift"; sourceTree = "<group>"; };
 		608D65131BCA803E00F749B8 /* SlideshowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowView.swift; sourceTree = "<group>"; };
@@ -232,7 +238,6 @@
 		6036A23C1BCEB1980090D5FC /* Generic Views */ = {
 			isa = PBXGroup;
 			children = (
-				6036A23D1BCEB1B00090D5FC /* ARMotionImageView.swift */,
 				606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */,
 			);
 			name = "Generic Views";
@@ -253,6 +258,22 @@
 				606AD2A71BD14563006D1587 /* about-bg.jpg */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		6081F4461BD3FD9400EAF340 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6081F4471BD3FDA400EAF340 /* down-arrow.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6081F44B1BD41E2800EAF340 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6081F4491BD41DF800EAF340 /* ArtworkCollectionViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		608D650D1BCA674200F749B8 /* Apple */ = {
@@ -469,8 +490,12 @@
 		60C3CB931BB161D6005125EF /* Presenting a Show */ = {
 			isa = PBXGroup;
 			children = (
+				6081F44B1BD41E2800EAF340 /* Views */,
+				6081F4461BD3FD9400EAF340 /* Resources */,
 				60A5846F1BCD677F0006B8B4 /* Subpages */,
 				60C3CB941BB161E9005125EF /* ShowViewController.swift */,
+				600C048B1BD3EC1F001156C5 /* ShowScrollChief.swift */,
+				6081F4441BD3F63500EAF340 /* ShowNetworkingModel.swift */,
 			);
 			path = "Presenting a Show";
 			sourceTree = "<group>";
@@ -635,6 +660,7 @@
 				60C3CB8B1BB14D9F005125EF /* NOTES in Resources */,
 				605131551BD116AE00551A07 /* artsy-logo-white.png in Resources */,
 				6051315F1BD1332400551A07 /* artsy-small-white.png in Resources */,
+				6081F4481BD3FDA400EAF340 /* down-arrow.png in Resources */,
 				6051315A1BD11AA400551A07 /* slide-bg-3.jpg in Resources */,
 				606AD2A81BD14563006D1587 /* about-bg.jpg in Resources */,
 				60C3CB2D1BB14026005125EF /* Main.storyboard in Resources */,
@@ -781,13 +807,15 @@
 				606AD2AE1BD231CC006D1587 /* TransparentSerifLabels.swift in Sources */,
 				6036A23B1BCEA29C0090D5FC /* GeminiThumbnailable.swift in Sources */,
 				60094A3D1BB9819C00016BB7 /* Observable+Networking.swift in Sources */,
+				6081F44A1BD41DF800EAF340 /* ArtworkCollectionViewCell.swift in Sources */,
 				608D65221BCACE9700F749B8 /* ShowsOverviewViewController.swift in Sources */,
 				60C3A6791BCD13D2003B0DE7 /* GCD.swift in Sources */,
 				60C3CB8A1BB14D9F005125EF /* Artworkable.swift in Sources */,
 				60094A3F1BB99A9600016BB7 /* LocationsHost.swift in Sources */,
 				60C3CB951BB161E9005125EF /* ShowViewController.swift in Sources */,
 				60094A371BB95A5B00016BB7 /* ArtsyAPI.swift in Sources */,
-				6036A23E1BCEB1B00090D5FC /* ARMotionImageView.swift in Sources */,
+				600C048C1BD3EC1F001156C5 /* ShowScrollChief.swift in Sources */,
+				6081F4451BD3F63500EAF340 /* ShowNetworkingModel.swift in Sources */,
 				60C3CB791BB14D50005125EF /* Location.swift in Sources */,
 				60C3CB8C1BB14D9F005125EF /* Showable.swift in Sources */,
 				60C3CB761BB14D50005125EF /* Artist.swift in Sources */,

@@ -1,4 +1,5 @@
 import Artsy_UILabels
+import Artsy_UIFonts
 
 // In our other apps serif text is mostly shown 
 // over a white BG, so we force a white BG and declare
@@ -10,6 +11,15 @@ import Artsy_UILabels
 class TransparentSerifLabels: ARSerifLabel {
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .clearColor()
+        opaque = false
+    }
+}
+
+class TransparentBoldSerifLabels: ARSerifLabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        font = UIFont.serifBoldFontWithSize(font.pointSize)
         backgroundColor = .clearColor()
         opaque = false
     }

@@ -61,8 +61,6 @@ class AppViewController: UINavigationController {
     }
 }
 
-
-
 func saveToken(defaults: NSUserDefaults, token:ArtsyToken) {
     defaults.setObject(token.token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
     defaults.setObject(token.expirationDate, forKey: XAppToken.DefaultsKeys.TokenExpiry.rawValue)

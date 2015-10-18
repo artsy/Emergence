@@ -8,6 +8,7 @@ import Moya
 /// & once there's auth, user references etc.
 
 struct AppContext {
+    let offline = true
     let network: ArtsyProvider<ArtsyAPI>
     let auth: ArtsyAuthentication
 }

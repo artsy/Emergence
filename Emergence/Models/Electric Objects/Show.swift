@@ -28,7 +28,10 @@ struct Show: Showable, ImageURLThumbnailable {
         let aBitAgo = NSDate(timeIntervalSinceNow: -36546278)
         let aBitInTheFuture = NSDate(timeIntervalSinceNow: 3654678)
 
-        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: nil, showDescription: nil, startDate: aBitAgo, endDate: aBitInTheFuture, artworks: [artwork], locationOneLiner: nil, imageFormatString: "", imageVersions: [""], hasInstallationShots: true)
+        let description = "Once upon a time, there was a show, it grew from a small stub into a useful tool."
+        let press = "People thought it would be alright, turned out they were right."
+        let location = "Huddersfield, UK"
+        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: press, showDescription: description, startDate: aBitAgo, endDate: aBitInTheFuture, artworks: [artwork], locationOneLiner: location, imageFormatString: "", imageVersions: [""], hasInstallationShots: true)
     }
 }
 

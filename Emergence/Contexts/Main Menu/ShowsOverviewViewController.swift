@@ -18,6 +18,10 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         guard let appVC = self.appViewController else { return print("you need an app VC") }
         guard let collectionView = collectionView else { return }
 
+//        appVC.openShowWithID("joshua-liner-gallery-libby-black-theres-no-place-like-home")
+
+        appVC.presentShowViewControllerForShow(Show.stubbedShow())
+
         let network = appVC.context.network
 
         // Create an emitter for grabbing our Featured Shows

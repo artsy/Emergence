@@ -3,6 +3,7 @@ import CoreGraphics
 import ARCollectionViewMasonryLayout
 import SDWebImage
 import RxSwift
+import Artsy_UIColors
 
 // Generic DataSource for dealing with an image based collectionview
 
@@ -41,12 +42,11 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
     func widthForImage(image: Image, capped: CGFloat) -> CGFloat {
         let width: CGFloat
         if let ratio = image.aspectRatio {
-            width = dimensionLength * ratio
+            width = dimensionLength / ratio
 
         } else {
-            // Hrm is this right?
-            let ratio = image.imageSize.height * image.imageSize.width
-            width = dimensionLength * ratio
+            let ratio = image.imageSize.width / image.imageSize.height
+            width = dimensionLength / ratio
         }
 
         return min(width, capped)
@@ -72,12 +72,14 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 
         if let cell = cell as? ImageCollectionViewCell, let url = image.bestThumbnailWithHeight(dimensionLength) {
             cell.image.sd_setImageWithURL(url)
+            cell.image.backgroundColor = UIColor.artsyLightGrey()
         }
 
         if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestThumbnailWithHeight(dimensionLength) {
             cell.artistNameLabel.text = artwork.oneLinerArtist()
             cell.titleLabel.text = artwork.title
             cell.image.sd_setImageWithURL(url)
+            cell.image.backgroundColor = UIColor.artsyLightGrey()
         }
     }
 }
