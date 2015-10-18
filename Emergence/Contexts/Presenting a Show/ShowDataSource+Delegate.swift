@@ -95,14 +95,10 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
         super.init()
 
         collectionView.dataSource = self
-        request.subscribe(next: { items in
-            self.items = items
+        request.subscribe() { items in
+            self.items = items.element
             self.collectionView.reloadData()
-
-            }, error: { error in
-                print("ERROROR \(error)")
-
-            }, completed: nil, disposed: nil)
+        }
     }
 
     func itemForIndexPath(path: NSIndexPath) -> T? {

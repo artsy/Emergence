@@ -45,6 +45,7 @@ class ShowViewController: UIViewController {
         let network = appVC.context.network
         let networker = ShowNetworkingModel(network: network, show: show)
 
+        // Toggle for stubbing the data for the images/artworks
         let offline = true
         let imageData = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
         let artworkData = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
@@ -86,6 +87,23 @@ class ShowViewController: UIViewController {
 
     override var preferredFocusedView: UIView? {
         return scrollChief.keyView
+    }
+
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        guard let next = context.nextFocusedView else { return }
+
+        if next.isDescendantOfView(imagesCollectionView) {
+            guard let cell = context.nextFocusedView as? UICollectionViewCell else { return }
+            let index = imagesCollectionView.indexPathForCell(cell)!.row
+            let xOffset: CGFloat = index == 0 ? 660 : 0
+
+            UIView.animateWithDuration(0.9, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
+
+                let originalFrame = self.imagesCollectionView.frame
+                self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width - xOffset, originalFrame.height)
+
+            }, completion: nil)
+        }
     }
 
     override func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool {
