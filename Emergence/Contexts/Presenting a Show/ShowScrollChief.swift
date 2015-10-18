@@ -9,7 +9,7 @@ class ShowScrollChief: NSObject {
             controller.didForceFocusChange = true
             controller.setNeedsFocusUpdate()
 
-            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options:  UIViewAnimationOptions(), animations: {
+            UIView.animateWithDuration(0.9, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options:  [.OverrideInheritedOptions], animations: {
                 self.scrollView.contentOffset = self.scrollPositionForCurrentView()
 
             }, completion: nil)
