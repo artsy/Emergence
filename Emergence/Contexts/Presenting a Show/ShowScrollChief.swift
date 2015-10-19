@@ -25,11 +25,11 @@ class ShowScrollChief: NSObject {
     // TODO: Doesn't support arbitrary numbers of scrolls
 
     func views() -> [UIView] {
-        return [imagesCollectionView, artworkCollectionView, view, view]
+        return [imagesCollectionView, artworkCollectionView, view]
     }
 
     func scrollPositionForCurrentView() -> CGPoint {
-        let offsets = [0, 1160, 2000, 2000, 2000, 2000, 2000]
+        let offsets = [0, 1160, 2000, 3000, 4000, 5000, 6000]
         return CGPoint(x: 0, y: offsets[index])
     }
 
@@ -38,10 +38,19 @@ class ShowScrollChief: NSObject {
     }
 
     @IBAction func gesturedDown(gesture:UISwipeGestureRecognizer) {
-        index = min(index+1, views().count - 1)
+        let extraContentHeight = scrollView.contentSize.height - 3080
+        var extraPages = 0
+        if extraContentHeight > 0 {
+            extraPages = Int( max(round(extraContentHeight/1000), 1) )
+        }
+        index = min(index+1, views().count + extraPages - 1)
     }
 
     var keyView: UIView {
-        return views()[index]
+        if index >= views().count {
+            return view
+        } else {
+            return views()[index]
+        }
     }
 }

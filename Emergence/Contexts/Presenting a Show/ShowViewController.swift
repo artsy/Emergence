@@ -92,12 +92,17 @@ class ShowViewController: UIViewController {
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         guard let next = context.nextFocusedView else { return }
 
+        // We want to move the images collectionview across to full screen after you scroll past the first index.
+
         if next.isDescendantOfView(imagesCollectionView) {
             guard let cell = context.nextFocusedView as? UICollectionViewCell else { return }
             let index = imagesCollectionView.indexPathForCell(cell)!.row
             let xOffset: CGFloat = index == 0 ? 660 : 0
 
-            UIView.animateWithDuration(0.9, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
+            // No need to do it if it's already set up right
+            if xOffset == imagesCollectionView.frame.origin.x { return }
+
+            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
 
                 let originalFrame = self.imagesCollectionView.frame
                 self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width - xOffset, originalFrame.height)
