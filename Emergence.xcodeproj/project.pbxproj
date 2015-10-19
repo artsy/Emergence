@@ -32,6 +32,8 @@
 		6081F4481BD3FDA400EAF340 /* down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6081F4471BD3FDA400EAF340 /* down-arrow.png */; };
 		6081F44A1BD41DF800EAF340 /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6081F4491BD41DF800EAF340 /* ArtworkCollectionViewCell.swift */; };
 		6081F44D1BD5145D00EAF340 /* HalfIntrinsicHeightSerifLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6081F44C1BD5145D00EAF340 /* HalfIntrinsicHeightSerifLabel.swift */; };
+		6081F4501BD523D700EAF340 /* ArtworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6081F44F1BD523D700EAF340 /* ArtworkViewController.swift */; };
+		6081F4521BD5244A00EAF340 /* ArtworkSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6081F4511BD5244A00EAF340 /* ArtworkSetViewController.swift */; };
 		608D650F1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D650E1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift */; };
 		608D65121BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D65111BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift */; };
 		608D65141BCA803E00F749B8 /* SlideshowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D65131BCA803E00F749B8 /* SlideshowView.swift */; };
@@ -130,6 +132,8 @@
 		6081F4471BD3FDA400EAF340 /* down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-arrow.png"; sourceTree = "<group>"; };
 		6081F4491BD41DF800EAF340 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
 		6081F44C1BD5145D00EAF340 /* HalfIntrinsicHeightSerifLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfIntrinsicHeightSerifLabel.swift; sourceTree = "<group>"; };
+		6081F44F1BD523D700EAF340 /* ArtworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkViewController.swift; sourceTree = "<group>"; };
+		6081F4511BD5244A00EAF340 /* ArtworkSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtworkSetViewController.swift; sourceTree = "<group>"; };
 		608D650E1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Ausstellungsdauer.swift"; sourceTree = "<group>"; };
 		608D65111BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Occupyable+isNotEmpty.swift"; sourceTree = "<group>"; };
 		608D65131BCA803E00F749B8 /* SlideshowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowView.swift; sourceTree = "<group>"; };
@@ -277,6 +281,15 @@
 				6081F4491BD41DF800EAF340 /* ArtworkCollectionViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		6081F44E1BD523BF00EAF340 /* Showing an Artwork */ = {
+			isa = PBXGroup;
+			children = (
+				6081F44F1BD523D700EAF340 /* ArtworkViewController.swift */,
+				6081F4511BD5244A00EAF340 /* ArtworkSetViewController.swift */,
+			);
+			name = "Showing an Artwork";
 			sourceTree = "<group>";
 		};
 		608D650D1BCA674200F749B8 /* Apple */ = {
@@ -469,6 +482,7 @@
 		60C3CB5C1BB14B1B005125EF /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				6081F44E1BD523BF00EAF340 /* Showing an Artwork */,
 				605131611BD1448F00551A07 /* About */,
 				6036A23C1BCEB1980090D5FC /* Generic Views */,
 				60094A461BBABC7D00016BB7 /* Main Menu */,
@@ -804,7 +818,9 @@
 				60094A391BB95AAF00016BB7 /* AppSetup.swift in Sources */,
 				60C3CB921BB14F17005125EF /* AppViewController.swift in Sources */,
 				60C3CB841BB14D95005125EF /* Imageable.swift in Sources */,
+				6081F4521BD5244A00EAF340 /* ArtworkSetViewController.swift in Sources */,
 				608D650F1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift in Sources */,
+				6081F4501BD523D700EAF340 /* ArtworkViewController.swift in Sources */,
 				60C3CB811BB14D84005125EF /* AppContext.swift in Sources */,
 				60C3CB771BB14D50005125EF /* Artwork.swift in Sources */,
 				606AD2AE1BD231CC006D1587 /* TransparentSerifLabels.swift in Sources */,

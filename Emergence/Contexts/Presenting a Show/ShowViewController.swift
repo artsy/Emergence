@@ -3,7 +3,7 @@ import RxSwift
 import Moya
 import Gloss
 
-class ShowViewController: UIViewController {
+class ShowViewController: UIViewController, ShowItemTapped {
     var show: Show!
 
     var didForceFocusChange = true
@@ -23,7 +23,6 @@ class ShowViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollChief: ShowScrollChief!
-
 
     var artworkDelegate: CollectionViewDelegate<Artwork>!
     var artworkDataSource: CollectionViewDataSource<Artwork>!
@@ -51,10 +50,10 @@ class ShowViewController: UIViewController {
         let artworkData = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
 
         imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageData, cellIdentifier: "image")
-        imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView)
+        imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
 
         artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkData, cellIdentifier: "artwork")
-        artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView)
+        artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
 
         self.scrollView.scrollEnabled = false
     }
@@ -122,6 +121,19 @@ class ShowViewController: UIViewController {
 
         didForceFocusChange = false
         return context.nextFocusedView == scrollChief.keyView
+    }
+
+    var selectedArtwork: Artwork!
+    func didTapArtwork(item: Artwork) {
+        selectedArtwork = item
+        performSegueWithIdentifier("artwork", sender: self)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let artworkSetVC = segue.destinationViewController as? ArtworkSetViewController else { return }
+
+        artworkSetVC.artworks = artworkDataSource.items
+        artworkSetVC.initialIndex = artworkSetVC.artworks.indexOf({ $0.id == selectedArtwork.id })
     }
 }
 

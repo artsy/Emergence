@@ -5,16 +5,25 @@ import SDWebImage
 import RxSwift
 import Artsy_UIColors
 
+// Just a dump protocol to pass a message back that 
+// something has been tapped on
+
+protocol ShowItemTapped {
+    func didTapArtwork(item: Artwork)
+}
+
 // Generic DataSource for dealing with an image based collectionview
 
 class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegate {
 
     let dimensionLength:CGFloat
     let artworkDataSource: CollectionViewDataSource<T>
+    let delegate: ShowItemTapped?
 
-    init(datasource: CollectionViewDataSource<T>, collectionView: UICollectionView) {
+    init(datasource: CollectionViewDataSource<T>, collectionView: UICollectionView, delegate: ShowItemTapped?) {
         artworkDataSource = datasource
         dimensionLength = collectionView.bounds.height
+        self.delegate = delegate
 
         super.init()
 
@@ -80,6 +89,14 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
             cell.titleLabel.text = artwork.title
             cell.image.sd_setImageWithURL(url)
             cell.image.backgroundColor = UIColor.artsyLightGrey()
+        }
+    }
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        guard let item = artworkDataSource.itemForIndexPath(indexPath) else { return }
+
+        if let artwork = item as? Artwork {
+            delegate?.didTapArtwork(artwork)
         }
     }
 }

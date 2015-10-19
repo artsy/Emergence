@@ -5,10 +5,10 @@ func stubImage(path: NSString, ratio: Float) -> Image {
     return Image(json: ["id": "id", "image_url": path, "image_versions": ["featured"], "aspect_ratio": ratio ] )!
 }
 
-func stubArtwork(image: Image, title: String, artist: String) -> Artwork {
+func stubArtwork(id: String, image: Image, title: String, artist: String) -> Artwork {
     let imageJSON = ["id": "id", "image_url": image.imageFormatString, "image_versions": ["featured"], "aspect_ratio": image.aspectRatio! ]
 
-    return Artwork(json: ["id": "21314", "title":title, "medium" : "Code", "images" : [imageJSON], "cultural_marker" : artist ] )!
+    return Artwork(json: ["id": id, "title":title, "medium" : "Code", "images" : [imageJSON], "cultural_marker" : artist ] )!
 }
 
 
@@ -47,13 +47,13 @@ struct ShowNetworkingModel {
         let stubPath = NSBundle.mainBundle().pathForResource("slide-bg-2.jpg", ofType: nil)!
 
         var image = stubImage(stubPath, ratio: 0.4)
-        let artwork = stubArtwork(image, title: "Work 1", artist: "Some person")
+        let artwork = stubArtwork("as1sda", image:image, title: "Work 1", artist: "Some person")
 
         image = stubImage(stubPath, ratio: 1)
-        let artwork2 = stubArtwork(image, title: "Work 2", artist: "Another person")
+        let artwork2 = stubArtwork("as1s23da", image:image, title: "Work 2", artist: "Another person")
 
         image = stubImage(stubPath, ratio: 0.8)
-        let artwork3 = stubArtwork(image, title: "Work 3", artist: "That person")
+        let artwork3 = stubArtwork("as1231sda", image:image, title: "Work 3", artist: "That person")
 
         return [artwork, artwork2, artwork3]
     }()

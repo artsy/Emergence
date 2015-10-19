@@ -26,8 +26,13 @@
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
+            <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
@@ -73,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENu-9H-6hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3248" y="2287"/>
+            <point key="canvasLocation" x="-3264" y="2071"/>
         </scene>
         <!--Controller-->
         <scene sceneID="XKh-Pn-ZU2">
@@ -248,7 +253,7 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
                                         <rect key="frame" x="87" y="2094" width="526" height="48.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="526" id="7G7-n5-Rtx"/>
@@ -257,7 +262,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Emergence" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Emergence" customModuleProvider="target">
                                         <rect key="frame" x="82" y="2160" width="795" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="795" id="6fd-eW-eZK"/>
@@ -353,6 +358,7 @@
                         <outlet property="showLocationLabel" destination="Qp9-O3-SYE" id="bM4-1w-qYg"/>
                         <outlet property="showPartnerNameLabel" destination="wEF-l9-cUy" id="OUy-pY-C59"/>
                         <outlet property="showTitleLabel" destination="L7d-cu-M94" id="Cp7-Pt-wUQ"/>
+                        <segue destination="tZn-wX-nAm" kind="show" identifier="artwork" id="LuU-AJ-cSG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Upu-Nd-vXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -376,7 +382,88 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="957" y="2800"/>
+            <point key="canvasLocation" x="961" y="2831"/>
+        </scene>
+        <!--Artwork Set View Controller-->
+        <scene sceneID="jJE-Hr-DXd">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="tZn-wX-nAm" customClass="ArtworkSetViewController" customModule="Emergence" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jr4-Hu-089" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3253" y="3018"/>
+        </scene>
+        <!--Artwork View Controller-->
+        <scene sceneID="hxe-ZI-t8d">
+            <objects>
+                <viewController storyboardIdentifier="artwork" id="VQP-o9-qDS" customClass="ArtworkViewController" customModule="Emergence" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ng1-O8-edd"/>
+                        <viewControllerLayoutGuide type="bottom" id="WbF-lf-yku"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NcM-P3-x5e">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7R0-2g-mha">
+                                <rect key="frame" x="80" y="80" width="540" height="926"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ARTIST NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lt-ln-gMJ" customClass="ARSansSerifLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="31"/>
+                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Artwork Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt9-gc-QbD" customClass="ARSerifLabel">
+                                        <rect key="frame" x="0.0" y="37" width="540" height="30"/>
+                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Medium" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seF-Xh-yTx" customClass="ARSerifLabel">
+                                        <rect key="frame" x="0.0" y="73" width="540" height="30"/>
+                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="size in inches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-Pt-uhb" customClass="ARSerifLabel">
+                                        <rect key="frame" x="0.0" y="109" width="540" height="30"/>
+                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="size in cms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32k-1R-rcm" customClass="ARSerifLabel">
+                                        <rect key="frame" x="0.0" y="145" width="540" height="30"/>
+                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGS-Ad-Joj">
+                                        <rect key="frame" x="0.0" y="181" width="540" height="745"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.2030546044" blue="0.089253705690000004" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="540" id="tWG-7N-VRN"/>
+                                    <constraint firstAttribute="height" constant="926" id="vgX-g3-zoE"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="artistNameLabel" destination="5lt-ln-gMJ" id="TK3-Jn-4Kp"/>
+                        <outlet property="artworkDimensionsCMsLabel" destination="32k-1R-rcm" id="4bU-JM-sd9"/>
+                        <outlet property="artworkDimensionsInchesLabel" destination="Cd1-Pt-uhb" id="U34-OQ-sf5"/>
+                        <outlet property="artworkMediumLabel" destination="seF-Xh-yTx" id="W5e-kg-ckO"/>
+                        <outlet property="artworkNameLabel" destination="dt9-gc-QbD" id="4h0-Gt-A8s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ai-uw-dgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3253" y="4262"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Fje-g6-XBY">
@@ -421,7 +508,7 @@ museums and fairs around the world.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5oz-Qj-kpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1179" y="781"/>
+            <point key="canvasLocation" x="-1147" y="781"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="8Yn-a1-dt6">
@@ -544,7 +631,7 @@ museums and fairs around the world.</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3Z-aY-meJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1171" y="2287"/>
+            <point key="canvasLocation" x="-1147" y="2071"/>
         </scene>
         <!--App View Controller-->
         <scene sceneID="4Ye-VJ-IWy">
@@ -560,7 +647,7 @@ museums and fairs around the world.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhD-Fb-YEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5307" y="2295"/>
+            <point key="canvasLocation" x="-5307" y="2071"/>
         </scene>
     </scenes>
     <resources>
