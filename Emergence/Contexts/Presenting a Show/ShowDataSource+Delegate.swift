@@ -86,7 +86,7 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 
         if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestThumbnailWithHeight(dimensionLength) {
             cell.artistNameLabel.text = artwork.oneLinerArtist()
-            cell.titleLabel.text = artwork.title
+            cell.titleLabel.attributedText = artwork.titleWithDate()
             cell.image.sd_setImageWithURL(url)
             cell.image.backgroundColor = UIColor.artsyLightGrey()
         }

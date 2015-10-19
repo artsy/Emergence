@@ -23,7 +23,7 @@ struct Show: Showable, ImageURLThumbnailable {
 
     static func stubbedShow() -> Show {
         let partner = Partner(json:["id": "2311", "name":"El Partner"])!
-        let artwork = Artwork(json: ["id": "21314", "title":"Hello work", "medium" : "Code"] )!
+        let artwork = Artwork(json: ["id": "21314", "title":"Hello work", "medium" : "Code", "date": "1985"] )!
 
         let aBitAgo = NSDate(timeIntervalSinceNow: -36546278)
         let aBitInTheFuture = NSDate(timeIntervalSinceNow: 3654678)

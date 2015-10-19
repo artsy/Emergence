@@ -8,7 +8,7 @@ func stubImage(path: NSString, ratio: Float) -> Image {
 func stubArtwork(id: String, image: Image, title: String, artist: String) -> Artwork {
     let imageJSON = ["id": "id", "image_url": image.imageFormatString, "image_versions": ["featured"], "aspect_ratio": image.aspectRatio! ]
 
-    return Artwork(json: ["id": id, "title":title, "medium" : "Code", "images" : [imageJSON], "cultural_marker" : artist ] )!
+    return Artwork(json: ["id": id, "title":title, "medium" : "Code", "date": "1985", "images" : [imageJSON], "cultural_marker" : artist ] )!
 }
 
 

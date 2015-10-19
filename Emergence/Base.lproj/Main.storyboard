@@ -220,7 +220,7 @@
                                                                     <rect key="frame" x="0.0" y="489" width="354" height="115"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artwork name, date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-bV-9oP" customClass="TransparentSerifLabels" customModule="Emergence" customModuleProvider="target">
-                                                                            <rect key="frame" x="20" y="61" width="354" height="32"/>
+                                                                            <rect key="frame" x="20" y="61" width="318" height="41"/>
                                                                             <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>

@@ -21,7 +21,7 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
             self.artistNameLabel.frame = CGRectMake(xOffset, y, width, 30)
 
             y = self.titleLabel.frame.origin.y + yOffset
-            self.titleLabel.frame = CGRectMake(xOffset, y, width, 20)
+            self.titleLabel.frame = CGRectMake(xOffset, y, width, 30)
         }) {}
     }
 }
