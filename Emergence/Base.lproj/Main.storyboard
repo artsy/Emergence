@@ -133,7 +133,7 @@
                                             <constraint firstAttribute="width" constant="540" id="eEg-aG-HQM"/>
                                         </constraints>
                                     </stackView>
-                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J93-VG-uh9">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J93-VG-uh9">
                                         <rect key="frame" x="660" y="60" width="1260" height="920"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
@@ -153,17 +153,17 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNg-sH-8do">
-                                                            <rect key="frame" x="20" y="40" width="513" height="840"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oNg-sH-8do">
+                                                            <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="top" secondItem="c5c-lD-DPx" secondAttribute="topMargin" constant="40" id="L2i-cO-oXQ"/>
-                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="trailing" secondItem="c5c-lD-DPx" secondAttribute="trailingMargin" constant="-20" id="Qdp-al-WL8"/>
-                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="leading" secondItem="c5c-lD-DPx" secondAttribute="leadingMargin" constant="20" id="jNu-8z-wZN"/>
-                                                    <constraint firstAttribute="bottomMargin" secondItem="oNg-sH-8do" secondAttribute="bottom" constant="40" id="rCM-HE-Rs1"/>
+                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="top" secondItem="c5c-lD-DPx" secondAttribute="topMargin" id="L2i-cO-oXQ"/>
+                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="trailing" secondItem="c5c-lD-DPx" secondAttribute="trailingMargin" id="Qdp-al-WL8"/>
+                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="leading" secondItem="c5c-lD-DPx" secondAttribute="leadingMargin" id="jNu-8z-wZN"/>
+                                                    <constraint firstAttribute="bottomMargin" secondItem="oNg-sH-8do" secondAttribute="bottom" id="rCM-HE-Rs1"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="image" destination="oNg-sH-8do" id="IZH-zN-f9p"/>
@@ -253,7 +253,7 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
                                         <rect key="frame" x="87" y="2094" width="526" height="48.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="526" id="7G7-n5-Rtx"/>
@@ -262,7 +262,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Emergence" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Emergence" customModuleProvider="target">
                                         <rect key="frame" x="82" y="2160" width="795" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="795" id="6fd-eW-eZK"/>
