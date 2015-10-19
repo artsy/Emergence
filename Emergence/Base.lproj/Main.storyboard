@@ -407,49 +407,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7R0-2g-mha">
-                                <rect key="frame" x="80" y="80" width="540" height="926"/>
+                                <rect key="frame" x="80" y="80" width="460" height="926"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ARTIST NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lt-ln-gMJ" customClass="ARSansSerifLabel">
-                                        <rect key="frame" x="0.0" y="0.0" width="540" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="460" height="31"/>
                                         <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Artwork Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt9-gc-QbD" customClass="ARSerifLabel">
-                                        <rect key="frame" x="0.0" y="37" width="540" height="30"/>
+                                        <rect key="frame" x="0.0" y="37" width="460" height="30"/>
                                         <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Medium" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seF-Xh-yTx" customClass="ARSerifLabel">
-                                        <rect key="frame" x="0.0" y="73" width="540" height="30"/>
+                                        <rect key="frame" x="0.0" y="73" width="460" height="30"/>
                                         <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="size in inches" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-Pt-uhb" customClass="ARSerifLabel">
-                                        <rect key="frame" x="0.0" y="109" width="540" height="30"/>
+                                        <rect key="frame" x="0.0" y="109" width="460" height="30"/>
                                         <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="size in cms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32k-1R-rcm" customClass="ARSerifLabel">
-                                        <rect key="frame" x="0.0" y="145" width="540" height="30"/>
+                                        <rect key="frame" x="0.0" y="145" width="460" height="30"/>
                                         <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGS-Ad-Joj">
-                                        <rect key="frame" x="0.0" y="181" width="540" height="745"/>
+                                        <rect key="frame" x="0.0" y="181" width="460" height="745"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.2030546044" blue="0.089253705690000004" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="540" id="tWG-7N-VRN"/>
+                                    <constraint firstAttribute="width" constant="460" id="tWG-7N-VRN"/>
                                     <constraint firstAttribute="height" constant="926" id="vgX-g3-zoE"/>
                                 </constraints>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-bg-ccg">
+                                <rect key="frame" x="600" y="80" width="1240" height="895"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -459,6 +462,7 @@
                         <outlet property="artworkDimensionsInchesLabel" destination="Cd1-Pt-uhb" id="U34-OQ-sf5"/>
                         <outlet property="artworkMediumLabel" destination="seF-Xh-yTx" id="W5e-kg-ckO"/>
                         <outlet property="artworkNameLabel" destination="dt9-gc-QbD" id="4h0-Gt-A8s"/>
+                        <outlet property="artworkPreviewImage" destination="7mg-bg-ccg" id="Ngz-oc-hc9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ai-uw-dgA" userLabel="First Responder" sceneMemberID="firstResponder"/>

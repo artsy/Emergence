@@ -11,10 +11,16 @@ class ArtworkViewController: UIViewController {
 
     @IBOutlet weak var artworkDimensionsCMsLabel: UILabel!
 
+    @IBOutlet var artworkPreviewImage: UIImageView!
+
     override func viewDidLoad() {
         artistNameLabel.text = artwork.oneLinerArtist()
         artworkNameLabel.text = artwork.title
         artworkMediumLabel.text = artwork.medium
-//        artworkDimensionsInchesLabel.text = artwork.
+
+        if let defaultImage = artwork.defaultImage, let actualImage = defaultImage as? Image {
+            
+            artworkPreviewImage.sd_setImageWithURL(actualImage.bestThumbnailWithHeight(artworkPreviewImage.bounds.height))
+        }
     }
 }

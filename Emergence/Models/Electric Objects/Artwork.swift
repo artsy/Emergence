@@ -21,6 +21,7 @@ struct Artwork: Artworkable {
         }
         return culturalMarker
     }
+
 }
 
 extension Artwork: Decodable {
