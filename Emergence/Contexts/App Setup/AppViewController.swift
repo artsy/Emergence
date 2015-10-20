@@ -21,14 +21,20 @@ class AppViewController: UINavigationController {
 
         guard let id = showID else { return }
 
-        auth {
+        auth { success in
+            // Did auth fail? try again in a sec
+            if success == false {
+                return delay(1, closure: { self.openShowWithID(showID) })
+            }
+
+            // Otherwise, try open it
             let info = ArtsyAPI.ShowInfo(showID: id)
             self.context.network.request(info).mapSuccessfulHTTPToObject(Show).subscribe { event in
                 guard let show = event.element else { return }
                 
-                delayWhile(1, check: topVCIsAuth, closure: {
+                delayWhile(1, check: topVCIsAuth) {
                     self.presentShowViewControllerForShow(show)
-                })
+                }
             }
         }
     }
@@ -39,24 +45,26 @@ class AppViewController: UINavigationController {
         self.pushViewController(showVC, animated: true)
     }
 
-    func auth(completion: () -> () ) {
+    func auth(completion: (success: Bool) -> () ) {
         if context.network.authToken.isValid {
-            completion()
+            completion(success: true)
         } else {
             context.auth.getWeekLongXAppTrialToken { token, error in
-
-                let defaults = NSUserDefaults.standardUserDefaults()
-                defaults.setObject(token.token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
-                defaults.setObject(token.expirationDate, forKey: XAppToken.DefaultsKeys.TokenExpiry.rawValue)
-                defaults.synchronize()
-
-                self.context.network.authToken = XAppToken(defaults: defaults)
-                dispatch_async( dispatch_get_main_queue()) {
-                    completion()
+                if let token = token {
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    saveToken(defaults, token:token)
+                    self.context.network.authToken = XAppToken(defaults: defaults)
                 }
+                dispatch_async( dispatch_get_main_queue()) { completion(success: token != nil) }
             }
         }
     }
+}
+
+func saveToken(defaults: NSUserDefaults, token:ArtsyToken) {
+    defaults.setObject(token.token, forKey: XAppToken.DefaultsKeys.TokenKey.rawValue)
+    defaults.setObject(token.expirationDate, forKey: XAppToken.DefaultsKeys.TokenExpiry.rawValue)
+    defaults.synchronize()
 }
 
 // Allow other controllers to look through the heirarchy for this

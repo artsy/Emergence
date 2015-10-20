@@ -1,6 +1,7 @@
 import UIKit
 import Moya
 import RxCocoa
+import Artsy_Authentication
 
 /// Shows a slideshow of Artsy logos
 /// until we've got all the networking for the next VC cached
@@ -10,24 +11,47 @@ class AuthViewController: UIViewController {
     var featuredShows:[Show] = []
     var completedAuthentication = false
 
+    @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var slideshowView: SlideshowView!
+    @IBOutlet weak var artsyLogoImageView: UIImageView!
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        errorMessageLabel.hidden = true
+        
         startSlideshow()
+        if isFirstRun == false {
+            artsyLogoImageView.image = UIImage(named: "artsy-logo-black")
+            errorMessageLabel.textColor = .blackColor()
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        login()
+    }
+
+    func login() {
         guard let appVC = self.appViewController else {
             return print("you need an app VC")
         }
 
-        appVC.auth {
+        appVC.auth { success in
+            // If you're offline, let people know there is a problem and try
+            // again in 0.3 seconds, you've only got 1-2 seconds in here
+            // so sooner is better.
+
+            if success == false {
+                self.errorMessageLabel.hidden = false
+                self.errorMessageLabel.backgroundColor = .clearColor()
+                return delay(0.3) { self.login() }
+            }
+
             self.completedAuthentication = true
 
             let network = appVC.context.network
             network.request(.FeaturedShows).mapSuccessfulHTTPToObjectArray(Show).subscribe(next: { shows in
-                self.featuredShows = shows
+                    self.featuredShows = shows
 
                 }, error: { error in
                     print("ERROROR \(error)")
@@ -36,16 +60,19 @@ class AuthViewController: UIViewController {
         }
     }
 
-    lazy var isADeveloper:Bool = {
-        #if DEBUG
-            return true
-        #else
-            return false
-        #endif
+    lazy var isFirstRun:Bool = {
+        let key = "have_ran"
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.boolForKey(key) { return false }
+
+        defaults.setBool(true, forKey: key)
+        defaults.synchronize()
+        return true
     }()
 
+
     var initialDelay: Double {
-        return isADeveloper ? 0.1 : 0.6
+        return 0.7
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -62,7 +89,15 @@ extension AuthViewController {
     // TODO: Move to delegate / functions on the slideshow?
 
     func startSlideshow() {
-        slideshowView.imagePaths = ["image.png", "image2.png", "image.png", "image2.png"]
+
+        let images:[String]
+        if isFirstRun {
+            images = ["slide-bg-1.jpg", "slide-bg-2.jpg", "slide-bg-3.jpg"]
+        } else {
+            images = ["white.png", "white.png", "white.png"]
+        }
+
+        slideshowView.imagePaths = images
         slideshowView.next()
         performSelector("nextSlide", withObject: nil, afterDelay: initialDelay)
     }
@@ -72,7 +107,6 @@ extension AuthViewController {
     }
 
     func shouldFinishSlideshow() -> Bool {
-        let isFirstRun = true
         let completedCache = featuredShows.isNotEmpty
         let skipBecauseCached = completedCache && isFirstRun == false
         let outOfSlides = slideshowView.hasMoreSlides() == false
@@ -86,8 +120,7 @@ extension AuthViewController {
 
         slideshowView.next()
 
-        let initialDelay = isADeveloper ? 0.1 : 0.6
-        var delay = initialDelay + (-0.1 * Double(slideshowView.slidesLeft()) );
+        var delay = initialDelay - 0.3 + (0.1 * Double(slideshowView.slidesLeft()) );
         delay = max(delay, 0.1)
         performSelector("nextSlide", withObject: nil, afterDelay: delay)
     }

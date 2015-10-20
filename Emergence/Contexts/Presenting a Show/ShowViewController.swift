@@ -3,9 +3,10 @@ import RxSwift
 import Moya
 import Gloss
 
-class ShowViewController: UIViewController {
-    var index = -1
+class ShowViewController: UIViewController, ShowItemTapped {
     var show: Show!
+
+    var didForceFocusChange = true
 
     @IBOutlet weak var showTitleLabel: UILabel!
     @IBOutlet weak var showPartnerNameLabel: UILabel!
@@ -15,7 +16,13 @@ class ShowViewController: UIViewController {
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var artworkCollectionView: UICollectionView!
 
+    @IBOutlet weak var aboutTheShowLabel: UILabel!
+
+    @IBOutlet weak var pressReleaseLabel: UILabel!
+    @IBOutlet weak var pressReleaseTitle: UILabel!
+
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollChief: ShowScrollChief!
 
     var artworkDelegate: CollectionViewDelegate<Artwork>!
     var artworkDataSource: CollectionViewDataSource<Artwork>!
@@ -27,6 +34,7 @@ class ShowViewController: UIViewController {
         precondition(self.appViewController != nil, "you need an app VC");
 
         super.viewDidLoad()
+        print("Looking at \(show.id)")
         showDidLoad(show)
 
         guard let appVC = self.appViewController else {
@@ -34,20 +42,22 @@ class ShowViewController: UIViewController {
         }
 
         let network = appVC.context.network
+        let networker = ShowNetworkingModel(network: network, show: show)
 
-        // Setup the Image pager
-        let showImages = ArtsyAPI.ImagesForShow(showID: show.id)
-        let imageNetworking = network.request(showImages).mapSuccessfulHTTPToObjectArray(Image)
-        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageNetworking, cellIdentifier: "image")
-        imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView)
+        // Toggle for stubbing the data for the images/artworks
+        let offline = true
+        let imageData = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
+        let artworkData = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
 
-        // Setup the Artwork pager
-        let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id)
-        let artworkNetworking = network.request(showArtworks).mapSuccessfulHTTPToObjectArray(Artwork)
-        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkNetworking, cellIdentifier: "artwork")
-        artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView)
+        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageData, cellIdentifier: "image")
+        imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
+
+        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkData, cellIdentifier: "artwork")
+        artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
+
+        self.scrollView.scrollEnabled = false
     }
-    
+
     func showDidLoad(show: Show) {
         showTitleLabel.text = show.name
         showPartnerNameLabel.text = show.partner.name
@@ -63,35 +73,72 @@ class ShowViewController: UIViewController {
         } else {
             showAusstellungsdauerLabel.removeFromSuperview()
         }
+
+        if let release = show.pressRelease {
+            pressReleaseLabel.text = release
+        } else {
+            pressReleaseTitle.removeFromSuperview()
+            pressReleaseLabel.removeFromSuperview()
+        }
+
+        aboutTheShowLabel.text = show.showDescription
+    }
+
+    override var preferredFocusedView: UIView? {
+        return scrollChief.keyView
     }
 
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        guard let next = context.nextFocusedView else { return }
 
-        guard let next = context.nextFocusedView else {
-            return print("Next view was empty in didUpdateFocusInContext")
+        // We want to move the images collectionview across to full screen after you scroll past the first index.
+
+        if next.isDescendantOfView(imagesCollectionView) {
+            guard let cell = context.nextFocusedView as? UICollectionViewCell else { return }
+            let index = imagesCollectionView.indexPathForCell(cell)!.row
+            let xOffset: CGFloat = index == 0 ? 660 : 0
+
+            // No need to do it if it's already set up right
+            if xOffset == imagesCollectionView.frame.origin.x { return }
+
+            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
+
+                let originalFrame = self.imagesCollectionView.frame
+                self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width - xOffset, originalFrame.height)
+
+            }, completion: nil)
+        }
+    }
+
+    override func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool {
+        // We want to avoid jumping between multiple pages
+
+        if didForceFocusChange == false {
+            // Allow moving between collectionview cells in the same parent
+            let sameParent = context.previouslyFocusedView?.superview == context.nextFocusedView?.superview
+            return sameParent
         }
 
-        // Super simple pagination for now, will build out as things get more complex
+        didForceFocusChange = false
+        return context.nextFocusedView == scrollChief.keyView
+    }
 
-        let yOffset: CGFloat
-        if next.isDescendantOfView(imagesCollectionView) { yOffset = 0 }
-        else if next.isDescendantOfView(artworkCollectionView) { yOffset = 1080 }
-        else { return }
+    var selectedArtwork: Artwork!
+    func didTapArtwork(item: Artwork) {
+        selectedArtwork = item
+        performSegueWithIdentifier("artwork", sender: self)
+    }
 
-        coordinator.addCoordinatedAnimations({
-            self.scrollView.contentOffset = CGPoint(x: 0, y: yOffset)
-        }, completion: nil)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let artworkSetVC = segue.destinationViewController as? ArtworkSetViewController else { return }
+
+        artworkSetVC.artworks = artworkDataSource.items
+        artworkSetVC.initialIndex = artworkSetVC.artworks.indexOf({ $0.id == selectedArtwork.id })
     }
 }
 
 // Keeping these around in here for now, if they get more complex they can go somewhere else
 
 class ImageCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var image: UIImageView!
-}
-
-class ArtworkCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
 }

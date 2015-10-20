@@ -12,7 +12,6 @@ struct Show: Showable, ImageURLThumbnailable {
     let startDate: NSDate?
     let endDate: NSDate?
 
-    var installShots: [Imageable]
     var artworks: [Artworkable]
 
     var locationOneLiner: String?
@@ -20,15 +19,21 @@ struct Show: Showable, ImageURLThumbnailable {
     var imageFormatString: String
     var imageVersions: [String]
 
+    var hasInstallationShots: Bool
+
     static func stubbedShow() -> Show {
         let partner = Partner(json:["id": "2311", "name":"El Partner"])!
-        let image = Image(json: ["id": "2311", "image_url":"blah", "image_versions": ["normalized", "large"]])!
-        let artwork = Artwork(json: ["id": "21314", "title":"Hello work", "medium" : "Code"] )!
+        let artwork = Artwork(json: ["id": "21314", "title":"Hello work", "medium" : "Code", "date": "1985"] )!
 
         let aBitAgo = NSDate(timeIntervalSinceNow: -36546278)
         let aBitInTheFuture = NSDate(timeIntervalSinceNow: 3654678)
 
-        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: nil, showDescription: nil, startDate: aBitAgo, endDate: aBitInTheFuture, installShots: [image], artworks: [artwork], locationOneLiner: nil, imageFormatString: "", imageVersions: [""])
+        let description = "Samuel Freeman is pleased to present 'Relief,' Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief."
+
+        let press = "Here’s what happened: You meet someone and play them your current favourite song, only to find out that it’s their favourite, too. Yes! Then you listen to it forever – or at least for six hours. If you don’t just have a weakness for pop music, but also for melancholy, and if you’re also a visual artist called Ragnar Kjartansson, then you might ask the band (in this case, The National), whether they would like to play the song (in this case, “Sorrow”) in New York’s MoMA PS1 non-stop for six consecutive hours – and then you make a film about the whole thing. This is the impact of these six hours: Exhaustion sets in, the song begins to change under the weight of time and the musicians begin to experiment cautiously. There are clashes and friction between pathos and irony, trance-like states set in and break off, until a new, collective experience between emotion and reflection, of presence and duration becomes possible. And if you prefer, you could also simply hear and see a literally wonderful concert.\n\n\nHere’s what happened: You meet someone and play them your current favourite song, only to find out that it’s their favourite, too. Yes! Then you listen to it forever – or at least for six hours. If you don’t just have a weakness for pop music, but also for melancholy, and if you’re also a visual artist called Ragnar Kjartansson, then you might ask the band (in this case, The National), whether they would like to play the song (in this case, “Sorrow”) in New York’s MoMA PS1 non-stop for six consecutive hours – and then you make a film about the whole thing. This is the impact of these six hours: Exhaustion sets in, the song begins to change under the weight of time and the musicians begin to experiment cautiously. There are clashes and friction between pathos and irony, trance-like states set in and break off, until a new, collective experience between emotion and reflection, of presence and duration becomes possible. And if you prefer, you could also simply hear and see a literally wonderful concert.\n\n      “A Lot of Sorrow” took place at MoMA PS1, as part of Sunday Sessions. A joint project by KÖNIG GALERIE and Foreign Affairs - Festivalt."
+
+        let location = "Huddersfield, UK"
+        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: press, showDescription: description, startDate: aBitAgo, endDate: aBitInTheFuture, artworks: [artwork], locationOneLiner: location, imageFormatString: "", imageVersions: [""], hasInstallationShots: true)
     }
 }
 
@@ -64,7 +69,13 @@ extension Show: Decodable {
         showDescription = "description" <~~ json
 
         artworks = []
-        installShots = []
+
+        if let imageCount: Int = "images_count" <~~ json {
+            hasInstallationShots = imageCount > 0
+        } else {
+            hasInstallationShots = false
+        }
+
         locationOneLiner = Show.locationOneLinerFromJSON(json)
 
         // ImageURLThumbnailable conformance

@@ -1,7 +1,16 @@
 import UIKit
+import CoreGraphics
 import ARCollectionViewMasonryLayout
 import SDWebImage
 import RxSwift
+import Artsy_UIColors
+
+// Just a dump protocol to pass a message back that 
+// something has been tapped on
+
+protocol ShowItemTapped {
+    func didTapArtwork(item: Artwork)
+}
 
 // Generic DataSource for dealing with an image based collectionview
 
@@ -9,10 +18,12 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 
     let dimensionLength:CGFloat
     let artworkDataSource: CollectionViewDataSource<T>
+    let delegate: ShowItemTapped?
 
-    init(datasource: CollectionViewDataSource<T>, collectionView: UICollectionView) {
+    init(datasource: CollectionViewDataSource<T>, collectionView: UICollectionView, delegate: ShowItemTapped?) {
         artworkDataSource = datasource
         dimensionLength = collectionView.bounds.height
+        self.delegate = delegate
 
         super.init()
 
@@ -29,18 +40,25 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: ARCollectionViewMasonryLayout!, variableDimensionForItemAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         let item = artworkDataSource.itemForIndexPath(indexPath)
 
-        guard let actualItem = item, image:Image = imageForItem(actualItem) else {
+        guard let actualItem = item, image: Image = imageForItem(actualItem) else {
             // otherwise, ship a square
             return dimensionLength
         }
 
+        return widthForImage(image, capped: collectionView.bounds.width)
+    }
+
+    func widthForImage(image: Image, capped: CGFloat) -> CGFloat {
+        let width: CGFloat
         if let ratio = image.aspectRatio {
-            return dimensionLength * ratio
+            width = dimensionLength / ratio
+
+        } else {
+            let ratio = image.imageSize.width / image.imageSize.height
+            width = dimensionLength / ratio
         }
 
-        // Hrm is this right?
-        let ratio = image.imageSize.height / image.imageSize.width
-        return dimensionLength * ratio
+        return min(width, capped)
     }
 
     func imageForItem(item:T) -> Image? {
@@ -63,12 +81,22 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 
         if let cell = cell as? ImageCollectionViewCell, let url = image.bestThumbnailWithHeight(dimensionLength) {
             cell.image.sd_setImageWithURL(url)
+            cell.image.backgroundColor = UIColor.artsyLightGrey()
         }
 
         if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestThumbnailWithHeight(dimensionLength) {
             cell.artistNameLabel.text = artwork.oneLinerArtist()
-            cell.titleLabel.text = artwork.title
+            cell.titleLabel.attributedText = artwork.titleWithDate()
             cell.image.sd_setImageWithURL(url)
+            cell.image.backgroundColor = UIColor.artsyLightGrey()
+        }
+    }
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        guard let item = artworkDataSource.itemForIndexPath(indexPath) else { return }
+
+        if let artwork = item as? Artwork {
+            delegate?.didTapArtwork(artwork)
         }
     }
 }
@@ -84,14 +112,10 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
         super.init()
 
         collectionView.dataSource = self
-        request.subscribe(next: { items in
-            self.items = items
+        request.subscribe() { items in
+            self.items = items.element
             self.collectionView.reloadData()
-
-            }, error: { error in
-                print("ERROROR \(error)")
-
-            }, completed: nil, disposed: nil)
+        }
     }
 
     func itemForIndexPath(path: NSIndexPath) -> T? {

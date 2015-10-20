@@ -40,8 +40,8 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
         let showInfo = ArtsyAPI.RunningShowsNearLocation(amount: 25, lat: coords.lat, long: coords.long)
 
         network.request(showInfo).mapSuccessfulHTTPToObjectArray(Show).subscribe(next: { shows in
-
-            self.shows = shows
+            let shows: [Show] = shows
+             self.shows = shows.filter({ $0.hasInstallationShots == false })
 
             }, error: { error in
                 print("ERROROR \(error)")

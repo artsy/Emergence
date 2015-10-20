@@ -4,7 +4,7 @@ import UIKit
 // from the UIKitCatalogue example code from Apple.
 // The technique is to use a collectionview which hosts another collectionview
 
-class ShowsOverviewViewController: UICollectionViewController {
+class ShowsOverviewViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private static let minimumEdgePadding = CGFloat(90.0)
     private var emitters:[ShowEmitter]!
@@ -16,11 +16,11 @@ class ShowsOverviewViewController: UICollectionViewController {
         super.viewDidLoad()
 
         guard let appVC = self.appViewController else { return print("you need an app VC") }
+        guard let collectionView = collectionView else { return }
 
-        guard let collectionView = collectionView, layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+//        appVC.openShowWithID("joshua-liner-gallery-libby-black-theres-no-place-like-home")
 
-        collectionView.contentInset.top = ShowsOverviewViewController.minimumEdgePadding - layout.sectionInset.top
-        collectionView.contentInset.bottom = ShowsOverviewViewController.minimumEdgePadding - layout.sectionInset.bottom
+        appVC.presentShowViewControllerForShow(Show.stubbedShow())
 
         let network = appVC.context.network
 
@@ -87,6 +87,17 @@ extension ShowsOverviewViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         return collectionView.dequeueReusableCellWithReuseIdentifier(ShowSetCollectionViewCell.reuseIdentifier, forIndexPath: indexPath)
+    }
+
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        return collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+    }
+
+    // MARK: UICollectionViewDelegateFlowLayout
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section != 0  { return CGSizeZero }
+        return CGSizeMake(view.bounds.width, 180)
     }
 
     // MARK: UICollectionViewDelegate

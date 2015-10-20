@@ -12,7 +12,7 @@ protocol GeminiThumbnailable {
 
 extension GeminiThumbnailable {
 
-    /// Returns a NSURL represnting a thumbnail using Gemini to process the image 
+    /// Returns a NSURL representing a thumbnail using Gemini to process the image
     /// to the size we want based on the height of the image
 
     func geminiThumbnailURLWithHeight(height:Int, quality:Int = 85) -> NSURL? {
@@ -21,7 +21,7 @@ extension GeminiThumbnailable {
         return NSURL(string: string)!
     }
 
-    /// Returns a NSURL represnting a thumbnail using Gemini to process the image
+    /// Returns a NSURL representing a thumbnail using Gemini to process the image
     /// to the size we want based on the width of the image
 
     func geminiThumbnailURLWithWidth(width:Int, quality:Int = 85) -> NSURL? {
