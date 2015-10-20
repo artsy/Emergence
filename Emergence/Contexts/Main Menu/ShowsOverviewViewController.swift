@@ -19,8 +19,7 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         guard let collectionView = collectionView else { return }
 
 //        appVC.openShowWithID("joshua-liner-gallery-libby-black-theres-no-place-like-home")
-
-        appVC.presentShowViewControllerForShow(Show.stubbedShow())
+//        appVC.presentShowViewControllerForShow(Show.stubbedShow())
 
         let network = appVC.context.network
 
@@ -113,7 +112,7 @@ extension ShowsOverviewViewController {
         // We don't want this collectionView's cells to become focused. 
         // Instead the `UICollectionView` contained in the cell should become focused.
 
-        if indexPath.section > 1 {
+        if indexPath.section > 0 {
             // this handles multiple calls fine
             requestShowsAtIndex(indexPath.section + 1)
         }

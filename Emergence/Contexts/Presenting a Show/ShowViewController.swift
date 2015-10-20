@@ -29,6 +29,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
     var imageDelegate: CollectionViewDelegate<Image>!
     var imageDataSource: CollectionViewDataSource<Image>!
 
+    var imageRequest: Observable<[Image]>!
+    var artworkRequest: Observable<[Artwork]>!
+
     override func viewDidLoad() {
         precondition(self.show != nil, "you need a show to load the view controller");
         precondition(self.appViewController != nil, "you need an app VC");
@@ -45,14 +48,14 @@ class ShowViewController: UIViewController, ShowItemTapped {
         let networker = ShowNetworkingModel(network: network, show: show)
 
         // Toggle for stubbing the data for the images/artworks
-        let offline = true
-        let imageData = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
-        let artworkData = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
+        let offline = false
+        imageRequest = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
+        artworkRequest = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
 
-        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageData, cellIdentifier: "image")
+        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageRequest, cellIdentifier: "image")
         imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
 
-        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkData, cellIdentifier: "artwork")
+        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkRequest, cellIdentifier: "artwork")
         artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
 
         self.scrollView.scrollEnabled = false

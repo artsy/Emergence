@@ -35,6 +35,7 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - UIImageViewAligned (0.0.1)
 
 DEPENDENCIES:
   - ARCollectionViewMasonryLayout
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - RxCocoa (from `https://github.com/orta/RxSwift.git`, branch `tvos`)
   - RxSwift (from `https://github.com/orta/RxSwift.git`, branch `tvos`)
   - SDWebImage
+  - UIImageViewAligned (from `https://github.com/dbachrach/UIImageViewAligned.git`)
 
 EXTERNAL SOURCES:
   Artsy+Authentication:
@@ -74,6 +76,8 @@ EXTERNAL SOURCES:
   RxSwift:
     :branch: tvos
     :git: https://github.com/orta/RxSwift.git
+  UIImageViewAligned:
+    :git: https://github.com/dbachrach/UIImageViewAligned.git
 
 CHECKOUT OPTIONS:
   Artsy+Authentication:
@@ -94,6 +98,9 @@ CHECKOUT OPTIONS:
   RxSwift:
     :commit: ebd89c38832b0f4f9c8ad578b4cf2a1ede91ced4
     :git: https://github.com/orta/RxSwift.git
+  UIImageViewAligned:
+    :commit: 98a3967cf1c71d3ad2b1181c7bf6e818803aad71
+    :git: https://github.com/dbachrach/UIImageViewAligned.git
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
@@ -115,5 +122,6 @@ SPEC CHECKSUMS:
   RxCocoa: 2a45f35cd0eb6a01e081b3d11849c2fcb0bdb6de
   RxSwift: c66f7956b2e5fb397a62bf4a3ec6072749a816a7
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  UIImageViewAligned: c188246ca50d21a5ac2a60ae754669525bb9f2f1
 
 COCOAPODS: 0.39.0

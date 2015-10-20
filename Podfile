@@ -32,6 +32,7 @@ def app_pods()
   pod 'RxCocoa', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'SDWebImage'
   pod 'ARCollectionViewMasonryLayout'
+  pod 'UIImageViewAligned', :git => "https://github.com/dbachrach/UIImageViewAligned.git"
 end
 
 def platform_pods()

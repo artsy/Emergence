@@ -5,7 +5,7 @@ import SDWebImage
 import RxSwift
 import Artsy_UIColors
 
-// Just a dump protocol to pass a message back that 
+// Just a dumb protocol to pass a message back that
 // something has been tapped on
 
 protocol ShowItemTapped {
@@ -47,6 +47,8 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 
         return widthForImage(image, capped: collectionView.bounds.width)
     }
+
+    // TODO: Fix this!
 
     func widthForImage(image: Image, capped: CGFloat) -> CGFloat {
         let width: CGFloat
@@ -113,7 +115,9 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
 
         collectionView.dataSource = self
         request.subscribe() { items in
-            self.items = items.element
+            guard let things = items.element else { return }
+
+            self.items = things
             self.collectionView.reloadData()
         }
     }

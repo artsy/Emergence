@@ -33,6 +33,8 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
     }
 
     func getShows() {
+        print("Getting \(title)")
+
         if networking { return }
         networking = true
 
@@ -41,10 +43,14 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
 
         network.request(showInfo).mapSuccessfulHTTPToObjectArray(Show).subscribe(next: { shows in
             let shows: [Show] = shows
-             self.shows = shows.filter({ $0.hasInstallationShots == false })
+            self.shows = shows.filter({ $0.hasInstallationShots })
+            if self.shows.isEmpty {
+                print("Got no shows for \(self.location.name)")
+            }
 
-            }, error: { error in
-                print("ERROROR \(error)")
-            }, completed: nil, disposed: nil)
+        }, error: { error in
+            print("ERROROR \(error)")
+
+        }, completed: nil, disposed: nil)
     }
 }
