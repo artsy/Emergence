@@ -57,6 +57,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
 
         artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkRequest, cellIdentifier: "artwork")
         artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
+        artworkDelegate.internalPadding = 150
 
         self.scrollView.scrollEnabled = false
     }
