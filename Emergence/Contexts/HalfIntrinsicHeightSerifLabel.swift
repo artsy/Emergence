@@ -7,10 +7,21 @@ import Artsy_UILabels
 /// I tried every version of the Garamond font we have
 /// and still got bad behavior.
 
+
 class HalfIntrinsicHeightSerifLabel: ARSerifLabel {
     override func intrinsicContentSize() -> CGSize {
         let size = super.intrinsicContentSize()
-        let height = max(size.height/2.73, 30)
+        let guestiHeight = size.height/2.73
+        let height = guestiHeight.roundUp(30)
         return CGSize(width: size.width, height: height)
+    }
+}
+
+
+extension CGFloat {
+    /// Rounds up current value to the nearest x
+    func roundUp(divisor: CGFloat) -> CGFloat {
+        let rem = self % divisor
+        return rem == 0 ? self : self + divisor - rem
     }
 }

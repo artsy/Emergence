@@ -17,6 +17,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var artworkCollectionView: UICollectionView!
 
+    @IBOutlet weak var aboutTheShowTitle: UILabel!
     @IBOutlet weak var aboutTheShowLabel: UILabel!
 
     @IBOutlet weak var pressReleaseLabel: UILabel!
@@ -85,14 +86,20 @@ class ShowViewController: UIViewController, ShowItemTapped {
             showAusstellungsdauerLabel.removeFromSuperview()
         }
 
-        if let release = show.pressRelease {
+        if let release = show.pressRelease where release.isNotEmpty {
             pressReleaseLabel.text = release
         } else {
             pressReleaseTitle.removeFromSuperview()
             pressReleaseLabel.removeFromSuperview()
         }
 
-        aboutTheShowLabel.text = show.showDescription
+        if let description = show.showDescription where description.isNotEmpty {
+            aboutTheShowLabel.text = show.showDescription
+        } else {
+            aboutTheShowLabel.removeFromSuperview()
+            aboutTheShowTitle.removeFromSuperview()
+        }
+
     }
 
     override var preferredFocusedView: UIView? {

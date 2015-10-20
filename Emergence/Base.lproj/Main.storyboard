@@ -92,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="2600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-z5-DCl">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-z5-DCl">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="2600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-dd-cBh">
@@ -256,34 +256,6 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
-                                        <rect key="frame" x="87" y="2094" width="526" height="49"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="526" id="7G7-n5-Rtx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
-                                        <rect key="frame" x="82" y="2160" width="795" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="795" id="6fd-eW-eZK"/>
-                                        </constraints>
-                                        <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
-                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Press Release" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDy-Ej-kDB" customClass="ARSerifLabel" propertyAccessControl="none">
-                                        <rect key="frame" x="82" y="2314" width="526" height="49"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="526" id="OKK-H5-gtS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="down-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-m5-sEn">
                                         <rect key="frame" x="944" y="1020" width="32" height="19"/>
                                     </imageView>
@@ -295,35 +267,65 @@
                                             <constraint firstAttribute="width" constant="1920" id="Y75-e1-qRw"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwD-Rv-5ho" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
-                                        <rect key="frame" x="75" y="2390" width="795" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="795" id="nVE-2F-h74"/>
-                                        </constraints>
-                                        <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
-                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="THI-Q1-ZmQ">
+                                        <rect key="frame" x="85" y="1980" width="795" height="428"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
+                                                <rect key="frame" x="0.0" y="0.0" width="526" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="526" id="7G7-n5-Rtx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="49" width="795" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="795" id="6fd-eW-eZK"/>
+                                                </constraints>
+                                                <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R57-bE-p6B">
+                                                <rect key="frame" x="0.0" y="169" width="240" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Press Release" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDy-Ej-kDB" customClass="ARSerifLabel" propertyAccessControl="none">
+                                                <rect key="frame" x="0.0" y="259" width="526" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="526" id="OKK-H5-gtS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwD-Rv-5ho" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="308" width="795" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="795" id="nVE-2F-h74"/>
+                                                </constraints>
+                                                <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="f1M-Mj-4GQ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" id="3L1-ux-Rui"/>
-                                    <constraint firstItem="v52-kC-oaU" firstAttribute="top" secondItem="PeU-F5-LfP" secondAttribute="bottom" constant="17" id="3iZ-kS-ljS"/>
-                                    <constraint firstItem="uDy-Ej-kDB" firstAttribute="top" secondItem="v52-kC-oaU" secondAttribute="bottom" constant="38" id="BDO-LV-cuZ"/>
+                                    <constraint firstItem="THI-Q1-ZmQ" firstAttribute="top" secondItem="f1M-Mj-4GQ" secondAttribute="bottom" constant="130" id="4Sj-IF-ApS"/>
                                     <constraint firstItem="hgN-5L-gje" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="10" id="DdQ-7F-6E0"/>
                                     <constraint firstAttribute="width" secondItem="f1M-Mj-4GQ" secondAttribute="width" id="DjQ-bI-M3a"/>
-                                    <constraint firstItem="v52-kC-oaU" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="82" id="Fy1-zT-hbG"/>
                                     <constraint firstItem="hkd-ZI-vaZ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="80" id="GDg-27-088"/>
                                     <constraint firstItem="f1M-Mj-4GQ" firstAttribute="top" secondItem="hkd-ZI-vaZ" secondAttribute="bottom" constant="21" id="Gts-c9-P3j"/>
-                                    <constraint firstItem="PeU-F5-LfP" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="87" id="H8q-Qq-geu"/>
                                     <constraint firstItem="L7d-cu-M94" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="80" id="JE9-Th-Yxh"/>
                                     <constraint firstItem="hkd-ZI-vaZ" firstAttribute="top" secondItem="mhZ-dd-cBh" secondAttribute="bottom" constant="289" id="Sdh-tZ-t1o"/>
-                                    <constraint firstItem="AwD-Rv-5ho" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="75" id="UsN-hg-nRn"/>
-                                    <constraint firstItem="PeU-F5-LfP" firstAttribute="top" secondItem="f1M-Mj-4GQ" secondAttribute="bottom" constant="130" id="ZQx-9L-hQ9"/>
-                                    <constraint firstItem="uDy-Ej-kDB" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="82" id="lKE-nH-KJk"/>
-                                    <constraint firstItem="AwD-Rv-5ho" firstAttribute="top" secondItem="uDy-Ej-kDB" secondAttribute="bottom" constant="27" id="oFw-fJ-b5z"/>
-                                    <constraint firstAttribute="bottom" secondItem="AwD-Rv-5ho" secondAttribute="bottom" constant="90" id="pOo-5V-CJZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="AwD-Rv-5ho" secondAttribute="bottom" constant="282" id="XD2-QT-HW6"/>
                                     <constraint firstItem="mhZ-dd-cBh" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="60" id="pwV-69-XNL"/>
                                     <constraint firstAttribute="trailing" secondItem="hgN-5L-gje" secondAttribute="trailing" id="rC8-bw-vzE"/>
                                     <constraint firstItem="J93-VG-uh9" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="660" id="vw8-2h-6C1"/>
@@ -351,6 +353,7 @@
                     <size key="freeformSize" width="1920" height="2600"/>
                     <connections>
                         <outlet property="aboutTheShowLabel" destination="v52-kC-oaU" id="EeQ-YZ-16v"/>
+                        <outlet property="aboutTheShowTitle" destination="PeU-F5-LfP" id="ZSp-c7-Wty"/>
                         <outlet property="artworkCollectionView" destination="f1M-Mj-4GQ" id="xHF-ZZ-2wx"/>
                         <outlet property="imagesCollectionView" destination="J93-VG-uh9" id="eLW-BF-fFn"/>
                         <outlet property="preferredFocusedView" destination="7oR-z5-DCl" id="SUe-d1-amR"/>
