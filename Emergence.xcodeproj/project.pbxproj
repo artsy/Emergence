@@ -161,7 +161,7 @@
 		60C390311BC29A5E002589E3 /* Partnerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partnerable.swift; sourceTree = "<group>"; };
 		60C390331BC29AA3002589E3 /* Partner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
 		60C3A6781BCD13D2003B0DE7 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
-		60C3CB241BB14026005125EF /* Emergence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emergence.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60C3CB241BB14026005125EF /* Artsy Shows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Artsy Shows.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C3CB2C1BB14026005125EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60C3CB2E1BB14026005125EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60C3CB301BB14026005125EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 		60C3CB251BB14026005125EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60C3CB241BB14026005125EF /* Emergence.app */,
+				60C3CB241BB14026005125EF /* Artsy Shows.app */,
 				60C3CB351BB14026005125EF /* EmergenceTests.xctest */,
 				60A4C4AD1BCCEDC20092CC74 /* FrontPage.appex */,
 			);
@@ -571,9 +571,9 @@
 			productReference = 60A4C4AD1BCCEDC20092CC74 /* FrontPage.appex */;
 			productType = "com.apple.product-type.tv-app-extension";
 		};
-		60C3CB231BB14025005125EF /* Emergence */ = {
+		60C3CB231BB14025005125EF /* Artsy Shows */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60C3CB3E1BB14026005125EF /* Build configuration list for PBXNativeTarget "Emergence" */;
+			buildConfigurationList = 60C3CB3E1BB14026005125EF /* Build configuration list for PBXNativeTarget "Artsy Shows" */;
 			buildPhases = (
 				554FFC7DC11C4B931257EF35 /* Check Pods Manifest.lock */,
 				60C3CB201BB14025005125EF /* Sources */,
@@ -588,9 +588,9 @@
 			dependencies = (
 				60A4C4B51BCCEDC20092CC74 /* PBXTargetDependency */,
 			);
-			name = Emergence;
+			name = "Artsy Shows";
 			productName = Emergence;
-			productReference = 60C3CB241BB14026005125EF /* Emergence.app */;
+			productReference = 60C3CB241BB14026005125EF /* Artsy Shows.app */;
 			productType = "com.apple.product-type.application";
 		};
 		60C3CB341BB14026005125EF /* EmergenceTests */ = {
@@ -651,7 +651,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60C3CB231BB14025005125EF /* Emergence */,
+				60C3CB231BB14025005125EF /* Artsy Shows */,
 				60C3CB341BB14026005125EF /* EmergenceTests */,
 				60A4C4AC1BCCEDC20092CC74 /* FrontPage */,
 			);
@@ -871,7 +871,7 @@
 		};
 		60C3CB371BB14026005125EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 60C3CB231BB14025005125EF /* Emergence */;
+			target = 60C3CB231BB14025005125EF /* Artsy Shows */;
 			targetProxy = 60C3CB361BB14026005125EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1083,7 +1083,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60C3CB3E1BB14026005125EF /* Build configuration list for PBXNativeTarget "Emergence" */ = {
+		60C3CB3E1BB14026005125EF /* Build configuration list for PBXNativeTarget "Artsy Shows" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60C3CB3F1BB14026005125EF /* Debug */,

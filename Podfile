@@ -39,7 +39,7 @@ def platform_pods()
   pod 'Artsy+Authentication', :git => "https://github.com/artsy/Artsy-Authentication.git", :branch => "tvos"
 end
 
-target 'Emergence' do
+target 'Artsy Shows' do
   artsy_pods
   app_pods
   platform_pods
