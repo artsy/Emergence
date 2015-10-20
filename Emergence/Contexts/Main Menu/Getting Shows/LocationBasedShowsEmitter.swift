@@ -38,16 +38,15 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
     }
 
     func getShows() {
-        print("Getting \(title) at page \(page)")
-
         if networking || done { return }
+
+        print("Getting \(title) at page \(page)")
         networking = true
 
         let pageAmount = 25
         let coords = location.coordinates()
         let showInfo = ArtsyAPI.RunningShowsNearLocation(page: page, amount: pageAmount, lat: coords.lat, long: coords.long)
-        network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance)
-.subscribe(next: { shows in
+        network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance).subscribe(next: { shows in
             self.done = shows.count < pageAmount
             self.page += 1
             self.networking = false

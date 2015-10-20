@@ -16,7 +16,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         self.emitter = emitter
         titleLabel.attributedText = attributedTitle(emitter)
 
-        emitter.onUpdate { _ in
+        emitter.onUpdate { shows in
             self.titleLabel.attributedText = self.attributedTitle(emitter)
             self.collectionView.reloadData()
         }
