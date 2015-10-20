@@ -49,7 +49,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
         let network = appVC.context.network
         let networker = ShowNetworkingModel(network: network, show: show)
 
-        // Toggle for stubbing the data for the images/artworks
+        // Toggle for stubbing the data for the images/artworks, mainly for 
+        // when I'm on a coach/train/plane
+
         let offline = false
         imageRequest = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
         artworkRequest = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
@@ -99,8 +101,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
             aboutTheShowLabel.removeFromSuperview()
             aboutTheShowTitle.removeFromSuperview()
         }
-
     }
+
+    // Focus is complicated on this view, you can get the details in the ShowScrollChief
 
     override var preferredFocusedView: UIView? {
         return scrollChief.keyView
@@ -110,22 +113,27 @@ class ShowViewController: UIViewController, ShowItemTapped {
         guard let next = context.nextFocusedView else { return }
 
         // We want to move the images collectionview across to full screen after you scroll past the first index.
+        guard next.isDescendantOfView(imagesCollectionView) else { return }
 
-        if next.isDescendantOfView(imagesCollectionView) {
-            guard let cell = context.nextFocusedView as? UICollectionViewCell else { return }
-            let index = imagesCollectionView.indexPathForCell(cell)!.row
-            let xOffset: CGFloat = index == 0 ? 660 : 0
+        guard let cell = context.nextFocusedView as? UICollectionViewCell else { return }
+        let index = imagesCollectionView.indexPathForCell(cell)!.row
+        let movingBack = index == 0
+        let xOffset: CGFloat = movingBack ? 660 : 0
 
-            // No need to do it if it's already set up right
-            if xOffset == imagesCollectionView.frame.origin.x { return }
+        // No need to do it if it's already set up right
+        if xOffset == imagesCollectionView.frame.origin.x { return }
 
-            UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
+        let delay = movingBack ? 0.6 : 0
+        let originalFrame = self.imagesCollectionView.frame
+        let metadataAlpha:CGFloat = movingBack ? 1 : 0
 
-                let originalFrame = self.imagesCollectionView.frame
-                self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width - xOffset, originalFrame.height)
+        UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
 
-            }, completion: nil)
-        }
+            self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width, originalFrame.height)
+            let metadata = [self.showTitleLabel, self.showPartnerNameLabel, self.showAusstellungsdauerLabel, self.showLocationLabel]
+            metadata.forEach({ $0.alpha = metadataAlpha })
+
+        }, completion:nil)
     }
 
     override func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool {

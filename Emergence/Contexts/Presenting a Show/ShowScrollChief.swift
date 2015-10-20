@@ -1,8 +1,21 @@
 import UIKit
 
+/// Right, so, we don't want to use Apple's scrolling between sections
+/// cause it's too fast, and we're paginating on a full page.
+
+/// So there's this scroll chief whose job it is to migrate
+/// the focus between different views, and different pages.
+
+/// The name is yet another mobile team running joke, I'm always willing
+/// to lose some abstract perfection for the sake of a good joke.
+
 class ShowScrollChief: NSObject {
 
     @IBOutlet weak var controller: ShowViewController!
+
+    /// Setting the current view index will animate us to that correct point.
+    /// telling the controller it needs focus means it will ask us back who to focs on
+    /// which it gets from keyView below
 
     var index = 0 {
         didSet {
@@ -22,6 +35,8 @@ class ShowScrollChief: NSObject {
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var artworkCollectionView: UICollectionView!
 
+    // At the top its the collection views, under that then we don't
+    // select anything, so use the main view object as it has no interaction model
     func views() -> [UIView] {
         return [imagesCollectionView, artworkCollectionView, view]
     }
