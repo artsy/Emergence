@@ -25,6 +25,7 @@
 		605131631BD144A200551A07 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605131621BD144A200551A07 /* AboutViewController.swift */; };
 		605357AC1BD63EAF00E32CCD /* UIImage+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605357AB1BD63EAF00E32CCD /* UIImage+Colors.swift */; };
 		605357AE1BD63F4000E32CCD /* UIImageView+Artsy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605357AD1BD63F4000E32CCD /* UIImageView+Artsy.swift */; };
+		605357B01BD666F900E32CCD /* SanSerifButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605357AF1BD666F900E32CCD /* SanSerifButton.swift */; };
 		606AD2A81BD14563006D1587 /* about-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 606AD2A71BD14563006D1587 /* about-bg.jpg */; };
 		606AD2AA1BD149DF006D1587 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 606AD2A91BD149DF006D1587 /* white.png */; };
 		606AD2AE1BD231CC006D1587 /* TransparentSerifLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */; };
@@ -130,6 +131,7 @@
 		605131621BD144A200551A07 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		605357AB1BD63EAF00E32CCD /* UIImage+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Colors.swift"; sourceTree = "<group>"; };
 		605357AD1BD63F4000E32CCD /* UIImageView+Artsy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Artsy.swift"; sourceTree = "<group>"; };
+		605357AF1BD666F900E32CCD /* SanSerifButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SanSerifButton.swift; sourceTree = "<group>"; };
 		606AD2A71BD14563006D1587 /* about-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "about-bg.jpg"; sourceTree = "<group>"; };
 		606AD2A91BD149DF006D1587 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = ../../../white.png; sourceTree = "<group>"; };
 		606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentSerifLabels.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */,
 				6081F44C1BD5145D00EAF340 /* HalfIntrinsicHeightSerifLabel.swift */,
+				605357AF1BD666F900E32CCD /* SanSerifButton.swift */,
 			);
 			name = "Generic Views";
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				60A584731BCD69420006B8B4 /* ShowDataSource+Delegate.swift in Sources */,
 				60DD51D31BCAE27C00317482 /* ShowEmitter.swift in Sources */,
 				608D65141BCA803E00F749B8 /* SlideshowView.swift in Sources */,
+				605357B01BD666F900E32CCD /* SanSerifButton.swift in Sources */,
 				60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */,
 				605357AC1BD63EAF00E32CCD /* UIImage+Colors.swift in Sources */,
 				608D65241BCAD21D00F749B8 /* ShowSetCollectionViewCell.swift in Sources */,

@@ -343,6 +343,7 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="31B-uz-G7g" appends="YES" id="3Gz-c5-eiH"/>
                             <outletCollection property="gestureRecognizers" destination="xbb-HC-BUH" appends="YES" id="gvG-RV-hhA"/>
+                            <outletCollection property="gestureRecognizers" destination="IvP-Lq-LAD" appends="YES" id="3Rg-G8-aek"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="9Gj-La-M8y"/>
@@ -384,6 +385,7 @@
                         <action selector="gesturedDown:" destination="qs8-SN-qtE" id="NVY-3v-UD0"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="IvP-Lq-LAD"/>
             </objects>
             <point key="canvasLocation" x="961" y="2831"/>
         </scene>
@@ -620,11 +622,13 @@ museums and fairs around the world.</string>
                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="artsy-small-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-iQ-HzN">
                                     <rect key="frame" x="80" y="80" width="200" height="68"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy" customClass="SanSerifButton" customModule="Artsy_Shows" customModuleProvider="target">
                                     <rect key="frame" x="1656" y="58" width="208" height="80"/>
                                     <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                    <state key="normal" title="ABOUT"/>
+                                    <state key="normal" title="ABOUT">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <segue destination="RQb-5q-u6W" kind="show" id="9vn-KS-LiN"/>
                                     </connections>

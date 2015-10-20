@@ -48,10 +48,11 @@ class ShowScrollChief: NSObject {
         let extraContentHeight = scrollView.contentSize.height - 3080
         var extraPages = 0
         if extraContentHeight > 0 {
-            extraPages = Int( max(round(extraContentHeight/1000), 1) )
+            extraPages = Int(round(extraContentHeight/1000) + 1)
         }
         index = min(index+1, views().count + extraPages - 1)
     }
+    //50.0 * floor((Number/50.0)+0.5)
 
     var keyView: UIView {
         if index >= views().count {
