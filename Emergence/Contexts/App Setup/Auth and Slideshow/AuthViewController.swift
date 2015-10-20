@@ -61,6 +61,8 @@ class AuthViewController: UIViewController {
     }
 
     lazy var isFirstRun:Bool = {
+        return true
+
         let key = "have_ran"
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.boolForKey(key) { return false }
@@ -99,6 +101,7 @@ extension AuthViewController {
 
         slideshowView.imagePaths = images
         slideshowView.next()
+        print("waiting \(initialDelay)")
         performSelector("nextSlide", withObject: nil, afterDelay: initialDelay)
     }
 
@@ -122,6 +125,7 @@ extension AuthViewController {
 
         var delay = initialDelay - 0.3 + (0.1 * Double(slideshowView.slidesLeft()) );
         delay = max(delay, 0.1)
+                print("waiting \(delay)")
         performSelector("nextSlide", withObject: nil, afterDelay: delay)
     }
 

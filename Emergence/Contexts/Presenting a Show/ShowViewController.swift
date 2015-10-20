@@ -105,7 +105,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
             // No need to do it if it's already set up right
             if xOffset == imagesCollectionView.frame.origin.x { return }
 
-            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
+            UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
 
                 let originalFrame = self.imagesCollectionView.frame
                 self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width - xOffset, originalFrame.height)

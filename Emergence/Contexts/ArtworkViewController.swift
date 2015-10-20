@@ -21,7 +21,7 @@ class ArtworkViewController: UIViewController {
         artworkDimensionsCMsLabel.text = artwork.dimensionsCM
 
         if let defaultImage = artwork.defaultImage, let actualImage = defaultImage as? Image {
-            artworkPreviewImage.sd_setImageWithURL(actualImage.bestThumbnailWithHeight(artworkPreviewImage.bounds.height))
+            artworkPreviewImage.ar_setImage(actualImage, height: artworkPreviewImage.bounds.height)
         }
     }
 }

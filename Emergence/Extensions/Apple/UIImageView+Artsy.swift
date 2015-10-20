@@ -1,35 +1,19 @@
-//
-//  UIImageView+Artsy.swift
-//  Emergence
-//
-//  Created by Orta Therox on 20/10/2015.
-//  Copyright © 2015 Artsy. All rights reserved.
-//
-
 import UIKit
+import Artsy_UIColors
+import SDWebImage
 
-class UIImageView_Artsy: UIViewController {
+extension UIImageView {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    func ar_setImage(image: Image, height:CGFloat) {
+        guard let thumbnail = image.bestThumbnailWithHeight(height) else { return }
+        ar_setImageWithURL(thumbnail, color: .artsyLightGrey(), size: image.imageSize)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func ar_setImageWithURL(url:NSURL, color: UIColor = .artsyLightGrey(), size:CGSize = CGSize(width: 600, height: 400)) {
+        async {
+            let image = UIImage.imageFromColor(color, size: size)
+            self.sd_setImageWithURL(url, placeholderImage: image)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

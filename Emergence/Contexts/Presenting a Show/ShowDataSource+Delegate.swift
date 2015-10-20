@@ -79,16 +79,15 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         guard let item = itemDataSource.itemForIndexPath(indexPath) else { return }
         guard let image = imageForItem(item) else { return }
 
-        if let cell = cell as? ImageCollectionViewCell, let url = image.bestThumbnailWithHeight(dimensionLength) {
-            cell.image.sd_setImageWithURL(url)
-            cell.image.backgroundColor = UIColor.artsyLightGrey()
+
+        if let cell = cell as? ImageCollectionViewCell {
+            cell.image.ar_setImage(image, height: dimensionLength)
         }
 
-        if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestThumbnailWithHeight(dimensionLength) {
+        if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork {
             cell.artistNameLabel.text = artwork.oneLinerArtist()
             cell.titleLabel.attributedText = artwork.titleWithDate()
-            cell.image.sd_setImageWithURL(url)
-            cell.image.backgroundColor = UIColor.artsyLightGrey()
+            cell.image.ar_setImage(image, height: dimensionLength)
         }
     }
 

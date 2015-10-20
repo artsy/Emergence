@@ -25,6 +25,8 @@
 		6051315F1BD1332400551A07 /* artsy-small-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 6051315D1BD1332400551A07 /* artsy-small-white.png */; };
 		605131601BD1332400551A07 /* artsy-small-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 6051315E1BD1332400551A07 /* artsy-small-black.png */; };
 		605131631BD144A200551A07 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605131621BD144A200551A07 /* AboutViewController.swift */; };
+		605357AC1BD63EAF00E32CCD /* UIImage+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605357AB1BD63EAF00E32CCD /* UIImage+Colors.swift */; };
+		605357AE1BD63F4000E32CCD /* UIImageView+Artsy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605357AD1BD63F4000E32CCD /* UIImageView+Artsy.swift */; };
 		606AD2A81BD14563006D1587 /* about-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 606AD2A71BD14563006D1587 /* about-bg.jpg */; };
 		606AD2AA1BD149DF006D1587 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 606AD2A91BD149DF006D1587 /* white.png */; };
 		606AD2AE1BD231CC006D1587 /* TransparentSerifLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */; };
@@ -126,6 +128,8 @@
 		6051315D1BD1332400551A07 /* artsy-small-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artsy-small-white.png"; sourceTree = "<group>"; };
 		6051315E1BD1332400551A07 /* artsy-small-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artsy-small-black.png"; sourceTree = "<group>"; };
 		605131621BD144A200551A07 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		605357AB1BD63EAF00E32CCD /* UIImage+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Colors.swift"; sourceTree = "<group>"; };
+		605357AD1BD63F4000E32CCD /* UIImageView+Artsy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Artsy.swift"; sourceTree = "<group>"; };
 		606AD2A71BD14563006D1587 /* about-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "about-bg.jpg"; sourceTree = "<group>"; };
 		606AD2A91BD149DF006D1587 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = ../../../white.png; sourceTree = "<group>"; };
 		606AD2AD1BD231CC006D1587 /* TransparentSerifLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentSerifLabels.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				608D65111BCA7F1600F749B8 /* Occupyable+isNotEmpty.swift */,
 				60C3A6781BCD13D2003B0DE7 /* GCD.swift */,
 				6081F4531BD53C6F00EAF340 /* NSAttributedString+ArtworkMetadata.swift */,
+				605357AB1BD63EAF00E32CCD /* UIImage+Colors.swift */,
+				605357AD1BD63F4000E32CCD /* UIImageView+Artsy.swift */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -816,6 +822,7 @@
 				60DD51D31BCAE27C00317482 /* ShowEmitter.swift in Sources */,
 				608D65141BCA803E00F749B8 /* SlideshowView.swift in Sources */,
 				60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */,
+				605357AC1BD63EAF00E32CCD /* UIImage+Colors.swift in Sources */,
 				608D65241BCAD21D00F749B8 /* ShowSetCollectionViewCell.swift in Sources */,
 				608D651E1BCAC0CB00F749B8 /* ShowCollectionViewCell.swift in Sources */,
 				60094A391BB95AAF00016BB7 /* AppSetup.swift in Sources */,
@@ -825,6 +832,7 @@
 				608D650F1BCA675B00F749B8 /* NSDate+Ausstellungsdauer.swift in Sources */,
 				6081F4501BD523D700EAF340 /* ArtworkViewController.swift in Sources */,
 				60C3CB811BB14D84005125EF /* AppContext.swift in Sources */,
+				605357AE1BD63F4000E32CCD /* UIImageView+Artsy.swift in Sources */,
 				60C3CB771BB14D50005125EF /* Artwork.swift in Sources */,
 				606AD2AE1BD231CC006D1587 /* TransparentSerifLabels.swift in Sources */,
 				6036A23B1BCEA29C0090D5FC /* GeminiThumbnailable.swift in Sources */,

@@ -22,15 +22,22 @@ class ShowScrollChief: NSObject {
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var artworkCollectionView: UICollectionView!
 
-    // TODO: Doesn't support arbitrary numbers of scrolls
-
     func views() -> [UIView] {
         return [imagesCollectionView, artworkCollectionView, view]
     }
 
     func scrollPositionForCurrentView() -> CGPoint {
-        let offsets = [0, 1160, 2000, 3000, 4000, 5000, 6000]
-        return CGPoint(x: 0, y: offsets[index])
+
+        // In order to get the right margins we use custom
+        // y indexes, after that we can use x thousands
+        // because it gives a hint of the last few sentences
+        // and then continues
+
+        let offsets = [0, 1160, 2000]
+
+        let withinBounds = index <= offsets.count - 1
+        let yOffset = withinBounds ? offsets[index] : index * 1000
+        return CGPoint(x: 0, y: yOffset)
     }
 
     @IBAction func gesturedUp(gesture:UISwipeGestureRecognizer) {
