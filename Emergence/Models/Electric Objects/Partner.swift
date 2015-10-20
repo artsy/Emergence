@@ -1,8 +1,9 @@
 import Gloss
 
 struct Partner: Partnerable {
-    let id:String
-    let name:String
+    let id: String
+    let name: String
+    let profileID: String?
 }
 
 extension Partner: Decodable {
@@ -17,6 +18,7 @@ extension Partner: Decodable {
 
         id = idValue
         name = nameValue
+        profileID = "default_profile_id" <~~ json
     }
 }
 

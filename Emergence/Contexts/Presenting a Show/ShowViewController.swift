@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import Moya
 import Gloss
+import ARAnalytics
 
 class ShowViewController: UIViewController, ShowItemTapped {
     var show: Show!
@@ -60,6 +61,12 @@ class ShowViewController: UIViewController, ShowItemTapped {
         artworkDelegate.internalPadding = 150
 
         self.scrollView.scrollEnabled = false
+        ARAnalytics.event("partner show view", withProperties:[
+            "partner_show_id": show.id,
+            "partner_id": show.partner.id,
+            "profile_id": show.partner.profileID ?? "",
+            "fair_id":""
+        ])
     }
 
     func showDidLoad(show: Show) {

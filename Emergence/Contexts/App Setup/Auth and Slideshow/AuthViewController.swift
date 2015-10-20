@@ -2,6 +2,7 @@ import UIKit
 import Moya
 import RxCocoa
 import Artsy_Authentication
+import ARAnalytics
 
 /// Shows a slideshow of Artsy logos
 /// until we've got all the networking for the next VC cached
@@ -61,12 +62,11 @@ class AuthViewController: UIViewController {
     }
 
     lazy var isFirstRun:Bool = {
-        return true
-
         let key = "have_ran"
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.boolForKey(key) { return false }
 
+        ARAnalytics.event("first user install")
         defaults.setBool(true, forKey: key)
         defaults.synchronize()
         return true

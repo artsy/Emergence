@@ -1,4 +1,5 @@
 import UIKit
+import ARAnalytics
 
 class ArtworkViewController: UIViewController {
     var index: Int!
@@ -23,5 +24,7 @@ class ArtworkViewController: UIViewController {
         if let defaultImage = artwork.defaultImage, let actualImage = defaultImage as? Image {
             artworkPreviewImage.ar_setImage(actualImage, height: artworkPreviewImage.bounds.height)
         }
+
+        ARAnalytics.event("artwork view", withProperties: ["artwork_id": artwork.id, "fair":""])
     }
 }

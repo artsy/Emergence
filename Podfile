@@ -6,10 +6,12 @@ use_frameworks!
 plugin 'cocoapods-expert-difficulty'
 plugin 'cocoapods-keys', {
     :project => "Emergence",
-    :targets => "Emergence",
+    :targets => "Artsy Shows",
     :keys => [
         "ArtsyAPIClientSecret",
         "ArtsyAPIClientKey",
+        "SegmentDevWriteKey",
+        "SegmentProductionWriteKey"
     ]
 }
 
@@ -27,12 +29,17 @@ end
 
 def app_pods()
   pod 'Gloss'
+
+  pod 'Alamofire', "~> 2.0"
   pod 'Moya/RxSwift'
   pod 'RxSwift', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'RxCocoa', :git => "https://github.com/orta/RxSwift.git", :branch => "tvos"
   pod 'SDWebImage'
   pod 'ARCollectionViewMasonryLayout'
   pod 'UIImageViewAligned', :git => "https://github.com/dbachrach/UIImageViewAligned.git"
+
+  pod 'Analytics', :subspecs => ["Segmentio"], :git => "https://github.com/orta/analytics-ios.git"
+  pod 'ARAnalytics', :subspecs => ["Segmentio"], :git => "https://github.com/orta/ARAnalytics.git"
 end
 
 def platform_pods()
