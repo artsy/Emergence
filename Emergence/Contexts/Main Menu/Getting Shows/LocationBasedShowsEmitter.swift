@@ -1,10 +1,15 @@
 import UIKit
+import RxSwift
 
 class LocationBasedShowEmitter: NSObject, ShowEmitter {
     let network: ArtsyProvider<ArtsyAPI>
     let location: Location
     let title: String
+
+    var page = 1
     var networking = false
+    var done = false
+    let jsonScheduler = SerialDispatchQueueScheduler(internalSerialQueueName: "json")
 
     init(location:Location, network: ArtsyProvider<ArtsyAPI>) {
         self.network = network
@@ -33,18 +38,27 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
     }
 
     func getShows() {
-        if networking { return }
+        if networking || done { return }
+
+        print("Getting \(title) at page \(page)")
         networking = true
 
+        let pageAmount = 25
         let coords = location.coordinates()
-        let showInfo = ArtsyAPI.RunningShowsNearLocation(amount: 25, lat: coords.lat, long: coords.long)
+        let showInfo = ArtsyAPI.RunningShowsNearLocation(page: page, amount: pageAmount, lat: coords.lat, long: coords.long)
+        network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance).subscribe(next: { shows in
+            self.done = shows.count < pageAmount
+            self.page += 1
+            self.networking = false
 
-        network.request(showInfo).mapSuccessfulHTTPToObjectArray(Show).subscribe(next: { shows in
             let shows: [Show] = shows
-             self.shows = shows.filter({ $0.hasInstallationShots == false })
+            self.shows = self.shows + shows.filter({ $0.hasInstallationShots })
 
-            }, error: { error in
-                print("ERROROR \(error)")
-            }, completed: nil, disposed: nil)
+            if self.shows.isEmpty { print("Got no shows for \(self.location.name)") }
+
+        }, error: { error in
+            print("ERROROR \(error)")
+
+        }, completed: nil, disposed: nil)
     }
 }

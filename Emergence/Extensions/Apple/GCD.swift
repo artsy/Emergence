@@ -23,3 +23,7 @@ func delayWhile(delayTime: Double, check: ()->(Bool), closure: ()->()) {
         delayWhile(delayTime, check: check, closure: closure)
     }
 }
+
+func async(check: ()->()) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), check)
+}

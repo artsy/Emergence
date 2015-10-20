@@ -19,8 +19,7 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         guard let collectionView = collectionView else { return }
 
 //        appVC.openShowWithID("joshua-liner-gallery-libby-black-theres-no-place-like-home")
-
-        appVC.presentShowViewControllerForShow(Show.stubbedShow())
+//        appVC.presentShowViewControllerForShow(Show.stubbedShow())
 
         let network = appVC.context.network
 
@@ -42,13 +41,20 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         requestShowsAtIndex(1)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard let nav = navigationController else { return }
+        nav.viewControllers = nav.viewControllers.filter({ $0.isKindOfClass(AuthViewController) == false })
+    }
+
     func requestShowsAtIndex(index: Int) {
 
         // extra index for the FeaturedShowEmitter
         if index < emitters.count - 2 {
             let anEmitter = emitters[index]
             guard let emitter = anEmitter as? LocationBasedShowEmitter else { return }
-            if emitter.numberOfShows != 0 { return }
+            if emitter.done { return }
 
             emitter.getShows()
         }
@@ -113,10 +119,14 @@ extension ShowsOverviewViewController {
         // We don't want this collectionView's cells to become focused. 
         // Instead the `UICollectionView` contained in the cell should become focused.
 
-        if indexPath.section > 1 {
-            // this handles multiple calls fine
-            requestShowsAtIndex(indexPath.section + 1)
-        }
+
+        let anyEmitter = emitters[indexPath.section]
+        guard let emitter = anyEmitter as? LocationBasedShowEmitter else { return false }
+
+        // these handle multiple calls fine
+        requestShowsAtIndex(indexPath.section)
+        requestShowsAtIndex(indexPath.section + 1)
+
         return false
     }
 

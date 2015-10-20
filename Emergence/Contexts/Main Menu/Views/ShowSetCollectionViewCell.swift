@@ -14,10 +14,25 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         collectionView.reloadData()
 
         self.emitter = emitter
-        titleLabel.text = emitter.title
-        emitter.onUpdate { _ in
+        titleLabel.attributedText = attributedTitle(emitter)
+
+        emitter.onUpdate { shows in
+            self.titleLabel.attributedText = self.attributedTitle(emitter)
             self.collectionView.reloadData()
         }
+    }
+
+    func attributedTitle(emitter: ShowEmitter) -> NSAttributedString {
+        let title = NSMutableAttributedString(string: emitter.title, attributes: [
+            NSFontAttributeName: UIFont.serifFontWithSize(50)
+        ])
+
+        if let locationEmitter = emitter as? LocationBasedShowEmitter where locationEmitter.numberOfShows > 0 && locationEmitter.done {
+            let showString = NSAttributedString(string: "   \(emitter.numberOfShows) Current Shows", attributes: [NSFontAttributeName: UIFont.serifItalicFontWithSize(30)])
+            title.appendAttributedString(showString)
+        }
+
+        return title
     }
 
     // Pass the focus through to the sub-collection view

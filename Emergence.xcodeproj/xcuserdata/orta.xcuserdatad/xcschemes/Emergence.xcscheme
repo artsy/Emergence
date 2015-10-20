@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "60C3CB231BB14025005125EF"
-               BuildableName = "Emergence.app"
-               BlueprintName = "Emergence"
+               BuildableName = "Artsy Shows.app"
+               BlueprintName = "Artsy Shows"
                ReferencedContainer = "container:Emergence.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60C3CB231BB14025005125EF"
-            BuildableName = "Emergence.app"
-            BlueprintName = "Emergence"
+            BuildableName = "Artsy Shows.app"
+            BlueprintName = "Artsy Shows"
             ReferencedContainer = "container:Emergence.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60C3CB231BB14025005125EF"
-            BuildableName = "Emergence.app"
-            BlueprintName = "Emergence"
+            BuildableName = "Artsy Shows.app"
+            BlueprintName = "Artsy Shows"
             ReferencedContainer = "container:Emergence.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60C3CB231BB14025005125EF"
-            BuildableName = "Emergence.app"
-            BlueprintName = "Emergence"
+            BuildableName = "Artsy Shows.app"
+            BlueprintName = "Artsy Shows"
             ReferencedContainer = "container:Emergence.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

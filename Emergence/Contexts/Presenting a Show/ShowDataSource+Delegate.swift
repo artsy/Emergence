@@ -5,7 +5,7 @@ import SDWebImage
 import RxSwift
 import Artsy_UIColors
 
-// Just a dump protocol to pass a message back that 
+// Just a dumb protocol to pass a message back that
 // something has been tapped on
 
 protocol ShowItemTapped {
@@ -17,11 +17,14 @@ protocol ShowItemTapped {
 class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegate {
 
     let dimensionLength:CGFloat
-    let artworkDataSource: CollectionViewDataSource<T>
+    let itemDataSource: CollectionViewDataSource<T>
     let delegate: ShowItemTapped?
 
+    // The extra height associated with _none_ image space in the cell, such as artwork metadata
+    var internalPadding:CGFloat = 0
+
     init(datasource: CollectionViewDataSource<T>, collectionView: UICollectionView, delegate: ShowItemTapped?) {
-        artworkDataSource = datasource
+        itemDataSource = datasource
         dimensionLength = collectionView.bounds.height
         self.delegate = delegate
 
@@ -38,7 +41,7 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
     }
 
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: ARCollectionViewMasonryLayout!, variableDimensionForItemAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let item = artworkDataSource.itemForIndexPath(indexPath)
+        let item = itemDataSource.itemForIndexPath(indexPath)
 
         guard let actualItem = item, image: Image = imageForItem(actualItem) else {
             // otherwise, ship a square
@@ -48,15 +51,12 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         return widthForImage(image, capped: collectionView.bounds.width)
     }
 
+    // TODO: Fix this!
+
     func widthForImage(image: Image, capped: CGFloat) -> CGFloat {
         let width: CGFloat
-        if let ratio = image.aspectRatio {
-            width = dimensionLength / ratio
-
-        } else {
-            let ratio = image.imageSize.width / image.imageSize.height
-            width = dimensionLength / ratio
-        }
+        let ratio = image.aspectRatio ?? image.imageSize.width / image.imageSize.height
+        width = (dimensionLength - internalPadding) * ratio
 
         return min(width, capped)
     }
@@ -76,24 +76,23 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 
-        guard let item = artworkDataSource.itemForIndexPath(indexPath) else { return }
+        guard let item = itemDataSource.itemForIndexPath(indexPath) else { return }
         guard let image = imageForItem(item) else { return }
 
-        if let cell = cell as? ImageCollectionViewCell, let url = image.bestThumbnailWithHeight(dimensionLength) {
-            cell.image.sd_setImageWithURL(url)
-            cell.image.backgroundColor = UIColor.artsyLightGrey()
+
+        if let cell = cell as? ImageCollectionViewCell {
+            cell.image.ar_setImage(image, height: dimensionLength)
         }
 
-        if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork, let url = image.bestThumbnailWithHeight(dimensionLength) {
+        if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork {
             cell.artistNameLabel.text = artwork.oneLinerArtist()
             cell.titleLabel.attributedText = artwork.titleWithDate()
-            cell.image.sd_setImageWithURL(url)
-            cell.image.backgroundColor = UIColor.artsyLightGrey()
+            cell.image.ar_setImage(image, height: dimensionLength)
         }
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        guard let item = artworkDataSource.itemForIndexPath(indexPath) else { return }
+        guard let item = itemDataSource.itemForIndexPath(indexPath) else { return }
 
         if let artwork = item as? Artwork {
             delegate?.didTapArtwork(artwork)
@@ -113,7 +112,9 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
 
         collectionView.dataSource = self
         request.subscribe() { items in
-            self.items = items.element
+            guard let things = items.element else { return }
+
+            self.items = things
             self.collectionView.reloadData()
         }
     }

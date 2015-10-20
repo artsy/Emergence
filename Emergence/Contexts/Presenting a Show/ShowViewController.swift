@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import Moya
 import Gloss
+import ARAnalytics
 
 class ShowViewController: UIViewController, ShowItemTapped {
     var show: Show!
@@ -16,6 +17,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var artworkCollectionView: UICollectionView!
 
+    @IBOutlet weak var aboutTheShowTitle: UILabel!
     @IBOutlet weak var aboutTheShowLabel: UILabel!
 
     @IBOutlet weak var pressReleaseLabel: UILabel!
@@ -28,6 +30,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
     var artworkDataSource: CollectionViewDataSource<Artwork>!
     var imageDelegate: CollectionViewDelegate<Image>!
     var imageDataSource: CollectionViewDataSource<Image>!
+
+    var imageRequest: Observable<[Image]>!
+    var artworkRequest: Observable<[Artwork]>!
 
     override func viewDidLoad() {
         precondition(self.show != nil, "you need a show to load the view controller");
@@ -44,18 +49,27 @@ class ShowViewController: UIViewController, ShowItemTapped {
         let network = appVC.context.network
         let networker = ShowNetworkingModel(network: network, show: show)
 
-        // Toggle for stubbing the data for the images/artworks
-        let offline = true
-        let imageData = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
-        let artworkData = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
+        // Toggle for stubbing the data for the images/artworks, mainly for 
+        // when I'm on a coach/train/plane
 
-        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageData, cellIdentifier: "image")
+        let offline = false
+        imageRequest = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
+        artworkRequest = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
+
+        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageRequest, cellIdentifier: "image")
         imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
 
-        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkData, cellIdentifier: "artwork")
+        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkRequest, cellIdentifier: "artwork")
         artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
+        artworkDelegate.internalPadding = 150
 
         self.scrollView.scrollEnabled = false
+        ARAnalytics.event("partner show view", withProperties:[
+            "partner_show_id": show.id,
+            "partner_id": show.partner.id,
+            "profile_id": show.partner.profileID ?? "",
+            "fair_id":""
+        ])
     }
 
     func showDidLoad(show: Show) {
@@ -74,15 +88,22 @@ class ShowViewController: UIViewController, ShowItemTapped {
             showAusstellungsdauerLabel.removeFromSuperview()
         }
 
-        if let release = show.pressRelease {
+        if let release = show.pressRelease where release.isNotEmpty {
             pressReleaseLabel.text = release
         } else {
             pressReleaseTitle.removeFromSuperview()
             pressReleaseLabel.removeFromSuperview()
         }
 
-        aboutTheShowLabel.text = show.showDescription
+        if let description = show.showDescription where description.isNotEmpty {
+            aboutTheShowLabel.text = show.showDescription
+        } else {
+            aboutTheShowLabel.removeFromSuperview()
+            aboutTheShowTitle.removeFromSuperview()
+        }
     }
+
+    // Focus is complicated on this view, you can get the details in the ShowScrollChief
 
     override var preferredFocusedView: UIView? {
         return scrollChief.keyView
@@ -92,22 +113,27 @@ class ShowViewController: UIViewController, ShowItemTapped {
         guard let next = context.nextFocusedView else { return }
 
         // We want to move the images collectionview across to full screen after you scroll past the first index.
+        guard next.isDescendantOfView(imagesCollectionView) else { return }
 
-        if next.isDescendantOfView(imagesCollectionView) {
-            guard let cell = context.nextFocusedView as? UICollectionViewCell else { return }
-            let index = imagesCollectionView.indexPathForCell(cell)!.row
-            let xOffset: CGFloat = index == 0 ? 660 : 0
+        guard let cell = context.nextFocusedView as? UICollectionViewCell else { return }
+        let index = imagesCollectionView.indexPathForCell(cell)!.row
+        let movingBack = index == 0
+        let xOffset: CGFloat = movingBack ? 660 : 0
 
-            // No need to do it if it's already set up right
-            if xOffset == imagesCollectionView.frame.origin.x { return }
+        // No need to do it if it's already set up right
+        if xOffset == imagesCollectionView.frame.origin.x { return }
 
-            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
+        let delay = movingBack ? 0.6 : 0
+        let originalFrame = self.imagesCollectionView.frame
+        let metadataAlpha:CGFloat = movingBack ? 1 : 0
 
-                let originalFrame = self.imagesCollectionView.frame
-                self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width - xOffset, originalFrame.height)
+        UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.95, initialSpringVelocity: 0.7, options: [.OverrideInheritedOptions], animations: {
 
-            }, completion: nil)
-        }
+            self.imagesCollectionView.frame = CGRectMake(xOffset, originalFrame.origin.y, self.view.bounds.width, originalFrame.height)
+            let metadata = [self.showTitleLabel, self.showPartnerNameLabel, self.showAusstellungsdauerLabel, self.showLocationLabel]
+            metadata.forEach({ $0.alpha = metadataAlpha })
+
+        }, completion:nil)
     }
 
     override func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool {

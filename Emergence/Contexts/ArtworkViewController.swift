@@ -1,4 +1,5 @@
 import UIKit
+import ARAnalytics
 
 class ArtworkViewController: UIViewController {
     var index: Int!
@@ -21,7 +22,9 @@ class ArtworkViewController: UIViewController {
         artworkDimensionsCMsLabel.text = artwork.dimensionsCM
 
         if let defaultImage = artwork.defaultImage, let actualImage = defaultImage as? Image {
-            artworkPreviewImage.sd_setImageWithURL(actualImage.bestThumbnailWithHeight(artworkPreviewImage.bounds.height))
+            artworkPreviewImage.ar_setImage(actualImage, height: artworkPreviewImage.bounds.height)
         }
+
+        ARAnalytics.event("artwork view", withProperties: ["artwork_id": artwork.id, "fair":""])
     }
 }

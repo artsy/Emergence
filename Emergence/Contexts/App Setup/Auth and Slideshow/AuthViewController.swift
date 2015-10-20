@@ -2,6 +2,7 @@ import UIKit
 import Moya
 import RxCocoa
 import Artsy_Authentication
+import ARAnalytics
 
 /// Shows a slideshow of Artsy logos
 /// until we've got all the networking for the next VC cached
@@ -65,6 +66,7 @@ class AuthViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.boolForKey(key) { return false }
 
+        ARAnalytics.event("first user install")
         defaults.setBool(true, forKey: key)
         defaults.synchronize()
         return true
@@ -99,6 +101,7 @@ extension AuthViewController {
 
         slideshowView.imagePaths = images
         slideshowView.next()
+        print("waiting \(initialDelay)")
         performSelector("nextSlide", withObject: nil, afterDelay: initialDelay)
     }
 
@@ -122,6 +125,7 @@ extension AuthViewController {
 
         var delay = initialDelay - 0.3 + (0.1 * Double(slideshowView.slidesLeft()) );
         delay = max(delay, 0.1)
+                print("waiting \(delay)")
         performSelector("nextSlide", withObject: nil, afterDelay: delay)
     }
 

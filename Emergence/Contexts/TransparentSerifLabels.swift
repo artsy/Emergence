@@ -16,6 +16,15 @@ class TransparentSerifLabels: ARSerifLabel {
     }
 }
 
+class TransparentItalicSerifLabels: ARSerifLabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        font = UIFont.serifItalicFontWithSize(font.pointSize)
+        backgroundColor = .clearColor()
+        opaque = false
+    }
+}
+
 class TransparentBoldSerifLabels: ARSerifLabel {
     override func awakeFromNib() {
         super.awakeFromNib()
