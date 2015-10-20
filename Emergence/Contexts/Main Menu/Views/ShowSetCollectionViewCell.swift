@@ -27,7 +27,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
             NSFontAttributeName: UIFont.serifFontWithSize(50)
         ])
 
-        if emitter.numberOfShows > 0 {
+        if let locationEmitter = emitter as? LocationBasedShowEmitter where locationEmitter.numberOfShows > 0 && locationEmitter.done {
             let showString = NSAttributedString(string: "   \(emitter.numberOfShows) Current Shows", attributes: [NSFontAttributeName: UIFont.serifItalicFontWithSize(30)])
             title.appendAttributedString(showString)
         }

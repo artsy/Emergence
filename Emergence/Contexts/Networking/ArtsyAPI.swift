@@ -7,7 +7,7 @@ enum ArtsyAPI {
     case XApp
     case ShowInfo(showID:String)
     case UpcomingShowsNearLocation(lat:String, long: String)
-    case RunningShowsNearLocation(amount: Int, lat: String, long: String)
+    case RunningShowsNearLocation(page: Int, amount: Int, lat: String, long: String)
     case PastShowsNearLocation(lat: String, long: String)
     case ArtworksForShow(partnerID: String, showID: String)
     case ImagesForShow(showID: String)
@@ -33,12 +33,12 @@ extension ArtsyAPI : MoyaTarget {
                 "sort": "start_at"
             ])
 
-        case .RunningShowsNearLocation(let amount, let lat, let long):
+        case .RunningShowsNearLocation(let page, let amount, let lat, let long):
             return sortCriteriaAt("\(lat),\(long)", [
                 "size" : String(amount),
                 "status": "running",
                 "sort": "end_at",
-                "total_count" : true
+                "page": String(page)
             ])
 
         case .PastShowsNearLocation(let lat, let long):

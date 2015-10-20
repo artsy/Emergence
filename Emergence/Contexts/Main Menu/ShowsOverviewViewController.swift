@@ -54,7 +54,7 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         if index < emitters.count - 2 {
             let anEmitter = emitters[index]
             guard let emitter = anEmitter as? LocationBasedShowEmitter else { return }
-            if emitter.numberOfShows != 0 { return }
+            if emitter.done { return }
 
             emitter.getShows()
         }
@@ -119,10 +119,14 @@ extension ShowsOverviewViewController {
         // We don't want this collectionView's cells to become focused. 
         // Instead the `UICollectionView` contained in the cell should become focused.
 
-        if indexPath.section > 0 {
-            // this handles multiple calls fine
-            requestShowsAtIndex(indexPath.section + 1)
-        }
+
+        let anyEmitter = emitters[indexPath.section]
+        guard let emitter = anyEmitter as? LocationBasedShowEmitter else { return false }
+
+        // these handle multiple calls fine
+        requestShowsAtIndex(indexPath.section)
+        requestShowsAtIndex(indexPath.section + 1)
+
         return false
     }
 
