@@ -41,6 +41,13 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         requestShowsAtIndex(1)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard let nav = navigationController else { return }
+        nav.viewControllers = nav.viewControllers.filter({ $0.isKindOfClass(AuthViewController) == false })
+    }
+
     func requestShowsAtIndex(index: Int) {
 
         // extra index for the FeaturedShowEmitter
