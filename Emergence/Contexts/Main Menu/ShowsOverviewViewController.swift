@@ -50,6 +50,8 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
 
         guard let nav = navigationController else { return }
         nav.viewControllers = nav.viewControllers.filter({ $0.isKindOfClass(AuthViewController) == false })
+
+        performSegueWithIdentifier("about", sender: nil)
     }
 
     func locationEmitterAtIndex(index: Int) -> LocationBasedShowEmitter? {

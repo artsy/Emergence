@@ -37,6 +37,7 @@
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
+            <string>AvantGardeGothicITCW01Dm</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -507,10 +508,10 @@
             </objects>
             <point key="canvasLocation" x="3253" y="4262"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="Fje-g6-XBY">
             <objects>
-                <viewController id="RQb-5q-u6W" sceneMemberID="viewController">
+                <viewController id="RQb-5q-u6W" customClass="AboutViewController" customModule="Artsy_Shows" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ev9-mY-pPa"/>
                         <viewControllerLayoutGuide type="bottom" id="vTB-x0-21Z"/>
@@ -536,17 +537,27 @@ museums and fairs around the world.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDW-hB-ltl">
-                                <rect key="frame" x="90" y="935" width="605" height="85"/>
-                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="TEXT A LINK TO DOWNLOAD THE APP"/>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="artsy-small-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="dof-Wm-XyL">
                                 <rect key="frame" x="90" y="60" width="200" height="68"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXo-1I-9lF">
+                                <rect key="frame" x="90" y="954" width="596" height="66"/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="send"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RQb-5q-u6W" id="j2M-Qs-bUE"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEXT A LINK TO DOWNLOAD THE APP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKH-DM-nDd" customClass="TransparentSanSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                <rect key="frame" x="130" y="965" width="516" height="39"/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="linkTextField" destination="dXo-1I-9lF" id="WLh-Qi-XK9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5oz-Qj-kpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -659,7 +670,7 @@ museums and fairs around the world.</string>
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
-                                        <segue destination="RQb-5q-u6W" kind="show" id="9vn-KS-LiN"/>
+                                        <segue destination="RQb-5q-u6W" kind="show" identifier="about" id="9vn-KS-LiN"/>
                                     </connections>
                                 </button>
                             </subviews>
