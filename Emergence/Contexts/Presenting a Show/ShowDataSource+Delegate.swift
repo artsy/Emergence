@@ -34,6 +34,7 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         layout.rank = 1
         layout.dimensionLength = dimensionLength
         layout.itemMargins = CGSize(width: 40, height: 0)
+        layout.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 90)
 
         collectionView.delegate = self
         collectionView.collectionViewLayout = layout
@@ -115,7 +116,7 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
 
     func subscribeToRequest(request: Observable<[(T)]>?) {
         guard let request = request else { return }
-        
+
         request.subscribe() { networkItems in
             guard let newItems = networkItems.element else { return }
 
