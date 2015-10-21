@@ -35,7 +35,7 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         layout.rank = 1
         layout.dimensionLength = dimensionLength
         layout.itemMargins = CGSize(width: 40, height: 0)
-        layout.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 90)
+        layout.contentInset = UIEdgeInsets(top: 0, left: 90, bottom: 0, right: 90)
 
         collectionView.delegate = self
         collectionView.collectionViewLayout = layout
@@ -158,7 +158,14 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
     func precache(items:[T]?) {
         guard let items = items else { return }
         let images = items.map(imageForItem).flatMap { $0 }
-        let urls = images.map { $0.bestThumbnailWithHeight(collectionView.bounds.height) }.flatMap { $0 }
+        var urls = images.map { $0.bestThumbnailWithHeight(collectionView.bounds.height) }.flatMap { $0 }
+
+        // I _feel_ like the precaching is getting in the way of showing the first install shot
+        // a better optimization may be to see if we've
+        if let _ = items.first as? Image {
+            urls.removeAtIndex(0)
+        }
+
         cache.prefetchURLs(urls)
     }
 
