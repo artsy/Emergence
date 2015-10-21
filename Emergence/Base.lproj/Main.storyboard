@@ -222,20 +222,28 @@
                                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKx-ut-0eX">
                                                                     <rect key="frame" x="0.0" y="489" width="354" height="115"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artwork name, date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-bV-9oP" customClass="TransparentSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
-                                                                            <rect key="frame" x="20" y="61" width="318" height="41"/>
-                                                                            <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jh-DW-CUp" customClass="TransparentBoldSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jh-DW-CUp" customClass="TransparentBoldSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
                                                                             <rect key="frame" x="20" y="23" width="318" height="30"/>
                                                                             <fontDescription key="fontDescription" name="AGaramondPro-Bold" family="Adobe Garamond Pro" pointSize="30"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artwork name, date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-bV-9oP" customClass="TransparentSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
+                                                                            <rect key="frame" x="20" y="61" width="318" height="41"/>
+                                                                            <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                                            <color key="textColor" red="0.25882354378700256" green="0.25882354378700256" blue="0.25882354378700256" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="1Jh-DW-CUp" secondAttribute="trailing" constant="16" id="3rQ-df-Ycb"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="E2c-bV-9oP" secondAttribute="trailing" constant="16" id="F7X-hi-L7f"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="E2c-bV-9oP" secondAttribute="bottom" constant="13" id="O76-9a-FhW"/>
+                                                                        <constraint firstItem="1Jh-DW-CUp" firstAttribute="leading" secondItem="ZKx-ut-0eX" secondAttribute="leading" constant="20" id="Uj9-oD-o20"/>
+                                                                        <constraint firstItem="1Jh-DW-CUp" firstAttribute="top" secondItem="ZKx-ut-0eX" secondAttribute="top" constant="23" id="hdQ-BL-b0O"/>
+                                                                        <constraint firstItem="E2c-bV-9oP" firstAttribute="leading" secondItem="ZKx-ut-0eX" secondAttribute="leading" constant="20" id="wY4-Yk-SnB"/>
+                                                                    </constraints>
                                                                 </view>
                                                             </subviews>
                                                         </stackView>
