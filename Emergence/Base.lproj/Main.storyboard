@@ -95,8 +95,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-z5-DCl">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="2600"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-dd-cBh">
-                                        <rect key="frame" x="60" y="60" width="540" height="926"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-dd-cBh">
+                                        <rect key="frame" x="90" y="60" width="540" height="926"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-cu-M94" propertyAccessControl="none">
                                                 <rect key="frame" x="0.0" y="0.0" width="540" height="65"/>
@@ -175,7 +175,7 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artworks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkd-ZI-vaZ" propertyAccessControl="none">
-                                        <rect key="frame" x="60" y="1160" width="526" height="49"/>
+                                        <rect key="frame" x="90" y="1160" width="526" height="49"/>
                                         <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="48"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -268,9 +268,9 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="THI-Q1-ZmQ">
-                                        <rect key="frame" x="60" y="1980" width="795" height="428"/>
+                                        <rect key="frame" x="90" y="1980" width="795" height="428"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
                                                 <rect key="frame" x="0.0" y="0.0" width="526" height="49"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="526" id="7G7-n5-Rtx"/>
@@ -279,7 +279,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="49" width="795" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="795" id="6fd-eW-eZK"/>
@@ -321,11 +321,12 @@
                                     <constraint firstItem="THI-Q1-ZmQ" firstAttribute="top" secondItem="f1M-Mj-4GQ" secondAttribute="bottom" constant="130" id="4Sj-IF-ApS"/>
                                     <constraint firstItem="hgN-5L-gje" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="10" id="DdQ-7F-6E0"/>
                                     <constraint firstAttribute="width" secondItem="f1M-Mj-4GQ" secondAttribute="width" id="DjQ-bI-M3a"/>
-                                    <constraint firstItem="hkd-ZI-vaZ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="60" id="GDg-27-088"/>
+                                    <constraint firstItem="hkd-ZI-vaZ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="GDg-27-088"/>
                                     <constraint firstItem="f1M-Mj-4GQ" firstAttribute="top" secondItem="hkd-ZI-vaZ" secondAttribute="bottom" constant="21" id="Gts-c9-P3j"/>
-                                    <constraint firstItem="L7d-cu-M94" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="80" id="JE9-Th-Yxh"/>
                                     <constraint firstItem="hkd-ZI-vaZ" firstAttribute="top" secondItem="mhZ-dd-cBh" secondAttribute="bottom" constant="289" id="Sdh-tZ-t1o"/>
                                     <constraint firstAttribute="bottom" secondItem="AwD-Rv-5ho" secondAttribute="bottom" constant="282" id="XD2-QT-HW6"/>
+                                    <constraint firstItem="THI-Q1-ZmQ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="dE5-gv-S42"/>
+                                    <constraint firstItem="mhZ-dd-cBh" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="ivO-QF-cpe"/>
                                     <constraint firstItem="mhZ-dd-cBh" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="60" id="pwV-69-XNL"/>
                                     <constraint firstAttribute="trailing" secondItem="hgN-5L-gje" secondAttribute="trailing" id="rC8-bw-vzE"/>
                                     <constraint firstItem="J93-VG-uh9" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="660" id="vw8-2h-6C1"/>
@@ -497,7 +498,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6J-xl-tBE" customClass="TransparentItalicSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
-                                <rect key="frame" x="80" y="330" width="1426" height="183"/>
+                                <rect key="frame" x="90" y="330" width="1426" height="183"/>
                                 <string key="text">Learn about and collect art from leading galleries,
 museums and fairs around the world.</string>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="70"/>
@@ -505,19 +506,19 @@ museums and fairs around the world.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep browsing on the Artsy app for iPhone and iPad or at Artsy.net " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjl-LC-5TR" customClass="TransparentItalicSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
-                                <rect key="frame" x="80" y="540" width="1165" height="161"/>
+                                <rect key="frame" x="90" y="540" width="1165" height="161"/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="70"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDW-hB-ltl">
-                                <rect key="frame" x="80" y="915" width="605" height="85"/>
+                                <rect key="frame" x="90" y="935" width="605" height="85"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="TEXT A LINK TO DOWNLOAD THE APP"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="artsy-small-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="dof-Wm-XyL">
-                                <rect key="frame" x="80" y="80" width="200" height="68"/>
+                                <rect key="frame" x="90" y="60" width="200" height="68"/>
                             </imageView>
                         </subviews>
                     </view>
@@ -603,7 +604,7 @@ museums and fairs around the world.</string>
                                             </connections>
                                         </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Featured Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-tv-aYy" customClass="ARSerifLabel">
-                                            <rect key="frame" x="80" y="23" width="1410" height="61"/>
+                                            <rect key="frame" x="90" y="23" width="1410" height="61"/>
                                             <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="50"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -623,10 +624,10 @@ museums and fairs around the world.</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="artsy-small-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-iQ-HzN">
-                                    <rect key="frame" x="80" y="80" width="200" height="68"/>
+                                    <rect key="frame" x="90" y="60" width="200" height="68"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy" customClass="SanSerifButton" customModule="Artsy_Shows" customModuleProvider="target">
-                                    <rect key="frame" x="1656" y="58" width="208" height="80"/>
+                                    <rect key="frame" x="1622" y="60" width="208" height="80"/>
                                     <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                     <state key="normal" title="ABOUT">
