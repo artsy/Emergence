@@ -43,6 +43,9 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
 
         // Get the above the fold content
         requestShowsAtIndex(1)
+
+        // Start listening for recommendations on when to cache, see the AppDelegate for more info
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"remoteDidStopMoving", name:"stopped scroll", object:nil)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -50,9 +53,30 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
 
         guard let nav = navigationController else { return }
         nav.viewControllers = nav.viewControllers.filter({ $0.isKindOfClass(AuthViewController) == false })
-
-        performSegueWithIdentifier("about", sender: nil)
     }
+
+    // Mark: Being too fancy?
+
+    func remoteDidStopMoving() {
+        delay(0.1) {
+            guard let focalView = UIScreen.mainScreen().focusedView as? ShowCollectionViewCell else { return }
+            guard let locationCell = focalView.superview?.superview?.superview as? ShowSetCollectionViewCell
+                else { return print("View Heriarchy has changed for the ShowSetCollectionViewCell") }
+
+            guard let locationIndexPath = self.collectionView?.indexPathForCell(locationCell)
+                else { return print("Could not find indexpath for cell") }
+
+            guard let showIndexPath = locationCell.collectionView.indexPathForCell(focalView)
+                else { return print("Could not find indexpath for focal cell") }
+
+            guard let emitter = self.locationEmitterAtIndex(locationIndexPath.section)
+                else { return print("Could not find emitter for show set cell") }
+
+            let show = emitter.showAtIndexPath(showIndexPath)
+        }
+    }
+
+    // Mark: Getting locations
 
     func locationEmitterAtIndex(index: Int) -> LocationBasedShowEmitter? {
 
@@ -73,6 +97,8 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         currentRowImageCache.cancelPrefetching()
         currentRowImageCache.prefetchURLs( emitter.imageURLsForShowsAtLocation() )
     }
+
+    // Mark: Show Selection
 
     func showTapped(show: Show) {
         // can't pass the show as a sender - it has to be an object

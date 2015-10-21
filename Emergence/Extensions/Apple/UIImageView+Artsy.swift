@@ -10,6 +10,8 @@ extension UIImageView {
     }
 
     func ar_setImageWithURL(url:NSURL, color: UIColor = .artsyLightGrey(), size:CGSize = CGSize(width: 600, height: 400)) {
+        print("-> \(url)")
+        
         async {
             let image = UIImage.imageFromColor(color, size: size)
             self.sd_setImageWithURL(url, placeholderImage: image)

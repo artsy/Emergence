@@ -63,6 +63,8 @@ class ShowViewController: UIViewController, ShowItemTapped {
         imageDataSource.subscribeToRequest(imageRequest)
         imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
 
+        print("--------------------------")
+
         artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, cellIdentifier: "artwork",cache:imageCache)
         artworkDataSource.subscribeToRequest(artworkRequest)
         artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
