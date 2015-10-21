@@ -20,7 +20,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
             self.titleLabel.attributedText = self.attributedTitle(emitter)
 
             // If we're not highlighted, dont bother with the fancy appending
-            if let focusedCell = UIScreen.mainScreen().focusedView as? UICollectionViewCell where focusedCell.isDescendantOfView(self.collectionView) {
+            if let focusedCell = UIScreen.mainScreen().focusedView as? UICollectionViewCell where focusedCell.isDescendantOfView(self.collectionView) == false {
                 return self.collectionView.reloadData()
             }
 

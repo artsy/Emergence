@@ -36,13 +36,12 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
     func getShows() {
         if networking || done { return }
 
-        let currentPage = page
-        print("Getting \(title) at page \(currentPage)")
+        print("Getting \(title) at page \(page)")
         networking = true
 
         let pageAmount = 25
         let coords = location.coordinates()
-        let showInfo = ArtsyAPI.RunningShowsNearLocation(page: currentPage, amount: pageAmount, lat: coords.lat, long: coords.long)
+        let showInfo = ArtsyAPI.RunningShowsNearLocation(page: page, amount: pageAmount, lat: coords.lat, long: coords.long)
         let request = network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance)
 
         request.subscribe(next: { shows in
@@ -54,12 +53,20 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
             self.shows = self.shows + shows.filter({ $0.hasInstallationShots && $0.hasArtworks })
 
             if self.shows.isEmpty { print("Got no shows for \(self.location.name)") }
-            print("did \(self.title) at page \(currentPage)")
+            print("did \(self.title) at page \(self.page)")
             self.updateBlock?(shows: self.shows)
 
         }, error: { error in
             print("ERROROR \(error)")
 
         }, completed: nil, disposed: nil)
+    }
+
+    func visibleImageURLsForShowsAtLocation() -> [NSURL] {
+        return self.shows.prefix(3).map { $0.bestAvailableThumbnailURL() }.flatMap { $0 }
+    }
+
+    func imageURLsForShowsAtLocation() -> [NSURL] {
+        return self.shows.map { $0.bestAvailableThumbnailURL() }.flatMap { $0 }
     }
 }
