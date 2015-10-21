@@ -25,11 +25,12 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
     var shows:[Show] = []
 
     func showAtIndexPath(index: NSIndexPath) -> Show {
-        let showIndex = index.row
+        let showIndex = min(index.row, shows.count)
         return shows[showIndex]
     }
 
     var numberOfShows: Int {
+        print("asked for number of shows (\(title)) \(shows.count)")
         return shows.count
     }
 
@@ -44,17 +45,19 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
         let showInfo = ArtsyAPI.RunningShowsNearLocation(page: page, amount: pageAmount, lat: coords.lat, long: coords.long)
         let request = network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance)
 
-        request.subscribe(next: { shows in
-            self.done = shows.count < pageAmount
+        request.subscribe(next: { newShows in
+            self.done = newShows.count < pageAmount
             self.page += 1
             self.networking = false
 
-            let shows: [Show] = shows
-            self.shows = self.shows + shows.filter({ $0.hasInstallationShots && $0.hasArtworks })
+            let before: [Show] = self.shows
+            let delta = newShows.filter { $0.hasInstallationShots && $0.hasArtworks }
+            self.shows = self.shows + delta
 
             if self.shows.isEmpty { print("Got no shows for \(self.location.name)") }
+
             print("did \(self.title) at page \(self.page)")
-            self.updateBlock?(shows: self.shows)
+            self.updateBlock?(emitter:self, shows: self.shows, before: before, delta:delta)
 
         }, error: { error in
             print("ERROROR \(error)")

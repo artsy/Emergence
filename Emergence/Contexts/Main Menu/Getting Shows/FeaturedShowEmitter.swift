@@ -17,11 +17,12 @@ class FeaturedShowEmitter: NSObject, ShowEmitter {
 
     var shows:[Show] = [] {
         didSet {
-            updateBlock?(shows: shows)
+            updateBlock?(emitter:self, shows: shows, before: [], delta: shows)
         }
     }
 
     func showAtIndexPath(index: NSIndexPath) -> Show {
+        precondition(index.row < shows.count)
         return shows[index.row]
     }
 

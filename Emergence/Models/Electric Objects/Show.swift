@@ -1,7 +1,10 @@
     import Gloss
 import ISO8601DateFormatter
 
-struct Show: Showable, ImageURLThumbnailable {
+    let dateShowFormatter = ISO8601DateFormatter()
+
+
+class Show: Showable, ImageURLThumbnailable, Decodable {
     let id: String
     let name: String
     let partner: Partnerable
@@ -22,6 +25,21 @@ struct Show: Showable, ImageURLThumbnailable {
     var hasInstallationShots: Bool
     var hasArtworks: Bool
 
+    required init (id: String, name: String, partner: Partner, pressRelease: String?, showDescription: String?, startDate: NSDate?, endDate: NSDate?, artworks: [Artworkable], locationOneLiner: String?, imageFormatString: String, imageVersions: [String], hasInstallationShots: Bool, hasArtworks: Bool) {
+        self.id = id
+        self.name = name
+        self.partner = partner
+        self.pressRelease = pressRelease
+        self.showDescription = showDescription
+        self.startDate = startDate
+        self.endDate = endDate
+        self.artworks = artworks
+        self.locationOneLiner = locationOneLiner
+        self.imageFormatString = imageFormatString
+        self.imageVersions = imageVersions
+        self.hasInstallationShots = hasInstallationShots
+        self.hasArtworks = hasArtworks
+    }
 
     static func stubbedShow() -> Show {
         let partner = Partner(json:["id": "2311", "name":"El Partner"])!
@@ -37,12 +55,9 @@ struct Show: Showable, ImageURLThumbnailable {
         let location = "Huddersfield, UK"
         return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: press, showDescription: description, startDate: aBitAgo, endDate: aBitInTheFuture, artworks: [artwork], locationOneLiner: location, imageFormatString: "", imageVersions: [""], hasInstallationShots: true, hasArtworks: true)
     }
-}
 
-let dateShowFormatter = ISO8601DateFormatter()
 
-extension Show: Decodable {
-    init?(json: JSON) {
+    convenience required init?(json: JSON) {
 
         guard
             let idValue: String = "id" <~~ json,
@@ -52,9 +67,12 @@ extension Show: Decodable {
             return nil
         }
 
-        id = idValue
-        name = nameValue
-        partner = partnerValue
+        let id = idValue
+        let name = nameValue
+        let partner = partnerValue
+
+        let startDate: NSDate?
+        let endDate: NSDate?
 
         if
             let start: String = "start_at" <~~ json,
@@ -67,26 +85,31 @@ extension Show: Decodable {
             endDate = nil
         }
 
-        pressRelease = "press_release" <~~ json
-        showDescription = "description" <~~ json
+        let pressRelease: String? = "press_release" <~~ json
+        let showDescription: String? = "description" <~~ json
 
-        artworks = []
+        let artworks:[Artworkable] = []
 
+        let hasInstallationShots: Bool
         if let imageCount: Int = "images_count" <~~ json {
             hasInstallationShots = imageCount > 0
         } else {
             hasInstallationShots = false
         }
 
+        let hasArtworks: Bool
         if let artworksCount: Int = "eligible_artworks_count" <~~ json {
             hasArtworks = artworksCount > 0
         } else {
             hasArtworks = false
         }
 
-        locationOneLiner = Show.locationOneLinerFromJSON(json)
+        let locationOneLiner = Show.locationOneLinerFromJSON(json)
 
         // ImageURLThumbnailable conformance
+        let imageFormatString: String
+        let imageVersions: [String]
+
         if
             let imageFormatStringValue: String = "image_url" <~~ json,
             let imageVersionsValue: [String] = "image_versions" <~~ json {
@@ -96,6 +119,21 @@ extension Show: Decodable {
             imageFormatString = ""
             imageVersions = []
         }
+
+        self.init(id: id,
+            name: name,
+            partner: partner,
+            pressRelease: pressRelease,
+            showDescription: showDescription,
+            startDate: startDate,
+            endDate: endDate,
+            artworks: artworks,
+            locationOneLiner: locationOneLiner,
+            imageFormatString: imageFormatString,
+            imageVersions: imageVersions,
+            hasInstallationShots: hasInstallationShots,
+            hasArtworks: hasArtworks)
+
     }
 
     // Gets a one liner to describe the show

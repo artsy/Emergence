@@ -36,8 +36,8 @@ class AuthViewController: UIViewController {
         guard let appVC = self.appViewController else {
             return print("you need an app VC")
         }
-
         appVC.auth { success in
+
             // If you're offline, let people know there is a problem and try
             // again in 0.3 seconds, you've only got 1-2 seconds in here
             // so sooner is better.

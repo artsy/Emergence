@@ -37,6 +37,7 @@ def app_pods()
   pod 'SDWebImage'
   pod 'ARCollectionViewMasonryLayout'
   pod 'UIImageViewAligned', :git => "https://github.com/dbachrach/UIImageViewAligned.git"
+  pod 'SSDataSources'
 
   pod 'Analytics', :subspecs => ["Segmentio"], :git => "https://github.com/orta/analytics-ios.git"
   pod 'ARAnalytics', :subspecs => ["Segmentio"], :git => "https://github.com/orta/ARAnalytics.git"

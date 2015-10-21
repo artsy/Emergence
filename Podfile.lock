@@ -43,6 +43,7 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - SSDataSources (0.8.5)
   - TRVSDictionaryWithCaseInsensitivity (0.0.2)
   - UIImageViewAligned (0.0.1)
 
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - RxCocoa (from `https://github.com/orta/RxSwift.git`, branch `tvos`)
   - RxSwift (from `https://github.com/orta/RxSwift.git`, branch `tvos`)
   - SDWebImage
+  - SSDataSources
   - UIImageViewAligned (from `https://github.com/dbachrach/UIImageViewAligned.git`)
 
 EXTERNAL SOURCES:
@@ -146,6 +148,7 @@ SPEC CHECKSUMS:
   RxCocoa: 2a45f35cd0eb6a01e081b3d11849c2fcb0bdb6de
   RxSwift: c66f7956b2e5fb397a62bf4a3ec6072749a816a7
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SSDataSources: b01170fb23b82acf0649194e9189b0bf5f702681
   TRVSDictionaryWithCaseInsensitivity: 51d2ccf52c6d645d27b63467a98fa02c556e01b0
   UIImageViewAligned: c188246ca50d21a5ac2a60ae754669525bb9f2f1
 

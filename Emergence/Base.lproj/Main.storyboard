@@ -676,7 +676,6 @@ museums and fairs around the world.</string>
                             </subviews>
                         </collectionReusableView>
                         <connections>
-                            <outlet property="dataSource" destination="tWd-qa-N6z" id="aeS-kj-0Zv"/>
                             <outlet property="delegate" destination="tWd-qa-N6z" id="IeZ-A5-05q"/>
                         </connections>
                     </collectionView>

@@ -1,7 +1,8 @@
 import UIKit
 import SDWebImage
+import SSDataSources
 
-class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var titleLabel: UILabel!
@@ -9,47 +10,38 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     static let reuseIdentifier = "ShowSetCollectionViewCell"
 
     private var emitter:ShowEmitter!
-    func configureWithEmitter(emitter:ShowEmitter) {
-        self.emitter = nil
-        collectionView.reloadData()
+    private var dataSource: SSArrayDataSource?
 
-        self.emitter = emitter
-        titleLabel.attributedText = attributedTitle(emitter)
+    func configureWithEmitter(configureEmitter:ShowEmitter) {
+        if dataSource == nil {
+            guard let theDataSource = SSArrayDataSource(items:[]) else { return }
+            theDataSource.clearItems()
+            theDataSource.collectionView = collectionView
 
-        emitter.onUpdate { shows in
-            self.titleLabel.attributedText = self.attributedTitle(emitter)
-
-            // If we're not highlighted, dont bother with the fancy appending
-            if let focusedCell = UIScreen.mainScreen().focusedView as? UICollectionViewCell where focusedCell.isDescendantOfView(self.collectionView) == false {
-                return self.collectionView.reloadData()
+            theDataSource.cellCreationBlock = { obj, parent, index in
+                return parent.dequeueReusableCellWithReuseIdentifier(ShowCollectionViewCell.reuseIdentifier, forIndexPath: index)
             }
 
-            // Sigh, I wrote this in 2011,
-            // https://github.com/artsy/eigen/blob/259be8ce00b07a33e02d4444ee01e5589df9b2f1/Artsy/View_Controllers/Embedded/Generics/AREmbeddedModelsViewController.m#L163
+            theDataSource.cellConfigureBlock = { cell, show, parent, index in
+                guard let cell = cell as? ShowCollectionViewCell else { fatalError("Expected to display a ShowCollectionViewCell") }
+                guard let show = show as? Show else { fatalError("Expected to display a Show") }
+                
+                cell.configureWithShow(show)
+            }
+            dataSource = theDataSource
+        }
 
-            // I feel like I just don't _get_ something, somewhere, and thus can never learn how the hell to do this
-            // without crashing.
+        emitter = configureEmitter
+        titleLabel.attributedText = attributedTitle(configureEmitter)
+        dataSource?.updateItems(emitter.shows as [AnyObject])
 
-//            print("append")
-//            let previousShowCount = self.collectionView.numberOfItemsInSection(0)
-//            self.collectionView.performBatchUpdates({
-//
-//                // create an array of nsindexpaths for the new items being added
-//                let paths = (previousShowCount ..< shows.count).map { NSIndexPath(forRow: $0, inSection: 0) }
-//
-//                print("from \(previousShowCount) - \(shows.count)")
-//                print("emitter says \(emitter.numberOfShows)")
-//                print("paths -> \(paths.map { $0.row })")
-//                if paths.isNotEmpty { self.collectionView.insertItemsAtIndexPaths(paths) }
-//
-//            }, completion: { _ in })
-
-            self.collectionView.reloadData()
+        emitter.onUpdate { emitter, shows, before, delta in
+            self.dataSource?.appendItems(delta)
         }
     }
 
     override func prepareForReuse() {
-        self.emitter = nil
+        dataSource?.clearItems()
     }
 
     func attributedTitle(emitter: ShowEmitter) -> NSAttributedString {
@@ -70,18 +62,6 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         return collectionView
     }
 
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return emitter.numberOfShows
-    }
-
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(ShowCollectionViewCell.reuseIdentifier, forIndexPath: indexPath)
-    }
-
     // MARK: UICollectionViewDelegate
 
     // This feels icky, but I'm unable to think of a better way ATM
@@ -91,13 +71,4 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         let show = emitter.showAtIndexPath(indexPath)
         hostViewController.showTapped(show)
     }
-
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        guard let cell = cell as? ShowCollectionViewCell else { fatalError("Expected to display a ShowCollectionViewCell") }
-
-        let show = emitter.showAtIndexPath(indexPath)
-        cell.configureWithShow(show)
-    }
-
-
 }
