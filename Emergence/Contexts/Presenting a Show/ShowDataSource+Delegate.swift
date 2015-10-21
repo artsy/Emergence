@@ -105,17 +105,32 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
     let cellIdentifier: String
     var items: [T]?
 
-    init(_ collectionView: UICollectionView, request: Observable<[(T)]>, cellIdentifier: String) {
+    init(_ collectionView: UICollectionView, cellIdentifier: String) {
         self.collectionView = collectionView
         self.cellIdentifier = cellIdentifier
         super.init()
 
         collectionView.dataSource = self
-        request.subscribe() { items in
-            guard let things = items.element else { return }
+    }
 
-            self.items = things
-            self.collectionView.reloadData()
+    func subscribeToRequest(request: Observable<[(T)]>?) {
+        guard let request = request else { return }
+        
+        request.subscribe() { networkItems in
+            guard let newItems = networkItems.element else { return }
+
+            if let items = self.items {
+                self.items = items + newItems
+            } else {
+                self.items = newItems
+            }
+
+            let previousItemsCount = self.collectionView.numberOfItemsInSection(0)
+            self.collectionView.performBatchUpdates({
+                // create an array of nsindexpaths for the new items being added
+                let paths = (previousItemsCount ..< self.items!.count).map({ NSIndexPath(forRow: $0, inSection: 0) })
+                self.collectionView.insertItemsAtIndexPaths(paths)
+            }, completion: nil)
         }
     }
 

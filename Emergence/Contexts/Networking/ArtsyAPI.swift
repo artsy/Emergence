@@ -9,7 +9,7 @@ enum ArtsyAPI {
     case UpcomingShowsNearLocation(lat:String, long: String)
     case RunningShowsNearLocation(page: Int, amount: Int, lat: String, long: String)
     case PastShowsNearLocation(lat: String, long: String)
-    case ArtworksForShow(partnerID: String, showID: String)
+    case ArtworksForShow(partnerID: String, showID: String, page: Int)
     case ImagesForShow(showID: String)
     case FeaturedShows
 }
@@ -47,6 +47,10 @@ extension ArtsyAPI : MoyaTarget {
                 "sort": "end_at",
             ])
 
+        case .ArtworksForShow( _, _, let page):
+            return ["page": page, "published" : true, "size": 10]
+
+
         default:
             return [:]
         }
@@ -78,7 +82,7 @@ extension ArtsyAPI : MoyaTarget {
         case .ShowInfo(let showID):
             return "/api/v1/show/\(showID)"
 
-        case .ArtworksForShow(let partnerID, let showID):
+        case .ArtworksForShow(let partnerID, let showID, _):
             return "/api/v1/partner/\(partnerID)/show/\(showID)/artworks/"
 
         case .ImagesForShow(let showID):

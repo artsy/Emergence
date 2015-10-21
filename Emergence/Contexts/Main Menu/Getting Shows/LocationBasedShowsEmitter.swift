@@ -22,11 +22,7 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
         updateBlock = callback
     }
 
-    var shows:[Show] = [] {
-        didSet {
-            updateBlock?(shows: shows)
-        }
-    }
+    var shows:[Show] = []
 
     func showAtIndexPath(index: NSIndexPath) -> Show {
         let showIndex = index.row
@@ -40,21 +36,26 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
     func getShows() {
         if networking || done { return }
 
-        print("Getting \(title) at page \(page)")
+        let currentPage = page
+        print("Getting \(title) at page \(currentPage)")
         networking = true
 
         let pageAmount = 25
         let coords = location.coordinates()
-        let showInfo = ArtsyAPI.RunningShowsNearLocation(page: page, amount: pageAmount, lat: coords.lat, long: coords.long)
-        network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance).subscribe(next: { shows in
+        let showInfo = ArtsyAPI.RunningShowsNearLocation(page: currentPage, amount: pageAmount, lat: coords.lat, long: coords.long)
+        let request = network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance)
+
+        request.subscribe(next: { shows in
             self.done = shows.count < pageAmount
             self.page += 1
             self.networking = false
 
             let shows: [Show] = shows
-            self.shows = self.shows + shows.filter({ $0.hasInstallationShots })
+            self.shows = self.shows + shows.filter({ $0.hasInstallationShots && $0.hasArtworks })
 
             if self.shows.isEmpty { print("Got no shows for \(self.location.name)") }
+            print("did \(self.title) at page \(currentPage)")
+            self.updateBlock?(shows: self.shows)
 
         }, error: { error in
             print("ERROROR \(error)")

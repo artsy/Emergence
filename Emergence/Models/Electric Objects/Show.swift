@@ -20,6 +20,8 @@ struct Show: Showable, ImageURLThumbnailable {
     var imageVersions: [String]
 
     var hasInstallationShots: Bool
+    var hasArtworks: Bool
+
 
     static func stubbedShow() -> Show {
         let partner = Partner(json:["id": "2311", "name":"El Partner"])!
@@ -33,7 +35,7 @@ struct Show: Showable, ImageURLThumbnailable {
         let press = "Here’s what happened: You meet someone and play them your current favourite song, only to find out that it’s their favourite, too. Yes! Then you listen to it forever – or at least for six hours. If you don’t just have a weakness for pop music, but also for melancholy, and if you’re also a visual artist called Ragnar Kjartansson, then you might ask the band (in this case, The National), whether they would like to play the song (in this case, “Sorrow”) in New York’s MoMA PS1 non-stop for six consecutive hours – and then you make a film about the whole thing. This is the impact of these six hours: Exhaustion sets in, the song begins to change under the weight of time and the musicians begin to experiment cautiously. There are clashes and friction between pathos and irony, trance-like states set in and break off, until a new, collective experience between emotion and reflection, of presence and duration becomes possible. And if you prefer, you could also simply hear and see a literally wonderful concert.\n\n\nHere’s what happened: You meet someone and play them your current favourite song, only to find out that it’s their favourite, too. Yes! Then you listen to it forever – or at least for six hours. If you don’t just have a weakness for pop music, but also for melancholy, and if you’re also a visual artist called Ragnar Kjartansson, then you might ask the band (in this case, The National), whether they would like to play the song (in this case, “Sorrow”) in New York’s MoMA PS1 non-stop for six consecutive hours – and then you make a film about the whole thing. This is the impact of these six hours: Exhaustion sets in, the song begins to change under the weight of time and the musicians begin to experiment cautiously. There are clashes and friction between pathos and irony, trance-like states set in and break off, until a new, collective experience between emotion and reflection, of presence and duration becomes possible. And if you prefer, you could also simply hear and see a literally wonderful concert.\n\n      “A Lot of Sorrow” took place at MoMA PS1, as part of Sunday Sessions. A joint project by KÖNIG GALERIE and Foreign Affairs - Festivalt."
 
         let location = "Huddersfield, UK"
-        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: press, showDescription: description, startDate: aBitAgo, endDate: aBitInTheFuture, artworks: [artwork], locationOneLiner: location, imageFormatString: "", imageVersions: [""], hasInstallationShots: true)
+        return Show(id: "213234234", name: "Stubby Show", partner: partner, pressRelease: press, showDescription: description, startDate: aBitAgo, endDate: aBitInTheFuture, artworks: [artwork], locationOneLiner: location, imageFormatString: "", imageVersions: [""], hasInstallationShots: true, hasArtworks: true)
     }
 }
 
@@ -74,6 +76,12 @@ extension Show: Decodable {
             hasInstallationShots = imageCount > 0
         } else {
             hasInstallationShots = false
+        }
+
+        if let artworksCount: Int = "eligible_artworks_count" <~~ json {
+            hasArtworks = artworksCount > 0
+        } else {
+            hasArtworks = false
         }
 
         locationOneLiner = Show.locationOneLinerFromJSON(json)
