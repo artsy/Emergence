@@ -149,6 +149,9 @@ extension ShowsOverviewViewController {
         let sameParent = context.previouslyFocusedView?.superview == context.nextFocusedView?.superview
         if sameParent { return }
 
+        // On clicking into a show, we get one last "things have changed message"
+        if let _ = context.nextFocusedView as? ImageCollectionViewCell { return }
+
         guard let showCell = context.nextFocusedView as? ShowCollectionViewCell else { return print("Cell needs to be ShowCollectionViewCell") }
         guard let locationCell = showCell.superview?.superview?.superview as? ShowSetCollectionViewCell else { return print("View Heriarchy has changed for the ShowSetCollectionViewCell") }
 

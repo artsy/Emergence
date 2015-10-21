@@ -1,7 +1,6 @@
 import UIKit
 
 class ArtworkSetViewController: UIPageViewController, UIPageViewControllerDataSource {
-
     var artworks:[Artwork]!
     var initialIndex: Int!
 
@@ -42,4 +41,5 @@ class ArtworkSetViewController: UIPageViewController, UIPageViewControllerDataSo
         if (newIndex < 0) { newIndex = artworks.count - 1 }
         return viewControllerForIndex(newIndex)
     }
+
 }
