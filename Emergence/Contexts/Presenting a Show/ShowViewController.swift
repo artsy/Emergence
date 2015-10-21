@@ -3,6 +3,8 @@ import RxSwift
 import Moya
 import Gloss
 import ARAnalytics
+import SDWebImage
+
 
 class ShowViewController: UIViewController, ShowItemTapped {
     var show: Show!
@@ -34,6 +36,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
 
     var imageRequest: Observable<[Image]>!
     var artworkRequest: Observable<[Artwork]>!
+    var imageCache = SDWebImagePrefetcher()
 
     override func viewDidLoad() {
         precondition(self.show != nil, "you need a show to load the view controller");
@@ -56,11 +59,11 @@ class ShowViewController: UIViewController, ShowItemTapped {
         imageRequest = networker.imageNetworkRequest
         artworkRequest = networker.artworkNetworkRequest
 
-        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, cellIdentifier: "image")
+        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, cellIdentifier: "image", cache:imageCache)
         imageDataSource.subscribeToRequest(imageRequest)
         imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
 
-        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, cellIdentifier: "artwork")
+        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, cellIdentifier: "artwork",cache:imageCache)
         artworkDataSource.subscribeToRequest(artworkRequest)
         artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
         artworkDelegate.internalPadding = 150
@@ -72,6 +75,11 @@ class ShowViewController: UIViewController, ShowItemTapped {
             "profile_id": show.partner.profileID ?? "",
             "fair_id":""
         ])
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        imageCache.cancelPrefetching()
     }
 
     func showDidLoad(show: Show) {
@@ -158,7 +166,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
         return context.nextFocusedView == scrollChief.keyView
     }
 
+    // Can't pass structs through performSegue
     var selectedArtwork: Artwork!
+
     func didTapArtwork(item: Artwork) {
         selectedArtwork = item
         performSegueWithIdentifier("artwork", sender: self)
@@ -172,8 +182,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
     }
 }
 
-// Keeping these around in here for now, if they get more complex they can go somewhere else
-
+// Keeping this around in here for now, if it gets more complex it can go somewhere else
 class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
 }

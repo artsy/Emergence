@@ -4,6 +4,7 @@ import ARCollectionViewMasonryLayout
 import SDWebImage
 import RxSwift
 import Artsy_UIColors
+import SDWebImage
 
 // Just a dumb protocol to pass a message back that
 // something has been tapped on
@@ -52,8 +53,6 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         return widthForImage(image, capped: collectionView.bounds.width)
     }
 
-    // TODO: Fix this!
-
     func widthForImage(image: Image, capped: CGFloat) -> CGFloat {
         let width: CGFloat
         let ratio = image.aspectRatio ?? image.imageSize.width / image.imageSize.height
@@ -80,7 +79,6 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         guard let item = itemDataSource.itemForIndexPath(indexPath) else { return }
         guard let image = imageForItem(item) else { return }
 
-
         if let cell = cell as? ImageCollectionViewCell {
             cell.image.ar_setImage(image, height: dimensionLength)
         }
@@ -104,11 +102,14 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
     let collectionView: UICollectionView
     let cellIdentifier: String
+    let cache: SDWebImagePrefetcher
+
     var items: [T]?
 
-    init(_ collectionView: UICollectionView, cellIdentifier: String) {
+    init(_ collectionView: UICollectionView, cellIdentifier: String, cache: SDWebImagePrefetcher) {
         self.collectionView = collectionView
         self.cellIdentifier = cellIdentifier
+        self.cache = cache
         super.init()
 
         collectionView.dataSource = self
@@ -132,6 +133,8 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
                 let paths = (previousItemsCount ..< self.items!.count).map({ NSIndexPath(forRow: $0, inSection: 0) })
                 self.collectionView.insertItemsAtIndexPaths(paths)
             }, completion: nil)
+
+            self.precache(self.items)
         }
     }
 
@@ -150,5 +153,29 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
     }
-    
+
+    // Low priority image caching
+    func precache(items:[T]?) {
+        guard let items = items else { return }
+        let images = items.map(imageForItem).flatMap { $0 }
+        let urls = images.map { $0.bestThumbnailWithHeight(collectionView.bounds.height) }.flatMap { $0 }
+        cache.prefetchURLs(urls)
+    }
+
+    // As these two are separate generic classes, they can't really share this function, thus: duped.
+
+    func imageForItem(item:T) -> Image? {
+        // If it's an artwork grab the default image
+        if var artwork = item as? Artwork, let defaultImage = artwork.defaultImage, let actualImage = defaultImage as? Image {
+            return actualImage
+
+        } else if let actualImage = item as? Image {
+            // otherwise it is an image
+            return actualImage
+        }
+
+        return nil
+    }
+
+
 }
