@@ -18,7 +18,14 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
 
         emitter.onUpdate { shows in
             self.titleLabel.attributedText = self.attributedTitle(emitter)
-            self.collectionView.reloadData()
+
+            let previousShowCount = self.collectionView.numberOfItemsInSection(0)
+            self.collectionView.performBatchUpdates({
+                // create an array of nsindexpaths for the new items being added
+                let paths = (previousShowCount ..< shows.count).map({ NSIndexPath(forRow: $0, inSection: 0) })
+                self.collectionView.insertItemsAtIndexPaths(paths)
+            }, completion: nil)
+
         }
     }
 
