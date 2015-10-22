@@ -8,7 +8,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
 
     static let reuseIdentifier = "ShowSetCollectionViewCell"
 
-    private var emitter:ShowEmitter!
+    private var emitter:ShowEmitter?
     func configureWithEmitter(emitter:ShowEmitter) {
         self.emitter = nil
         collectionView.reloadData()
@@ -55,7 +55,8 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     }
 
     override func prepareForReuse() {
-        self.emitter = nil
+        self.emitter =  nil 
+        self.collectionView.reloadData()
     }
 
     func attributedTitle(emitter: ShowEmitter) -> NSAttributedString {
@@ -72,6 +73,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     }
 
     // Pass the focus through to the sub-collection view
+
     override var preferredFocusedView: UIView? {
         return collectionView
     }
@@ -81,6 +83,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let emitter = emitter else { return 0 }
         return emitter.numberOfShows
     }
 
@@ -96,13 +99,14 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     @IBOutlet var hostViewController: ShowsOverviewViewController!
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-
+        guard let emitter = emitter else { return }
         let show = emitter.showAtIndexPath(indexPath)
         hostViewController.showTapped(show)
     }
 
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         guard let cell = cell as? ShowCollectionViewCell else { fatalError("Expected to display a ShowCollectionViewCell") }
+        guard let emitter = emitter else { return }
 
         let show = emitter.showAtIndexPath(indexPath)
         cell.configureWithShow(show)

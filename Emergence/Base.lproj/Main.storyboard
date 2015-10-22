@@ -93,272 +93,272 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="2600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-z5-DCl">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9DL-g5-7ce">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="2600"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-dd-cBh">
-                                        <rect key="frame" x="90" y="60" width="540" height="926"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oR-z5-DCl">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="2600"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-cu-M94" propertyAccessControl="none">
-                                                <rect key="frame" x="0.0" y="0.0" width="540" height="65"/>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="65"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Swr-Hk-BBK">
-                                                <rect key="frame" x="0.0" y="71" width="540" height="746"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GALLERY NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEF-l9-cUy" customClass="ARSansSerifLabel">
-                                                <rect key="frame" x="0.0" y="823" width="540" height="31"/>
-                                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="24"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21st Nov - 23rd Dec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fo-4Y-ctp" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="860" width="540" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-dd-cBh">
+                                                <rect key="frame" x="90" y="60" width="540" height="926"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Show Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7d-cu-M94" propertyAccessControl="none">
+                                                        <rect key="frame" x="0.0" y="0.0" width="540" height="65"/>
+                                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="65"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swr-Hk-BBK">
+                                                        <rect key="frame" x="0.0" y="71" width="540" height="746"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="GALLERY NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEF-l9-cUy" customClass="ARSansSerifLabel">
+                                                        <rect key="frame" x="0.0" y="823" width="540" height="31"/>
+                                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="24"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="21st Nov - 23rd Dec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fo-4Y-ctp" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="860" width="540" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="9h6-yE-QNd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Show location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-O3-SYE" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="896" width="540" height="30"/>
+                                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.2030546044486139" blue="0.089253705691104246" alpha="0.0" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="9h6-yE-QNd"/>
+                                                    <constraint firstAttribute="height" constant="926" id="caC-n8-Zsj"/>
+                                                    <constraint firstAttribute="width" constant="540" id="eEg-aG-HQM"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-O3-SYE" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="896" width="540" height="30"/>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="0.2030546044486139" blue="0.089253705691104246" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="926" id="caC-n8-Zsj"/>
-                                            <constraint firstAttribute="width" constant="540" id="eEg-aG-HQM"/>
-                                        </constraints>
-                                    </stackView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J93-VG-uh9">
-                                        <rect key="frame" x="660" y="60" width="1260" height="920"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="920" id="Wlr-rL-Ltl"/>
-                                        </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZhC-sI-fOd">
-                                            <size key="itemSize" width="553" height="920"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="80" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="c5c-lD-DPx" customClass="ImageCollectionViewCell" customModule="Artsy_Shows" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNg-sH-8do">
+                                            </stackView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J93-VG-uh9">
+                                                <rect key="frame" x="660" y="60" width="1260" height="920"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="920" id="Wlr-rL-Ltl"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZhC-sI-fOd">
+                                                    <size key="itemSize" width="553" height="920"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="80" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="c5c-lD-DPx" customClass="ImageCollectionViewCell" customModule="Artsy_Shows" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <constraints>
-                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="top" secondItem="c5c-lD-DPx" secondAttribute="topMargin" id="L2i-cO-oXQ"/>
-                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="trailing" secondItem="c5c-lD-DPx" secondAttribute="trailingMargin" id="Qdp-al-WL8"/>
-                                                    <constraint firstItem="oNg-sH-8do" firstAttribute="leading" secondItem="c5c-lD-DPx" secondAttribute="leadingMargin" id="jNu-8z-wZN"/>
-                                                    <constraint firstAttribute="bottomMargin" secondItem="oNg-sH-8do" secondAttribute="bottom" id="rCM-HE-Rs1"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="image" destination="oNg-sH-8do" id="IZH-zN-f9p"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artworks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkd-ZI-vaZ" propertyAccessControl="none">
-                                        <rect key="frame" x="90" y="1160" width="526" height="49"/>
-                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="48"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f1M-Mj-4GQ">
-                                        <rect key="frame" x="0.0" y="1230" width="1920" height="620"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="620" id="6mY-Qt-8aS"/>
-                                        </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cUx-qL-JrS">
-                                            <size key="itemSize" width="370" height="620"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="artwork" id="22p-hS-C8I" customClass="ArtworkCollectionViewCell" customModule="Artsy_Shows" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="370" height="620"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="620"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eGB-ju-x7E">
-                                                            <rect key="frame" x="8" y="8" width="354" height="604"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-GV-PFh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="489"/>
-                                                                    <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" ambiguous="YES" misplaced="YES" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-I7-Vsx">
-                                                                            <rect key="frame" x="20" y="40" width="314" height="452"/>
-                                                                            <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
-                                                                        </imageView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="KXf-I7-Vsx" firstAttribute="top" secondItem="hR4-GV-PFh" secondAttribute="top" constant="40" id="44O-ZF-NsC"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="KXf-I7-Vsx" secondAttribute="bottom" constant="40" id="5eJ-x6-NBo"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="KXf-I7-Vsx" secondAttribute="trailing" constant="20" id="OMA-bT-KCn"/>
-                                                                        <constraint firstItem="KXf-I7-Vsx" firstAttribute="leading" secondItem="hR4-GV-PFh" secondAttribute="leading" constant="20" id="YYK-PR-HD0"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKx-ut-0eX">
-                                                                    <rect key="frame" x="0.0" y="489" width="354" height="115"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Artist Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jh-DW-CUp" customClass="TransparentBoldSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
-                                                                            <rect key="frame" x="20" y="23" width="318" height="30"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="30" id="7sE-B8-KgN"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" name="AGaramondPro-Bold" family="Adobe Garamond Pro" pointSize="30"/>
-                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artwork name, date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-bV-9oP" customClass="TransparentSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
-                                                                            <rect key="frame" x="20" y="61" width="318" height="41"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="41" id="FKY-Jt-h9k"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                                                            <color key="textColor" red="0.25882354378700256" green="0.25882354378700256" blue="0.25882354378700256" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="trailing" secondItem="1Jh-DW-CUp" secondAttribute="trailing" constant="16" id="3rQ-df-Ycb"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="E2c-bV-9oP" secondAttribute="trailing" constant="16" id="F7X-hi-L7f"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="E2c-bV-9oP" secondAttribute="bottom" constant="13" id="O76-9a-FhW"/>
-                                                                        <constraint firstItem="1Jh-DW-CUp" firstAttribute="leading" secondItem="ZKx-ut-0eX" secondAttribute="leading" constant="20" id="Uj9-oD-o20"/>
-                                                                        <constraint firstItem="1Jh-DW-CUp" firstAttribute="top" secondItem="ZKx-ut-0eX" secondAttribute="top" constant="23" id="hdQ-BL-b0O"/>
-                                                                        <constraint firstItem="E2c-bV-9oP" firstAttribute="leading" secondItem="ZKx-ut-0eX" secondAttribute="leading" constant="20" id="wY4-Yk-SnB"/>
-                                                                    </constraints>
-                                                                </view>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNg-sH-8do">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="553" height="920"/>
+                                                                </imageView>
                                                             </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottomMargin" secondItem="eGB-ju-x7E" secondAttribute="bottom" id="Xqs-3X-VXv"/>
-                                                    <constraint firstAttribute="trailingMargin" secondItem="eGB-ju-x7E" secondAttribute="trailing" id="cgP-KC-JsW"/>
-                                                    <constraint firstItem="eGB-ju-x7E" firstAttribute="leading" secondItem="22p-hS-C8I" secondAttribute="leadingMargin" id="hrz-OL-1Pb"/>
-                                                    <constraint firstAttribute="bottomMargin" secondItem="ZKx-ut-0eX" secondAttribute="bottom" id="huk-vq-wR8"/>
-                                                    <constraint firstItem="eGB-ju-x7E" firstAttribute="top" secondItem="22p-hS-C8I" secondAttribute="topMargin" id="yNt-SD-XVs"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="artistNameLabel" destination="1Jh-DW-CUp" id="Kjo-TS-a99"/>
-                                                    <outlet property="image" destination="KXf-I7-Vsx" id="Tgl-ud-rdV"/>
-                                                    <outlet property="titleLabel" destination="E2c-bV-9oP" id="49z-cn-Gxo"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="down-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-m5-sEn">
-                                        <rect key="frame" x="944" y="1020" width="32" height="19"/>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-5L-gje">
-                                        <rect key="frame" x="0.0" y="10" width="1920" height="5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="5" id="1zF-Q2-P66"/>
-                                            <constraint firstAttribute="width" constant="1920" id="Y75-e1-qRw"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="THI-Q1-ZmQ">
-                                        <rect key="frame" x="90" y="1980" width="795" height="428"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
-                                                <rect key="frame" x="0.0" y="0.0" width="526" height="49"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="526" id="7G7-n5-Rtx"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="oNg-sH-8do" firstAttribute="top" secondItem="c5c-lD-DPx" secondAttribute="topMargin" id="L2i-cO-oXQ"/>
+                                                            <constraint firstItem="oNg-sH-8do" firstAttribute="trailing" secondItem="c5c-lD-DPx" secondAttribute="trailingMargin" id="Qdp-al-WL8"/>
+                                                            <constraint firstItem="oNg-sH-8do" firstAttribute="leading" secondItem="c5c-lD-DPx" secondAttribute="leadingMargin" id="jNu-8z-wZN"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="oNg-sH-8do" secondAttribute="bottom" id="rCM-HE-Rs1"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="image" destination="oNg-sH-8do" id="IZH-zN-f9p"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Artworks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkd-ZI-vaZ" propertyAccessControl="none">
+                                                <rect key="frame" x="90" y="1160" width="526" height="49"/>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="48"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="49" width="795" height="120"/>
+                                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f1M-Mj-4GQ">
+                                                <rect key="frame" x="0.0" y="1230" width="1920" height="620"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="795" id="6fd-eW-eZK"/>
+                                                    <constraint firstAttribute="height" constant="620" id="6mY-Qt-8aS"/>
                                                 </constraints>
-                                                <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R57-bE-p6B">
-                                                <rect key="frame" x="0.0" y="169" width="240" height="90"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cUx-qL-JrS">
+                                                    <size key="itemSize" width="370" height="620"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="artwork" id="22p-hS-C8I" customClass="ArtworkCollectionViewCell" customModule="Artsy_Shows" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="620"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="620"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eGB-ju-x7E">
+                                                                    <rect key="frame" x="8" y="8" width="354" height="604"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-GV-PFh">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="354" height="489"/>
+                                                                            <subviews>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" misplaced="YES" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-I7-Vsx">
+                                                                                    <rect key="frame" x="20" y="40" width="314" height="452"/>
+                                                                                    <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                                                                                </imageView>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                            <constraints>
+                                                                                <constraint firstItem="KXf-I7-Vsx" firstAttribute="top" secondItem="hR4-GV-PFh" secondAttribute="top" constant="40" id="44O-ZF-NsC"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="KXf-I7-Vsx" secondAttribute="bottom" constant="40" id="5eJ-x6-NBo"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="KXf-I7-Vsx" secondAttribute="trailing" constant="20" id="OMA-bT-KCn"/>
+                                                                                <constraint firstItem="KXf-I7-Vsx" firstAttribute="leading" secondItem="hR4-GV-PFh" secondAttribute="leading" constant="20" id="YYK-PR-HD0"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKx-ut-0eX">
+                                                                            <rect key="frame" x="0.0" y="489" width="354" height="115"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jh-DW-CUp" customClass="TransparentBoldSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
+                                                                                    <rect key="frame" x="20" y="23" width="318" height="30"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="30" id="7sE-B8-KgN"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" name="AGaramondPro-Bold" family="Adobe Garamond Pro" pointSize="30"/>
+                                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artwork name, date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-bV-9oP" customClass="TransparentSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
+                                                                                    <rect key="frame" x="20" y="61" width="318" height="41"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="41" id="FKY-Jt-h9k"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                                                    <color key="textColor" red="0.25882354378700256" green="0.25882354378700256" blue="0.25882354378700256" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="trailing" secondItem="1Jh-DW-CUp" secondAttribute="trailing" constant="16" id="3rQ-df-Ycb"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="E2c-bV-9oP" secondAttribute="trailing" constant="16" id="F7X-hi-L7f"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="E2c-bV-9oP" secondAttribute="bottom" constant="13" id="O76-9a-FhW"/>
+                                                                                <constraint firstItem="1Jh-DW-CUp" firstAttribute="leading" secondItem="ZKx-ut-0eX" secondAttribute="leading" constant="20" id="Uj9-oD-o20"/>
+                                                                                <constraint firstItem="1Jh-DW-CUp" firstAttribute="top" secondItem="ZKx-ut-0eX" secondAttribute="top" constant="23" id="hdQ-BL-b0O"/>
+                                                                                <constraint firstItem="E2c-bV-9oP" firstAttribute="leading" secondItem="ZKx-ut-0eX" secondAttribute="leading" constant="20" id="wY4-Yk-SnB"/>
+                                                                                <constraint firstAttribute="height" constant="115" id="yYQ-E2-SaS"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="eGB-ju-x7E" secondAttribute="bottom" id="Xqs-3X-VXv"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="eGB-ju-x7E" secondAttribute="trailing" id="cgP-KC-JsW"/>
+                                                            <constraint firstItem="eGB-ju-x7E" firstAttribute="leading" secondItem="22p-hS-C8I" secondAttribute="leadingMargin" id="hrz-OL-1Pb"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="ZKx-ut-0eX" secondAttribute="bottom" id="huk-vq-wR8"/>
+                                                            <constraint firstItem="eGB-ju-x7E" firstAttribute="top" secondItem="22p-hS-C8I" secondAttribute="topMargin" id="yNt-SD-XVs"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="artistNameLabel" destination="1Jh-DW-CUp" id="Kjo-TS-a99"/>
+                                                            <outlet property="image" destination="KXf-I7-Vsx" id="Tgl-ud-rdV"/>
+                                                            <outlet property="titleLabel" destination="E2c-bV-9oP" id="49z-cn-Gxo"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="down-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-m5-sEn">
+                                                <rect key="frame" x="944" y="1020" width="32" height="19"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-5L-gje">
+                                                <rect key="frame" x="0.0" y="10" width="1920" height="5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="1zF-Q2-P66"/>
+                                                    <constraint firstAttribute="width" constant="1920" id="Y75-e1-qRw"/>
+                                                </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Press Release" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDy-Ej-kDB" customClass="ARSerifLabel" propertyAccessControl="none">
-                                                <rect key="frame" x="0.0" y="259" width="526" height="49"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="526" id="OKK-H5-gtS"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwD-Rv-5ho" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="308" width="795" height="120"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="795" id="nVE-2F-h74"/>
-                                                </constraints>
-                                                <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="THI-Q1-ZmQ">
+                                                <rect key="frame" x="90" y="1980" width="795" height="428"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="About the Show" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeU-F5-LfP" customClass="ARSerifLabel" propertyAccessControl="none">
+                                                        <rect key="frame" x="0.0" y="0.0" width="526" height="49"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="526" id="7G7-n5-Rtx"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" ambiguous="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v52-kC-oaU" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="49" width="795" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="795" id="6fd-eW-eZK"/>
+                                                        </constraints>
+                                                        <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
+                                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R57-bE-p6B">
+                                                        <rect key="frame" x="0.0" y="169" width="240" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Press Release" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDy-Ej-kDB" customClass="ARSerifLabel" propertyAccessControl="none">
+                                                        <rect key="frame" x="0.0" y="259" width="526" height="49"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="526" id="OKK-H5-gtS"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="48"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwD-Rv-5ho" customClass="HalfIntrinsicHeightSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="308" width="795" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="795" id="nVE-2F-h74"/>
+                                                        </constraints>
+                                                        <string key="text">Samuel Freeman is pleased to present "Relief," Erin Morrison’s debut solo exhibition. Working with plaster, paint, and fabric, Morrison creates highly tactile surfaces that exist somewhere between painting and sculpture—as relief.</string>
+                                                        <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="30"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="f1M-Mj-4GQ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" id="3L1-ux-Rui"/>
+                                            <constraint firstItem="THI-Q1-ZmQ" firstAttribute="top" secondItem="f1M-Mj-4GQ" secondAttribute="bottom" constant="130" id="4Sj-IF-ApS"/>
+                                            <constraint firstItem="hgN-5L-gje" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="10" id="DdQ-7F-6E0"/>
+                                            <constraint firstAttribute="width" secondItem="f1M-Mj-4GQ" secondAttribute="width" id="DjQ-bI-M3a"/>
+                                            <constraint firstItem="hkd-ZI-vaZ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="GDg-27-088"/>
+                                            <constraint firstItem="f1M-Mj-4GQ" firstAttribute="top" secondItem="hkd-ZI-vaZ" secondAttribute="bottom" constant="21" id="Gts-c9-P3j"/>
+                                            <constraint firstItem="hkd-ZI-vaZ" firstAttribute="top" secondItem="mhZ-dd-cBh" secondAttribute="bottom" constant="289" id="Sdh-tZ-t1o"/>
+                                            <constraint firstAttribute="bottom" secondItem="THI-Q1-ZmQ" secondAttribute="bottom" constant="192" id="Zs5-40-Sf4"/>
+                                            <constraint firstItem="THI-Q1-ZmQ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="dE5-gv-S42"/>
+                                            <constraint firstItem="mhZ-dd-cBh" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="ivO-QF-cpe"/>
+                                            <constraint firstItem="mhZ-dd-cBh" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="60" id="pwV-69-XNL"/>
+                                            <constraint firstAttribute="trailing" secondItem="hgN-5L-gje" secondAttribute="trailing" id="rC8-bw-vzE"/>
+                                            <constraint firstItem="J93-VG-uh9" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="660" id="vw8-2h-6C1"/>
+                                            <constraint firstItem="hgN-5L-gje" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" id="wwh-5A-Xjs"/>
+                                            <constraint firstItem="J93-VG-uh9" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="60" id="znc-sN-jx3"/>
+                                        </constraints>
+                                    </scrollView>
                                 </subviews>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="f1M-Mj-4GQ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" id="3L1-ux-Rui"/>
-                                    <constraint firstItem="THI-Q1-ZmQ" firstAttribute="top" secondItem="f1M-Mj-4GQ" secondAttribute="bottom" constant="130" id="4Sj-IF-ApS"/>
-                                    <constraint firstItem="hgN-5L-gje" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="10" id="DdQ-7F-6E0"/>
-                                    <constraint firstAttribute="width" secondItem="f1M-Mj-4GQ" secondAttribute="width" id="DjQ-bI-M3a"/>
-                                    <constraint firstItem="hkd-ZI-vaZ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="GDg-27-088"/>
-                                    <constraint firstItem="f1M-Mj-4GQ" firstAttribute="top" secondItem="hkd-ZI-vaZ" secondAttribute="bottom" constant="21" id="Gts-c9-P3j"/>
-                                    <constraint firstItem="hkd-ZI-vaZ" firstAttribute="top" secondItem="mhZ-dd-cBh" secondAttribute="bottom" constant="289" id="Sdh-tZ-t1o"/>
-                                    <constraint firstAttribute="bottom" secondItem="AwD-Rv-5ho" secondAttribute="bottom" constant="282" id="XD2-QT-HW6"/>
-                                    <constraint firstItem="THI-Q1-ZmQ" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="dE5-gv-S42"/>
-                                    <constraint firstItem="mhZ-dd-cBh" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="90" id="ivO-QF-cpe"/>
-                                    <constraint firstItem="mhZ-dd-cBh" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="60" id="pwV-69-XNL"/>
-                                    <constraint firstAttribute="trailing" secondItem="hgN-5L-gje" secondAttribute="trailing" id="rC8-bw-vzE"/>
-                                    <constraint firstItem="J93-VG-uh9" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" constant="660" id="vw8-2h-6C1"/>
-                                    <constraint firstItem="hgN-5L-gje" firstAttribute="leading" secondItem="7oR-z5-DCl" secondAttribute="leading" id="wwh-5A-Xjs"/>
-                                    <constraint firstItem="J93-VG-uh9" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="top" constant="60" id="znc-sN-jx3"/>
-                                </constraints>
-                            </scrollView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="7oR-z5-DCl" secondAttribute="trailing" constant="-20" id="1Hf-nV-Nac"/>
-                            <constraint firstItem="7oR-z5-DCl" firstAttribute="top" secondItem="tcr-v1-RUV" secondAttribute="bottom" id="IKQ-Br-HP5"/>
-                            <constraint firstItem="Vs8-vo-a2k" firstAttribute="top" secondItem="7oR-z5-DCl" secondAttribute="bottom" id="l0R-wp-lVh"/>
-                            <constraint firstItem="7oR-z5-DCl" firstAttribute="leading" secondItem="0da-2T-yjr" secondAttribute="leadingMargin" constant="-20" id="o2z-Fx-N3K"/>
-                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="31B-uz-G7g" appends="YES" id="3Gz-c5-eiH"/>
                             <outletCollection property="gestureRecognizers" destination="xbb-HC-BUH" appends="YES" id="gvG-RV-hhA"/>
