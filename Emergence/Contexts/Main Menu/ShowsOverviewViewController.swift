@@ -16,6 +16,8 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
     private let leadingEdgeImageCache = SDWebImagePrefetcher()
     private let currentRowImageCache = SDWebImagePrefetcher()
 
+    var scrolling = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -128,6 +130,18 @@ extension ShowsOverviewViewController {
         let emitter = emitters[indexPath.section]
         cell.configureWithEmitter(emitter)
     }
+
+    //
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        scrolling = true
+    }
+
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        scrolling = false
+    }
+    
+
+    // MARK: Focus
 
     override func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         // We don't want this collectionView's cells to become focused. 
