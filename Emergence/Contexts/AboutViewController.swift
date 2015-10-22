@@ -34,7 +34,7 @@ class AboutViewController: UIViewController, UITextFieldDelegate {
                 self.success()
                 self.cancel()
             } else {
-                // the trello message needs cleaning
+                // the twilio message needs cleaning
                 let cleanedMessage = message.stringByReplacingOccurrencesOfString("The 'To' number", withString: "")
                 self.errorMessageLabel.text = cleanedMessage
             }
