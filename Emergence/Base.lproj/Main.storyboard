@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9052" systemVersion="14F27" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="gKK-Wx-Eme">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9052" systemVersion="14F1021" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="gKK-Wx-Eme">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -541,7 +541,7 @@ museums and fairs around the world.</string>
                                 <rect key="frame" x="90" y="60" width="200" height="68"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXo-1I-9lF">
-                                <rect key="frame" x="90" y="954" width="596" height="66"/>
+                                <rect key="frame" x="90" y="952" width="596" height="66"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="send"/>
                                 <connections>
@@ -556,10 +556,67 @@ museums and fairs around the world.</string>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="rBF-9q-yU3" id="Hh5-oT-2pq"/>
+                        <outlet property="downloadTheAppMessageLabel" destination="ZKH-DM-nDd" id="Koe-8Z-9kZ"/>
+                        <outlet property="errorMessageLabel" destination="UTg-Vn-rh8" id="nk7-RF-9sp"/>
+                        <outlet property="keyboardAccessoryView" destination="b7X-Sv-0Vx" id="Itl-1v-xRi"/>
                         <outlet property="linkTextField" destination="dXo-1I-9lF" id="WLh-Qi-XK9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5oz-Qj-kpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="b7X-Sv-0Vx">
+                    <rect key="frame" x="0.0" y="0.0" width="800" height="300"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ea3-vG-OQt">
+                            <rect key="frame" x="301" y="214" width="198" height="63"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="198" id="JdS-z9-ka8"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" title="Cancel"/>
+                            <connections>
+                                <action selector="cancel" destination="RQb-5q-u6W" eventType="primaryActionTriggered" id="7bv-2s-5WK"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTg-Vn-rh8">
+                            <rect key="frame" x="0.0" y="129" width="800" height="71"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="800" id="lTG-9F-cJi"/>
+                                <constraint firstAttribute="height" constant="71" id="oNR-AQ-FV4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMx-DT-n9U">
+                            <rect key="frame" x="0.0" y="53" width="800" height="71"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="71" id="mmd-9Z-TtE"/>
+                                <constraint firstAttribute="width" constant="800" id="uiR-GU-Rvi"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rBF-9q-yU3">
+                            <rect key="frame" x="368" y="118" width="64" height="64"/>
+                            <color key="color" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="jMx-DT-n9U" firstAttribute="centerX" secondItem="b7X-Sv-0Vx" secondAttribute="centerX" id="2yV-rI-8gV"/>
+                        <constraint firstItem="jMx-DT-n9U" firstAttribute="top" secondItem="b7X-Sv-0Vx" secondAttribute="top" constant="53" id="AWv-3n-dyl"/>
+                        <constraint firstAttribute="bottom" secondItem="Ea3-vG-OQt" secondAttribute="bottom" constant="23" id="CYg-jD-uqX"/>
+                        <constraint firstItem="UTg-Vn-rh8" firstAttribute="top" secondItem="jMx-DT-n9U" secondAttribute="bottom" constant="5" id="JHC-TL-uFA"/>
+                        <constraint firstItem="Ea3-vG-OQt" firstAttribute="top" secondItem="UTg-Vn-rh8" secondAttribute="bottom" constant="14" id="Tf4-8d-b8B"/>
+                        <constraint firstItem="Ea3-vG-OQt" firstAttribute="centerX" secondItem="b7X-Sv-0Vx" secondAttribute="centerX" id="Zrn-a1-8Yk"/>
+                        <constraint firstItem="UTg-Vn-rh8" firstAttribute="centerX" secondItem="b7X-Sv-0Vx" secondAttribute="centerX" id="bX2-3P-ujj"/>
+                        <constraint firstItem="rBF-9q-yU3" firstAttribute="top" secondItem="jMx-DT-n9U" secondAttribute="bottom" constant="-6" id="kMe-fe-n7X"/>
+                        <constraint firstItem="rBF-9q-yU3" firstAttribute="centerX" secondItem="b7X-Sv-0Vx" secondAttribute="centerX" id="rgb-X1-Qa3"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="-1147" y="781"/>
         </scene>
