@@ -1,4 +1,5 @@
 import UIKit
+import SDWebImage
 
 // OK, so. This is based on CollectionViewContainerViewController 
 // from the UIKitCatalogue example code from Apple.
@@ -11,6 +12,9 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
     private let locationsHost = LocationsHost()!
     var cachedShows:[Show] = []
     private var currentShow: Show?
+
+    private let leadingEdgeImageCache = SDWebImagePrefetcher()
+    private let currentRowImageCache = SDWebImagePrefetcher()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,7 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         // Create an emitter for grabbing our Featured Shows
         // if the cache took longer than the slideshow, get it
 
-        let featuredEmitter = FeaturedShowEmitter(title: "Featured Shows", initialShows:cachedShows, network: network)
+        let featuredEmitter = FeaturedShowEmitter(title: "Featured Shows", initialShows: cachedShows, network: network)
         if cachedShows.isEmpty { featuredEmitter.getShows() }
 
         let otherEmitters:[ShowEmitter] = locationsHost.featured.map { locationID in
@@ -48,16 +52,24 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         nav.viewControllers = nav.viewControllers.filter({ $0.isKindOfClass(AuthViewController) == false })
     }
 
+    func locationEmitterAtIndex(index: Int) -> LocationBasedShowEmitter? {
+
+        // ignore the FeaturedShowEmitter
+        if index == 0 || index > emitters.count - 1 { return nil }
+        let anEmitter = emitters[index]
+        guard let emitter = anEmitter as? LocationBasedShowEmitter else { return nil }
+        return emitter
+    }
+
     func requestShowsAtIndex(index: Int) {
+        guard let emitter = locationEmitterAtIndex(index) else { return }
+        emitter.getShows()
+    }
 
-        // extra index for the FeaturedShowEmitter
-        if index < emitters.count - 2 {
-            let anEmitter = emitters[index]
-            guard let emitter = anEmitter as? LocationBasedShowEmitter else { return }
-            if emitter.done { return }
-
-            emitter.getShows()
-        }
+    func precacheShowImagesAtIndex(index:Int) {
+        guard let emitter = locationEmitterAtIndex(index) else { return }
+        currentRowImageCache.cancelPrefetching()
+        currentRowImageCache.prefetchURLs( emitter.imageURLsForShowsAtLocation() )
     }
 
     func showTapped(show: Show) {
@@ -67,11 +79,13 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        leadingEdgeImageCache.cancelPrefetching()
+        currentRowImageCache.cancelPrefetching()
+
         if let locationsVC = segue.destinationViewController as? ShowViewController {
             locationsVC.show = currentShow
         }
     }
-
 }
 
 
@@ -121,13 +135,29 @@ extension ShowsOverviewViewController {
 
 
         let anyEmitter = emitters[indexPath.section]
-        guard let emitter = anyEmitter as? LocationBasedShowEmitter else { return false }
+        guard let _ = anyEmitter as? LocationBasedShowEmitter else { return false }
 
         // these handle multiple calls fine
         requestShowsAtIndex(indexPath.section)
         requestShowsAtIndex(indexPath.section + 1)
 
         return false
+    }
+
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+
+        let sameParent = context.previouslyFocusedView?.superview == context.nextFocusedView?.superview
+        if sameParent { return }
+
+        // On clicking into a show, we get one last "things have changed message"
+        if let _ = context.nextFocusedView as? ImageCollectionViewCell { return }
+
+        guard let showCell = context.nextFocusedView as? ShowCollectionViewCell else { return print("Cell needs to be ShowCollectionViewCell") }
+        guard let locationCell = showCell.superview?.superview?.superview as? ShowSetCollectionViewCell else { return print("View Heriarchy has changed for the ShowSetCollectionViewCell") }
+
+        if let indexPath = collectionView?.indexPathForCell(locationCell) {
+            precacheShowImagesAtIndex(indexPath.section)
+        }
     }
 
 }

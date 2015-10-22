@@ -4,6 +4,7 @@ import ARCollectionViewMasonryLayout
 import SDWebImage
 import RxSwift
 import Artsy_UIColors
+import SDWebImage
 
 // Just a dumb protocol to pass a message back that
 // something has been tapped on
@@ -34,6 +35,7 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         layout.rank = 1
         layout.dimensionLength = dimensionLength
         layout.itemMargins = CGSize(width: 40, height: 0)
+        layout.contentInset = UIEdgeInsets(top: 0, left: 90, bottom: 0, right: 90)
 
         collectionView.delegate = self
         collectionView.collectionViewLayout = layout
@@ -50,8 +52,6 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 
         return widthForImage(image, capped: collectionView.bounds.width)
     }
-
-    // TODO: Fix this!
 
     func widthForImage(image: Image, capped: CGFloat) -> CGFloat {
         let width: CGFloat
@@ -79,7 +79,6 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         guard let item = itemDataSource.itemForIndexPath(indexPath) else { return }
         guard let image = imageForItem(item) else { return }
 
-
         if let cell = cell as? ImageCollectionViewCell {
             cell.image.ar_setImage(image, height: dimensionLength)
         }
@@ -103,19 +102,39 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
 class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
     let collectionView: UICollectionView
     let cellIdentifier: String
+    let cache: SDWebImagePrefetcher
+
     var items: [T]?
 
-    init(_ collectionView: UICollectionView, request: Observable<[(T)]>, cellIdentifier: String) {
+    init(_ collectionView: UICollectionView, cellIdentifier: String, cache: SDWebImagePrefetcher) {
         self.collectionView = collectionView
         self.cellIdentifier = cellIdentifier
+        self.cache = cache
         super.init()
 
         collectionView.dataSource = self
-        request.subscribe() { items in
-            guard let things = items.element else { return }
+    }
 
-            self.items = things
-            self.collectionView.reloadData()
+    func subscribeToRequest(request: Observable<[(T)]>?) {
+        guard let request = request else { return }
+
+        request.subscribe() { networkItems in
+            guard let newItems = networkItems.element else { return }
+
+            if let items = self.items {
+                self.items = items + newItems
+            } else {
+                self.items = newItems
+            }
+
+            let previousItemsCount = self.collectionView.numberOfItemsInSection(0)
+            self.collectionView.performBatchUpdates({
+                // create an array of nsindexpaths for the new items being added
+                let paths = (previousItemsCount ..< self.items!.count).map({ NSIndexPath(forRow: $0, inSection: 0) })
+                self.collectionView.insertItemsAtIndexPaths(paths)
+            }, completion: nil)
+
+            self.precache(self.items)
         }
     }
 
@@ -134,5 +153,36 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
     }
-    
+
+    // Low priority image caching
+    func precache(items:[T]?) {
+        guard let items = items else { return }
+        let images = items.map(imageForItem).flatMap { $0 }
+        var urls = images.map { $0.bestThumbnailWithHeight(collectionView.bounds.height) }.flatMap { $0 }
+
+        // I _feel_ like the precaching is getting in the way of showing the first install shot
+        // a better optimization may be to see if we've
+        if let _ = items.first as? Image {
+            urls.removeAtIndex(0)
+        }
+
+        cache.prefetchURLs(urls)
+    }
+
+    // As these two are separate generic classes, they can't really share this function, thus: duped.
+
+    func imageForItem(item:T) -> Image? {
+        // If it's an artwork grab the default image
+        if var artwork = item as? Artwork, let defaultImage = artwork.defaultImage, let actualImage = defaultImage as? Image {
+            return actualImage
+
+        } else if let actualImage = item as? Image {
+            // otherwise it is an image
+            return actualImage
+        }
+
+        return nil
+    }
+
+
 }

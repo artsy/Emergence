@@ -3,6 +3,8 @@ import RxSwift
 import Moya
 import Gloss
 import ARAnalytics
+import SDWebImage
+
 
 class ShowViewController: UIViewController, ShowItemTapped {
     var show: Show!
@@ -26,6 +28,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollChief: ShowScrollChief!
 
+    var networker: ShowNetworkingModel!
     var artworkDelegate: CollectionViewDelegate<Artwork>!
     var artworkDataSource: CollectionViewDataSource<Artwork>!
     var imageDelegate: CollectionViewDelegate<Image>!
@@ -33,13 +36,13 @@ class ShowViewController: UIViewController, ShowItemTapped {
 
     var imageRequest: Observable<[Image]>!
     var artworkRequest: Observable<[Artwork]>!
+    var imageCache = SDWebImagePrefetcher()
 
     override func viewDidLoad() {
         precondition(self.show != nil, "you need a show to load the view controller");
         precondition(self.appViewController != nil, "you need an app VC");
 
         super.viewDidLoad()
-        print("Looking at \(show.id)")
         showDidLoad(show)
 
         guard let appVC = self.appViewController else {
@@ -47,19 +50,21 @@ class ShowViewController: UIViewController, ShowItemTapped {
         }
 
         let network = appVC.context.network
-        let networker = ShowNetworkingModel(network: network, show: show)
+        networker = ShowNetworkingModel(network: network, show: show)
 
-        // Toggle for stubbing the data for the images/artworks, mainly for 
+        // Toggle to imageNetworkFakes for stubbing the data 
+        // for the images/artworks, mainly for
         // when I'm on a coach/train/plane
 
-        let offline = false
-        imageRequest = offline ? networker.imageNetworkFakes : networker.imageNetworkRequest
-        artworkRequest = offline ? networker.artworkNetworkFakes : networker.artworkNetworkRequest
+        imageRequest = networker.imageNetworkRequest
+        artworkRequest = networker.artworkNetworkRequest
 
-        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, request: imageRequest, cellIdentifier: "image")
+        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, cellIdentifier: "image", cache:imageCache)
+        imageDataSource.subscribeToRequest(imageRequest)
         imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
 
-        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, request: artworkRequest, cellIdentifier: "artwork")
+        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, cellIdentifier: "artwork",cache:imageCache)
+        artworkDataSource.subscribeToRequest(artworkRequest)
         artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
         artworkDelegate.internalPadding = 150
 
@@ -70,6 +75,11 @@ class ShowViewController: UIViewController, ShowItemTapped {
             "profile_id": show.partner.profileID ?? "",
             "fair_id":""
         ])
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        imageCache.cancelPrefetching()
     }
 
     func showDidLoad(show: Show) {
@@ -140,6 +150,13 @@ class ShowViewController: UIViewController, ShowItemTapped {
         // We want to avoid jumping between multiple pages
 
         if didForceFocusChange == false {
+
+            if let nextView = context.nextFocusedView where nextView.isDescendantOfView(artworkCollectionView) {
+                // It's an artwork view, let's paginate
+                artworkRequest = networker.artworkNetworkRequest
+                artworkDataSource.subscribeToRequest(artworkRequest)
+            }
+
             // Allow moving between collectionview cells in the same parent
             let sameParent = context.previouslyFocusedView?.superview == context.nextFocusedView?.superview
             return sameParent
@@ -149,7 +166,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
         return context.nextFocusedView == scrollChief.keyView
     }
 
+    // Can't pass structs through performSegue
     var selectedArtwork: Artwork!
+
     func didTapArtwork(item: Artwork) {
         selectedArtwork = item
         performSegueWithIdentifier("artwork", sender: self)
@@ -163,8 +182,7 @@ class ShowViewController: UIViewController, ShowItemTapped {
     }
 }
 
-// Keeping these around in here for now, if they get more complex they can go somewhere else
-
+// Keeping this around in here for now, if it gets more complex it can go somewhere else
 class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
 }

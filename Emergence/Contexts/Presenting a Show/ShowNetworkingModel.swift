@@ -12,15 +12,26 @@ func stubArtwork(id: String, image: Image, title: String, artist: String) -> Art
 }
 
 
-struct ShowNetworkingModel {
+class ShowNetworkingModel {
     let network: ArtsyProvider<ArtsyAPI>
     let show: Show
+
+    let jsonScheduler = SerialDispatchQueueScheduler(internalSerialQueueName: "json")
+
+    var networking = false
+    var artworksDone = false
+    var page = 1
+
+    init(network: ArtsyProvider<ArtsyAPI>, show: Show){
+        self.network = network
+        self.show = show
+    }
 
     // MARK: Image Requests / Stubs
 
     var imageNetworkRequest: Observable<[Image]> {
         let showImages = ArtsyAPI.ImagesForShow(showID: show.id)
-        return network.request(showImages).mapSuccessfulHTTPToObjectArray(Image)
+        return network.request(showImages).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Image).observeOn(MainScheduler.sharedInstance)
     }
 
     let images: [Image] = {
@@ -38,9 +49,26 @@ struct ShowNetworkingModel {
 
     // MARK: Artwork Requests / Stubs
 
-    var artworkNetworkRequest: Observable<[Artwork]> {
-        let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id)
-        return network.request(showArtworks).mapSuccessfulHTTPToObjectArray(Artwork)
+    let pageCount = 10
+
+    var artworkNetworkRequest: Observable<[Artwork]>? {
+        if networking || artworksDone { return nil }
+        networking = true
+
+        let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id, page: page)
+
+        return network.request(showArtworks).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Artwork).observeOn(MainScheduler.sharedInstance)
+            .map(paginate)
+    }
+
+    func paginate(artworks:[Artwork]) -> [Artwork] {
+        // Yay side effects!
+
+        artworksDone = (artworks.count ?? 0) < pageCount
+        page += 1
+        networking = false
+
+        return artworks
     }
 
     let artworks: [Artwork] = {

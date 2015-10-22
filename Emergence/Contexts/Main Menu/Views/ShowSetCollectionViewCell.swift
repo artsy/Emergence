@@ -18,8 +18,38 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
 
         emitter.onUpdate { shows in
             self.titleLabel.attributedText = self.attributedTitle(emitter)
+
+            // If we're not highlighted, dont bother with the fancy appending
+            if let focusedCell = UIScreen.mainScreen().focusedView as? UICollectionViewCell where focusedCell.isDescendantOfView(self.collectionView) == false {
+                return self.collectionView.reloadData()
+            }
+
+            // Sigh, I wrote this in 2011,
+            // https://github.com/artsy/eigen/blob/259be8ce00b07a33e02d4444ee01e5589df9b2f1/Artsy/View_Controllers/Embedded/Generics/AREmbeddedModelsViewController.m#L163
+
+            // I feel like I just don't _get_ something, somewhere, and thus can never learn how the hell to do this
+            // without crashing.
+
+//            print("append")
+//            let previousShowCount = self.collectionView.numberOfItemsInSection(0)
+//            self.collectionView.performBatchUpdates({
+//
+//                // create an array of nsindexpaths for the new items being added
+//                let paths = (previousShowCount ..< shows.count).map { NSIndexPath(forRow: $0, inSection: 0) }
+//
+//                print("from \(previousShowCount) - \(shows.count)")
+//                print("emitter says \(emitter.numberOfShows)")
+//                print("paths -> \(paths.map { $0.row })")
+//                if paths.isNotEmpty { self.collectionView.insertItemsAtIndexPaths(paths) }
+//
+//            }, completion: { _ in })
+
             self.collectionView.reloadData()
         }
+    }
+
+    override func prepareForReuse() {
+        self.emitter = nil
     }
 
     func attributedTitle(emitter: ShowEmitter) -> NSAttributedString {

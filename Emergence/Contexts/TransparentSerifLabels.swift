@@ -33,3 +33,13 @@ class TransparentBoldSerifLabels: ARSerifLabel {
         opaque = false
     }
 }
+
+class TransparentSanSerifLabel: ARSansSerifLabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        font = UIFont.sansSerifFontWithSize(font.pointSize)
+        backgroundColor = .clearColor()
+        opaque = false
+    }
+
+}
