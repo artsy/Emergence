@@ -20,9 +20,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
     @IBOutlet weak var artworkCollectionView: UICollectionView!
 
     @IBOutlet weak var aboutTheShowTitle: UILabel!
-    @IBOutlet weak var aboutTheShowLabel: UILabel!
+    @IBOutlet weak var aboutTheShowLabel: HalfIntrinsicHeightSerifLabel!
 
-    @IBOutlet weak var pressReleaseLabel: UILabel!
+    @IBOutlet weak var pressReleaseLabel: HalfIntrinsicHeightSerifLabel!
     @IBOutlet weak var pressReleaseTitle: UILabel!
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -82,6 +82,9 @@ class ShowViewController: UIViewController, ShowItemTapped {
         imageCache.cancelPrefetching()
     }
 
+    let longFormlineSpacing = 15
+    let longFormIntrinsicDivider:CGFloat = 4.25
+
     func showDidLoad(show: Show) {
         showTitleLabel.text = show.name
         showPartnerNameLabel.text = show.partner.name
@@ -98,19 +101,30 @@ class ShowViewController: UIViewController, ShowItemTapped {
             showAusstellungsdauerLabel.removeFromSuperview()
         }
 
+        if let description = show.showDescription where description.isNotEmpty {
+            aboutTheShowLabel.intrinsicMultiplier = longFormIntrinsicDivider
+            aboutTheShowLabel.attributedText = lineHeightAttributedStringForString(description)
+        } else {
+            aboutTheShowLabel.removeFromSuperview()
+            aboutTheShowTitle.removeFromSuperview()
+        }
+
         if let release = show.pressRelease where release.isNotEmpty {
-            pressReleaseLabel.text = release
+            pressReleaseLabel.intrinsicMultiplier = longFormIntrinsicDivider
+            pressReleaseLabel.attributedText = lineHeightAttributedStringForString(release)
         } else {
             pressReleaseTitle.removeFromSuperview()
             pressReleaseLabel.removeFromSuperview()
         }
 
-        if let description = show.showDescription where description.isNotEmpty {
-            aboutTheShowLabel.text = show.showDescription
-        } else {
-            aboutTheShowLabel.removeFromSuperview()
-            aboutTheShowTitle.removeFromSuperview()
-        }
+    }
+
+    func lineHeightAttributedStringForString(string: String) -> NSAttributedString {
+        let attrString = NSMutableAttributedString(string: string)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 15
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:style, range:NSRange(location: 0, length: string.characters.count))
+        return attrString
     }
 
     // Focus is complicated on this view, you can get the details in the ShowScrollChief
@@ -185,4 +199,8 @@ class ShowViewController: UIViewController, ShowItemTapped {
 // Keeping this around in here for now, if it gets more complex it can go somewhere else
 class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
+
+    override func prepareForReuse() {
+        image.image = nil
+    }
 }
