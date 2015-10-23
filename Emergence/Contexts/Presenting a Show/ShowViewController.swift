@@ -59,13 +59,13 @@ class ShowViewController: UIViewController, ShowItemTapped {
         imageRequest = networker.imageNetworkRequest
         artworkRequest = networker.artworkNetworkRequest
 
-        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, cellIdentifier: "image", cache:imageCache)
+        imageDataSource = CollectionViewDataSource<Image>(imagesCollectionView, cellIdentifier: "image", show:show, cache:imageCache)
         imageDataSource.subscribeToRequest(imageRequest)
-        imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, delegate: nil)
+        imageDelegate = CollectionViewDelegate<Image>(datasource: imageDataSource, collectionView: imagesCollectionView, show:show, delegate: nil)
 
-        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, cellIdentifier: "artwork",cache:imageCache)
+        artworkDataSource = CollectionViewDataSource<Artwork>(artworkCollectionView, cellIdentifier: "artwork", show:show, cache:imageCache)
         artworkDataSource.subscribeToRequest(artworkRequest)
-        artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, delegate: self)
+        artworkDelegate = CollectionViewDelegate<Artwork>(datasource: artworkDataSource, collectionView: artworkCollectionView, show:show, delegate: self)
         artworkDelegate.internalPadding = 150
 
         self.scrollView.scrollEnabled = false

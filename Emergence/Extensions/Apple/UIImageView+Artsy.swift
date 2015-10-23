@@ -4,6 +4,18 @@ import SDWebImage
 
 extension UIImageView {
 
+    func ar_setImageURL(url: NSURL, takeThisURLFromCacheFirst: NSURL?, size: CGSize) {
+        let manager = SDWebImageManager.sharedManager()
+        if let cacheuRL = takeThisURLFromCacheFirst where manager.cachedImageExistsForURL(takeThisURLFromCacheFirst) {
+            let key = manager.cacheKeyForURL(cacheuRL)
+            let smallerInitialThumbnail = manager.imageCache.imageFromMemoryCacheForKey(key)
+            sd_setImageWithURL(url, placeholderImage:smallerInitialThumbnail)
+        } else {
+            ar_setImageWithURL(url, size: size)
+        }
+
+    }
+
     func ar_setImage(image: Image, height:CGFloat) {
         guard let thumbnail = image.bestThumbnailWithHeight(height) else { return }
         ar_setImageWithURL(thumbnail, color: .artsyLightGrey(), size: image.imageSize)

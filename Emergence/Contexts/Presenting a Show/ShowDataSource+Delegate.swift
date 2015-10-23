@@ -20,14 +20,16 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
     let dimensionLength:CGFloat
     let itemDataSource: CollectionViewDataSource<T>
     let delegate: ShowItemTapped?
+    let show: Show
 
     // The extra height associated with _none_ image space in the cell, such as artwork metadata
     var internalPadding:CGFloat = 0
 
-    init(datasource: CollectionViewDataSource<T>, collectionView: UICollectionView, delegate: ShowItemTapped?) {
+    init(datasource: CollectionViewDataSource<T>, collectionView: UICollectionView, show: Show, delegate: ShowItemTapped?) {
         itemDataSource = datasource
         dimensionLength = collectionView.bounds.height
         self.delegate = delegate
+        self.show = show
 
         super.init()
 
@@ -80,7 +82,17 @@ class CollectionViewDelegate <T>: NSObject, ARCollectionViewMasonryLayoutDelegat
         guard let image = imageForItem(item) else { return }
 
         if let cell = cell as? ImageCollectionViewCell {
-            cell.image.ar_setImage(image, height: dimensionLength)
+            if image.imageFormatString == show.imageFormatString {
+                // We can use the install shot from the ShowsOverview cache!
+
+                let oldThumbnail = image.bestAvailableThumbnailURL()
+                guard let newThumbnail = image.geminiThumbnailURLWithHeight(Int(dimensionLength)) else { return print("Could not generate a thumbnail for image") }
+                cell.image.ar_setImageURL(newThumbnail, takeThisURLFromCacheFirst: oldThumbnail, size:image.imageSize)
+
+            } else {
+                cell.image.ar_setImage(image, height: dimensionLength)
+
+            }
         }
 
         if let cell = cell as? ArtworkCollectionViewCell, let artwork = item as? Artwork {
@@ -103,13 +115,15 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
     let collectionView: UICollectionView
     let cellIdentifier: String
     let cache: SDWebImagePrefetcher
+    let show: Show
 
     var items: [T]?
 
-    init(_ collectionView: UICollectionView, cellIdentifier: String, cache: SDWebImagePrefetcher) {
+    init(_ collectionView: UICollectionView, cellIdentifier: String, show: Show, cache: SDWebImagePrefetcher) {
         self.collectionView = collectionView
         self.cellIdentifier = cellIdentifier
         self.cache = cache
+        self.show = show
         super.init()
 
         collectionView.dataSource = self
@@ -119,7 +133,8 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
         guard let request = request else { return }
 
         request.subscribe() { networkItems in
-            guard let newItems = networkItems.element else { return }
+            guard let elements = networkItems.element else { return }
+            let newItems = elements.sort(self.moveCachableImageToTop)
 
             if let items = self.items {
                 self.items = items + newItems
@@ -127,12 +142,11 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
                 self.items = newItems
             }
 
-            let previousItemsCount = self.collectionView.numberOfItemsInSection(0)
-            self.collectionView.performBatchUpdates({
-                // create an array of nsindexpaths for the new items being added
+            self.collectionView.batch() {
+                let previousItemsCount = self.collectionView.numberOfItemsInSection(0)
                 let paths = (previousItemsCount ..< self.items!.count).map({ NSIndexPath(forRow: $0, inSection: 0) })
                 self.collectionView.insertItemsAtIndexPaths(paths)
-            }, completion: nil)
+            }
 
             self.precache(self.items)
         }
@@ -154,14 +168,21 @@ class CollectionViewDataSource <T>: NSObject, UICollectionViewDataSource {
         return collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
     }
 
+    // Sort
+
+    func moveCachableImageToTop(lhs:T, rhs:T) -> Bool {
+        if imageForItem(lhs)?.imageFormatString == show.imageFormatString { return true }
+        return false
+    }
+
     // Low priority image caching
     func precache(items:[T]?) {
         guard let items = items else { return }
         let images = items.map(imageForItem).flatMap { $0 }
         var urls = images.map { $0.bestThumbnailWithHeight(collectionView.bounds.height) }.flatMap { $0 }
 
+
         // I _feel_ like the precaching is getting in the way of showing the first install shot
-        // a better optimization may be to see if we've
         if let _ = items.first as? Image {
             urls.removeAtIndex(0)
         }
