@@ -6,6 +6,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var titleLabel: UILabel!
 
+    @IBOutlet weak var featuredShowsLabel: UILabel!
     static let reuseIdentifier = "ShowSetCollectionViewCell"
 
     private var emitter:ShowEmitter?
@@ -14,10 +15,10 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         collectionView.reloadData()
 
         self.emitter = emitter
-        titleLabel.attributedText = attributedTitle(emitter)
+        self.updateTitle(emitter)
 
         emitter.onUpdate { shows in
-            self.titleLabel.attributedText = self.attributedTitle(emitter)
+            self.updateTitle(emitter)
 
             // Alright, this took me ages to figure out
             // https://artsy.slack.com/archives/mobile/p1445518064000821
@@ -59,17 +60,14 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         self.collectionView.reloadData()
     }
 
-    func attributedTitle(emitter: ShowEmitter) -> NSAttributedString {
-        let title = NSMutableAttributedString(string: emitter.title, attributes: [
-            NSFontAttributeName: UIFont.serifFontWithSize(50)
-        ])
+    func updateTitle(emitter: ShowEmitter) {
+        titleLabel.text = emitter.title
 
         if let locationEmitter = emitter as? LocationBasedShowEmitter where locationEmitter.numberOfShows > 0 && locationEmitter.done {
-            let showString = NSAttributedString(string: "   \(emitter.numberOfShows) Current Shows", attributes: [NSFontAttributeName: UIFont.serifItalicFontWithSize(30)])
-            title.appendAttributedString(showString)
+            featuredShowsLabel.text = "\(emitter.numberOfShows) Current Shows"
+        } else {
+            featuredShowsLabel.text = ""
         }
-
-        return title
     }
 
     // Pass the focus through to the sub-collection view

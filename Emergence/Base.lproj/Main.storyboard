@@ -15,6 +15,7 @@
             <string>AGaramondPro-Italic</string>
             <string>AGaramondPro-Italic</string>
             <string>AGaramondPro-Italic</string>
+            <string>AGaramondPro-Italic</string>
         </mutableArray>
         <mutableArray key="AGaramondPro-Regular.otf">
             <string>AGaramondPro-Regular</string>
@@ -645,6 +646,18 @@ museums and fairs around the world.</string>
                                     <rect key="frame" x="0.0" y="0.0" width="1916" height="695"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Featured Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-tv-aYy" customClass="ARSerifLabel">
+                                            <rect key="frame" x="90" y="23" width="1410" height="61"/>
+                                            <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="50"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Featured Shows" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Eo-fU-jhY" customClass="ARSerifLabel">
+                                            <rect key="frame" x="1356" y="24" width="470" height="61"/>
+                                            <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="30"/>
+                                            <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VL2-wf-pnT">
                                             <rect key="frame" x="0.0" y="85" width="1920" height="610"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G5h-9L-6cD">
@@ -699,17 +712,12 @@ museums and fairs around the world.</string>
                                                 <outlet property="delegate" destination="968-yh-ng6" id="ylQ-D3-lJ8"/>
                                             </connections>
                                         </collectionView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Featured Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-tv-aYy" customClass="ARSerifLabel">
-                                            <rect key="frame" x="90" y="23" width="1410" height="61"/>
-                                            <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="50"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
                                     <outlet property="collectionView" destination="VL2-wf-pnT" id="FRr-z5-ZzH"/>
+                                    <outlet property="featuredShowsLabel" destination="1Eo-fU-jhY" id="srW-9a-BVR"/>
                                     <outlet property="hostViewController" destination="tWd-qa-N6z" id="HuO-XD-Dji"/>
                                     <outlet property="titleLabel" destination="cG0-tv-aYy" id="7HF-T0-ukc"/>
                                 </connections>
