@@ -21,7 +21,8 @@ class AboutViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
 
         // Bail if you have nothing in there, or we're done
-        guard let number = textField.text else { return true }
+        guard let number = textField.text where number.isNotEmpty else { return true }
+
         if allowExit { textField.text = nil; return true }
 
         activityIndicator.startAnimating()
