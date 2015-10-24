@@ -6,66 +6,72 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var titleLabel: UILabel!
 
+    @IBOutlet weak var featuredShowsLabel: UILabel!
     static let reuseIdentifier = "ShowSetCollectionViewCell"
 
-    private var emitter:ShowEmitter!
+    private var emitter:ShowEmitter?
     func configureWithEmitter(emitter:ShowEmitter) {
         self.emitter = nil
         collectionView.reloadData()
 
         self.emitter = emitter
-        titleLabel.attributedText = attributedTitle(emitter)
+        self.updateTitle(emitter)
 
         emitter.onUpdate { shows in
-            self.titleLabel.attributedText = self.attributedTitle(emitter)
+            self.updateTitle(emitter)
 
-            // If we're not highlighted, dont bother with the fancy appending
-            if let focusedCell = UIScreen.mainScreen().focusedView as? UICollectionViewCell where focusedCell.isDescendantOfView(self.collectionView) == false {
-                return self.collectionView.reloadData()
+            // Alright, this took me ages to figure out
+            // https://artsy.slack.com/archives/mobile/p1445518064000821
+
+            // Note: reloadData is the safe path, and never crashes.
+
+            let cv = self.collectionView
+
+            // Make sure there's no funny business around our expectations
+            // that we can _add_ shows
+
+            let previousShowCount = cv.numberOfItemsInSection(0)
+            if previousShowCount > shows.count || previousShowCount == 0 {
+                cv.reloadData()
+                return
             }
 
-            // Sigh, I wrote this in 2011,
-            // https://github.com/artsy/eigen/blob/259be8ce00b07a33e02d4444ee01e5589df9b2f1/Artsy/View_Controllers/Embedded/Generics/AREmbeddedModelsViewController.m#L163
+            // Problems occur when scrolling and appending, so, don't allow it
+            // yes, there's a potential for flashes of the image as you're scrolling
+            // but I'll take shipped over perfect.
 
-            // I feel like I just don't _get_ something, somewhere, and thus can never learn how the hell to do this
-            // without crashing.
+            if self.hostViewController.scrolling {
+                cv.reloadData()
+                return
+            }
 
-//            print("append")
-//            let previousShowCount = self.collectionView.numberOfItemsInSection(0)
-//            self.collectionView.performBatchUpdates({
-//
-//                // create an array of nsindexpaths for the new items being added
-//                let paths = (previousShowCount ..< shows.count).map { NSIndexPath(forRow: $0, inSection: 0) }
-//
-//                print("from \(previousShowCount) - \(shows.count)")
-//                print("emitter says \(emitter.numberOfShows)")
-//                print("paths -> \(paths.map { $0.row })")
-//                if paths.isNotEmpty { self.collectionView.insertItemsAtIndexPaths(paths) }
-//
-//            }, completion: { _ in })
+            // OK, get the difference between the shows and how many we want to show
+            // and insert them in a batch update.
 
-            self.collectionView.reloadData()
+            cv.batch() {
+                let paths = (previousShowCount ..< shows.count).map { NSIndexPath(forRow: $0, inSection: 0) }
+                if paths.isNotEmpty { self.collectionView.insertItemsAtIndexPaths(paths) }
+            }
         }
     }
 
     override func prepareForReuse() {
-        self.emitter = nil
+        self.emitter =  nil 
+        self.collectionView.reloadData()
     }
 
-    func attributedTitle(emitter: ShowEmitter) -> NSAttributedString {
-        let title = NSMutableAttributedString(string: emitter.title, attributes: [
-            NSFontAttributeName: UIFont.serifFontWithSize(50)
-        ])
+    func updateTitle(emitter: ShowEmitter) {
+        titleLabel.text = emitter.title
 
         if let locationEmitter = emitter as? LocationBasedShowEmitter where locationEmitter.numberOfShows > 0 && locationEmitter.done {
-            let showString = NSAttributedString(string: "   \(emitter.numberOfShows) Current Shows", attributes: [NSFontAttributeName: UIFont.serifItalicFontWithSize(30)])
-            title.appendAttributedString(showString)
+            featuredShowsLabel.text = "\(emitter.numberOfShows) Current Shows"
+        } else {
+            featuredShowsLabel.text = ""
         }
-
-        return title
     }
 
     // Pass the focus through to the sub-collection view
+
     override var preferredFocusedView: UIView? {
         return collectionView
     }
@@ -75,6 +81,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let emitter = emitter else { return 0 }
         return emitter.numberOfShows
     }
 
@@ -84,16 +91,20 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
 
     // MARK: UICollectionViewDelegate
 
-    // This feels icky, but I'm unable to think of a better way ATM
-    @IBOutlet var hostViewController: ShowsOverviewViewController!
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    // This feels icky, but I'm unable to think of a better way ATM, also used
+    // in the ShowSetCollectionViewCell to check if we're scrolling
 
+    @IBOutlet var hostViewController: ShowsOverviewViewController!
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        guard let emitter = emitter else { return }
         let show = emitter.showAtIndexPath(indexPath)
         hostViewController.showTapped(show)
     }
 
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         guard let cell = cell as? ShowCollectionViewCell else { fatalError("Expected to display a ShowCollectionViewCell") }
+        guard let emitter = emitter else { return }
 
         let show = emitter.showAtIndexPath(indexPath)
         cell.configureWithShow(show)

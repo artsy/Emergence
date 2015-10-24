@@ -53,7 +53,6 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
             self.shows = self.shows + shows.filter({ $0.hasInstallationShots && $0.hasArtworks })
 
             if self.shows.isEmpty { print("Got no shows for \(self.location.name)") }
-            print("did \(self.title) at page \(self.page)")
             self.updateBlock?(shows: self.shows)
 
         }, error: { error in

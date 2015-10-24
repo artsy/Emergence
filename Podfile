@@ -62,7 +62,7 @@ end
 post_install do |installer|
   app_plist = "Emergence/Info.plist"
   plist_buddy = "/usr/libexec/PlistBuddy"
-  version = `#{plist_buddy} -c "Print CFBundleShortVersionString" #{app_plist}`.split
+  version = `#{plist_buddy} -c "Print CFBundleShortVersionString" #{app_plist}`.strip
   puts "Updating CocoaPods' version numbers to #{version}"
 
   installer.pods_project.targets.each do |target|

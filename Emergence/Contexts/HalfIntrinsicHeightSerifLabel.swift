@@ -9,9 +9,11 @@ import Artsy_UILabels
 
 
 class HalfIntrinsicHeightSerifLabel: ARSerifLabel {
-    override func intrinsicContentSize() -> CGSize {
+    var intrinsicMultiplier:CGFloat = 2.73
+
+    override func intrinsicContentSize() -> CGSize {        
         let size = super.intrinsicContentSize()
-        let guestiHeight = size.height/2.73
+        let guestiHeight = size.height/intrinsicMultiplier
         let height = guestiHeight.roundUp(30)
         return CGSize(width: size.width, height: height)
     }

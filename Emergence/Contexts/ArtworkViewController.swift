@@ -37,15 +37,9 @@ class ArtworkViewController: UIViewController {
             let height = artworkPreviewImage.bounds.height
             guard let fullThumbnailPath = actualImage.bestThumbnailWithHeight(height) else { return print("no thumbnail for artwork") }
 
-            let manager = SDWebImageManager.sharedManager()
-            if let previousThumbnail = actualImage.bestThumbnailWithHeight(showArtworksHeight) where manager.cachedImageExistsForURL(previousThumbnail) {
-                let key = manager.cacheKeyForURL(previousThumbnail)
-                let smallerInitialThumbnail = manager.imageCache.imageFromMemoryCacheForKey(key)
+            let oldThumbnail = actualImage.bestThumbnailWithHeight(showArtworksHeight)
+            artworkPreviewImage.ar_setImageURL(fullThumbnailPath, takeThisURLFromCacheFirst: oldThumbnail, size:actualImage.imageSize)
 
-                artworkPreviewImage.sd_setImageWithURL(fullThumbnailPath, placeholderImage: smallerInitialThumbnail)
-            } else {
-                artworkPreviewImage.ar_setImage(actualImage, height: height)
-            }
         }
 
         ARAnalytics.event("artwork view", withProperties: ["artwork_id": artwork.id, "fair":""])

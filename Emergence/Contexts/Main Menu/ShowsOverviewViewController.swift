@@ -16,6 +16,10 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
     private let leadingEdgeImageCache = SDWebImagePrefetcher()
     private let currentRowImageCache = SDWebImagePrefetcher()
 
+    var scrolling = false
+    var lastOffset = CGPointZero
+    var lastOffsetCapture:NSTimeInterval = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -128,6 +132,40 @@ extension ShowsOverviewViewController {
         let emitter = emitters[indexPath.section]
         cell.configureWithEmitter(emitter)
     }
+
+    // The crux of the problem is explained in ShowSetCollectionViewController.
+    // However it's interesting to note that scrolling is determined by the speed of the scroll
+    // Using this instead of a bool for scrolling basically erased most reload flickers.
+
+    func pixelsPerSecondConsideredFast() -> CGFloat {
+        return 0.5
+    }
+
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        scrolling = true
+
+        let currentOffset = scrollView.contentOffset;
+        let currentTime:NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
+
+        let timeDiff = currentTime - Double(lastOffsetCapture)
+        if (timeDiff > 0.1) {
+
+            let distance = currentOffset.y - lastOffset.y
+            let scrollSpeedPX = (distance * 10) / 1000
+            let scrollSpeed = abs(scrollSpeedPX)
+
+            scrolling = scrollSpeed > pixelsPerSecondConsideredFast()
+            lastOffset = currentOffset;
+            lastOffsetCapture = currentTime
+        }
+    }
+
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        scrolling = false
+    }
+    
+
+    // MARK: Focus
 
     override func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         // We don't want this collectionView's cells to become focused. 

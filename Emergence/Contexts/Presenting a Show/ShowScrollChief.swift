@@ -59,7 +59,7 @@ class ShowScrollChief: NSObject {
     }
 
     @IBAction func gesturedDown(gesture:UISwipeGestureRecognizer) {
-        let extraContentHeight = scrollView.contentSize.height - 3080
+        let extraContentHeight = scrollView.contentSize.height - 2500
         var extraPages = 0
 
         // Do we need to show About / Press?

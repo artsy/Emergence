@@ -76,6 +76,7 @@
 		60DD51D11BCAE14700317482 /* LocationBasedShowsEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DD51D01BCAE14700317482 /* LocationBasedShowsEmitter.swift */; };
 		60DD51D31BCAE27C00317482 /* ShowEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DD51D21BCAE27C00317482 /* ShowEmitter.swift */; };
 		60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E4A4D31BB54CA2002E43E0 /* Thumbnailable.swift */; };
+		60F516CB1BD915B20010079D /* UICollectionView+Artsy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F516CA1BD915B20010079D /* UICollectionView+Artsy.swift */; };
 		8645B59CE518D830D37F5B28 /* Pods_Artsy_Shows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2ADBA381FABB318F9E5EF6 /* Pods_Artsy_Shows.framework */; };
 		AF6DD2259187A6C616299389 /* Pods_EmergenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E74B96CF11F5DE15B3BA48 /* Pods_EmergenceTests.framework */; };
 /* End PBXBuildFile section */
@@ -193,6 +194,7 @@
 		60DD51D01BCAE14700317482 /* LocationBasedShowsEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationBasedShowsEmitter.swift; sourceTree = "<group>"; };
 		60DD51D21BCAE27C00317482 /* ShowEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEmitter.swift; sourceTree = "<group>"; };
 		60E4A4D31BB54CA2002E43E0 /* Thumbnailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnailable.swift; sourceTree = "<group>"; };
+		60F516CA1BD915B20010079D /* UICollectionView+Artsy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Artsy.swift"; sourceTree = "<group>"; };
 		6C2ADBA381FABB318F9E5EF6 /* Pods_Artsy_Shows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artsy_Shows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EEED36E951CBB9A2DBA076 /* Pods-Artsy Shows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artsy Shows.release.xcconfig"; path = "Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows.release.xcconfig"; sourceTree = "<group>"; };
 		99E74B96CF11F5DE15B3BA48 /* Pods_EmergenceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmergenceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,6 +301,7 @@
 				6081F4531BD53C6F00EAF340 /* NSAttributedString+ArtworkMetadata.swift */,
 				605357AB1BD63EAF00E32CCD /* UIImage+Colors.swift */,
 				605357AD1BD63F4000E32CCD /* UIImageView+Artsy.swift */,
+				60F516CA1BD915B20010079D /* UICollectionView+Artsy.swift */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				605357AC1BD63EAF00E32CCD /* UIImage+Colors.swift in Sources */,
 				608D65241BCAD21D00F749B8 /* ShowSetCollectionViewCell.swift in Sources */,
 				608D651E1BCAC0CB00F749B8 /* ShowCollectionViewCell.swift in Sources */,
+				60F516CB1BD915B20010079D /* UICollectionView+Artsy.swift in Sources */,
 				60094A391BB95AAF00016BB7 /* AppSetup.swift in Sources */,
 				60C3CB921BB14F17005125EF /* AppViewController.swift in Sources */,
 				60C3CB841BB14D95005125EF /* Imageable.swift in Sources */,
