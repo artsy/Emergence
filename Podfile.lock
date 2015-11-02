@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (2.0.2)
-  - Analytics/Core-iOS (2.0.12):
+  - Analytics/Core-iOS (2.0.17):
     - TRVSDictionaryWithCaseInsensitivity (= 0.0.2)
-  - Analytics/Segmentio (2.0.12):
+  - Analytics/Segmentio (2.0.17):
     - Analytics/Core-iOS
   - ARAnalytics/CoreIOS (3.8.0)
   - ARAnalytics/Segmentio (3.8.0):
@@ -48,7 +48,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 2.0)
-  - Analytics/Segmentio (from `https://github.com/orta/analytics-ios.git`)
+  - Analytics/Segmentio
   - ARAnalytics/Segmentio (from `https://github.com/orta/ARAnalytics.git`)
   - ARCollectionViewMasonryLayout
   - Artsy+Authentication (from `https://github.com/artsy/Artsy-Authentication.git`,
@@ -69,8 +69,6 @@ DEPENDENCIES:
   - UIImageViewAligned (from `https://github.com/dbachrach/UIImageViewAligned.git`)
 
 EXTERNAL SOURCES:
-  Analytics:
-    :git: https://github.com/orta/analytics-ios.git
   ARAnalytics:
     :git: https://github.com/orta/ARAnalytics.git
   Artsy+Authentication:
@@ -96,9 +94,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/dbachrach/UIImageViewAligned.git
 
 CHECKOUT OPTIONS:
-  Analytics:
-    :commit: 2eee4da68f53a005d8db966a21f6319241e12afd
-    :git: https://github.com/orta/analytics-ios.git
   ARAnalytics:
     :commit: 1332c436ebc78e8bef5f3f8aa8d40c5ac985e963
     :git: https://github.com/orta/ARAnalytics.git
@@ -126,7 +121,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  Analytics: d5e4adc0d5adf78f436196e938eee54216a042f8
+  Analytics: 51d6163cb568c8ede69f2b92ef4779d91e1524e2
   ARAnalytics: a43d8395dae93ece498e1f99b2a210d3347a2bdc
   ARCollectionViewMasonryLayout: 776730bdedd0c7570a5e904c370e4e120f98ea62
   Artsy+Authentication: c3de6ec593e66e1645e3e402b23f5d4a94a09d38
