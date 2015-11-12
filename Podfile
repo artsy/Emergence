@@ -23,7 +23,7 @@ def artsy_pods()
     if ENV['ARTSY_STAFF_MEMBER'] != nil || ENV['CI'] != nil
         pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib_tv"
     else
-        pod 'Artsy+OSSUIFonts'
+        pod 'Artsy+OSSUIFonts', :git => "https://github.com/artsy/Artsy-OSSUIFonts"
     end
 end
 

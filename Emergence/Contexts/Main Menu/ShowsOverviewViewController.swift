@@ -38,7 +38,13 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         if cachedShows.isEmpty { featuredEmitter.getShows() }
 
         let otherEmitters:[ShowEmitter] = locationsHost.featured.map { locationID in
-            return LocationBasedShowEmitter(location: locationsHost[locationID]!, network: network)
+            let locationEmitter = LocationBasedShowEmitter(location: locationsHost[locationID]!, network: network)
+            locationEmitter.onUpdate({[weak locationEmitter] shows in
+                if let locationEmitter = locationEmitter where shows.count == 0 {
+                    self.removeEmitterAndSection(locationEmitter)
+                }
+            })
+            return locationEmitter
         }
 
         let featured:[ShowEmitter] = [featuredEmitter]
@@ -56,6 +62,15 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         nav.viewControllers = nav.viewControllers.filter({ $0.isKindOfClass(AuthViewController) == false })
     }
 
+    func removeEmitterAndSection(emitter: ShowEmitter) {
+        guard let emitterIndex = emitters.indexOf(emitter.isEqualTo) else {
+            return
+        }
+        
+        emitters.removeAtIndex(emitterIndex)
+        collectionView?.deleteSections(NSIndexSet(index: emitterIndex))
+    }
+    
     func locationEmitterAtIndex(index: Int) -> LocationBasedShowEmitter? {
 
         // ignore the FeaturedShowEmitter
