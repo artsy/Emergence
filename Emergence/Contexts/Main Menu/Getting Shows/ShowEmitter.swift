@@ -11,6 +11,14 @@ protocol ShowEmitter {
     func showAtIndexPath(index: NSIndexPath) -> Show
     func getShows()
     func onUpdate( callback: EmitterUpdateCallback )
+    
+    func isEqualTo(show: ShowEmitter) -> Bool
+}
+
+extension ShowEmitter {
+    func isEqualTo(show: ShowEmitter) -> Bool {
+        return title == show.title
+    }
 }
 
 class StubbyEmitter: NSObject, ShowEmitter {
