@@ -17,9 +17,9 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
         self.title = location.name
     }
 
-    var updateBlock: EmitterUpdateCallback?
+    var updateBlocks = [EmitterUpdateCallback]()
     func onUpdate(callback: EmitterUpdateCallback) {
-        updateBlock = callback
+        updateBlocks.append(callback)
     }
 
     var shows:[Show] = []
@@ -53,7 +53,9 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
             self.shows = self.shows + shows.filter({ $0.hasInstallationShots && $0.hasArtworks })
 
             if self.shows.isEmpty { print("Got no shows for \(self.location.name)") }
-            self.updateBlock?(shows: self.shows)
+            for block in self.updateBlocks {
+                block(shows: self.shows)
+            }
 
         }, error: { error in
             print("ERROROR \(error)")
