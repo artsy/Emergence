@@ -130,13 +130,13 @@ class ArtsyProvider<T where T: TargetType> : RxMoyaProvider<T> {
 
         authToken = XAppToken()
 
-        super.init(endpointClosure: endpointClosure, requestClosure:requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins)
-    }
+        let requestClosure = { (endpoint: Endpoint<T>, done: NSURLRequest -> Void) in
+            let request = endpoint.endpointByAddingHTTPHeaderFields(["X-Xapp-Token": XAppToken().token ?? ""]).urlRequest
+            done(request)
+        }
 
-    // We always use xapp auth, logging in is handled by Artsy_Authentication
-    class func AuthEndpointResolution(endpoint: Endpoint<T>) -> NSURLRequest {
-        let request = endpoint.endpointByAddingHTTPHeaderFields(["X-Xapp-Token": XAppToken().token ?? ""]).urlRequest
-        return request
+        super.init(endpointClosure: endpointClosure, requestClosure:requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins)
+
     }
 }
 
