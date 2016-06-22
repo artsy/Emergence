@@ -14,10 +14,10 @@
             <string>AGaramondPro-Italic</string>
             <string>AGaramondPro-Italic</string>
             <string>AGaramondPro-Italic</string>
-            <string>AGaramondPro-Italic</string>
-            <string>AGaramondPro-Italic</string>
         </mutableArray>
         <mutableArray key="AGaramondPro-Regular.otf">
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
@@ -527,20 +527,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about-bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oAa-DT-ViA">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6J-xl-tBE" customClass="TransparentItalicSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
-                                <rect key="frame" x="90" y="330" width="1426" height="183"/>
-                                <string key="text">Learn about and collect art from leading galleries,
-museums and fairs around the world.</string>
-                                <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="70"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep browsing on the Artsy app for iPhone and iPad or at Artsy.net " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjl-LC-5TR" customClass="TransparentItalicSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
-                                <rect key="frame" x="90" y="540" width="1165" height="161"/>
-                                <fontDescription key="fontDescription" name="AGaramondPro-Italic" family="Adobe Garamond Pro" pointSize="70"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="artsy-small-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="dof-Wm-XyL">
                                 <rect key="frame" x="90" y="60" width="200" height="68"/>
                             </imageView>
@@ -559,6 +545,20 @@ museums and fairs around the world.</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEXT A LINK TO DOWNLOAD THE APP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKH-DM-nDd" customClass="TransparentSanSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
                                 <rect key="frame" x="130" y="962" width="516" height="39"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6J-xl-tBE" customClass="TransparentSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
+                                <rect key="frame" x="247" y="339" width="1426" height="183"/>
+                                <string key="text">Learn about and collect art from leading galleries,
+museums and fairs around the world.</string>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="70"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep browsing on the Artsy app for iPhone and iPad or at Artsy.net " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjl-LC-5TR" customClass="TransparentSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
+                                <rect key="frame" x="247" y="549" width="1165" height="161"/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="70"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -737,25 +737,32 @@ museums and fairs around the world.</string>
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="OIG-ZU-M0a">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="OIG-ZU-M0a" customClass="ShowsOverviewHeaderReuseView" customModule="Artsy_Shows" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="1920" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="artsy-small-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-iQ-HzN">
                                     <rect key="frame" x="90" y="60" width="200" height="68"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy" customClass="SanSerifButton" customModule="Artsy_Shows" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy" customClass="SanSerifButton" customModule="Artsy_Shows" customModuleProvider="target">
                                     <rect key="frame" x="1622" y="60" width="208" height="80"/>
                                     <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="38"/>
                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                     <state key="normal" title="ABOUT">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" red="0.057341433691041818" green="0.057756959443657857" blue="0.062279647435897423" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="focused" backgroundImage="black.png">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <segue destination="RQb-5q-u6W" kind="show" identifier="about" id="9vn-KS-LiN"/>
                                     </connections>
                                 </button>
                             </subviews>
+                            <connections>
+                                <outlet property="aboutButton" destination="K8a-K4-IIy" id="bb2-V5-QfJ"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="tWd-qa-N6z" id="aeS-kj-0Zv"/>
@@ -792,6 +799,7 @@ museums and fairs around the world.</string>
         <image name="artsy-logo-white.png" width="599" height="204"/>
         <image name="artsy-small-black.png" width="200" height="68"/>
         <image name="artsy-small-white.png" width="200" height="68"/>
+        <image name="black.png" width="4" height="4"/>
         <image name="down-arrow.png" width="32" height="19"/>
     </resources>
 </document>

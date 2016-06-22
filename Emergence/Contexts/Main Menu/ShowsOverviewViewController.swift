@@ -186,7 +186,6 @@ extension ShowsOverviewViewController {
         // We don't want this collectionView's cells to become focused. 
         // Instead the `UICollectionView` contained in the cell should become focused.
 
-
         let anyEmitter = emitters[indexPath.section]
         guard let _ = anyEmitter as? LocationBasedShowEmitter else { return false }
 
@@ -212,5 +211,15 @@ extension ShowsOverviewViewController {
             precacheShowImagesAtIndex(indexPath.section)
         }
     }
+}
 
+class ShowsOverviewHeaderReuseView : UICollectionReusableView {
+
+    @IBOutlet var aboutButton: UIButton!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        aboutButton.layer.borderColor = UIColor.artsyGrayMedium().CGColor
+        aboutButton.layer.borderWidth = 1
+    }
 }
