@@ -50,7 +50,7 @@ class AppViewController: UINavigationController {
             completion(success: true)
         } else {
             context.auth.getWeekLongXAppTrialToken { token, error in
-                if let token = token {
+                if let token = token where error != nil {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     saveToken(defaults, token:token)
                     self.context.network.authToken = XAppToken(defaults: defaults)

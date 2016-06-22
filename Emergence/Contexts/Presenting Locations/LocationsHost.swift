@@ -3,7 +3,7 @@ import UIKit
 
 struct LocationsHost {
 
-    let featured = ["new-york", "london", "los-angeles", "paris", "berlin", "miami", "san-francisco", "hong-kong", "milan", "sao-paulo", "tokyo"]
+    var featured = [String]()
     var cities = [Location]()
 
     // Gnarly function to grab locations from local JSON cache
@@ -25,6 +25,8 @@ struct LocationsHost {
 
                 return Location(name: name, slug: slug, coords: location)
             }
+
+            self.featured = self.cities.map { $0.slug }
 
         } catch {
             return nil
