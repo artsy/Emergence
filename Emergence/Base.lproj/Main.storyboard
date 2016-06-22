@@ -524,7 +524,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="about-bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oAa-DT-ViA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about-bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oAa-DT-ViA">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6J-xl-tBE" customClass="TransparentItalicSerifLabels" customModule="Artsy_Shows" customModuleProvider="target">
@@ -544,20 +544,34 @@ museums and fairs around the world.</string>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="artsy-small-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="dof-Wm-XyL">
                                 <rect key="frame" x="90" y="60" width="200" height="68"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXo-1I-9lF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXo-1I-9lF">
                                 <rect key="frame" x="90" y="952" width="596" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="596" id="W1h-Ph-zMS"/>
+                                    <constraint firstAttribute="height" constant="66" id="rmX-VI-8zd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="send"/>
                                 <connections>
                                     <outlet property="delegate" destination="RQb-5q-u6W" id="j2M-Qs-bUE"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEXT A LINK TO DOWNLOAD THE APP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKH-DM-nDd" customClass="TransparentSanSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
-                                <rect key="frame" x="130" y="963" width="516" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEXT A LINK TO DOWNLOAD THE APP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKH-DM-nDd" customClass="TransparentSanSerifLabel" customModule="Artsy_Shows" customModuleProvider="target">
+                                <rect key="frame" x="130" y="962" width="516" height="39"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="oAa-DT-ViA" firstAttribute="leading" secondItem="dXo-1I-9lF" secondAttribute="trailing" constant="-686" id="AxY-Ga-KeJ"/>
+                            <constraint firstItem="dXo-1I-9lF" firstAttribute="top" secondItem="oAa-DT-ViA" secondAttribute="bottom" constant="-128" id="H0M-1e-QdK"/>
+                            <constraint firstItem="vTB-x0-21Z" firstAttribute="top" secondItem="oAa-DT-ViA" secondAttribute="bottom" id="JiO-4a-CaY"/>
+                            <constraint firstAttribute="trailing" secondItem="oAa-DT-ViA" secondAttribute="trailing" id="NPA-uu-JhM"/>
+                            <constraint firstItem="ZKH-DM-nDd" firstAttribute="centerX" secondItem="dXo-1I-9lF" secondAttribute="centerX" id="hhm-qd-Yrv"/>
+                            <constraint firstItem="oAa-DT-ViA" firstAttribute="top" secondItem="Ev9-mY-pPa" secondAttribute="bottom" id="kyk-IU-RU6"/>
+                            <constraint firstItem="oAa-DT-ViA" firstAttribute="leading" secondItem="bVZ-YD-Ig8" secondAttribute="leading" id="o1L-yd-QgZ"/>
+                            <constraint firstItem="ZKH-DM-nDd" firstAttribute="top" secondItem="dXo-1I-9lF" secondAttribute="top" constant="10" id="xDU-DR-FpN"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="rBF-9q-yU3" id="Hh5-oT-2pq"/>
@@ -730,9 +744,9 @@ museums and fairs around the world.</string>
                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="artsy-small-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-iQ-HzN">
                                     <rect key="frame" x="90" y="60" width="200" height="68"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy" customClass="SanSerifButton" customModule="Artsy_Shows" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-K4-IIy" customClass="SanSerifButton" customModule="Artsy_Shows" customModuleProvider="target">
                                     <rect key="frame" x="1622" y="60" width="208" height="80"/>
-                                    <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="30"/>
+                                    <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="38"/>
                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                     <state key="normal" title="ABOUT">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
