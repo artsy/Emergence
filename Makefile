@@ -15,6 +15,9 @@ DATE_VERSION = $(shell date "+%Y.%m.%d")
 LOCAL_BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH = $(shell echo $(shell whoami)-$(shell git rev-parse --abbrev-ref HEAD))
 
+update_featured_cities:
+	curl https://s3.amazonaws.com/artsy-geodata/partner-cities/featured-cities.json > Emergence/Contexts/Presenting\ Locations/cities.js
+
 synxify:
 	bundle exec synx "$(SCHEME).xcodeproj" --exclusion "FrontPage/Essentials from Pods"
 

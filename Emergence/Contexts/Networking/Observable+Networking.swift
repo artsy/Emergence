@@ -21,7 +21,7 @@ extension Observable {
         }
 
         return map { representor in
-            guard let response = representor as? MoyaResponse else {
+            guard let response = representor as? Moya.Response else {
                 throw ORMError.ORMNoRepresentor
             }
 
@@ -54,7 +54,7 @@ extension Observable {
         }
 
         return map { response in
-            guard let response = response as? MoyaResponse else {
+            guard let response = response as? Moya.Response else {
                 throw ORMError.ORMNoRepresentor
             }
 

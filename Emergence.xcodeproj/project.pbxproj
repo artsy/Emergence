@@ -56,7 +56,6 @@
 		60C3A6791BCD13D2003B0DE7 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3A6781BCD13D2003B0DE7 /* GCD.swift */; };
 		60C3CB2D1BB14026005125EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB2B1BB14026005125EF /* Main.storyboard */; };
 		60C3CB2F1BB14026005125EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C3CB2E1BB14026005125EF /* Assets.xcassets */; };
-		60C3CB3A1BB14026005125EF /* EmergenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB391BB14026005125EF /* EmergenceTests.swift */; };
 		60C3CB761BB14D50005125EF /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB711BB14D50005125EF /* Artist.swift */; };
 		60C3CB771BB14D50005125EF /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB721BB14D50005125EF /* Artwork.swift */; };
 		60C3CB781BB14D50005125EF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3CB731BB14D50005125EF /* Image.swift */; };
@@ -77,8 +76,7 @@
 		60DD51D31BCAE27C00317482 /* ShowEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DD51D21BCAE27C00317482 /* ShowEmitter.swift */; };
 		60E4A4D41BB54CA2002E43E0 /* Thumbnailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E4A4D31BB54CA2002E43E0 /* Thumbnailable.swift */; };
 		60F516CB1BD915B20010079D /* UICollectionView+Artsy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F516CA1BD915B20010079D /* UICollectionView+Artsy.swift */; };
-		8645B59CE518D830D37F5B28 /* Pods_Artsy_Shows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2ADBA381FABB318F9E5EF6 /* Pods_Artsy_Shows.framework */; };
-		AF6DD2259187A6C616299389 /* Pods_EmergenceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E74B96CF11F5DE15B3BA48 /* Pods_EmergenceTests.framework */; };
+		6BA1E43CB319E49604959A34 /* Pods_Artsy_Shows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA94B663ED18603BD5C92F /* Pods_Artsy_Shows.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,13 +86,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 60A4C4AC1BCCEDC20092CC74;
 			remoteInfo = FrontPage;
-		};
-		60C3CB361BB14026005125EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 60C3CB1C1BB14025005125EF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 60C3CB231BB14025005125EF;
-			remoteInfo = Emergence;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -113,7 +104,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3D3DECEDDB77110AFD0E9E84 /* Pods-EmergenceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4862413033EFB2E694D768A8 /* Pods-Artsy Shows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artsy Shows.release.xcconfig"; path = "Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows.release.xcconfig"; sourceTree = "<group>"; };
 		60094A361BB95A5B00016BB7 /* ArtsyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtsyAPI.swift; sourceTree = "<group>"; };
 		60094A381BB95AAF00016BB7 /* AppSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSetup.swift; sourceTree = "<group>"; };
 		60094A3A1BB95BD500016BB7 /* XAppToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAppToken.swift; sourceTree = "<group>"; };
@@ -172,9 +163,6 @@
 		60C3CB2C1BB14026005125EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60C3CB2E1BB14026005125EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60C3CB301BB14026005125EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60C3CB351BB14026005125EF /* EmergenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmergenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		60C3CB391BB14026005125EF /* EmergenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergenceTests.swift; sourceTree = "<group>"; };
-		60C3CB3B1BB14026005125EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60C3CB711BB14D50005125EF /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		60C3CB721BB14D50005125EF /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		60C3CB731BB14D50005125EF /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -195,11 +183,8 @@
 		60DD51D21BCAE27C00317482 /* ShowEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEmitter.swift; sourceTree = "<group>"; };
 		60E4A4D31BB54CA2002E43E0 /* Thumbnailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnailable.swift; sourceTree = "<group>"; };
 		60F516CA1BD915B20010079D /* UICollectionView+Artsy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Artsy.swift"; sourceTree = "<group>"; };
-		6C2ADBA381FABB318F9E5EF6 /* Pods_Artsy_Shows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artsy_Shows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		91EEED36E951CBB9A2DBA076 /* Pods-Artsy Shows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artsy Shows.release.xcconfig"; path = "Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows.release.xcconfig"; sourceTree = "<group>"; };
-		99E74B96CF11F5DE15B3BA48 /* Pods_EmergenceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmergenceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF4E55B82705552781C67193 /* Pods-EmergenceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmergenceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests.release.xcconfig"; sourceTree = "<group>"; };
-		E3489FACC14433638DD38907 /* Pods-Artsy Shows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artsy Shows.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows.debug.xcconfig"; sourceTree = "<group>"; };
+		9ACA94B663ED18603BD5C92F /* Pods_Artsy_Shows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artsy_Shows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E426AACCF01D81F1D3A4C8B6 /* Pods-Artsy Shows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artsy Shows.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,15 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8645B59CE518D830D37F5B28 /* Pods_Artsy_Shows.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60C3CB321BB14026005125EF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AF6DD2259187A6C616299389 /* Pods_EmergenceTests.framework in Frameworks */,
+				6BA1E43CB319E49604959A34 /* Pods_Artsy_Shows.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,11 +353,10 @@
 			isa = PBXGroup;
 			children = (
 				60C3CB261BB14026005125EF /* Emergence */,
-				60C3CB381BB14026005125EF /* EmergenceTests */,
 				60A4C4B01BCCEDC20092CC74 /* FrontPage */,
 				60C3CB251BB14026005125EF /* Products */,
 				B7880C3900CB5D782EF7BBED /* Frameworks */,
-				7E12148C581CC53CBD158D1B /* Pods */,
+				6EB6E6261490BD0E116606A0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				60C3CB241BB14026005125EF /* Artsy Shows.app */,
-				60C3CB351BB14026005125EF /* EmergenceTests.xctest */,
 				60A4C4AD1BCCEDC20092CC74 /* FrontPage.appex */,
 			);
 			name = Products;
@@ -405,15 +380,6 @@
 				60C3CB301BB14026005125EF /* Info.plist */,
 			);
 			path = Emergence;
-			sourceTree = "<group>";
-		};
-		60C3CB381BB14026005125EF /* EmergenceTests */ = {
-			isa = PBXGroup;
-			children = (
-				60C3CB391BB14026005125EF /* EmergenceTests.swift */,
-				60C3CB3B1BB14026005125EF /* Info.plist */,
-			);
-			path = EmergenceTests;
 			sourceTree = "<group>";
 		};
 		60C3CB471BB14B1B005125EF /* Extensions */ = {
@@ -540,13 +506,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7E12148C581CC53CBD158D1B /* Pods */ = {
+		6EB6E6261490BD0E116606A0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E3489FACC14433638DD38907 /* Pods-Artsy Shows.debug.xcconfig */,
-				91EEED36E951CBB9A2DBA076 /* Pods-Artsy Shows.release.xcconfig */,
-				3D3DECEDDB77110AFD0E9E84 /* Pods-EmergenceTests.debug.xcconfig */,
-				CF4E55B82705552781C67193 /* Pods-EmergenceTests.release.xcconfig */,
+				E426AACCF01D81F1D3A4C8B6 /* Pods-Artsy Shows.debug.xcconfig */,
+				4862413033EFB2E694D768A8 /* Pods-Artsy Shows.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -557,8 +521,7 @@
 				60B647EA1BCCF42C00908EE6 /* Artsy_Authentication.framework */,
 				60B647EB1BCCF42C00908EE6 /* Keys.framework */,
 				60A4C4AE1BCCEDC20092CC74 /* TVServices.framework */,
-				6C2ADBA381FABB318F9E5EF6 /* Pods_Artsy_Shows.framework */,
-				99E74B96CF11F5DE15B3BA48 /* Pods_EmergenceTests.framework */,
+				9ACA94B663ED18603BD5C92F /* Pods_Artsy_Shows.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -587,13 +550,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C3CB3E1BB14026005125EF /* Build configuration list for PBXNativeTarget "Artsy Shows" */;
 			buildPhases = (
-				BAFBBA65C103049799BE9006 /* Check Pods Manifest.lock */,
+				11E2FF8294272BB9699A48A5 /* [CP] Check Pods Manifest.lock */,
 				60C3CB201BB14025005125EF /* Sources */,
 				60C3CB211BB14025005125EF /* Frameworks */,
 				60C3CB221BB14025005125EF /* Resources */,
 				60A4C4BA1BCCEDC20092CC74 /* Embed App Extensions */,
-				5B02184E3E5EA35E1347CA56 /* Embed Pods Frameworks */,
-				F6C743AB3E56BAF3B1EE2444 /* Copy Pods Resources */,
+				8154341CE5B75588B7B5803E /* [CP] Embed Pods Frameworks */,
+				4D9DA7363E91F22B0D74CD39 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -604,27 +567,6 @@
 			productName = Emergence;
 			productReference = 60C3CB241BB14026005125EF /* Artsy Shows.app */;
 			productType = "com.apple.product-type.application";
-		};
-		60C3CB341BB14026005125EF /* EmergenceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60C3CB411BB14026005125EF /* Build configuration list for PBXNativeTarget "EmergenceTests" */;
-			buildPhases = (
-				1FFD1394D85BA46497686CFE /* Check Pods Manifest.lock */,
-				60C3CB311BB14026005125EF /* Sources */,
-				60C3CB321BB14026005125EF /* Frameworks */,
-				60C3CB331BB14026005125EF /* Resources */,
-				51DD842420915C14348CADCA /* Embed Pods Frameworks */,
-				C947486C8D9C14B8196D2A02 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				60C3CB371BB14026005125EF /* PBXTargetDependency */,
-			);
-			name = EmergenceTests;
-			productName = EmergenceTests;
-			productReference = 60C3CB351BB14026005125EF /* EmergenceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -644,10 +586,6 @@
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 23KMWZ572J;
 					};
-					60C3CB341BB14026005125EF = {
-						CreatedOnToolsVersion = 7.1;
-						TestTargetID = 60C3CB231BB14025005125EF;
-					};
 				};
 			};
 			buildConfigurationList = 60C3CB1F1BB14025005125EF /* Build configuration list for PBXProject "Emergence" */;
@@ -664,7 +602,6 @@
 			projectRoot = "";
 			targets = (
 				60C3CB231BB14025005125EF /* Artsy Shows */,
-				60C3CB341BB14026005125EF /* EmergenceTests */,
 				60A4C4AC1BCCEDC20092CC74 /* FrontPage */,
 			);
 		};
@@ -700,24 +637,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60C3CB331BB14026005125EF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1FFD1394D85BA46497686CFE /* Check Pods Manifest.lock */ = {
+		11E2FF8294272BB9699A48A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,79 +655,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		51DD842420915C14348CADCA /* Embed Pods Frameworks */ = {
+		4D9DA7363E91F22B0D74CD39 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B02184E3E5EA35E1347CA56 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BAFBBA65C103049799BE9006 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C947486C8D9C14B8196D2A02 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EmergenceTests/Pods-EmergenceTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6C743AB3E56BAF3B1EE2444 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8154341CE5B75588B7B5803E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Artsy Shows/Pods-Artsy Shows-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -869,14 +754,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60C3CB311BB14026005125EF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60C3CB3A1BB14026005125EF /* EmergenceTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -884,11 +761,6 @@
 			isa = PBXTargetDependency;
 			target = 60A4C4AC1BCCEDC20092CC74 /* FrontPage */;
 			targetProxy = 60A4C4B41BCCEDC20092CC74 /* PBXContainerItemProxy */;
-		};
-		60C3CB371BB14026005125EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 60C3CB231BB14025005125EF /* Artsy Shows */;
-			targetProxy = 60C3CB361BB14026005125EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1023,7 +895,7 @@
 		};
 		60C3CB3F1BB14026005125EF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3489FACC14433638DD38907 /* Pods-Artsy Shows.debug.xcconfig */;
+			baseConfigurationReference = E426AACCF01D81F1D3A4C8B6 /* Pods-Artsy Shows.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1040,7 +912,7 @@
 		};
 		60C3CB401BB14026005125EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91EEED36E951CBB9A2DBA076 /* Pods-Artsy Shows.release.xcconfig */;
+			baseConfigurationReference = 4862413033EFB2E694D768A8 /* Pods-Artsy Shows.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1051,32 +923,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.artsy.shows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-			};
-			name = Release;
-		};
-		60C3CB421BB14026005125EF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D3DECEDDB77110AFD0E9E84 /* Pods-EmergenceTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = EmergenceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.artsy.EmergenceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Emergence.app/Emergence";
-			};
-			name = Debug;
-		};
-		60C3CB431BB14026005125EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF4E55B82705552781C67193 /* Pods-EmergenceTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = EmergenceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.artsy.EmergenceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Emergence.app/Emergence";
 			};
 			name = Release;
 		};
@@ -1106,15 +952,6 @@
 			buildConfigurations = (
 				60C3CB3F1BB14026005125EF /* Debug */,
 				60C3CB401BB14026005125EF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		60C3CB411BB14026005125EF /* Build configuration list for PBXNativeTarget "EmergenceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				60C3CB421BB14026005125EF /* Debug */,
-				60C3CB431BB14026005125EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

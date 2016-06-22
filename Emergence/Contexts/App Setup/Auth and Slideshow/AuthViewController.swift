@@ -1,6 +1,5 @@
 import UIKit
 import Moya
-import RxCocoa
 import Artsy_Authentication
 import ARAnalytics
 
@@ -51,13 +50,13 @@ class AuthViewController: UIViewController {
             self.completedAuthentication = true
 
             let network = appVC.context.network
-            network.request(.FeaturedShows).mapSuccessfulHTTPToObjectArray(Show).subscribe(next: { shows in
-                    self.featuredShows = shows
-
-                }, error: { error in
+            network.request(.FeaturedShows).mapSuccessfulHTTPToObjectArray(Show).subscribe(onNext: { shows in
+                self.featuredShows = shows
+                
+                }, onError: { error in
                     print("ERROROR \(error)")
-
-                }, completed: nil, disposed: nil)
+                    
+                }, onCompleted: nil, onDisposed: nil)
         }
     }
 

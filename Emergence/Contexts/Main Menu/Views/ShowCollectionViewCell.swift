@@ -24,7 +24,7 @@ class ShowCollectionViewCell: UICollectionViewCell {
         partnerNameLabel.text = show.partnerName
 
         if let thumbnailURL = show.bestAvailableThumbnailURL() {
-            imageView.ar_setImageWithURL(thumbnailURL, color: .artsyLightGrey(), size: CGSize(width: 600, height: 400))
+            imageView.ar_setImageWithURL(thumbnailURL, color: .artsyGrayLight(), size: CGSize(width: 600, height: 400))
         } else {
             print("Could not find a thumbnail for \(show.name))")
         }

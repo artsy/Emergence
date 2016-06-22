@@ -73,7 +73,8 @@ class AboutViewController: UIViewController, UITextFieldDelegate {
     func sendPhoneNumber(number: String, completion: (completed: Bool, message: String) -> () ) {
         let parameters = ["phone_number": number]
         Alamofire.request(.POST, flareAPIPath, parameters: parameters)
-            .responseJSON { request, response, result in
+            .responseJSON { response in
+                let result = response.result
                 guard let json = result.value as? [String: AnyObject] else {
                     return completion(completed: false, message: "Could not access Artsy, are you offline?")
                 }
