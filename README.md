@@ -14,7 +14,7 @@ Finding Shows on your TV.
 Run this in your shell:
 
 ```sh
-git clone https://github.com/artsy/emergence.git
+git clone https://github.com/artsy/Emergence.git
 cd Emergence
 bundle install
 bundle exec pod install
