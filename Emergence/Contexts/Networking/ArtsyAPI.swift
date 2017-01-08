@@ -14,12 +14,12 @@ enum ArtsyAPI {
     case FeaturedShows
 }
 
-extension ArtsyAPI : MoyaTarget {
+extension ArtsyAPI : TargetType {
 
     var base: String { return AppSetup.sharedState.useStaging ? "https://stagingapi.artsy.net" : "https://api.artsy.net" }
     var baseURL: NSURL { return NSURL(string: base)! }
 
-    var parameters: [String: AnyObject] {
+    var parameters: [String: AnyObject]? {
         switch self {
 
         case .XApp:
@@ -119,24 +119,24 @@ extension ArtsyAPI : MoyaTarget {
 
 // MARK: - Provider setup
 
-class ArtsyProvider<T where T: MoyaTarget> : RxMoyaProvider<T> {
+class ArtsyProvider<T where T: TargetType> : RxMoyaProvider<T> {
     var authToken: XAppToken
 
-    override init(endpointClosure: MoyaEndpointsClosure = MoyaProvider.DefaultEndpointMapping,
-                 endpointResolver: MoyaEndpointResolution = ArtsyProvider.AuthEndpointResolution,
-                     stubBehavior: MoyaStubbedBehavior = MoyaProvider.NoStubbingBehavior,
-                credentialClosure: MoyaCredentialClosure? = nil,
-           networkActivityClosure: Moya.NetworkActivityClosure? = nil,
-                          manager: Alamofire.Manager = Alamofire.Manager.sharedInstance) {
+    override init(endpointClosure: EndpointClosure = MoyaProvider.DefaultEndpointMapping,
+                         requestClosure: RequestClosure = MoyaProvider.DefaultRequestMapping,
+                         stubClosure: StubClosure = MoyaProvider.NeverStub,
+                         manager: Manager = RxMoyaProvider<T>.DefaultAlamofireManager(),
+                         plugins: [PluginType] = []) {
 
-                authToken = XAppToken()
-                super.init(endpointClosure: endpointClosure, endpointResolver:endpointResolver , stubBehavior: stubBehavior, credentialClosure: credentialClosure, networkActivityClosure: networkActivityClosure, manager: manager)
-    }
+        authToken = XAppToken()
 
-    // We always use xapp auth, logging in is handled by Artsy_Authentication
-    class func AuthEndpointResolution(endpoint: Endpoint<T>) -> NSURLRequest {
-        let request = endpoint.endpointByAddingHTTPHeaderFields(["X-Xapp-Token": XAppToken().token ?? ""]).urlRequest
-        return request
+        let requestClosure = { (endpoint: Endpoint<T>, done: NSURLRequest -> Void) in
+            let request = endpoint.endpointByAddingHTTPHeaderFields(["X-Xapp-Token": XAppToken().token ?? ""]).urlRequest
+            done(request)
+        }
+
+        super.init(endpointClosure: endpointClosure, requestClosure:requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins)
+
     }
 }
 
@@ -148,6 +148,6 @@ private extension String {
     }
 }
 
-public func url(route: MoyaTarget) -> String {
+public func url(route: TargetType) -> String {
     return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
 }

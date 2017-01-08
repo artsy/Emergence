@@ -4,22 +4,36 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "3E5B8388112876C8AE56E79F47BB589038A44271" : 0,
-    "DD052F6681285705A9A54133EC5F7956E33CD80F" : 0
+    "458D41EF4089C364CA65F9302EBB11E2F1595312" : 0,
+    "DD052F6681285705A9A54133EC5F7956E33CD80F" : 0,
+    "2FBF6FF867B676467411255C927B9FD8739B9AC2" : 0,
+    "3E5B8388112876C8AE56E79F47BB589038A44271" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F1FD56BF-F5FB-4ECF-A722-3B244773DC4E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "3E5B8388112876C8AE56E79F47BB589038A44271" : "Emergence\/",
-    "DD052F6681285705A9A54133EC5F7956E33CD80F" : "Emergence\/externals\/places\/"
+    "458D41EF4089C364CA65F9302EBB11E2F1595312" : "ARAnalytics\/",
+    "DD052F6681285705A9A54133EC5F7956E33CD80F" : "Emergence\/externals\/places\/",
+    "2FBF6FF867B676467411255C927B9FD8739B9AC2" : "analytics-ios\/",
+    "3E5B8388112876C8AE56E79F47BB589038A44271" : "Emergence\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Emergence",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Emergence.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:segmentio\/analytics-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2FBF6FF867B676467411255C927B9FD8739B9AC2"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/artsy\/Emergence.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3E5B8388112876C8AE56E79F47BB589038A44271"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:orta\/ARAnalytics.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "458D41EF4089C364CA65F9302EBB11E2F1595312"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/artsy\/places.git",

@@ -1,13 +1,15 @@
-<img src="https://raw.githubusercontent.com/artsy/emergence/master/docs/screenshots/artsy_logo.png" align="left" hspace="30px" vspace="30px">
-<img src="https://raw.githubusercontent.com/artsy/emergence/master/docs/screenshots/emergence.png" align="right" hspace="30px" vspace="30px">
+<img src ="metadata/emergence.png">
 
+### Meta
 
-<img src ="https://raw.githubusercontent.com/artsy/emergence/master/docs/screenshots/featured.png">
-<img src ="https://raw.githubusercontent.com/artsy/emergence/master/docs/screenshots/show.png"><img src ="https://raw.githubusercontent.com/artsy/emergence/master/docs/screenshots/artworks.png">
+* __State:__ production
+* __Point People:__ [@orta](https://github.com/orta)
 
-# Emergence
+This is a core [Artsy Mobile](https://github.com/artsy/mobile) OSS project, along with [Energy](https://github.com/artsy/energy), [Eidolon](https://github.com/artsy/eidolon), [Emission](https://github.com/artsy/emission) and [Eigen](https://github.com/artsy/eigen).
 
-Finding Shows on your TV.
+Don't know what Artsy is? [Check this](https://github.com/artsy/mobile/blob/master/what_is_artsy.md) overview, or read our objc.io on [team culture](https://www.objc.io/issues/22-scale/artsy/).
+
+Want to know more about Emergence? Read the [mobile](http://artsy.github.io/blog/categories/mobile/) blog posts, or [emergence's](http://artsy.github.io/blog/categories/emergence/) specifically.
 
 ### Installation
 
@@ -17,16 +19,7 @@ Run this in your shell:
 git clone https://github.com/artsy/Emergence.git
 cd Emergence
 bundle install
+make oss # Artsy staff, go look in 1password
 bundle exec pod install
 open "Emergence.xcworkspace"
 ```
-
-### Keys
-
-* For OSS:  Grab the Artsy  OSS keys from [eigen](https://github.com/artsy/eigen/blob/259be8ce00b07a33e02d4444ee01e5589df9b2f1/Makefile#L40-L42) - for Segment, just put some random gibberish in.
-
-* For Artsy: Check engineering 1Password.
-
-### Compiling
-
-I think I added a `|| os(tvOS)` to Alamofire's `MultipartFormData.swift`.

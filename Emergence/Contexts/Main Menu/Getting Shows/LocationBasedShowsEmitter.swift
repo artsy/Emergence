@@ -42,9 +42,9 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
         let pageAmount = 25
         let coords = location.coordinates()
         let showInfo = ArtsyAPI.RunningShowsNearLocation(page: page, amount: pageAmount, lat: coords.lat, long: coords.long)
-        let request = network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.sharedInstance)
+        let request = network.request(showInfo).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Show).observeOn(MainScheduler.instance)
 
-        request.subscribe(next: { shows in
+        let subscription = request.subscribe(onNext: { shows in
             self.done = shows.count < pageAmount
             self.page += 1
             self.networking = false
@@ -57,10 +57,10 @@ class LocationBasedShowEmitter: NSObject, ShowEmitter {
                 block(shows: self.shows)
             }
 
-        }, error: { error in
+        }, onError: { error in
             print("ERROROR \(error)")
 
-        }, completed: nil, disposed: nil)
+        }, onCompleted: nil, onDisposed: nil)
     }
 
     func visibleImageURLsForShowsAtLocation() -> [NSURL] {

@@ -30,7 +30,7 @@ class FeaturedShowEmitter: NSObject, ShowEmitter {
     }
 
     func getShows() {
-        network.request(.FeaturedShows).mapSuccessfulHTTPToObjectArray(Show).subscribe(next: { shows in
+        network.request(.FeaturedShows).mapSuccessfulHTTPToObjectArray(Show).subscribe(onNext: { shows in
             self.shows = shows
         })
     }

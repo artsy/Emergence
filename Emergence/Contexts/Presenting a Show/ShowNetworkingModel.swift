@@ -31,7 +31,7 @@ class ShowNetworkingModel {
 
     var imageNetworkRequest: Observable<[Image]> {
         let showImages = ArtsyAPI.ImagesForShow(showID: show.id)
-        return network.request(showImages).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Image).observeOn(MainScheduler.sharedInstance)
+        return network.request(showImages).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Image).observeOn(MainScheduler.instance)
     }
 
     let images: [Image] = {
@@ -57,7 +57,7 @@ class ShowNetworkingModel {
 
         let showArtworks = ArtsyAPI.ArtworksForShow(partnerID: show.partner.id, showID: show.id, page: page)
 
-        return network.request(showArtworks).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Artwork).observeOn(MainScheduler.sharedInstance)
+        return network.request(showArtworks).observeOn(jsonScheduler).mapSuccessfulHTTPToObjectArray(Artwork).observeOn(MainScheduler.instance)
             .map(paginate)
     }
 

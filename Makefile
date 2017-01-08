@@ -15,6 +15,15 @@ DATE_VERSION = $(shell date "+%Y.%m.%d")
 LOCAL_BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH = $(shell echo $(shell whoami)-$(shell git rev-parse --abbrev-ref HEAD))
 
+update_featured_cities:
+	curl https://s3.amazonaws.com/artsy-geodata/partner-cities/featured-cities.json > Emergence/Contexts/Presenting\ Locations/cities.js
+
+oss:
+	bundle exec pod keys set "ArtsyAPIClientSecret" "3a33d2085cbd1176153f99781bbce7c6" Artsy
+	bundle exec pod keys set "ArtsyAPIClientKey" "e750db60ac506978fc70"
+	bundle exec pod keys set "SegmentProductionWriteKey" "-"
+	bundle exec pod keys set "SegmentDevWriteKey" "-"
+
 synxify:
 	bundle exec synx "$(SCHEME).xcodeproj" --exclusion "FrontPage/Essentials from Pods"
 

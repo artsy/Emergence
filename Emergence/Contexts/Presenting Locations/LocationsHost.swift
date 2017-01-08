@@ -3,36 +3,30 @@ import UIKit
 
 struct LocationsHost {
 
-    let featured = ["new-york", "london", "los-angeles", "paris", "berlin", "miami", "san-francisco", "hong-kong", "milan", "sao-paulo", "tokyo"]
-    let cities: [Location]
+    var featured = [String]()
+    var cities = [Location]()
 
     // Gnarly function to grab locations from local JSON cache
     init? () {
         let bundle = NSBundle.mainBundle()
-        guard let citiesPath = bundle.pathForResource("cities", ofType: "js")  else {
-            return nil
-        }
+        guard let citiesPath = bundle.pathForResource("cities", ofType: "js") else { return nil }
 
         do {
-            var citiesString = try String(contentsOfFile: citiesPath, encoding: NSUTF8StringEncoding)
-            citiesString = citiesString.stringByReplacingOccurrencesOfString("module.exports", withString: "var cities")
+            let data = try NSData(contentsOfFile: citiesPath, options: [])
+            guard let citiesJSON = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [[String : AnyObject]] else { return }
 
-            let js = JSContext()
-            js.evaluateScript(citiesString)
+            self.cities = citiesJSON.flatMap { dict in
+                guard let
+                    name = dict["name"] as? String,
+                    slug = dict["slug"] as? String,
+                    location = dict["coords"] as? [Double]
 
-            let value = js.evaluateScript("cities")
-            var mutCities = [Location]()
-            for city in value.toArray() {
-                if let obj = city as? Dictionary<String, AnyObject>   {
-                    guard let name = obj["name"] as? String, let slug = obj["slug"] as? String, let location = obj["coords"] as? [Double] else {
-                        continue
-                    }
+                else { return nil }
 
-                    let l = Location(name: name, slug: slug, coords: location)
-                    mutCities.append(l)
-                }
+                return Location(name: name, slug: slug, coords: location)
             }
-            cities = mutCities
+
+            self.featured = self.cities.map { $0.slug }
 
         } catch {
             return nil
