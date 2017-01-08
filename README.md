@@ -16,7 +16,7 @@ Want to know more about Emergence? Read the [mobile](http://artsy.github.io/blog
 Run this in your shell:
 
 ```sh
-git clone https://github.com/artsy/emergence.git
+git clone https://github.com/artsy/Emergence.git
 cd Emergence
 bundle install
 make oss # Artsy staff, go look in 1password
