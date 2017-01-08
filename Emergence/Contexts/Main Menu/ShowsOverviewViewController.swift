@@ -11,7 +11,9 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
     private var emitters:[ShowEmitter]!
     private let locationsHost = LocationsHost()!
     var cachedShows:[Show] = []
-    private var currentShow: Show?
+
+    private var currentShows: [Show]?
+    private var currentIndex: Int?
 
     private let leadingEdgeImageCache = SDWebImagePrefetcher()
     private let currentRowImageCache = SDWebImagePrefetcher()
@@ -91,9 +93,10 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         currentRowImageCache.prefetchURLs( emitter.imageURLsForShowsAtLocation() )
     }
 
-    func showTapped(show: Show) {
+    func showTapped(index: Int, shows: [Show]) {
         // can't pass the show as a sender - it has to be an object
-        currentShow = show
+        currentShows = shows
+        currentIndex = index
         performSegueWithIdentifier("show", sender: self)
     }
 
@@ -101,8 +104,9 @@ class ShowsOverviewViewController: UICollectionViewController, UICollectionViewD
         leadingEdgeImageCache.cancelPrefetching()
         currentRowImageCache.cancelPrefetching()
 
-        if let locationsVC = segue.destinationViewController as? ShowViewController {
-            locationsVC.show = currentShow
+        if let showSetVC = segue.destinationViewController as? ShowSetViewController {
+            showSetVC.shows = currentShows
+            showSetVC.initialIndex = currentIndex
         }
     }
 }

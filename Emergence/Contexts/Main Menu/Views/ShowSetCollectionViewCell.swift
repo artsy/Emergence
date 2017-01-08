@@ -98,8 +98,7 @@ class ShowSetCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         guard let emitter = emitter else { return }
-        let show = emitter.showAtIndexPath(indexPath)
-        hostViewController.showTapped(show)
+        hostViewController.showTapped(indexPath.row, shows: emitter.shows)
     }
 
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {

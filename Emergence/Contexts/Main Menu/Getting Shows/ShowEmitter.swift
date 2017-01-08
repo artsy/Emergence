@@ -7,6 +7,7 @@ typealias EmitterUpdateCallback = ((shows: [Show]) -> ())
 protocol ShowEmitter {
     var title: String { get }
     var numberOfShows: Int { get }
+    var shows: [Show] { get }
 
     func showAtIndexPath(index: NSIndexPath) -> Show
     func getShows()
@@ -24,7 +25,7 @@ extension ShowEmitter {
 class StubbyEmitter: NSObject, ShowEmitter {
     let title:String
     var numberOfShows = 0
-    var stubs = [Show]()
+    var shows = [Show]()
 
     init(title: String) {
         self.title = title
@@ -32,15 +33,15 @@ class StubbyEmitter: NSObject, ShowEmitter {
     }
 
     func showAtIndexPath(index: NSIndexPath) -> Show {
-        return stubs[index.row]
+        return shows[index.row]
     }
 
     func getShows() {
-        stubs = [Show.stubbedShow(),Show.stubbedShow(),Show.stubbedShow(),Show.stubbedShow()]
-        numberOfShows = stubs.count
+        shows = [Show.stubbedShow(),Show.stubbedShow(),Show.stubbedShow(),Show.stubbedShow()]
+        numberOfShows = shows.count
     }
 
     func onUpdate( callback: EmitterUpdateCallback ) {
-        callback(shows:stubs)
+        callback(shows:shows)
     }
 }
