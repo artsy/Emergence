@@ -26,6 +26,4 @@ open "Emergence.xcworkspace"
 
 ## License
 
-Copyright (c) 2015-2017 Art.sy, Inc.
-
 MIT License. See [LICENSE](LICENSE).
