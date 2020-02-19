@@ -2,8 +2,8 @@
 
 ### Meta
 
-* __State:__ production
-* __Point People:__ [@orta](https://github.com/orta)
+* __State:__ retired February 2020
+* __Point People:__ not applicable. See `product-mobile-experience` Slack channel.
 
 This is a core [Artsy Mobile](https://github.com/artsy/mobile) OSS project, along with [Energy](https://github.com/artsy/energy), [Eidolon](https://github.com/artsy/eidolon), [Emission](https://github.com/artsy/emission) and [Eigen](https://github.com/artsy/eigen).
 
