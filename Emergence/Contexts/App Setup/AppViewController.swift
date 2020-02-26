@@ -71,7 +71,15 @@ func saveToken(defaults: NSUserDefaults, token:ArtsyToken) {
 
 extension UIViewController {
     var appViewController: AppViewController? {
-        guard let appVC = self.navigationController as? AppViewController else { return nil }
+        if let appVC = self.navigationController as? AppViewController {
+            return appVC
+        }
+
+        guard let delegate =  UIApplication.sharedApplication().delegate as? AppDelegate else { return nil }
+        guard let appVC = delegate.window?.rootViewController as? AppViewController else {
+            return nil
+        }
+
         return appVC
     }
 }

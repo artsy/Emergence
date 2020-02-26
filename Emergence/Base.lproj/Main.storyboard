@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G12a" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="gKK-Wx-Eme">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="gKK-Wx-Eme">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -81,6 +81,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENu-9H-6hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3264" y="2071"/>
+        </scene>
+        <!--Show Set View Controller-->
+        <scene sceneID="Nwq-9V-fCn">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="10" navigationOrientation="horizontal" spineLocation="none" id="0fc-we-Qcs" customClass="ShowSetViewController" customModule="Artsy_Shows" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Gw-dN-cGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1623" y="3478"/>
         </scene>
         <!--Controller-->
         <scene sceneID="XKh-Pn-ZU2">
@@ -411,7 +419,7 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="IvP-Lq-LAD"/>
             </objects>
-            <point key="canvasLocation" x="961" y="2831"/>
+            <point key="canvasLocation" x="637" y="4238"/>
         </scene>
         <!--Artwork Set View Controller-->
         <scene sceneID="jJE-Hr-DXd">
@@ -770,7 +778,7 @@ museums and fairs around the world.</string>
                         </connections>
                     </collectionView>
                     <connections>
-                        <segue destination="atk-i6-oew" kind="show" identifier="show" id="RdA-Jp-lff"/>
+                        <segue destination="0fc-we-Qcs" kind="show" identifier="show" id="dlB-Ev-CBp"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3Z-aY-meJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

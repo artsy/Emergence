@@ -7,6 +7,7 @@ import SDWebImage
 
 
 class ShowViewController: UIViewController, ShowItemTapped {
+    var index: Int!
     var show: Show!
 
     var didForceFocusChange = true
@@ -77,6 +78,11 @@ class ShowViewController: UIViewController, ShowItemTapped {
         ])
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updateFocusIfNeeded()
+    }
+
     override func viewDidDisappear(animated: Bool) {
         super.viewWillAppear(animated)
         imageCache.cancelPrefetching()
@@ -116,7 +122,6 @@ class ShowViewController: UIViewController, ShowItemTapped {
             pressReleaseTitle.removeFromSuperview()
             pressReleaseLabel.removeFromSuperview()
         }
-
     }
 
     func lineHeightAttributedStringForString(string: String) -> NSAttributedString {
